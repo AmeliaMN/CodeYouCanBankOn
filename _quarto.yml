@@ -1,0 +1,36 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Building, testing, designing"
+  navbar:
+    background: primary
+    left:
+      - href: index.qmd
+        text: Home
+      - text: Materials
+        menu:
+        - text: ---
+        - text: Building packages
+        - text: ---
+        - text: "Introduction"
+          href: intro.html
+        - text: "Package devopment"
+          href: package-dev.html
+        - text: ---
+        - text: Testing
+          href: testing.html
+        - text: ---
+        - text: Design
+          href: design.html
+
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+
+editor: visual
+
