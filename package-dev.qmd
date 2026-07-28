@@ -8,7 +8,6 @@ format:
 
 ```{r, echo=FALSE}
 2+2
-
 ```
 
 
@@ -55,19 +54,17 @@ knitr::include_graphics("img/img-verbs/base.png")
 ```
 :::
 
-::: footer 
-Figure adapted from [Packages](https://github.com/hfrick/presentations/blob/master/2019-03-12_package_building/2019-03-12_package_building.pdf), by Hannah Frick
-::: 
-
-
 ::: {.teach-right} 
 ```{r noun-prelim, echo=FALSE, fig.align='right'}
 knitr::include_graphics("img/img-nouns/prelim.png")
 ```
 
-(Does this remind you of anything?)
+[(Does this remind you of anything?)]{style="font-size: 0.6em;"}
 :::
 
+::: footer 
+Figure adapted from [Packages](https://github.com/hfrick/presentations/blob/master/2019-03-12_package_building/2019-03-12_package_building.pdf), by Hannah Frick
+:::
 
 
 ## Overview
@@ -114,6 +111,8 @@ Be deliberate about where you create your package
 
 Do not nest inside another RStudio project, R package or git repo.
 
+My practice is to put all packages under my home directory, but your Documents folder is also okay (as long as that's not synced by OneDrive or other file-tracking software!). 
+
 ## `create_package()`
 
 What happens when we run `create_package()`?
@@ -154,6 +153,10 @@ What happens when we run `create_package()`?
 
 -   `.gitignore` anticipates Git usage and ignores some standard, behind-the-scenes files created by R and RStudio.
 
+::: aside
+continued.....
+:::
+
 ## Create package (your turn)
 
 ::: {.teach-left}
@@ -164,15 +167,30 @@ create_package("../foofactors") # set the path to suit you
 
 - creates a minimal set of files for an installable package
 
-  - `.gitignore` helps keep you safe, `.Rbuildignore` helps keep you legal
-
 - opens a new RStudio project
 
-**Next**, open `DESCRIPTION` file to edit it:
+:::
+
+::: {.teach-right} 
+```{r}
+#| ref.label: noun-create-package
+#| echo: false
+```
+:::
+
+
+
+
+## Create package (your turn)
+
+::: {.teach-left}
+
+Open `DESCRIPTION` file to edit it:
 
 - `Authors@R` field uses `options("usethis.description")` 
 
-   - set this in `.Rprofile`
+   - we set this in our `.Rprofile`, so go back to the intro slides if you missed this!
+   - (Another possible issue is you didn't restart R!)
 
 `r emo::ji("pencil2")` edit `Title` field
 
@@ -183,8 +201,9 @@ create_package("../foofactors") # set the path to suit you
 :::
 
 ::: {.teach-right} 
-```{r noun-create-package2, echo=FALSE, fig.align='right'}
-knitr::include_graphics("img/img-nouns/create-package.png")
+```{r}
+#| ref.label: noun-create-package
+#| echo: false
 ```
 :::
 
@@ -224,14 +243,59 @@ use_git()
 
 
 ::: {.teach-right} 
-```{r noun-framework-2, echo=FALSE, fig.align='right'}
-knitr::include_graphics("img/img-nouns/create-framework.png")
+```{r}
+#| ref.label: noun-framework
+#| echo: false
 ```
 :::
 
 ---
 
 ## Create framework (your turn)
+
+::: {.teach-left}
+you will get some messages sort of like this:
+
+<!-- Update package name -->
+
+
+```{.r style="font-size: 0.6em;"}
+✔ Setting active project to "/Users/amcnamara2/hmm".
+✔ Initialising Git repo.
+✔ Adding ".Rproj.user", ".Rhistory", ".Rdata", ".httr-oauth",
+  ".DS_Store", and ".quarto" to .gitignore.
+ℹ There are 7 uncommitted files:
+• .gitignore
+• .Rbuildignore
+• DESCRIPTION
+• hmm.Rproj
+• man/
+• NAMESPACE
+• R/
+! Is it ok to commit them?
+
+1: Yeah
+2: No
+3: Negative
+```
+
+The specific language and order of items will change over time, to make it harder to make mistakes! 
+
+::: 
+
+
+::: {.teach-right} 
+
+```{r}
+#| ref.label: noun-framework
+#| echo: false
+```
+:::
+
+---
+
+
+## [Create framework (we're skipping this)]{style="color: #888888;"} {style="color: #888888;"}
 
 ::: {.teach-left}
 
@@ -255,8 +319,9 @@ use_github()
 
 
 ::: {.teach-right} 
-```{r noun-framework-3, echo=FALSE, fig.align='right'}
-knitr::include_graphics("img/img-nouns/create-framework.png")
+```{r}
+#| ref.label: noun-framework
+#| echo: false
 ```
 :::
 
@@ -273,23 +338,23 @@ use_mit_license()
 - lets the world know how it can use the stuff you create
 
   - CRAN requires you to specify a (valid) license
+  - May be less relevant in your usecase!
 
 - other choices include 
  
   - `use_apl2_license()`: Apache 2.0
-  
   - `use_gpl3_license()`: GPL3
 
 - uses `option("usethis.full_name")` or `option("devtools.name")` 
-
-  - set this in `.Rprofile`
+  - we set this in `.Rprofile`
 
 :::
 
 
 ::: {.teach-right} 
-```{r noun-framework-4, echo=FALSE, fig.align='right'}
-knitr::include_graphics("img/img-nouns/create-framework.png")
+```{r}
+#| ref.label: noun-framework
+#| echo: false
 ```
 :::
 
@@ -314,13 +379,13 @@ document()
 load_all()
 check()
 ```
-`r emo::ji("rocket")` commit, pull, push
 
 :::
 
 ::: {.teach-right} 
-```{r noun-framework-5, echo=FALSE, fig.align='right'}
-knitr::include_graphics("img/img-nouns/create-framework.png")
+```{r}
+#| ref.label: noun-framework
+#| echo: false
 ```
 :::
 
@@ -343,7 +408,7 @@ knitr::include_graphics("img/img-nouns/develop.png")
 
 ---
 
-## Develop (your turn)
+## Develop (your turn) {.smaller}
 
 ::: {.teach-left}
 ```r
@@ -371,8 +436,10 @@ fbind <- function(a, b) {
 :::
 
 ::: {.teach-right} 
-```{r noun-develop-2, echo=FALSE, fig.align='right'}
-knitr::include_graphics("img/img-nouns/develop.png")
+
+```{r}
+#| ref.label: noun-develop
+#| echo: false
 ```
 :::
 
@@ -407,8 +474,9 @@ fbind <- function(a, b) {
 :::
 
 ::: {.teach-right} 
-```{r noun-develop-3, echo=FALSE, fig.align='right'}
-knitr::include_graphics("img/img-nouns/develop.png")
+```{r}
+#| ref.label: noun-develop
+#| echo: false
 ```
 :::
 
@@ -442,8 +510,9 @@ fbind <- function(a, b) {
 :::
 
 ::: {.teach-right} 
-```{r noun-develop-4, echo=FALSE, fig.align='right'}
-knitr::include_graphics("img/img-nouns/develop.png")
+```{r}
+#| ref.label: noun-develop
+#| echo: false
 ```
 :::
 
@@ -480,8 +549,9 @@ check()
 :::
 
 ::: {.teach-right} 
-```{r noun-develop-5, echo=FALSE, fig.align='right'}
-knitr::include_graphics("img/img-nouns/develop.png")
+```{r}
+#| ref.label: noun-develop
+#| echo: false
 ```
 :::
 ---
@@ -517,8 +587,9 @@ check()
 :::
 
 ::: {.teach-right} 
-```{r noun-develop-6, echo=FALSE, fig.align='right'}
-knitr::include_graphics("img/img-nouns/develop.png")
+```{r}
+#| ref.label: noun-develop
+#| echo: false
 ```
 :::
 

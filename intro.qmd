@@ -10,8 +10,8 @@ Blah
 
 Materials modified from 
 
-- [Building tidy tools](https://github.com/rstudio-conf-2022/build-tidy-tools) by Emma Rand + Ian Lyttle. 
-- [uncoast::unconf](https://github.com/uncoast-unconf/uu-2019-day-zero) by Amelia McNamara, Haley Jeppson, Ian Lyttle, and Yihui Xie.
+- [Building tidy tools](https://github.com/rstudio-conf-2022/build-tidy-tools) by Emma Rand and Ian Lyttle. 
+- [uncoast::unconf](https://github.com/uncoast-unconf/uu-2019-day-zero) by Ian Lyttle, Amelia McNamara, Haley Jeppson, and Yihui Xie.
 
 ---
 
@@ -29,7 +29,7 @@ Artwork by [Allison Horst](https://allisonhorst.com/everything-else)
 
 ::: {.column width="50%"}
 ![](img/JennyDataAngel.jpg)
-[mytwiterarchive](https://www.amelia.mn/mytwitterarchive/AmeliaMN/status/805832755372261377/)
+[mytwitterarchive](https://www.amelia.mn/mytwitterarchive/AmeliaMN/status/805832755372261377/)
 :::
 
 ::: {.column width="40%"}
@@ -67,18 +67,17 @@ I'll do a little bit of review of each of those topics, but if they are totally 
 
 We're going to be using the following packages, so make sure they are installed!
 
-```{r, eval=FALSE}
-install.packages(c("usethis", "roxygen2", "testthat"))
+```{r, eval=FALSE, echo=TRUE}
+install.packages(c("fredr", "roxygen2", "testthat", "usethis"))
 ```
 
 
 ## Workflow
 
-Starting from a blank slate
-Relative paths
-File organization
-
-[tidyverse design principles](https://design.tidyverse.org/)
+- Starting from a blank slate
+- Relative paths
+- File organization
+- [tidyverse design principles](https://design.tidyverse.org/)
 
 ## Starting from a blank slate
 
@@ -89,16 +88,20 @@ Restore .RData into workspace at startup: unchecked
 
 Save workspace to .RData on exit: Never
 
-## File organization
+## Relative paths
 
 - Files should be stored in folders (also called directories) in some intelligible way, and any references to files should be “relative” rather than “absolute” paths. e.g., 
 
+```
     ../Data/InputData/some_file.csv, 
-    
+```
+
 rather than 
 
+```
     /Users/myUserName/Documents/Project/Data/InputData/some_file.csv
-
+```
+## File organization
 
 The TIER Protocol is one suggested organizational method
 
@@ -184,6 +187,80 @@ Restart R for these to take an effect.
 
 
 ## Functions
+
+## Grabbing some data
+
+We're going to be using some data from FRED as we work, so we need to go get it first. 
+
+```{r}
+library(fredr)
+```
+
+This package makes it easier to get FRED data, but it does require an API key. [Request an API key](https://fred.stlouisfed.org/docs/api/api_key.html)
+
+
+## FRED
+
+![](img/FRED_login.png){height="80%"}
+
+## FRED {.smaller}
+
+![](img/FRED_API.png){height="80%"}
+
+## Adding API key to Renviron
+
+```{r, eval=FALSE, echo=TRUE}
+usethis::edit_r_environ()
+```
+
+add your API key like this (replace with your own key)
+
+```
+FRED_API_KEY='abcdefghijklmnopqrstuvwxyz123456'
+```
+
+\
+
+Save `.Renviron`
+
+Restart R 
+
+
+
+
+## Tomato prices
+
+```{r, echo=TRUE}
+library(fredr)
+tomatoes <- fredr(
+  series_id = "APU0000712311",
+  observation_start = as.Date("2016-08-01"),
+  observation_end = as.Date("2026-08-10")
+)
+```
+
+## Save the data (your turn)
+
+We'd rather not be using the API every time we want to play with this data, so let's save it as a local CSV.
+
+```{r, echo=TRUE}
+readr::write_csv(tomatoes, "tomatoes.csv")
+```
+
+## Read the data back in (your turn)
+
+When I save out data, I always do a quick test to make sure I did it right!
+
+```{r, echo=TRUE}
+tomatoes2 <- readr::read_csv("tomatoes.csv")
+```
+
+Looks good!
+
+## Make a plot (your turn)
+
+
+
 
 
 ## Resources 

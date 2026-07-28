@@ -18,7 +18,7 @@
     "href": "package-dev.html#overview",
     "title": "Package development",
     "section": "Overview",
-    "text": "Overview\n\n\n\n\n\n\n\n\n\n\n\n\nFigure adapted from Packages, by Hannah Frick\n\n\n\n\n\n\n\n\n\n\n\n(Does this remind you of anything?)"
+    "text": "Overview\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n(Does this remind you of anything?)\n\n\nFigure adapted from Packages, by Hannah Frick"
   },
   {
     "objectID": "package-dev.html#overview-1",
@@ -39,7 +39,7 @@
     "href": "package-dev.html#create-package-your-turn",
     "title": "Package development",
     "section": "Create package (your turn)",
-    "text": "Create package (your turn)\nBe deliberate about where you create your package\nDo not nest inside another RStudio project, R package or git repo."
+    "text": "Create package (your turn)\nBe deliberate about where you create your package\nDo not nest inside another RStudio project, R package or git repo.\nMy practice is to put all packages under my home directory, but your Documents folder is also okay (as long as that’s not synced by OneDrive or other file-tracking software!)."
   },
   {
     "objectID": "package-dev.html#create_package",
@@ -60,14 +60,21 @@
     "href": "package-dev.html#create_package-2",
     "title": "Package development",
     "section": "create_package()",
-    "text": "create_package()\nWhat happens when we run create_package()?\n\n.Rbuildignore lists files that we need but that should not be included when building the R package from source.\n.gitignore anticipates Git usage and ignores some standard, behind-the-scenes files created by R and RStudio."
+    "text": "create_package()\nWhat happens when we run create_package()?\n\n.Rbuildignore lists files that we need but that should not be included when building the R package from source.\n.gitignore anticipates Git usage and ignores some standard, behind-the-scenes files created by R and RStudio.\n\n\n\ncontinued….."
   },
   {
     "objectID": "package-dev.html#create-package-your-turn-1",
     "href": "package-dev.html#create-package-your-turn-1",
     "title": "Package development",
     "section": "Create package (your turn)",
-    "text": "Create package (your turn)\n\ncreate_package(\"../foofactors\") # set the path to suit you\n\ncreates a minimal set of files for an installable package\n\n.gitignore helps keep you safe, .Rbuildignore helps keep you legal\n\nopens a new RStudio project\n\nNext, open DESCRIPTION file to edit it:\n\nAuthors@R field uses options(\"usethis.description\")\n\nset this in .Rprofile\n\n\n✏️ edit Title field\n✏️ edit Description field\n💾 save DESCRIPTION file"
+    "text": "Create package (your turn)\n\ncreate_package(\"../foofactors\") # set the path to suit you\n\ncreates a minimal set of files for an installable package\nopens a new RStudio project"
+  },
+  {
+    "objectID": "package-dev.html#create-package-your-turn-2",
+    "href": "package-dev.html#create-package-your-turn-2",
+    "title": "Package development",
+    "section": "Create package (your turn)",
+    "text": "Create package (your turn)\n\nOpen DESCRIPTION file to edit it:\n\nAuthors@R field uses options(\"usethis.description\")\n\nwe set this in our .Rprofile, so go back to the intro slides if you missed this!\n(Another possible issue is you didn’t restart R!)\n\n\n✏️ edit Title field\n✏️ edit Description field\n💾 save DESCRIPTION file"
   },
   {
     "objectID": "package-dev.html#create-framework",
@@ -88,21 +95,28 @@
     "href": "package-dev.html#create-framework-your-turn-1",
     "title": "Package development",
     "section": "Create framework (your turn)",
-    "text": "Create framework (your turn)\n\nuse_github()\n\nthis is the closest you may see to actual magic:\n\ncreates GitHub repository\ncreates git remote origin, sets to GitHub repository\npushes your master branch to git remote\nadds information to DESCRIPTION file\nopens your repository page at GitHub"
+    "text": "Create framework (your turn)\n\nyou will get some messages sort of like this:\n\n✔ Setting active project to \"/Users/amcnamara2/hmm\".\n✔ Initialising Git repo.\n✔ Adding \".Rproj.user\", \".Rhistory\", \".Rdata\", \".httr-oauth\",\n  \".DS_Store\", and \".quarto\" to .gitignore.\nℹ There are 7 uncommitted files:\n• .gitignore\n• .Rbuildignore\n• DESCRIPTION\n• hmm.Rproj\n• man/\n• NAMESPACE\n• R/\n! Is it ok to commit them?\n\n1: Yeah\n2: No\n3: Negative\nThe specific language and order of items will change over time, to make it harder to make mistakes!"
+  },
+  {
+    "objectID": "package-dev.html#create-framework-were-skipping-this",
+    "href": "package-dev.html#create-framework-were-skipping-this",
+    "title": "Package development",
+    "section": "Create framework (we’re skipping this)",
+    "text": "Create framework (we’re skipping this)\n\nuse_github()\n\nthis is the closest you may see to actual magic:\n\ncreates GitHub repository\ncreates git remote origin, sets to GitHub repository\npushes your master branch to git remote\nadds information to DESCRIPTION file\nopens your repository page at GitHub"
   },
   {
     "objectID": "package-dev.html#create-framework-your-turn-2",
     "href": "package-dev.html#create-framework-your-turn-2",
     "title": "Package development",
     "section": "Create framework (your turn)",
-    "text": "Create framework (your turn)\n\nuse_mit_license()\n\nlets the world know how it can use the stuff you create\n\nCRAN requires you to specify a (valid) license\n\nother choices include\n\nuse_apl2_license(): Apache 2.0\nuse_gpl3_license(): GPL3\n\nuses option(\"usethis.full_name\") or option(\"devtools.name\")\n\nset this in .Rprofile"
+    "text": "Create framework (your turn)\n\nuse_mit_license()\n\nlets the world know how it can use the stuff you create\n\nCRAN requires you to specify a (valid) license\nMay be less relevant in your usecase!\n\nother choices include\n\nuse_apl2_license(): Apache 2.0\nuse_gpl3_license(): GPL3\n\nuses option(\"usethis.full_name\") or option(\"devtools.name\")\n\nwe set this in .Rprofile"
   },
   {
     "objectID": "package-dev.html#create-framework-your-turn-3",
     "href": "package-dev.html#create-framework-your-turn-3",
     "title": "Package development",
     "section": "Create framework (your turn)",
-    "text": "Create framework (your turn)\n\nuse_roxygen_md()\n\nmakes it much easier to create and maintain your function documentation\n\nlets you use a markdown-like syntax\n\n\n\ndocument()\nload_all()\ncheck()\n🚀 commit, pull, push"
+    "text": "Create framework (your turn)\n\nuse_roxygen_md()\n\nmakes it much easier to create and maintain your function documentation\n\nlets you use a markdown-like syntax\n\n\n\ndocument()\nload_all()\ncheck()"
   },
   {
     "objectID": "package-dev.html#develop",
@@ -186,14 +200,14 @@
     "href": "intro.html#about-me",
     "title": "Intro",
     "section": "About me",
-    "text": "About me\nBlah\nMaterials modified from\n\nBuilding tidy tools by Emma Rand + Ian Lyttle.\nuncoast::unconf by Amelia McNamara, Haley Jeppson, Ian Lyttle, and Yihui Xie."
+    "text": "About me\nBlah\nMaterials modified from\n\nBuilding tidy tools by Emma Rand and Ian Lyttle.\nuncoast::unconf by Ian Lyttle, Amelia McNamara, Haley Jeppson, and Yihui Xie."
   },
   {
     "objectID": "intro.html#everything-i-know-is-from-jenny-bryan",
     "href": "intro.html#everything-i-know-is-from-jenny-bryan",
     "title": "Intro",
     "section": "“Everything I know is from Jenny Bryan”",
-    "text": "“Everything I know is from Jenny Bryan”\n\n\n mytwiterarchive\n\n EIKSFJB hex sticker"
+    "text": "“Everything I know is from Jenny Bryan”\n\n\n mytwitterarchive\n\n EIKSFJB hex sticker"
   },
   {
     "objectID": "intro.html#prerequisite-knowledge",
@@ -214,14 +228,14 @@
     "href": "intro.html#packages",
     "title": "Intro",
     "section": "Packages",
-    "text": "Packages\nWe’re going to be using the following packages, so make sure they are installed!"
+    "text": "Packages\nWe’re going to be using the following packages, so make sure they are installed!\n\ninstall.packages(c(\"fredr\", \"roxygen2\", \"testthat\", \"usethis\"))"
   },
   {
     "objectID": "intro.html#workflow",
     "href": "intro.html#workflow",
     "title": "Intro",
     "section": "Workflow",
-    "text": "Workflow\nStarting from a blank slate Relative paths File organization\ntidyverse design principles"
+    "text": "Workflow\n\nStarting from a blank slate\nRelative paths\nFile organization\ntidyverse design principles"
   },
   {
     "objectID": "intro.html#starting-from-a-blank-slate",
@@ -231,11 +245,18 @@
     "text": "Starting from a blank slate\nWe’re going to strive not to be data-hoarders\n Restore .RData into workspace at startup: unchecked\nSave workspace to .RData on exit: Never"
   },
   {
+    "objectID": "intro.html#relative-paths",
+    "href": "intro.html#relative-paths",
+    "title": "Intro",
+    "section": "Relative paths",
+    "text": "Relative paths\n\nFiles should be stored in folders (also called directories) in some intelligible way, and any references to files should be “relative” rather than “absolute” paths. e.g.,\n\n    ../Data/InputData/some_file.csv, \nrather than\n    /Users/myUserName/Documents/Project/Data/InputData/some_file.csv"
+  },
+  {
     "objectID": "intro.html#file-organization",
     "href": "intro.html#file-organization",
     "title": "Intro",
     "section": "File organization",
-    "text": "File organization\n\nFiles should be stored in folders (also called directories) in some intelligible way, and any references to files should be “relative” rather than “absolute” paths. e.g.,\n../Data/InputData/some_file.csv,\n\nrather than\n/Users/myUserName/Documents/Project/Data/InputData/some_file.csv\nThe TIER Protocol is one suggested organizational method"
+    "text": "File organization\nThe TIER Protocol is one suggested organizational method"
   },
   {
     "objectID": "intro.html#naming-things",
@@ -280,6 +301,62 @@
     "text": "Functions"
   },
   {
+    "objectID": "intro.html#grabbing-some-data",
+    "href": "intro.html#grabbing-some-data",
+    "title": "Intro",
+    "section": "Grabbing some data",
+    "text": "Grabbing some data\nWe’re going to be using some data from FRED as we work, so we need to go get it first.\nThis package makes it easier to get FRED data, but it does require an API key. Request an API key"
+  },
+  {
+    "objectID": "intro.html#fred",
+    "href": "intro.html#fred",
+    "title": "Intro",
+    "section": "FRED",
+    "text": "FRED"
+  },
+  {
+    "objectID": "intro.html#fred-1",
+    "href": "intro.html#fred-1",
+    "title": "Intro",
+    "section": "FRED",
+    "text": "FRED"
+  },
+  {
+    "objectID": "intro.html#adding-api-key-to-renviron",
+    "href": "intro.html#adding-api-key-to-renviron",
+    "title": "Intro",
+    "section": "Adding API key to Renviron",
+    "text": "Adding API key to Renviron\n\nusethis::edit_r_environ()\n\nadd your API key like this (replace with your own key)\nFRED_API_KEY='abcdefghijklmnopqrstuvwxyz123456'\n\n\nSave .Renviron\nRestart R"
+  },
+  {
+    "objectID": "intro.html#tomato-prices",
+    "href": "intro.html#tomato-prices",
+    "title": "Intro",
+    "section": "Tomato prices",
+    "text": "Tomato prices\n\nlibrary(fredr)\ntomatoes &lt;- fredr(\n  series_id = \"APU0000712311\",\n  observation_start = as.Date(\"2016-08-01\"),\n  observation_end = as.Date(\"2026-08-10\")\n)"
+  },
+  {
+    "objectID": "intro.html#save-the-data-your-turn",
+    "href": "intro.html#save-the-data-your-turn",
+    "title": "Intro",
+    "section": "Save the data (your turn)",
+    "text": "Save the data (your turn)\nWe’d rather not be using the API every time we want to play with this data, so let’s save it as a local CSV.\n\nreadr::write_csv(tomatoes, \"tomatoes.csv\")"
+  },
+  {
+    "objectID": "intro.html#read-the-data-back-in-your-turn",
+    "href": "intro.html#read-the-data-back-in-your-turn",
+    "title": "Intro",
+    "section": "Read the data back in (your turn)",
+    "text": "Read the data back in (your turn)\nWhen I save out data, I always do a quick test to make sure I did it right!\n\ntomatoes2 &lt;- readr::read_csv(\"tomatoes.csv\")\n\nLooks good!"
+  },
+  {
+    "objectID": "intro.html#make-a-plot-your-turn",
+    "href": "intro.html#make-a-plot-your-turn",
+    "title": "Intro",
+    "section": "Make a plot (your turn)",
+    "text": "Make a plot (your turn)"
+  },
+  {
     "objectID": "intro.html#resources",
     "href": "intro.html#resources",
     "title": "Intro",
@@ -299,12 +376,5 @@
     "title": "Building, testing, designing",
     "section": "",
     "text": "Materials for the Federal Reserve training August 10-17 Topics: Package building, automated testing, designing code\nBroad schedule:\n\nAugust 10th\n\n9-10 am intro, review\n10 am - 12 pm package dev\n12-1 pm lunch break\n1-4 pm class\n\nAugust 11th\n\n9 am - 12 pm class\n\nAugust 17th\n\n9 am - 12 pm class\n12-1 pm lunch break\n1-4 pm class"
-  },
-  {
-    "objectID": "intro.html#section",
-    "href": "intro.html#section",
-    "title": "Intro",
-    "section": "",
-    "text": "::: {footnote}\nArtwork by Allison Horst\n:::"
   }
 ]

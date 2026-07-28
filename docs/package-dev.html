@@ -245,9 +245,6 @@
 </div>
 </div>
 </div>
-<div class="footer">
-<p>Figure adapted from <a href="https://github.com/hfrick/presentations/blob/master/2019-03-12_package_building/2019-03-12_package_building.pdf">Packages</a>, by Hannah Frick</p>
-</div>
 <div class="teach-right">
 <div class="cell" data-layout-align="right">
 <div class="cell-output-display">
@@ -258,7 +255,10 @@
 </div>
 </div>
 </div>
-<p>(Does this remind you of anything?)</p>
+<p><span style="font-size: 0.6em;">(Does this remind you of anything?)</span></p>
+</div>
+<div class="footer">
+<p>Figure adapted from <a href="https://github.com/hfrick/presentations/blob/master/2019-03-12_package_building/2019-03-12_package_building.pdf">Packages</a>, by Hannah Frick</p>
 </div>
 </section>
 <section id="overview-1" class="slide level2">
@@ -318,6 +318,7 @@
 <h2>Create package (your turn)</h2>
 <p>Be deliberate about where you create your package</p>
 <p>Do not nest inside another RStudio project, R package or git repo.</p>
+<p>My practice is to put all packages under my home directory, but your Documents folder is also okay (as long as that’s not synced by OneDrive or other file-tracking software!).</p>
 </section>
 <section id="create_package" class="slide level2">
 <h2><code>create_package()</code></h2>
@@ -352,23 +353,40 @@
 <li><p><code>.Rbuildignore</code> lists files that we need but that should not be included when building the R package from source.</p></li>
 <li><p><code>.gitignore</code> anticipates Git usage and ignores some standard, behind-the-scenes files created by R and RStudio.</p></li>
 </ul>
-</section>
+
+<aside><div>
+<p>continued…..</p>
+</div></aside></section>
 <section id="create-package-your-turn-1" class="slide level2">
 <h2>Create package (your turn)</h2>
 <div class="teach-left">
 <div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">create_package</span>(<span class="st">"../foofactors"</span>) <span class="co"># set the path to suit you</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
-<li><p>creates a minimal set of files for an installable package</p>
-<ul>
-<li><code>.gitignore</code> helps keep you safe, <code>.Rbuildignore</code> helps keep you legal</li>
-</ul></li>
+<li><p>creates a minimal set of files for an installable package</p></li>
 <li><p>opens a new RStudio project</p></li>
 </ul>
-<p><strong>Next</strong>, open <code>DESCRIPTION</code> file to edit it:</p>
+</div>
+<div class="teach-right">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="img/img-nouns/create-package.png" width="309"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="create-package-your-turn-2" class="slide level2">
+<h2>Create package (your turn)</h2>
+<div class="teach-left">
+<p>Open <code>DESCRIPTION</code> file to edit it:</p>
 <ul>
 <li><p><code>Authors@R</code> field uses <code>options("usethis.description")</code></p>
 <ul>
-<li>set this in <code>.Rprofile</code></li>
+<li>we set this in our <code>.Rprofile</code>, so go back to the intro slides if you missed this!</li>
+<li>(Another possible issue is you didn’t restart R!)</li>
 </ul></li>
 </ul>
 <p>✏️ edit <code>Title</code> field</p>
@@ -376,11 +394,11 @@
 <p>💾 save <code>DESCRIPTION</code> file</p>
 </div>
 <div class="teach-right">
-<div class="cell" data-layout-align="right">
+<div class="cell">
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-right">
+<div>
 <figure>
-<p><img data-src="img/img-nouns/create-package.png" class="quarto-figure quarto-figure-right" width="309"></p>
+<p><img data-src="img/img-nouns/create-package.png" width="309"></p>
 </figure>
 </div>
 </div>
@@ -423,11 +441,11 @@
 </ul>
 </div>
 <div class="teach-right">
-<div class="cell" data-layout-align="right">
+<div class="cell">
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-right">
+<div>
 <figure>
-<p><img data-src="img/img-nouns/create-framework.png" class="quarto-figure quarto-figure-right" width="308"></p>
+<p><img data-src="img/img-nouns/create-framework.png" width="308"></p>
 </figure>
 </div>
 </div>
@@ -437,7 +455,43 @@
 <section id="create-framework-your-turn-1" class="slide level2">
 <h2>Create framework (your turn)</h2>
 <div class="teach-left">
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">use_github</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>you will get some messages sort of like this:</p>
+<!-- Update package name -->
+<div class="sourceCode" id="cb4" style="font-size: 0.6em;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>✔ Setting active project to <span class="st">"/Users/amcnamara2/hmm"</span>.</span>
+<span id="cb4-2"><a></a>✔ Initialising Git repo.</span>
+<span id="cb4-3"><a></a>✔ Adding <span class="st">".Rproj.user"</span>, <span class="st">".Rhistory"</span>, <span class="st">".Rdata"</span>, <span class="st">".httr-oauth"</span>,</span>
+<span id="cb4-4"><a></a>  <span class="st">".DS_Store"</span>, and <span class="st">".quarto"</span> to .gitignore.</span>
+<span id="cb4-5"><a></a>ℹ There are <span class="dv">7</span> uncommitted files<span class="sc">:</span></span>
+<span id="cb4-6"><a></a>• .gitignore</span>
+<span id="cb4-7"><a></a>• .Rbuildignore</span>
+<span id="cb4-8"><a></a>• DESCRIPTION</span>
+<span id="cb4-9"><a></a>• hmm.Rproj</span>
+<span id="cb4-10"><a></a>• man<span class="sc">/</span></span>
+<span id="cb4-11"><a></a>• NAMESPACE</span>
+<span id="cb4-12"><a></a>• R<span class="sc">/</span></span>
+<span id="cb4-13"><a></a><span class="sc">!</span> Is it ok to commit them?</span>
+<span id="cb4-14"><a></a></span>
+<span id="cb4-15"><a></a><span class="dv">1</span><span class="sc">:</span> Yeah</span>
+<span id="cb4-16"><a></a><span class="dv">2</span><span class="sc">:</span> No</span>
+<span id="cb4-17"><a></a><span class="dv">3</span><span class="sc">:</span> Negative</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The specific language and order of items will change over time, to make it harder to make mistakes!</p>
+</div>
+<div class="teach-right">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="img/img-nouns/create-framework.png" width="308"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="create-framework-were-skipping-this" class="slide level2" style="color: #888888;">
+<h2><span style="color: #888888;">Create framework (we’re skipping this)</span></h2>
+<div class="teach-left">
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">use_github</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li><p>this is the closest you may see to <strong>actual</strong> magic:</p>
 <ul>
@@ -450,11 +504,11 @@
 </ul>
 </div>
 <div class="teach-right">
-<div class="cell" data-layout-align="right">
+<div class="cell">
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-right">
+<div>
 <figure>
-<p><img data-src="img/img-nouns/create-framework.png" class="quarto-figure quarto-figure-right" width="308"></p>
+<p><img data-src="img/img-nouns/create-framework.png" width="308"></p>
 </figure>
 </div>
 </div>
@@ -464,29 +518,30 @@
 <section id="create-framework-your-turn-2" class="slide level2">
 <h2>Create framework (your turn)</h2>
 <div class="teach-left">
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">use_mit_license</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">use_mit_license</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li><p>lets the world know how it can use the stuff you create</p>
 <ul>
 <li>CRAN requires you to specify a (valid) license</li>
+<li>May be less relevant in your usecase!</li>
 </ul></li>
 <li><p>other choices include</p>
 <ul>
-<li><p><code>use_apl2_license()</code>: Apache 2.0</p></li>
-<li><p><code>use_gpl3_license()</code>: GPL3</p></li>
+<li><code>use_apl2_license()</code>: Apache 2.0</li>
+<li><code>use_gpl3_license()</code>: GPL3</li>
 </ul></li>
 <li><p>uses <code>option("usethis.full_name")</code> or <code>option("devtools.name")</code></p>
 <ul>
-<li>set this in <code>.Rprofile</code></li>
+<li>we set this in <code>.Rprofile</code></li>
 </ul></li>
 </ul>
 </div>
 <div class="teach-right">
-<div class="cell" data-layout-align="right">
+<div class="cell">
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-right">
+<div>
 <figure>
-<p><img data-src="img/img-nouns/create-framework.png" class="quarto-figure quarto-figure-right" width="308"></p>
+<p><img data-src="img/img-nouns/create-framework.png" width="308"></p>
 </figure>
 </div>
 </div>
@@ -496,7 +551,7 @@
 <section id="create-framework-your-turn-3" class="slide level2">
 <h2>Create framework (your turn)</h2>
 <div class="teach-left">
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">use_roxygen_md</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">use_roxygen_md</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li><p>makes it <strong>much</strong> easier to create and maintain your function documentation</p>
 <ul>
@@ -504,17 +559,16 @@
 </ul></li>
 </ul>
 <hr>
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">document</span>()</span>
-<span id="cb7-2"><a></a><span class="fu">load_all</span>()</span>
-<span id="cb7-3"><a></a><span class="fu">check</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>🚀 commit, pull, push</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">document</span>()</span>
+<span id="cb8-2"><a></a><span class="fu">load_all</span>()</span>
+<span id="cb8-3"><a></a><span class="fu">check</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="teach-right">
-<div class="cell" data-layout-align="right">
+<div class="cell">
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-right">
+<div>
 <figure>
-<p><img data-src="img/img-nouns/create-framework.png" class="quarto-figure quarto-figure-right" width="308"></p>
+<p><img data-src="img/img-nouns/create-framework.png" width="308"></p>
 </figure>
 </div>
 </div>
@@ -546,30 +600,30 @@
 </div>
 </div>
 </section>
-<section id="develop-your-turn" class="slide level2">
+<section id="develop-your-turn" class="slide level2 smaller">
 <h2>Develop (your turn)</h2>
 <div class="teach-left">
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">use_r</span>(<span class="st">"fbind"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">use_r</span>(<span class="st">"fbind"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>I like the idea of documenting, then writing <strong>functions</strong>:</p>
 <ul>
 <li><p>claim what the function will do, then do it</p></li>
 <li><p>if your explanation is getting heavy, split into more functions</p></li>
 </ul>
 <p>Start by writing a shell for the function:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>fbind <span class="ot">&lt;-</span> <span class="cf">function</span>(a, b) {</span>
-<span id="cb9-2"><a></a>  </span>
-<span id="cb9-3"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>fbind <span class="ot">&lt;-</span> <span class="cf">function</span>(a, b) {</span>
+<span id="cb10-2"><a></a>  </span>
+<span id="cb10-3"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li><p>place the cursor on the blank line between the <code>{</code> 📝 <code>}</code></p></li>
 <li><p>RStudio IDE menu: <strong>Code</strong> &gt; <strong>Insert Roxygen Skeleton</strong></p></li>
 </ul>
 </div>
 <div class="teach-right">
-<div class="cell" data-layout-align="right">
+<div class="cell">
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-right">
+<div>
 <figure>
-<p><img data-src="img/img-nouns/develop.png" class="quarto-figure quarto-figure-right" width="309"></p>
+<p><img data-src="img/img-nouns/develop.png" width="309"></p>
 </figure>
 </div>
 </div>
@@ -580,40 +634,6 @@
 <h2>Develop (your turn)</h2>
 <div class="teach-left">
 <p>Complete the documentation:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="co">#' Concatenate factors, including levels</span></span>
-<span id="cb10-2"><a></a><span class="co">#'</span></span>
-<span id="cb10-3"><a></a><span class="co">#' Concatenates two factors with two differerent sets of levels, returning</span></span>
-<span id="cb10-4"><a></a><span class="co">#' a factor with levels that are the union of the input factors' levels.</span></span>
-<span id="cb10-5"><a></a><span class="co">#</span></span>
-<span id="cb10-6"><a></a><span class="co">#' @param a `factor`</span></span>
-<span id="cb10-7"><a></a><span class="co">#' @param b `factor`</span></span>
-<span id="cb10-8"><a></a><span class="co">#'</span></span>
-<span id="cb10-9"><a></a><span class="co">#' @return `factor`, concatenation of `a` and `b`</span></span>
-<span id="cb10-10"><a></a><span class="co">#' @export</span></span>
-<span id="cb10-11"><a></a><span class="co">#'</span></span>
-<span id="cb10-12"><a></a><span class="co">#' @examples</span></span>
-<span id="cb10-13"><a></a><span class="co">#' fbind(iris$Species, Puromycin$state)</span></span>
-<span id="cb10-14"><a></a><span class="co">#'</span></span>
-<span id="cb10-15"><a></a>fbind <span class="ot">&lt;-</span> <span class="cf">function</span>(a, b) {</span>
-<span id="cb10-16"><a></a></span>
-<span id="cb10-17"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="teach-right">
-<div class="cell" data-layout-align="right">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-right">
-<figure>
-<p><img data-src="img/img-nouns/develop.png" class="quarto-figure quarto-figure-right" width="309"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="develop-your-turn-2" class="slide level2">
-<h2>Develop (your turn)</h2>
-<div class="teach-left">
-<p>Write the function body:</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="co">#' Concatenate factors, including levels</span></span>
 <span id="cb11-2"><a></a><span class="co">#'</span></span>
 <span id="cb11-3"><a></a><span class="co">#' Concatenates two factors with two differerent sets of levels, returning</span></span>
@@ -629,15 +649,49 @@
 <span id="cb11-13"><a></a><span class="co">#' fbind(iris$Species, Puromycin$state)</span></span>
 <span id="cb11-14"><a></a><span class="co">#'</span></span>
 <span id="cb11-15"><a></a>fbind <span class="ot">&lt;-</span> <span class="cf">function</span>(a, b) {</span>
-<span id="cb11-16"><a></a>  forcats<span class="sc">::</span><span class="fu">fct_c</span>(a, b)</span>
+<span id="cb11-16"><a></a></span>
 <span id="cb11-17"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="teach-right">
-<div class="cell" data-layout-align="right">
+<div class="cell">
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-right">
+<div>
 <figure>
-<p><img data-src="img/img-nouns/develop.png" class="quarto-figure quarto-figure-right" width="309"></p>
+<p><img data-src="img/img-nouns/develop.png" width="309"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="develop-your-turn-2" class="slide level2">
+<h2>Develop (your turn)</h2>
+<div class="teach-left">
+<p>Write the function body:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="co">#' Concatenate factors, including levels</span></span>
+<span id="cb12-2"><a></a><span class="co">#'</span></span>
+<span id="cb12-3"><a></a><span class="co">#' Concatenates two factors with two differerent sets of levels, returning</span></span>
+<span id="cb12-4"><a></a><span class="co">#' a factor with levels that are the union of the input factors' levels.</span></span>
+<span id="cb12-5"><a></a><span class="co">#</span></span>
+<span id="cb12-6"><a></a><span class="co">#' @param a `factor`</span></span>
+<span id="cb12-7"><a></a><span class="co">#' @param b `factor`</span></span>
+<span id="cb12-8"><a></a><span class="co">#'</span></span>
+<span id="cb12-9"><a></a><span class="co">#' @return `factor`, concatenation of `a` and `b`</span></span>
+<span id="cb12-10"><a></a><span class="co">#' @export</span></span>
+<span id="cb12-11"><a></a><span class="co">#'</span></span>
+<span id="cb12-12"><a></a><span class="co">#' @examples</span></span>
+<span id="cb12-13"><a></a><span class="co">#' fbind(iris$Species, Puromycin$state)</span></span>
+<span id="cb12-14"><a></a><span class="co">#'</span></span>
+<span id="cb12-15"><a></a>fbind <span class="ot">&lt;-</span> <span class="cf">function</span>(a, b) {</span>
+<span id="cb12-16"><a></a>  forcats<span class="sc">::</span><span class="fu">fct_c</span>(a, b)</span>
+<span id="cb12-17"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="teach-right">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="img/img-nouns/develop.png" width="309"></p>
 </figure>
 </div>
 </div>
@@ -647,7 +701,7 @@
 <section id="develop-your-turn-3" class="slide level2">
 <h2>Develop (your turn)</h2>
 <div class="teach-left">
-<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>forcats<span class="sc">::</span><span class="fu">fct_c</span>(a, b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>forcats<span class="sc">::</span><span class="fu">fct_c</span>(a, b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>☝️ Use this notation to be explicit about where R looks for the function <code>fct_c()</code>.</p>
 <hr>
 <p>Making a pull-request into someone else’s project, write code using their style.</p>
@@ -656,17 +710,17 @@
 </ul>
 <hr>
 <p>💾 Save <code>fbind.R</code>.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="fu">document</span>()</span>
-<span id="cb13-2"><a></a><span class="fu">load_all</span>()</span>
-<span id="cb13-3"><a></a><span class="fu">check</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">document</span>()</span>
+<span id="cb14-2"><a></a><span class="fu">load_all</span>()</span>
+<span id="cb14-3"><a></a><span class="fu">check</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>🤔 What happened?</p>
 </div>
 <div class="teach-right">
-<div class="cell" data-layout-align="right">
+<div class="cell">
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-right">
+<div>
 <figure>
-<p><img data-src="img/img-nouns/develop.png" class="quarto-figure quarto-figure-right" width="309"></p>
+<p><img data-src="img/img-nouns/develop.png" width="309"></p>
 </figure>
 </div>
 </div>
@@ -676,7 +730,7 @@
 <section id="develop-your-turn-4" class="slide level2">
 <h2>Develop (your turn)</h2>
 <div class="teach-left">
-<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">use_package</span>(<span class="st">"forcats"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="fu">use_package</span>(<span class="st">"forcats"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>We need to specify that <em>our</em> package will use the <strong>forcats</strong> package:</p>
 <ul>
 <li><p>indicate a stronger reliance using <code>Imports</code> (default)</p></li>
@@ -687,17 +741,17 @@
 <li>for now, if you need to rely on a package, do it</li>
 </ul>
 <hr>
-<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="fu">document</span>()</span>
-<span id="cb15-2"><a></a><span class="fu">load_all</span>()</span>
-<span id="cb15-3"><a></a><span class="fu">check</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">document</span>()</span>
+<span id="cb16-2"><a></a><span class="fu">load_all</span>()</span>
+<span id="cb16-3"><a></a><span class="fu">check</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>🚀 commit, pull, push</p>
 </div>
 <div class="teach-right">
-<div class="cell" data-layout-align="right">
+<div class="cell">
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-right">
+<div>
 <figure>
-<p><img data-src="img/img-nouns/develop.png" class="quarto-figure quarto-figure-right" width="309"></p>
+<p><img data-src="img/img-nouns/develop.png" width="309"></p>
 </figure>
 </div>
 </div>
@@ -721,8 +775,8 @@
 <section id="aside-in-case-of-error" class="slide level2">
 <h2>Aside: in case of error</h2>
 <p>On running <code>devtools::check()</code> you may get an error if you are using a networked drive.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb16-1"><a></a>Updating ussie documentation  </span>
-<span id="cb16-2"><a></a>Error: The specified file is not readable: path-to\ussie\NAMESPACE</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb17-1"><a></a>Updating ussie documentation  </span>
+<span id="cb17-2"><a></a>Error: The specified file is not readable: path-to\ussie\NAMESPACE</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><br>
 </p>
 <p>This is covered <a href="https://stackoverflow.com/questions/40530968/overwriting-namespace-and-rd-with-roxygen2">here</a> and can be fixed.</p>
