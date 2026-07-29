@@ -1,0 +1,586 @@
+---
+title: "Function design"
+editor: source
+format:
+  revealjs: 
+    theme: [default, extra.scss]
+    height: 900
+    width: 1600
+execute:
+  echo: true
+  eval: false
+---
+
+
+
+## Naming functions
+
+If writing a smaller package, consider prefixing your functions:
+
+ - {ussie}: `uss_make_matches()`
+ 
+ - {btt22}: `btt_get()`
+
+. . .
+
+Use a *verb* next:
+
+ - `dplyr::mutate()`, `stringr::str_split()`
+
+. . . 
+
+Use a *noun* if building up a specific type of object:
+
+ - `ggplot2::ggplot()`, `ggplot2::geom_point()`
+
+## Casing
+
+- Tidyverse uses `snake_case`; Shiny prefers `camelCase`
+
+- Python prefers `snake_case`
+
+- JavaScript prefers:
+  - `camelCase` for functions 
+  - `PascalCase` for classes, interfaces
+
+. . . 
+
+Pick a convention according to your domain, follow it.
+
+## Arguments
+
+Here, `mtcars` is an *argument*:
+
+```r
+head(mtcars)
+```
+
+. . . 
+
+Here, `data` is a *formal argument*:
+
+```r
+head <- function(data){
+  ...
+}
+```
+
+. . .
+
+In R, we sometimes use these terms interchangeably; we sometimes use the term *formals*. 
+
+. . .
+
+`¯\_(ツ)_/¯`
+
+## Naming arguments
+
+Like naming functions, strive to be:
+
+- consistent
+- evocative
+- concise
+
+. . .
+
+> There are only two hard things in Computer Science: cache invalidation and naming things.
+>
+> -- Phil Karlton
+
+. . .
+
+> And off-by-one errors -- [Leon Bambrick](https://twitter.com/secretGeek/status/7269997868)
+
+## Ordering arguments
+
+- **data**: first argument, "the thing" 
+- **descriptors**: values the user should specify
+- **dots** (`...`): stuff that gets passed to other functions
+- **details**: values with defaults
+
+. . . 
+
+I have seen the order of **dots** and **details** reversed.
+
+However, **data** and **descriptors** almost always come first.
+
+## Discuss with neighbour
+
+Which are: data, descriptors, details?
+
+```r
+# there are acutally more args...
+pivot_longer <- function(
+  data,                
+  cols,                
+  names_to = "name",   
+  names_prefix = NULL  
+) {
+  ...
+}
+```
+
+## Discuss with neighbor (answer)
+
+Which are: data, descriptors, details?
+
+```r
+# there are acutally more args...
+pivot_longer <- function(
+  data,                # data
+  cols,                # descriptor
+  names_to = "name",   # details
+  names_prefix = NULL  #
+) {
+  ...
+}
+```
+
+
+## Pure function
+
+A function where:
+
+ - the return value depends *only* on argument values
+
+ - only change is the return value
+
+. . .
+
+Examples:
+
+. . .
+ 
+```r
+function(x, y) {
+  x + y
+}
+```
+
+. . .
+ 
+```r
+cos(pi)
+```
+
+## Side effects
+
+A function where:
+
+ - the return value can depend on "the outside universe"
+
+ - there is a change in the "the outside universe"
+ 
+. . .
+
+Examples:
+
+. . .
+
+```r
+readr::read_csv("myfile.csv")
+```
+
+. . .
+
+```r
+runif(1)
+```
+
+## Why is this important?
+
+. . . 
+
+- Pure functions easier to test than functions with side effects.
+
+. . . 
+
+- Side effects (interactions with universe) take time (Shiny).
+
+. . . 
+
+- Functions with side effects should document the effects.
+
+. . . 
+
+- Side effects are not inherently bad (we *do* need to write to the file system),
+  but they need extra care.
+  
+
+## Practical advice
+
+Try to separate tasks into pure functions and side effects:
+
+- easier to test the pure functions and side effects separately
+
+- use *these* functions in higher-level functions
+
+. . .
+
+For example:
+
+- `uss_make_matches()` is a pure function.
+
+- `get_soccer_data()` uses side effects.
+
+- `uss_get_matches()` calls each of these functions.
+
+## Summary
+
+. . .
+
+- **Naming**: be consistent, concise, yet evocative.
+
+. . .
+
+- **Argument order**: data, descriptors, dots, details.
+  
+. . .
+
+- **Return value type**: be consistent, predictable.
+
+. . .
+
+- Easy to remember data (first) argument and return value:
+  - easy to use pipe, `|>`.
+
+. . .
+
+- Be mindful of side effects.
+
+## Errors
+
+- The most common type of side-effect is the **error condition**. 
+
+. . .
+
+- Sometimes, error messages can be cryptic: 
+
+  ```r
+  seq[10]
+  ```
+
+  ```
+  Error in seq[10] : object of type 'closure' is not subsettable
+  ```
+
+. . . 
+
+
+- You can write error messages that make things clearer for: 
+  - developers who call your functions
+  - end users
+
+## Creating an error condition 
+
+An effective error condition has:
+
+- **predicate** (logical expression used to identify condition)
+- clear **message** for end user
+- **class name** for developer
+- **more information** for developer
+
+## Using `cli::cli_abort()`
+
+{cli} package [@cli]
+
+```r
+# predicate
+if (y > 3) {
+  cli::cli_abort(
+    # message for end user
+    c(
+      "{.var y} cannot be greater than 3.", 
+      x = "{.var y} is {.val {y}}."
+    ),
+    # class name
+    class = "ussie_error_threshold",  
+    # more information
+    y = y     
+  )
+}
+```
+
+## Predicate
+
+Prefer:
+
+ - simpler predicates and more error-conditions
+ 
+Over:
+
+ - complex predicates and fewer error-conditions
+ 
+. . .
+
+Finding simplest set of predicates is just as challenging as finding the "right" names for functions and arguments.
+
+## Message
+
+Content:
+
+- how did we violate the predicate?
+
+. . . 
+
+Formatting:
+
+- {cli} provides powerful formatting tools:
+
+  - use curly-braces and a tag, e.g. `{.var y}` 
+  - use more curly-braces to interpolate, e.g. `{.val {y}}`
+  
+- see [cli inline-markup](https://cli.r-lib.org/reference/inline-markup.html) for more details.
+
+## Class name
+
+- A developer, calling your function, can use the `class` name to handle the error, if they want.
+
+- Convention: 
+  
+  - `"{package}_error_{description}"`
+
+## Additional information
+
+This "stuff" is also available to an error handler.
+
+- Provide the data that went into the predicate.
+
+- Provide name of variable, e.g. `y = y`.
+
+- Avoid reserved names: `message`, `class`, `call`, `body`, `footer`, `trace`, `parent`, `use_cli_format`.
+
+## Validation
+
+If there will be an error, surface it quickly.
+
+Validating the arguments to a function is one way to do this.
+
+. . .
+
+For example:
+
+ - is *this* a data frame?
+ - does this data frame have *these* columns?
+
+. . . 
+ 
+Questions like these can be generalized into functions:
+
+ - throw an error if you need to.
+ - otherwise, return **data** argument invisibly.
+ 
+## Validate string-values 
+
+You may be familiar with `match.arg()`:
+
+ - uses "magic" to compare value (if any) to default
+ - argument default is vector of strings
+   - if value among defaults, return it - otherwise **error**
+   - if no value, return *first* value in default
+
+. . .
+
+`rlang::arg_match()` does the same thing, but:
+
+  - partial match triggers error
+  - error messages conform to tidyverse standards
+
+## Snapshot tests
+
+Designed for capturing side-effects:
+
+ - error messages
+ - `dplyr::glimpse()` is a useful shortcut
+ 
+. . .  
+ 
+Be careful about accepting changes (don't just accept).
+
+Can be temperamental - not run on CRAN.
+
+We will go through, using examples.
+   
+
+
+## Use `rlang::arg_match()` {.smaller}
+
+👉 `devtools::load_all()`, then:
+
+- 👉 `uss_get_matches("italy")` 🎉
+- 👉 `uss_get_matches("tatooine")` 🎉 
+- 👉 `uss_get_matches("ita")` 🤔
+
+. . .
+
+<hr>
+
+
+`get-matches.R`: 
+
+ - replace `match.arg()` with `rlang::arg_match()`
+ 
+`test-get-matches.R`: 
+
+ - uncomment test for `2.2.1`, then repeat 👉
+
+## Build error constructor {.smaller}
+
+- `usethis::use_package("cli")`
+
+- review `validate_data_frame()` (`call` argument)
+
+- build constructor for `validate_cols()`:
+  - something like `{.field {cols}}` may be useful
+  - activate `2.2.1` tests in `test-validate.R`, as you go
+
+- hold off on snapshot test (we'll do together)
+
+. . .
+
+- add validator-functions to `uss_make_matches()`:
+  - `matches.R`
+  - `cols_engsoc()` may be useful
+
+## Managing global state
+
+Leave no footprints.
+
+Leave the global state how you found it, avoid surprises later:
+
+ - packages loaded
+ - also: options, environment variables 
+
+. . .
+
+Loading {devtools} in `.Rprofile` changes the global state.
+
+. . .
+
+When we hit the "Knit" button, or the Quarto "Render" button:
+
+  - it runs in a *new* R session
+  - does not execute user's `.Rprofile`
+  
+## Using "self-removing footprints"
+
+The {withr} package [@withr] gives us tools to:
+
+ - modify global state
+ - specify when to reverse the modification
+
+. . . 
+ 
+Useful family of functions:
+
+ - `withr::local_*()`
+ - changes the state back when a scope is exited
+ - if called within a function, *normally* when the function exits
+
+## When could this be useful?
+
+CRAN is (rightly) particular about "leave no footprints".
+
+You may need:
+
+ - `withr::local_options()`: change an option
+ - `withr::local_dir()`: change the working directory
+ - `withr::local_tempfile()`: path to a temporary file
+ 
+. . . 
+
+Useful in `testthat` code and in `R` code.
+
+## Interactive example
+
+```{r}
+write_read_vanish <- function(x) {
+  
+  tempfile <- withr::local_tempfile(fileext = ".rds")
+  
+  saveRDS(x, file = tempfile)
+  xnew <- readRDS(tempfile)
+  
+  print(
+    glue::glue("'{tempfile}' contained {xnew}.")
+  )
+  
+  invisible(xnew)
+}
+```
+
+## Another interactive example
+
+```r
+not_runif <- function(n, min = 0, max = 1) {
+
+  withr::local_seed(314)
+  
+  runif(n, min = min, max = max)
+}
+```
+
+## Example
+
+- `usethis::use_test("validate")`
+- change: 
+
+  ```r
+  expect_identical(error_condition$cols_req, "foo")
+  ```
+  
+- to: 
+
+  ```r
+  expect_identical(error_condition$cols_re, "foo")
+  ```
+
+- rerun tests 🤔
+
+. . . 
+
+- By default, `$` accepts partial matching.
+
+- We want stricter testing, so we need to set some options.
+
+
+## Summary
+
+. . .
+
+The most-common side-effect is an error. Good design:
+
+. . .
+
+- simple (as possible) predicate
+- clear message
+- add a `class` using naming convention, and additional information
+
+. . .
+
+Use snapshot tests to capture side-effects.
+
+- be very careful when accepting changes to snapshots.
+
+. . . 
+
+Use `withr::local_*()` functions to "leave no footprints".
+
+
+
+
+## Additional material
+
+Hadley's [keynote](https://www.rstudio.com/resources/rstudioconf-2017/data-science-in-the-tidyverse-hadley-wickham/) at rstudio::conf(2017):
+
+ - not available on YouTube 😢
+ 
+ - talks about tidyverse design
+ 
+ Joe Cheng's talks ([Part 1](https://www.rstudio.com/resources/shiny-dev-con/reactivity-pt-1-joe-cheng/), [Part 2](https://www.rstudio.com/resources/shiny-dev-con/reactivity-pt-2)) on reactivity at Shiny Developers Conference (2016), precursor to rstudio::conf():
+ 
+ 
+ - pure functions vs. side effects
+
+
+

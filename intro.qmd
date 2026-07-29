@@ -16,10 +16,9 @@ Materials modified from
 ---
 
 ![](img/doing-it-myself.png)
-::: {footnote}
 
+::: footer
 Artwork by [Allison Horst](https://allisonhorst.com/everything-else)
-
 :::
 
 
@@ -230,6 +229,8 @@ Restart R
 
 ## Tomato prices
 
+From [FRED](https://fred.stlouisfed.org/series/APU0000712311)
+
 ```{r, echo=TRUE}
 library(fredr)
 tomatoes <- fredr(
@@ -261,6 +262,9 @@ Looks good!
 
 
 
+## Getting a little more data (your turn)
+
+I'd also like data on the average price of bacon (sliced), and iceberg lettuce. Can you find those API endpoints and grab the data for the past ten years on them?
 
 
 ## Resources 

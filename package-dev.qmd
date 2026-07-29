@@ -4,6 +4,11 @@ editor: source
 format: 
   revealjs:
     theme: [default, extra.scss]
+    height: 900
+    width: 1600
+execute:
+  echo: true
+  eval: false
 ---
 
 ```{r, echo=FALSE}
@@ -17,6 +22,40 @@ format:
 # install.packages("devtools")
 devtools::install_github("hadley/emo")
 ```
+
+## Motivation
+In the R world, versions of this are attributed to Hadley Wickham:
+
+> Any time you copy-and-paste code three times, write a function.
+
+> Any time you copy-and-paste a function three times, write a package.
+
+Also known as the [rule of three](https://en.wikipedia.org/wiki/Rule_of_three_(computer_programming)): popularized by Martin Fowler (1999), attributed to Don Roberts
+
+
+# Why make a package?
+
+
+## Why make a package
+
+- makes it easier to reuse functions you write
+- have a consistent framework which encourages you to better organise, document and test, your code
+- using this consistent framework means you can use many standardised tools
+- is the easiest way to distribute code and data
+
+## Be nice to future you
+
+> In every project you have at least one other collaborator; future-you. You don’t want future-you to curse past-you
+>
+> - [Hadley Wickham](https://www.r-bloggers.com/2016/05/your-most-valuable-collaborator-future-you/)
+
+## To avoid
+
+<iframe src="https://giphy.com/embed/M11UVCRrc0LUk" width="960" height="554" frameBorder="0" class="giphy-embed" allowFullScreen>
+
+</iframe>
+
+<p><a href="https://giphy.com/gifs/M11UVCRrc0LUk">via GIPHY</a></p>
 
 ## Script vs package
 
@@ -44,7 +83,10 @@ devtools::install_github("hadley/emo")
 
 ## Intro
 
-Materials in this slide desk based on [Ian Lyttle's Uncoast unconf Day Zero slides](https://uncoast-unconf.github.io/uu-2019-day-zero/03-packages/package-development.html#11), which in turn were based on [Hannah Frick's work](https://github.com/hfrick/presentations/blob/master/2019-03-12_package_building/2019-03-12_package_building.pdf)
+Materials in this slide desk based on 
+- Ian Lyttle's[Uncoast unconf Day Zero slides](https://uncoast-unconf.github.io/uu-2019-day-zero/), which in turn were based on [Hannah Frick's work](https://github.com/hfrick/presentations/blob/master/2019-03-12_package_building/)
+-  Emma Rand and Ian Lyttle's  [Building tidy tools](https://rstudio-conf-2022.github.io/build-tidy-tools/)
+- Hadley Wickham and Jenny Bryan's [R Packages (2e)](https://r-pkgs.org/whole-game.html)
 
 ## Overview
 
@@ -117,7 +159,7 @@ My practice is to put all packages under my home directory, but your Documents f
 
 What happens when we run `create_package()`?
 
--   R will create a folder called `ussie` which is a package and an RStudio project
+-   R will create a folder called `BLT` which is a package and an RStudio project
 
 -   restart R in the new project
 
@@ -162,7 +204,7 @@ continued.....
 ::: {.teach-left}
 
 ```r
-create_package("../foofactors") # set the path to suit you
+create_package("../BLT") # set the path to suit you
 ```
 
 - creates a minimal set of files for an installable package
@@ -181,7 +223,7 @@ create_package("../foofactors") # set the path to suit you
 
 
 
-## Create package (your turn)
+## Create package (your turn) {.smaller}
 
 ::: {.teach-left}
 
@@ -226,7 +268,7 @@ knitr::include_graphics("img/img-nouns/create-framework.png")
 
 ---
 
-## Create framework (your turn)
+## Make package a git repo (your turn)
 
 ::: {.teach-left}
 ```r
@@ -251,7 +293,7 @@ use_git()
 
 ---
 
-## Create framework (your turn)
+## Make package a git repo (your turn)
 
 ::: {.teach-left}
 you will get some messages sort of like this:
@@ -260,7 +302,7 @@ you will get some messages sort of like this:
 
 
 ```{.r style="font-size: 0.6em;"}
-✔ Setting active project to "/Users/amcnamara2/hmm".
+✔ Setting active project to "/Users/amcnamara2/BLT".
 ✔ Initialising Git repo.
 ✔ Adding ".Rproj.user", ".Rhistory", ".Rdata", ".httr-oauth",
   ".DS_Store", and ".quarto" to .gitignore.
@@ -268,7 +310,7 @@ you will get some messages sort of like this:
 • .gitignore
 • .Rbuildignore
 • DESCRIPTION
-• hmm.Rproj
+• BLT.Rproj
 • man/
 • NAMESPACE
 • R/
@@ -280,6 +322,8 @@ you will get some messages sort of like this:
 ```
 
 The specific language and order of items will change over time, to make it harder to make mistakes! 
+
+Choose the option that means yes!
 
 ::: 
 
@@ -327,7 +371,7 @@ use_github()
 
 ---
 
-## Create framework (your turn)
+## Create framework (your turn) {.smaller}
 
 ::: {.teach-left}
 
@@ -410,9 +454,11 @@ knitr::include_graphics("img/img-nouns/develop.png")
 
 ## Develop (your turn) {.smaller}
 
+There's a **`usethis`** helper for adding `.R` files!
+
 ::: {.teach-left}
 ```r
-use_r("fbind")
+usethis::use_r("AR1")
 ```
 
 I like the idea of documenting, then writing **functions**:
@@ -424,7 +470,7 @@ I like the idea of documenting, then writing **functions**:
 Start by writing a shell for the function:
 
 ```r
-fbind <- function(a, b) {
+AR1 <- function(a, b) {
   
 }
 ```
@@ -453,21 +499,19 @@ fbind <- function(a, b) {
 Complete the documentation:
 
 ```r
-#' Concatenate factors, including levels
+#' Convenience function to make first-order autoregressive model
 #'
-#' Concatenates two factors with two differerent sets of levels, returning
-#' a factor with levels that are the union of the input factors' levels.
+#' Wrapper around forecast::Arima 
 #
-#' @param a `factor`
-#' @param b `factor`
+#' @param y a univariate time series of class `ts`
 #'
-#' @return `factor`, concatenation of `a` and `b`
+#' @returns See the arima function in the stats package
 #' @export
 #'
 #' @examples
-#' fbind(iris$Species, Puromycin$state)
+#'  (AR1(LakeHuron))
 #'
-fbind <- function(a, b) {
+AR1 <- function(y) {
 
 }
 ```
@@ -489,22 +533,20 @@ fbind <- function(a, b) {
 Write the function body:
 
 ```r
-#' Concatenate factors, including levels
+#' Convenience function to make first-order autoregressive model
 #'
-#' Concatenates two factors with two differerent sets of levels, returning
-#' a factor with levels that are the union of the input factors' levels.
+#' Wrapper around forecast::Arima 
 #
-#' @param a `factor`
-#' @param b `factor`
+#' @param y a univariate time series of class `ts`
 #'
-#' @return `factor`, concatenation of `a` and `b`
+#' @returns See the arima function in the stats package
 #' @export
 #'
 #' @examples
-#' fbind(iris$Species, Puromycin$state)
+#'  (AR1(LakeHuron))
 #'
-fbind <- function(a, b) {
-  forcats::fct_c(a, b)
+AR1 <- function(y) {
+  forecast::Arima(y, order = c(1, 0, 0), include.constant = TRUE)
 }
 ```
 :::
@@ -516,6 +558,8 @@ fbind <- function(a, b) {
 ```
 :::
 
+The file R/strsplit1.R should NOT contain any of the other top-level code we have recently executed, such as the definition of our practice input x, library(devtools), or use_git(). This foreshadows an adjustment you’ll need to make as you transition from writing R scripts to R packages. Packages and scripts use different mechanisms to declare their dependency on other packages and to store example or test code.
+
 ---
 
 ## Develop (your turn)
@@ -523,20 +567,15 @@ fbind <- function(a, b) {
 ::: {.teach-left}
 
 ```r
-forcats::fct_c(a, b)
+forecast::Arima(y)
 ```
 
-`r emo::ji("point_up")` Use this notation to be explicit about where R looks for the function `fct_c()`.
+`r emo::ji("point_up")` Use this notation to be explicit about where R looks for the function `Arima()`.
+
 
 ----
 
-Making a pull-request into someone else's project, write code using their style.
-
-- look for `CONTRIBUTING.md` 
-
-----
-
-`r emo::ji("floppy_disk")` Save `fbind.R`.
+`r emo::ji("floppy_disk")` Save `AR1.R`.
 
 ```r
 document()
@@ -561,10 +600,10 @@ check()
 ::: {.teach-left}
 
 ```r
-use_package("forcats")
+use_package("forecast")
 ```
 
-We need to specify that *our* package will use the **forcats** package:
+We need to specify that *our* package will use the **forecast** package:
 
 - indicate a stronger reliance using `Imports` (default)
 
@@ -631,13 +670,23 @@ Save a copy of this file:
 
 [fix_for_networked_drives.R](https://forwards.github.io/workshops/package-dev-modules/slides/03-your-first-package/fix_for_networked_drives.R)
 
-Save it somewhere other than the `ussie` directory
+Save it somewhere other than the `BLT` directory
 
-Open the file from the `ussie` project session
+Open the file from the `BLT` project session
 
 Run the whole file
 
 You should now find that `check()` proceeds normally
+
+## Experiment
+
+Try out the `AR1()` function in the console.
+
+. . .
+
+```{r, eval=FALSE}
+AR1(tomatoes$value)
+```
 
 ## Documentation
 
