@@ -32,7 +32,7 @@
     "href": "index.html",
     "title": "Building, testing, designing",
     "section": "",
-    "text": "Materials for the Federal Reserve training August 10-17 Topics: Package building, automated testing, designing code\nBroad schedule:\n\nAugust 10th\n\n9-10 am intro, review\n10 am - 12 pm package dev\n12-1 pm lunch break\n1-4 pm class\n\nAugust 11th\n\n9 am - 12 pm class\n\nAugust 17th\n\n9 am - 12 pm class\n12-1 pm lunch break\n1-4 pm class"
+    "text": "Materials for the Federal Reserve training August 10-17 Topics: Package building, automated testing, designing code\nBroad schedule\n\nAugust 10th\n\n9-10 am intro, review\n10 am - 12 pm package dev\n12-1 pm lunch break\n1-4 pm more package dev\n\nAugust 11th\n\n9 am - 12 pm documentation\n\nAugust 17th\n\n9 am - 12 pm testing\n12-1 pm lunch break\n1-4 pm design"
   },
   {
     "objectID": "design.html#naming-functions",

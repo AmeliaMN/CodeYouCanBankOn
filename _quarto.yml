@@ -19,10 +19,12 @@ website:
         - text: "Package devopment"
           href: package-dev.html
         - text: ---
-        - text: Testing
+        - text: "Documentation"
+          href: documentation.html
+        - text: "Testing"
           href: testing.html
         - text: ---
-        - text: Design
+        - text: "Design"
           href: design.html
 
 
