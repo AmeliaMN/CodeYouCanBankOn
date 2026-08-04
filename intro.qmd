@@ -1,17 +1,33 @@
 ---
-title: "Intro"
-format: revealjs
+title: "💻 🏦 <br>Code You Can Bank On "
+subtitle: "Introduction, workflow, setup"
+author: "Amelia McNamara"
 editor: source
+format: 
+  revealjs:
+    theme: [dracula, extra.scss]
+    slide-number: true
+    height: 900
+    width: 1600
+execute:
+  echo: true
+  eval: false
+editor_options: 
+  chunk_output_type: console
 ---
 
 ## About me
 
-Blah
+I'm an Associate Professor of data science at the University of St. Thomas, and a proud R-lady. I've taught a ton of workshops like this over the years, from Software Carpentry to rstudio::conf to NICAR and everything in between. 
 
-Materials modified from 
+\
 
-- [Building tidy tools](https://github.com/rstudio-conf-2022/build-tidy-tools) by Emma Rand and Ian Lyttle. 
-- [uncoast::unconf](https://github.com/uncoast-unconf/uu-2019-day-zero) by Ian Lyttle, Amelia McNamara, Haley Jeppson, and Yihui Xie.
+The materials you'll be seeing from me have been modified from a number of sources, including:
+
+- [Building tidy tools](https://github.com/rstudio-conf-2022/build-tidy-tools) workshop, Emma Rand and Ian Lyttle. 
+- [uncoast::unconf](https://github.com/uncoast-unconf/uu-2019-day-zero) workshop, Ian Lyttle, Amelia McNamara, Haley Jeppson, and Yihui Xie.
+- [R packages](https://r-pkgs.org/) book, by Hadley Wickham and Jenny Bryan.
+- ... and likely many more things that I will reference throughout. 
 
 ---
 
@@ -50,17 +66,30 @@ I am assuming you have a baseline familiarity with
 ## Catch up
 I'll do a little bit of review of each of those topics, but if they are totally new to you, here is some background reading to help you get caught up. 
 
+:::: {.columns}
+
+::: {.column width="60%"}
 - R as a language
+  - [What is R?](https://fg2re.sellorm.com/whatisr.html)
+  - [How to use R](https://learn.r-journalism.com/en/how_to_use_r/)
+  - [R cookbook](https://rc2e.com/)
 - Writing functions
-  - DRY
+  - [DRY](https://www.geeksforgeeks.org/software-engineering/dont-repeat-yourselfdry-in-software-development/)
   - [Functions](https://r4ds.hadley.nz/functions.html) chapter of R for Data Science
   - [What makes a good function?](https://www.youtube.com/watch?v=Qne86lxjgtg), Hadley Wickham
   - Nick Tierney's [Practical Functions, Practically Magic](https://github.com/njtierney/talk-funfun-slc)
+:::
+
+::: {.column width="40%"}
 - Markdown
   - [RMarkdown](https://r4ds.had.co.nz/r-markdown.html) (mostly deprecated at this point)
   - [Quarto](https://r4ds.hadley.nz/quarto.html)
   - [Markdown](https://daringfireball.net/projects/markdown/syntax)
 - [git](https://happygitwithr.com/big-picture)/[Github](https://happygitwithr.com/usage-intro)
+
+:::
+
+::::
 
 ## Packages
 
@@ -78,14 +107,25 @@ install.packages(c("fredr", "roxygen2", "testthat", "usethis"))
 - File organization
 - [tidyverse design principles](https://design.tidyverse.org/)
 
-## Starting from a blank slate
+## Starting from a blank slate 
 
 We're going to strive not to be data-hoarders
 
-![](img/SaveAsk.png)
+:::: {.columns}
+
+::: {.column width="60%"}
+![](img/SaveAsk.png){height="20%"}
+:::
+
+
+::: {.column width="40%"}
 Restore .RData into workspace at startup: unchecked
 
 Save workspace to .RData on exit: Never
+
+:::
+
+::::
 
 ## Relative paths
 
@@ -100,11 +140,48 @@ rather than
 ```
     /Users/myUserName/Documents/Project/Data/InputData/some_file.csv
 ```
-## File organization
+## File organization {.smaller}
 
-The TIER Protocol is one suggested organizational method
+The [TIER Protocol](https://www.projecttier.org/tier-protocol/protocol-4-0/) is one suggested organizational method
 
-![](img/TIER_protocol.jpg)
+:::: {.columns}
+
+::: {.column width="50%"}
+
+![](img/TIER_protocol.jpg){width=50%}
+
+:::
+
+
+::: {.column width="50%"}
+
+- Project/
+  - The Read Me File 
+  - The Report 
+  - Data/
+      - InputData/
+        - Input Data Files
+        - Metadata/
+          - Data Sources Guide
+          - Codebooks
+      - AnalysisData/
+        - Analysis Data Files
+        - The Data Appendix
+      - IntermediateData/
+   - Scripts/
+      - ProcessingScripts/
+      - DataAppendixScripts/
+      - AnalysisScripts/
+      - The Master Script
+   - Output/
+      - DataAppendixOutput
+      - Results
+
+
+:::
+
+::::
+
 
 ## Naming things
 
@@ -275,3 +352,6 @@ I'd also like data on the average price of bacon (sliced), and iceberg lettuce. 
 - [Code "smells" and feels](https://www.youtube.com/watch?v=7oyiPBjLAWY), Jenny Bryan
 - [R for Data Science](https://r4ds.hadley.nz/), Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. 
 - [R packages](https://r-pkgs.org/), Hadley Wickham and Jenny Bryan. 
+
+- [Evaluating the Design of the R Language](https://janvitek.org/pubs/ecoop12.pdf) This is for my computer scientists who want the nitty-gritty about R as a language
+- [Advanced R](https://adv-r.hadley.nz/)

@@ -1,3 +1,24 @@
+/*-- scss:defaults --*/
+
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap);
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Source+Code+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300&display=swap');
+
+
+// fonts
+$font-family-sans-serif: "Lexend";
+$header-font-family: "Lexend";
+$font-family-monospace: "Source Code Pro";
+
+// headings
+$presentation-heading-font: "Open Sans", !default;
+$presentation-heading-color: #EE9AD9 !default; // light pink text
+$presentation-font-size-root:	42px;
+
+$code-block-font-size: 0.80em;
+
+
 /*-- scss:rules --*/
 
 .teach-left {

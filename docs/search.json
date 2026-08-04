@@ -261,177 +261,177 @@
   {
     "objectID": "intro.html#about-me",
     "href": "intro.html#about-me",
-    "title": "Intro",
+    "title": "💻 🏦 Code You Can Bank On",
     "section": "About me",
-    "text": "About me\nBlah\nMaterials modified from\n\nBuilding tidy tools by Emma Rand and Ian Lyttle.\nuncoast::unconf by Ian Lyttle, Amelia McNamara, Haley Jeppson, and Yihui Xie."
+    "text": "About me\nI’m an Associate Professor of data science at the University of St. Thomas, and a proud R-lady. I’ve taught a ton of workshops like this over the years, from Software Carpentry to rstudio::conf to NICAR and everything in between.\n\n\nThe materials you’ll be seeing from me have been modified from a number of sources, including:\n\nBuilding tidy tools workshop, Emma Rand and Ian Lyttle.\nuncoast::unconf workshop, Ian Lyttle, Amelia McNamara, Haley Jeppson, and Yihui Xie.\nR packages book, by Hadley Wickham and Jenny Bryan.\n… and likely many more things that I will reference throughout."
   },
   {
     "objectID": "intro.html#everything-i-know-is-from-jenny-bryan",
     "href": "intro.html#everything-i-know-is-from-jenny-bryan",
-    "title": "Intro",
+    "title": "💻 🏦 Code You Can Bank On",
     "section": "“Everything I know is from Jenny Bryan”",
     "text": "“Everything I know is from Jenny Bryan”\n\n\n mytwitterarchive\n\n EIKSFJB hex sticker"
   },
   {
     "objectID": "intro.html#prerequisite-knowledge",
     "href": "intro.html#prerequisite-knowledge",
-    "title": "Intro",
+    "title": "💻 🏦 Code You Can Bank On",
     "section": "Prerequisite knowledge",
     "text": "Prerequisite knowledge\nI am assuming you have a baseline familiarity with\n\nR as a language\nWriting functions\nMarkdown (RMarkdown/Quarto/plain Markdown)\ngit/GitHub"
   },
   {
     "objectID": "intro.html#catch-up",
     "href": "intro.html#catch-up",
-    "title": "Intro",
+    "title": "💻 🏦 Code You Can Bank On",
     "section": "Catch up",
-    "text": "Catch up\nI’ll do a little bit of review of each of those topics, but if they are totally new to you, here is some background reading to help you get caught up.\n\nR as a language\nWriting functions\n\nDRY\nFunctions chapter of R for Data Science\nWhat makes a good function?, Hadley Wickham\nNick Tierney’s Practical Functions, Practically Magic\n\nMarkdown\n\nRMarkdown (mostly deprecated at this point)\nQuarto\nMarkdown\n\ngit/Github"
+    "text": "Catch up\nI’ll do a little bit of review of each of those topics, but if they are totally new to you, here is some background reading to help you get caught up.\n\n\n\nR as a language\n\nWhat is R?\nHow to use R\nR cookbook\n\nWriting functions\n\nDRY\nFunctions chapter of R for Data Science\nWhat makes a good function?, Hadley Wickham\nNick Tierney’s Practical Functions, Practically Magic\n\n\n\n\nMarkdown\n\nRMarkdown (mostly deprecated at this point)\nQuarto\nMarkdown\n\ngit/Github"
   },
   {
     "objectID": "intro.html#packages",
     "href": "intro.html#packages",
-    "title": "Intro",
+    "title": "💻 🏦 Code You Can Bank On",
     "section": "Packages",
     "text": "Packages\nWe’re going to be using the following packages, so make sure they are installed!\n\ninstall.packages(c(\"fredr\", \"roxygen2\", \"testthat\", \"usethis\"))"
   },
   {
     "objectID": "intro.html#workflow",
     "href": "intro.html#workflow",
-    "title": "Intro",
+    "title": "💻 🏦 Code You Can Bank On",
     "section": "Workflow",
     "text": "Workflow\n\nStarting from a blank slate\nRelative paths\nFile organization\ntidyverse design principles"
   },
   {
     "objectID": "intro.html#starting-from-a-blank-slate",
     "href": "intro.html#starting-from-a-blank-slate",
-    "title": "Intro",
+    "title": "💻 🏦 Code You Can Bank On",
     "section": "Starting from a blank slate",
-    "text": "Starting from a blank slate\nWe’re going to strive not to be data-hoarders\n Restore .RData into workspace at startup: unchecked\nSave workspace to .RData on exit: Never"
+    "text": "Starting from a blank slate\nWe’re going to strive not to be data-hoarders\n\n\n\n\nRestore .RData into workspace at startup: unchecked\nSave workspace to .RData on exit: Never"
   },
   {
     "objectID": "intro.html#relative-paths",
     "href": "intro.html#relative-paths",
-    "title": "Intro",
+    "title": "💻 🏦 Code You Can Bank On",
     "section": "Relative paths",
     "text": "Relative paths\n\nFiles should be stored in folders (also called directories) in some intelligible way, and any references to files should be “relative” rather than “absolute” paths. e.g.,\n\n    ../Data/InputData/some_file.csv, \nrather than\n    /Users/myUserName/Documents/Project/Data/InputData/some_file.csv"
   },
   {
     "objectID": "intro.html#file-organization",
     "href": "intro.html#file-organization",
-    "title": "Intro",
+    "title": "💻 🏦 Code You Can Bank On",
     "section": "File organization",
-    "text": "File organization\nThe TIER Protocol is one suggested organizational method"
+    "text": "File organization\nThe TIER Protocol is one suggested organizational method\n\n\n\n\n\nProject/\n\nThe Read Me File\nThe Report\nData/\n\nInputData/\n\nInput Data Files\nMetadata/\n\nData Sources Guide\nCodebooks\n\n\nAnalysisData/\n\nAnalysis Data Files\nThe Data Appendix\n\nIntermediateData/\n\nScripts/\n\nProcessingScripts/\nDataAppendixScripts/\nAnalysisScripts/\nThe Master Script\n\nOutput/\n\nDataAppendixOutput\nResults"
   },
   {
     "objectID": "intro.html#naming-things",
     "href": "intro.html#naming-things",
-    "title": "Intro",
+    "title": "💻 🏦 Code You Can Bank On",
     "section": "Naming things",
     "text": "Naming things\nYou need to name your files. Names should strive to be:\n\nmachine readable\nhuman readable\nuseful with default ordering"
   },
   {
     "objectID": "intro.html#naming-things-1",
     "href": "intro.html#naming-things-1",
-    "title": "Intro",
+    "title": "💻 🏦 Code You Can Bank On",
     "section": "Naming things",
     "text": "Naming things\nNO\n\nmy abstract.docx\nJoe’s Filenames Use Spaces and Punctuation.xlsx\nfigure I.png\nfig 2.png\nJW&^(2sl@deletethisandyourcareerisoverWx2*.txt\n\nYES\n\n2014-06-08_abstract-for-sla.docx\njoes-filenames-are-getting-better.xlsx\nfig01_scatterplot-talk-length-vs-interest.png\nfig02_histogram-talk-attendance.png\n1986-01-28_raw-data-from-challenger-o-rings.txt\n\nVia Jenny Bryan"
   },
   {
     "objectID": "intro.html#set-up-your-.rprofile",
     "href": "intro.html#set-up-your-.rprofile",
-    "title": "Intro",
+    "title": "💻 🏦 Code You Can Bank On",
     "section": "Set up your .Rprofile",
-    "text": "Set up your .Rprofile\nThe usethis package allows you to add default information about you that will be used in package development.\n\n\nEdit your .Rprofile with usethis::edit_r_profile:\n\n\n\nto set the following options…."
+    "text": "Set up your .Rprofile\nThe usethis package allows you to add default information about you that will be used in package development.\n\n\nEdit your .Rprofile with usethis::edit_r_profile:\n\n\nusethis::edit_r_profile()\n\n\n\nto set the following options…."
   },
   {
     "objectID": "intro.html#set-up-your-.rprofile-1",
     "href": "intro.html#set-up-your-.rprofile-1",
-    "title": "Intro",
+    "title": "💻 🏦 Code You Can Bank On",
     "section": "Set up your .Rprofile",
-    "text": "Set up your .Rprofile"
+    "text": "Set up your .Rprofile\n\noptions(\n  usethis.full_name = \"Amelia McNamara\",\n  usethis.description = list(\n    `Authors@R` = 'person(\"Amelia\", \"McNamara\",\n          email = \"amelia.mcnamara@stthomas.edu\",\n          role = c(\"aut\", \"cre\"))'\n  )\n)"
   },
   {
     "objectID": "intro.html#set-up-your-.rprofile-2",
     "href": "intro.html#set-up-your-.rprofile-2",
-    "title": "Intro",
+    "title": "💻 🏦 Code You Can Bank On",
     "section": "Set up your .Rprofile",
-    "text": "Set up your .Rprofile\nLoad devtools and testthat on start up\n\n\n\n\nRestart R for these to take an effect."
+    "text": "Set up your .Rprofile\nLoad devtools and testthat on start up\n\n\n\nif (interactive()) {\n  suppressMessages(require(devtools))\n  suppressMessages(require(testthat))\n}\n\n\n\nRestart R for these to take an effect."
   },
   {
     "objectID": "intro.html#functions",
     "href": "intro.html#functions",
-    "title": "Intro",
+    "title": "💻 🏦 Code You Can Bank On",
     "section": "Functions",
     "text": "Functions"
   },
   {
     "objectID": "intro.html#grabbing-some-data",
     "href": "intro.html#grabbing-some-data",
-    "title": "Intro",
+    "title": "💻 🏦 Code You Can Bank On",
     "section": "Grabbing some data",
-    "text": "Grabbing some data\nWe’re going to be using some data from FRED as we work, so we need to go get it first.\nThis package makes it easier to get FRED data, but it does require an API key. Request an API key"
+    "text": "Grabbing some data\nWe’re going to be using some data from FRED as we work, so we need to go get it first.\n\nlibrary(fredr)\n\nThis package makes it easier to get FRED data, but it does require an API key. Request an API key"
   },
   {
     "objectID": "intro.html#fred",
     "href": "intro.html#fred",
-    "title": "Intro",
+    "title": "💻 🏦 Code You Can Bank On",
     "section": "FRED",
     "text": "FRED"
   },
   {
     "objectID": "intro.html#fred-1",
     "href": "intro.html#fred-1",
-    "title": "Intro",
+    "title": "💻 🏦 Code You Can Bank On",
     "section": "FRED",
     "text": "FRED"
   },
   {
     "objectID": "intro.html#adding-api-key-to-renviron",
     "href": "intro.html#adding-api-key-to-renviron",
-    "title": "Intro",
+    "title": "💻 🏦 Code You Can Bank On",
     "section": "Adding API key to Renviron",
     "text": "Adding API key to Renviron\n\nusethis::edit_r_environ()\n\nadd your API key like this (replace with your own key)\nFRED_API_KEY='abcdefghijklmnopqrstuvwxyz123456'\n\n\nSave .Renviron\nRestart R"
   },
   {
     "objectID": "intro.html#tomato-prices",
     "href": "intro.html#tomato-prices",
-    "title": "Intro",
+    "title": "💻 🏦 Code You Can Bank On",
     "section": "Tomato prices",
     "text": "Tomato prices\nFrom FRED\n\nlibrary(fredr)\ntomatoes &lt;- fredr(\n  series_id = \"APU0000712311\",\n  observation_start = as.Date(\"2016-08-01\"),\n  observation_end = as.Date(\"2026-08-10\")\n)"
   },
   {
     "objectID": "intro.html#save-the-data-your-turn",
     "href": "intro.html#save-the-data-your-turn",
-    "title": "Intro",
+    "title": "💻 🏦 Code You Can Bank On",
     "section": "Save the data (your turn)",
     "text": "Save the data (your turn)\nWe’d rather not be using the API every time we want to play with this data, so let’s save it as a local CSV.\n\nreadr::write_csv(tomatoes, \"tomatoes.csv\")"
   },
   {
     "objectID": "intro.html#read-the-data-back-in-your-turn",
     "href": "intro.html#read-the-data-back-in-your-turn",
-    "title": "Intro",
+    "title": "💻 🏦 Code You Can Bank On",
     "section": "Read the data back in (your turn)",
     "text": "Read the data back in (your turn)\nWhen I save out data, I always do a quick test to make sure I did it right!\n\ntomatoes2 &lt;- readr::read_csv(\"tomatoes.csv\")\n\nLooks good!"
   },
   {
     "objectID": "intro.html#make-a-plot-your-turn",
     "href": "intro.html#make-a-plot-your-turn",
-    "title": "Intro",
+    "title": "💻 🏦 Code You Can Bank On",
     "section": "Make a plot (your turn)",
     "text": "Make a plot (your turn)"
   },
   {
     "objectID": "intro.html#getting-a-little-more-data-your-turn",
     "href": "intro.html#getting-a-little-more-data-your-turn",
-    "title": "Intro",
+    "title": "💻 🏦 Code You Can Bank On",
     "section": "Getting a little more data (your turn)",
     "text": "Getting a little more data (your turn)\nI’d also like data on the average price of bacon (sliced), and iceberg lettuce. Can you find those API endpoints and grab the data for the past ten years on them?"
   },
   {
     "objectID": "intro.html#resources",
     "href": "intro.html#resources",
-    "title": "Intro",
+    "title": "💻 🏦 Code You Can Bank On",
     "section": "Resources",
-    "text": "Resources\n\nHappy git and GitHub for the useR, Jenny Bryan, the STAT 545 TAs, Jim Hester.\nWhat They Forgot to Teach You About R, Jennifer Bryan, Jim Hester, Shannon Pileggi, E. David Aja.\nObject of type ‘closure’ is not subsettable, Jenny Bryan. rstudio::conf video, slides\nCode “smells” and feels, Jenny Bryan\nR for Data Science, Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund.\nR packages, Hadley Wickham and Jenny Bryan."
+    "text": "Resources\n\nHappy git and GitHub for the useR, Jenny Bryan, the STAT 545 TAs, Jim Hester.\nWhat They Forgot to Teach You About R, Jennifer Bryan, Jim Hester, Shannon Pileggi, E. David Aja.\nObject of type ‘closure’ is not subsettable, Jenny Bryan. rstudio::conf video, slides\nCode “smells” and feels, Jenny Bryan\nR for Data Science, Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund.\nR packages, Hadley Wickham and Jenny Bryan.\nEvaluating the Design of the R Language This is for my computer scientists who want the nitty-gritty about R as a language\nAdvanced R"
   },
   {
     "objectID": "LICENSE.html#creative-commons-attribution-sharealike-4.0-international-public-license",
@@ -1300,5 +1300,40 @@
     "title": "Package development",
     "section": "Package states",
     "text": "Package states\nMaybe too much for this?\nGood reference"
+  },
+  {
+    "objectID": "package-dev.html#adding-data-to-packages",
+    "href": "package-dev.html#adding-data-to-packages",
+    "title": "Package development",
+    "section": "Adding data to packages",
+    "text": "Adding data to packages\nMany packages come with example datasets bundled with them. There are many reasons for this, but the most salient is that if you include your own dataset you know it has exactly the features you need for examples and testing.\nThe most common location for package data is data/. We recommend that each file in this directory be an .rda file created by save() containing a single R object, with the same name as the file.\nOf course, usethis has a helper function for this, usethis::use_data()."
+  },
+  {
+    "objectID": "package-dev.html#adding-data-to-packages-your-turn",
+    "href": "package-dev.html#adding-data-to-packages-your-turn",
+    "title": "Package development",
+    "section": "Adding data to packages (your turn)",
+    "text": "Adding data to packages (your turn)\nAdd the bacon data to the package,\n\nusethis::use_data(bacon)\n\n✔ Adding R to Depends field in DESCRIPTION.\n✔ Creating data/.\n✔ Setting LazyData to \"true\" in DESCRIPTION.\n✔ Saving \"bacon\" to \"data/bacon.rda\".\n☐ Document your data (see &lt;https://r-pkgs.org/data.html&gt;)."
+  },
+  {
+    "objectID": "package-dev.html#documenting-data",
+    "href": "package-dev.html#documenting-data",
+    "title": "Package development",
+    "section": "Documenting data",
+    "text": "Documenting data\nData gets documented in the data.R file. How can we create and open this file for editing?\n\n\ndevtools::use_r(\"data\")\n\nUnfortunately, the trick to insert Roxygen skeleton doesn’t work with data, so we have to do the documentation more manually."
+  },
+  {
+    "objectID": "package-dev.html#documenting-data-1",
+    "href": "package-dev.html#documenting-data-1",
+    "title": "Package development",
+    "section": "Documenting data",
+    "text": "Documenting data\nHere’s what the who documentation in tidyr looks like\n#' World Health Organization TB data\n#'\n#' A subset of data from the World Health Organization Global Tuberculosis\n#' Report ...\n#'\n#' @format ## `who`\n#' A data frame with 7,240 rows and 60 columns:\n#' \\describe{\n#'   \\item{country}{Country name}\n#'   \\item{iso2, iso3}{2 & 3 letter ISO country codes}\n#'   \\item{year}{Year}\n#'   ...\n#' }\n#' @source &lt;https://www.who.int/teams/global-tuberculosis-programme/data&gt;\n\"who\""
+  },
+  {
+    "objectID": "package-dev.html#data-in-packages",
+    "href": "package-dev.html#data-in-packages",
+    "title": "Package development",
+    "section": "Data in packages",
+    "text": "Data in packages\nThere is a lot more detail specific to including data in packages. Sometimes you want to include raw data, sometimes you need data only available to the package and not the user, etc. There is much more detail in the R packages book."
   }
 ]

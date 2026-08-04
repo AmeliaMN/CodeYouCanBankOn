@@ -3,7 +3,7 @@ title: "Documentation"
 editor: source
 format:
   revealjs: 
-    theme: [default, extra.scss]
+    theme: [dracula, extra.scss]
     height: 900
     width: 1600
 execute:

@@ -3,7 +3,8 @@ title: "Package development"
 editor: source
 format: 
   revealjs:
-    theme: [default, extra.scss]
+    theme: [dracula, extra.scss]
+    slide-number: true
     height: 900
     width: 1600
 execute:
@@ -687,6 +688,68 @@ Try out the `AR1()` function in the console.
 ```{r, eval=FALSE}
 AR1(tomatoes$value)
 ```
+
+## Adding data to packages
+
+Many packages come with example datasets bundled with them. There are many reasons for this, but the most salient is that if you include your own dataset you know it has exactly the features you need for examples and testing. 
+
+The most common location for package data is `data/`. We recommend that each file in this directory be an `.rda` file created by `save()` containing a single R object, with the same name as the file. 
+
+Of course, `usethis` has a helper function for this, `usethis::use_data()`.
+
+## Adding data to packages (your turn)
+
+Add the bacon data to the package,
+
+```{r}
+usethis::use_data(bacon)
+```
+
+```
+✔ Adding R to Depends field in DESCRIPTION.
+✔ Creating data/.
+✔ Setting LazyData to "true" in DESCRIPTION.
+✔ Saving "bacon" to "data/bacon.rda".
+☐ Document your data (see <https://r-pkgs.org/data.html>).
+```
+
+## Documenting data
+
+Data gets documented in the data.R file. How can we create and open this file for editing?
+
+. . .
+
+```{r}
+devtools::use_r("data")
+```
+
+Unfortunately, the trick to insert Roxygen skeleton doesn't work with data, so we have to do the documentation more manually. 
+
+## Documenting data
+
+Here's what the `who` documentation in `tidyr` looks like
+
+```
+#' World Health Organization TB data
+#'
+#' A subset of data from the World Health Organization Global Tuberculosis
+#' Report ...
+#'
+#' @format ## `who`
+#' A data frame with 7,240 rows and 60 columns:
+#' \describe{
+#'   \item{country}{Country name}
+#'   \item{iso2, iso3}{2 & 3 letter ISO country codes}
+#'   \item{year}{Year}
+#'   ...
+#' }
+#' @source <https://www.who.int/teams/global-tuberculosis-programme/data>
+"who"
+```
+
+## Data in packages
+
+There is a lot more detail specific to including data in packages. Sometimes you want to include raw data, sometimes you need data only available to the package and not the user, etc. There is much more detail in the [R packages](https://r-pkgs.org/data.html) book. 
 
 ## Documentation
 
