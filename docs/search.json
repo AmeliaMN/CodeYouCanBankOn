@@ -18,14 +18,14 @@
     "href": "prereqs.html#background",
     "title": "Prereqs",
     "section": "Background",
-    "text": "Background\nI am assuming you have a baseline familiarity with\n\nR as a language\nWriting functions\nMarkdown (RMarkdown/Quarto/plain Markdown)\ngit/GitHub"
+    "text": "Background\nI am assuming you have a baseline familiarity with\n\nR as a language\nWriting functions\nMarkdown (RMarkdown/Quarto/plain Markdown)\ngit"
   },
   {
     "objectID": "prereqs.html#catch-up",
     "href": "prereqs.html#catch-up",
     "title": "Prereqs",
     "section": "Catch up",
-    "text": "Catch up\nI’ll do a little bit of review of each of those topics, but if they are totally new to you, here is some background reading to help you get caught up.\n\nR as a language\nWriting functions\n\nDRY\nFunctions chapter of R for Data Science\nWhat makes a good function?, Hadley Wickham\nNick Tierney’s Practical Functions, Practically Magic\n\nMarkdown\n\nRMarkdown (mostly deprecated at this point)\nQuarto\nMarkdown\n\ngit/Github"
+    "text": "Catch up\nI’ll do a little bit of review of each of those topics, but if they are totally new to you, here is some background reading to help you get caught up.\n\nR as a language\n\nWhat is R?\nHow to use R\nR cookbook\n\nWriting functions\n\nDRY\nFunctions chapter of R for Data Science\nWhat makes a good function?, Hadley Wickham\nNick Tierney’s Practical Functions, Practically Magic\n\nMarkdown\n\nRMarkdown (mostly deprecated at this point)\nQuarto\nMarkdown\n\ngit"
   },
   {
     "objectID": "index.html",
@@ -334,6 +334,13 @@
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Naming things",
     "text": "Naming things\nNO\n\nmy abstract.docx\nJoe’s Filenames Use Spaces and Punctuation.xlsx\nfigure I.png\nfig 2.png\nJW&^(2sl@deletethisandyourcareerisoverWx2*.txt\n\nYES\n\n2014-06-08_abstract-for-sla.docx\njoes-filenames-are-getting-better.xlsx\nfig01_scatterplot-talk-length-vs-interest.png\nfig02_histogram-talk-attendance.png\n1986-01-28_raw-data-from-challenger-o-rings.txt\n\nVia Jenny Bryan"
+  },
+  {
+    "objectID": "intro.html#naming-functions-and-objects",
+    "href": "intro.html#naming-functions-and-objects",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Naming functions and objects",
+    "text": "Naming functions and objects"
   },
   {
     "objectID": "intro.html#set-up-your-.rprofile",
@@ -1288,20 +1295,6 @@
     "text": "Experiment\nTry out the AR1() function in the console.\n\n\nAR1(tomatoes$value)"
   },
   {
-    "objectID": "package-dev.html#documentation",
-    "href": "package-dev.html#documentation",
-    "title": "Package development",
-    "section": "Documentation",
-    "text": "Documentation\npkgdown"
-  },
-  {
-    "objectID": "package-dev.html#package-states",
-    "href": "package-dev.html#package-states",
-    "title": "Package development",
-    "section": "Package states",
-    "text": "Package states\nMaybe too much for this?\nGood reference"
-  },
-  {
     "objectID": "package-dev.html#adding-data-to-packages",
     "href": "package-dev.html#adding-data-to-packages",
     "title": "Package development",
@@ -1335,5 +1328,19 @@
     "title": "Package development",
     "section": "Data in packages",
     "text": "Data in packages\nThere is a lot more detail specific to including data in packages. Sometimes you want to include raw data, sometimes you need data only available to the package and not the user, etc. There is much more detail in the R packages book."
+  },
+  {
+    "objectID": "package-dev.html#documentation",
+    "href": "package-dev.html#documentation",
+    "title": "Package development",
+    "section": "Documentation",
+    "text": "Documentation\npkgdown"
+  },
+  {
+    "objectID": "package-dev.html#package-states",
+    "href": "package-dev.html#package-states",
+    "title": "Package development",
+    "section": "Package states",
+    "text": "Package states\nMaybe too much for this?\nGood reference"
   }
 ]

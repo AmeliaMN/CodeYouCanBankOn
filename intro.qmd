@@ -212,6 +212,10 @@ YES
   
 Via [Jenny Bryan](https://speakerdeck.com/jennybc/how-to-name-files)
 
+## Naming functions and objects
+
+
+
 ## Set up your `.Rprofile`
 
 The **`usethis`** package allows you to add default information about you that will be used in package development.

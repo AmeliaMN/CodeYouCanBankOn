@@ -26,7 +26,7 @@ I am assuming you have a baseline familiarity with
 - R as a language
 - Writing functions
 - Markdown (RMarkdown/Quarto/plain Markdown)
-- git/GitHub
+- git
 
 ## Catch up
 
@@ -45,4 +45,4 @@ I'll do a little bit of review of each of those topics, but if they are totally 
   - [RMarkdown](https://r4ds.had.co.nz/r-markdown.html) (mostly deprecated at this point)
   - [Quarto](https://r4ds.hadley.nz/quarto.html)
   - [Markdown](https://daringfireball.net/projects/markdown/syntax)
-- [git](https://happygitwithr.com/big-picture)/[Github](https://happygitwithr.com/usage-intro)
+- [git](https://happygitwithr.com/big-picture)
