@@ -9,7 +9,7 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - href: prereq.html
+      - href: prereqs.html
         text: Prereqs
       - text: Materials
         menu:
