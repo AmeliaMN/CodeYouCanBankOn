@@ -9,7 +9,7 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - href: prereqs.html
+      - href: prereqs.qmd
         text: Prereqs
       - text: Materials
         menu:
@@ -17,17 +17,17 @@ website:
         - text: Building packages
         - text: ---
         - text: "Introduction"
-          href: intro.html
+          href: intro.qmd
         - text: "Package devopment"
-          href: package-dev.html
+          href: package-dev.qmd
         - text: ---
         - text: "Documentation"
-          href: documentation.html
+          href: documentation.qmd
         - text: "Testing"
-          href: testing.html
+          href: testing.qmd
         - text: ---
         - text: "Design"
-          href: design.html
+          href: design.qmd
 
 
 format:
