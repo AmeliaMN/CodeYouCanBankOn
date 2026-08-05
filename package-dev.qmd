@@ -1,5 +1,7 @@
 ---
-title: "Package development"
+title: "💻 🏦 <br>Code You Can Bank On"
+subtitle: "Package development"
+author: "Amelia McNamara"
 editor: source
 format: 
   revealjs:
@@ -176,7 +178,7 @@ continued.....
 
 What happens when we run `create_package()`?
 
--   `ussie.Rproj`
+-   `BLT.Rproj`
 
 -   `DESCRIPTION` provides metadata about your package.
 
@@ -657,8 +659,8 @@ devtools::check()
 On running `devtools::check()` you may get an error if you are using a networked drive.
 
 ``` default
-Updating ussie documentation  
-Error: The specified file is not readable: path-to\ussie\NAMESPACE
+Updating BLT documentation  
+Error: The specified file is not readable: path-to\BLT\NAMESPACE
 ```
 
 \

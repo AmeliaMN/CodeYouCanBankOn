@@ -1,5 +1,7 @@
 ---
-title: "Documentation"
+title: "💻 🏦 <br>Code You Can Bank On"
+subtitle: "Documentation"
+author: "Amelia McNamara"
 editor: source
 format:
   revealjs: 
@@ -322,8 +324,8 @@ devtools::document()
 . . .
 
 ``` default
-ℹ Updating ussie documentation
-ℹ Loading ussie
+ℹ Updating BLT documentation
+ℹ Loading BLT
 Writing NAMESPACE
 Writing uss_make_matches.Rd
 Warning message:
@@ -345,7 +347,7 @@ We will that fix later!
 ├── NAMESPACE
 ├── R
 │   └── matches.R
-└── ussie.Rproj
+└── BLT.Rproj
 ```
 
 - `NAMESPACE` now lists the exported function
@@ -405,14 +407,14 @@ We need to add a usage example!
 🎬 What happens if you do:
 
 ```{r}
-?ussie
+?BLT
 ```
 
 . . .
 
 ``` default
-No documentation for 'ussie' in specified packages and libraries:
-you could try '??ussie'
+No documentation for 'BLT' in specified packages and libraries:
+you could try '??BLT'
 ```
 
 ## Package-level help page
@@ -432,15 +434,15 @@ usethis::use_package_doc()
 \
 
 ``` default
-✔ Writing 'R/ussie-package.R'
-• Modify 'R/ussie-package.R'
+✔ Writing 'R/BLT-package.R'
+• Modify 'R/BLT-package.R'
 ```
 
 . . .
 
 \
 
-🎬 Run `devtools::document()` then `devtools::load_all()` followed by `?ussie`
+🎬 Run `devtools::document()` then `devtools::load_all()` followed by `?BLT`
 
 ## Commit and push
 
@@ -466,7 +468,7 @@ devtools::check()
 
 ::: extrasmall
 ``` default
-── R CMD check results ─────────────────────────────────── ussie 0.0.0.9000 ────
+── R CMD check results ─────────────────────────────────── BLT 0.0.0.9000 ────
 Duration: 40.4s
 
 ❯ checking dependencies in R code ... WARNING
@@ -594,7 +596,7 @@ That is, we do NOT use `library(dplyr)` to make functions available to our packa
 ## 
 
 ``` default
-── R CMD check results ─────────── ussie 0.0.0.9000 ────
+── R CMD check results ─────────── BLT 0.0.0.9000 ────
 Duration: 24s
 
 ❯ checking dependencies in R code ... WARNING
@@ -629,7 +631,7 @@ If you are using....
 
 . . .
 
-- a function repeatedly, uses you can avoid `::` by importing the function with `@importFrom pkg fun` in `ussie-package.R`.
+- a function repeatedly, uses you can avoid `::` by importing the function with `@importFrom pkg fun` in `BLT-package.R`.
 
 . . .
 
@@ -660,7 +662,7 @@ usethis::use_import_from("tibble", "tibble")
 which will:
 
 - to add the package to the `DESCRIPTION` imports
-- add `@importFrom tibble tibble` to `ussie-package.R` and `NAMESPACE`
+- add `@importFrom tibble tibble` to `BLT-package.R` and `NAMESPACE`
 - mean we can avoid `::`
 
 ## `@importFrom pkg fun`
@@ -675,9 +677,9 @@ usethis::use_import_from("tibble", "tibble")
 
 ``` default
 ✔ Adding 'tibble' to Imports field in DESCRIPTION
-✔ Adding '@importFrom tibble tibble' to 'R/ussie-package.R'
+✔ Adding '@importFrom tibble tibble' to 'R/BLT-package.R'
 ✔ Writing 'NAMESPACE'
-✔ Loading ussie
+✔ Loading BLT
 ```
 
 ## Suggests

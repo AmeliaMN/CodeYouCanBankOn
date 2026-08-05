@@ -1,5 +1,7 @@
 ---
-title: "Testing"
+title: "💻 🏦 <br>Code You Can Bank On"
+subtitle: "Testing"
+author: "Amelia McNamara"
 editor: source
 format:
   revealjs: 
@@ -182,7 +184,7 @@ Read more about testing in the recently updated chapter in R Packages [@wickham2
 │   ├── testthat
 │   │   └── test-matches.R
 │   └── testthat.R
-└── ussie.Rproj
+└── BLT.Rproj
 ```
 :::
 ::::
@@ -598,8 +600,8 @@ devtools::test()
 
 ::: small
 ``` default
-ℹ Loading ussie
-ℹ Testing ussie
+ℹ Loading BLT
+ℹ Testing BLT
 ✔ | F W S  OK | Context
 ✔ |         1 | matches [0.4s]                                   
 
@@ -672,8 +674,8 @@ devtools::test()
 
 ::: small
 ``` default
-ℹ Loading ussie
-ℹ Testing ussie
+ℹ Loading BLT
+ℹ Testing BLT
 ✔ | F W S  OK | Context
 ✔ |         2 | matches [0.2s]                                                 
 

@@ -1,5 +1,7 @@
 ---
-title: "Function design"
+title: "💻 🏦 <br>Code You Can Bank On"
+subtitle: "Function design"
+author: "Amelia McNamara"
 editor: source
 format:
   revealjs: 
@@ -18,7 +20,7 @@ execute:
 
 If writing a smaller package, consider prefixing your functions:
 
- - {ussie}: `uss_make_matches()`
+ - {BLT}: `BLT_make_matches()`
  
  - {btt22}: `btt_get()`
 
@@ -295,7 +297,7 @@ if (y > 3) {
       x = "{.var y} is {.val {y}}."
     ),
     # class name
-    class = "ussie_error_threshold",  
+    class = "BLT_error_threshold",  
     # more information
     y = y     
   )

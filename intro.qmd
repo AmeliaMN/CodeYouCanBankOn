@@ -1,5 +1,5 @@
 ---
-title: "💻 🏦 <br>Code You Can Bank On "
+title: "💻 🏦 <br>Code You Can Bank On"
 subtitle: "Introduction, workflow, setup"
 author: "Amelia McNamara"
 editor: source

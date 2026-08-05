@@ -9,7 +9,8 @@
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-a0649ace7b9e9e15dfb5fe311d767a49.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-99.9.9">
 
-  <title>Code You Can Bank On: Building, testing, and designing R packages – Package development</title>
+  <meta name="author" content="Amelia McNamara">
+  <title>Code You Can Bank On: Building, testing, and designing R packages – 💻 🏦  Code You Can Bank On</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -191,9 +192,15 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Package development</h1>
+  <h1 class="title">💻 🏦 <br>Code You Can Bank On</h1>
+  <p class="subtitle">Package development</p>
 
 <div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Amelia McNamara 
+</div>
+</div>
 </div>
 
 </section>
@@ -322,7 +329,7 @@
 <h2><code>create_package()</code></h2>
 <p>What happens when we run <code>create_package()</code>?</p>
 <ul>
-<li><p><code>ussie.Rproj</code></p></li>
+<li><p><code>BLT.Rproj</code></p></li>
 <li><p><code>DESCRIPTION</code> provides metadata about your package.</p></li>
 <li><p>The <code>R/</code> directory is where we will put <code>.R</code> files with function definitions.</p></li>
 <li><p><code>NAMESPACE</code> declares the functions your package exports and the functions your package imports from other packages.</p></li>
@@ -629,8 +636,8 @@
 <section id="aside-in-case-of-error" class="slide level2">
 <h2>Aside: in case of error</h2>
 <p>On running <code>devtools::check()</code> you may get an error if you are using a networked drive.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb17-1"><a></a>Updating ussie documentation  </span>
-<span id="cb17-2"><a></a>Error: The specified file is not readable: path-to\ussie\NAMESPACE</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb17-1"><a></a>Updating BLT documentation  </span>
+<span id="cb17-2"><a></a>Error: The specified file is not readable: path-to\BLT\NAMESPACE</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><br>
 </p>
 <p>This is covered <a href="https://stackoverflow.com/questions/40530968/overwriting-namespace-and-rd-with-roxygen2">here</a> and can be fixed.</p>
