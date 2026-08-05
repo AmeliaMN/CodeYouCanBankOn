@@ -1,21 +1,21 @@
 ---
-title: "Building, testing, designing"
+title: "Code You Can Bank On: Building, testing, and designing R packages"
 editor: source
 ---
 
-Materials for the Federal Reserve training August 10-17
+Materials for the Federal Reserve training August 10, 11, and 17
 Topics: Package building, automated testing, designing code
 
-Broad schedule
+Tentative schedule
 
   - August 10th
-    - 9-10 am [intro, review](intro.html)
-    - 10 am - 12 pm [package dev](package-dev.html)
+    - 9-10 am [intro, review](intro.qmd)
+    - 10 am - 12 pm [package dev](package-dev.qmd)
     - 12-1 pm lunch break
-    - 1-4 pm more [package dev](package-dev.html)
+    - 1-4 pm more [package dev](package-dev.qmd)
   - August 11th
-    - 9 am - 12 pm [documentation](documentation.html)
+    - 9 am - 12 pm [documentation](documentation.qmd)
   - August 17th
-    - 9 am - 12 pm [testing](testing.html)
+    - 9 am - 12 pm [testing](testing.qmd)
     - 12-1 pm lunch break
-    - 1-4 pm [design](design.html)
+    - 1-4 pm [design](design.qmd)
