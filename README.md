@@ -6,6 +6,21 @@ Amelia McNamara, University of St Thomas
 
 Onsite at the Minneapolis Federal Reserve August 10, 11, and 17, and online.
 
+## Tentative schedule:
+
+- August 10th
+  - 9-10 am [intro, review](intro.qmd)
+  - 10 am - 12 pm [package dev](package-dev.qmd)
+  - 12-1 pm lunch break
+  - 1-4 pm more [package dev](package-dev.qmd)
+- August 11th
+  - 9 am - 12 pm [documentation](documentation.qmd)
+- August 17th
+  - 9 am - 12 pm [testing](testing.qmd)
+  - 12-1 pm lunch break
+  - 1-4 pm [design](design.qmd)
+
+
 ## Prereqs
 
 1.  Ensure you have R and RStudio installed. You don't need the most recent version of either. I'm currently running R version 4.4.1 "Race for Your Life" and RStudio version 2026.07.
@@ -50,18 +65,3 @@ I'll do a little bit of review of each of those topics, but if they are totally 
   - [Markdown](https://daringfireball.net/projects/markdown/syntax)
 - [git](https://happygitwithr.com/big-picture)
 
-
-
-## Tentative schedule:
-
-  - August 10th
-    - 9-10 am [intro, review](intro.qmd)
-    - 10 am - 12 pm [package dev](package-dev.qmd)
-    - 12-1 pm lunch break
-    - 1-4 pm more [package dev](package-dev.qmd)
-  - August 11th
-    - 9 am - 12 pm [documentation](documentation.qmd)
-  - August 17th
-    - 9 am - 12 pm [testing](testing.qmd)
-    - 12-1 pm lunch break
-    - 1-4 pm [design](design.qmd)
