@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "Code You Can Bank On: Building, testing, and designing R packages"
+  title: "Code You Can Bank On"
   navbar:
     background: primary
     left:

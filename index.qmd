@@ -1,5 +1,6 @@
 ---
-title: "Code You Can Bank On: Building, testing, and designing R packages"
+title: "Code You Can Bank On"
+subtite: "Building, testing, and designing R packages"
 editor: source
 ---
 
