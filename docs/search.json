@@ -819,6 +819,13 @@
     "text": "Update DESCRIPTION\n🎬 Edit the description\n\nDescription: This is a demo package for the \"Code you can bank on\" workshop at the Federal Reserve. It allows you to work with time series data.\n\n\n👀 The full stop matters!"
   },
   {
+    "objectID": "documentation.html#create-framework-your-turn",
+    "href": "documentation.html#create-framework-your-turn",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Create framework (your turn)",
+    "text": "Create framework (your turn)\n\nuse_mit_license()\n\nlets the world know how it can use the stuff you create\n\nCRAN requires you to specify a (valid) license\nMay be less relevant in your usecase!\n\nother choices include\n\nuse_apl2_license(): Apache 2.0\nuse_gpl3_license(): GPL3\n\nuses option(\"usethis.full_name\") or option(\"devtools.name\")\n\nwe set this in .Rprofile"
+  },
+  {
     "objectID": "documentation.html#commit-and-push",
     "href": "documentation.html#commit-and-push",
     "title": "💻 🏦 Code You Can Bank On",
@@ -1131,7 +1138,7 @@
     "href": "package-dev.html#overview-1",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Overview",
-    "text": "Overview\n\n\n\n\n\n\n\n\n\n\n\n\nFigure adapted from Packages, by Hannah Frick"
+    "text": "Overview\n\n\n\n\n\n\n\n\n\n\n\n\nFigure adapted from Packages, by Hannah Frick\n\n\n\n\n\n\n\n\n\n\n\n(Does this remind you of anything?)"
   },
   {
     "objectID": "package-dev.html#create-package",
@@ -1176,20 +1183,6 @@
     "text": "Create package (your turn)\n\ncreate_package(\"../BLT\") # set the path to suit you\n# getwd() will remind you where you currently are\n\ncreates a minimal set of files for an installable package\nopens a new RStudio project"
   },
   {
-    "objectID": "package-dev.html#edit-description-your-turn",
-    "href": "package-dev.html#edit-description-your-turn",
-    "title": "💻 🏦 Code You Can Bank On",
-    "section": "Edit description (your turn)",
-    "text": "Edit description (your turn)\n\nOpen DESCRIPTION file to edit it:\n\nAuthors@R field uses options(\"usethis.description\")\n\nwe set this in our .Rprofile, so go back to the intro slides if you missed this!\n(Another possible issue is you didn’t restart R!)\n\n\n✏️ edit Title field. Should be one line, title case, with no period. Fewer than 65 characters.\n💾 save DESCRIPTION file"
-  },
-  {
-    "objectID": "package-dev.html#update-description",
-    "href": "package-dev.html#update-description",
-    "title": "💻 🏦 Code You Can Bank On",
-    "section": "Update DESCRIPTION",
-    "text": "Update DESCRIPTION\n\nPackage: BLT\nTitle: Work with data on bacon, lettuce, and tomatoes\nVersion: 0.0.0.9000\nAuthors@R: \n    person(\"Amelia\", \"McNamara\", , \"amelia.mcnamara@stthomas.edu\", role = c(\"aut\", \"cre\"))\nDescription: What the package does (one paragraph).\nLicense: `use_mit_license()`, `use_gpl3_license()` or friends to pick a\n    license\nEncoding: UTF-8\nRoxygen: list(markdown = TRUE)\nRoxygenNote: 7.3.3"
-  },
-  {
     "objectID": "package-dev.html#create-framework",
     "href": "package-dev.html#create-framework",
     "title": "💻 🏦 Code You Can Bank On",
@@ -1208,7 +1201,7 @@
     "href": "package-dev.html#make-package-a-git-repo-your-turn-1",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Make package a git repo (your turn)",
-    "text": "Make package a git repo (your turn)\n\nyou will get some messages sort of like this:\n\n✔ Setting active project to \"/Users/amcnamara2/BLT\".\n✔ Initialising Git repo.\n✔ Adding \".Rproj.user\", \".Rhistory\", \".Rdata\", \".httr-oauth\",\n  \".DS_Store\", and \".quarto\" to .gitignore.\nℹ There are 7 uncommitted files:\n• .gitignore\n• .Rbuildignore\n• DESCRIPTION\n• BLT.Rproj\n• man/\n• NAMESPACE\n• R/\n! Is it ok to commit them?\n\n1: Yeah\n2: No\n3: Negative\nThe specific language and order of items will change over time, to make it harder to make mistakes!\nChoose the option that means yes!"
+    "text": "Make package a git repo (your turn)\n\nyou will get some messages sort of like this:\nuse_git()\n✔ Setting active project to \"/Users/amcnamara2/BLT\".\n✔ Initialising Git repo.\n✔ Adding \".Rhistory\", \".RData\", \".httr-oauth\", \".DS_Store\", and \".quarto\" to .gitignore.\nℹ There are 5 uncommitted files:\n• .gitignore\n• .Rbuildignore\n• BLT.Rproj\n• DESCRIPTION\n• NAMESPACE\n! Is it ok to commit them?\n\n1: No\n2: Absolutely not\n3: Yup\nThe specific language and order of items will change over time, to make it harder to make mistakes!\nChoose the option that means yes!"
   },
   {
     "objectID": "package-dev.html#create-framework-were-skipping-this",
@@ -1218,18 +1211,18 @@
     "text": "Create framework (we’re skipping this)\n\nuse_github()\n\nthis is the closest you may see to actual magic:\n\ncreates GitHub repository\ncreates git remote origin, sets to GitHub repository\npushes your master branch to git remote\nadds information to DESCRIPTION file\nopens your repository page at GitHub"
   },
   {
-    "objectID": "package-dev.html#create-framework-your-turn",
-    "href": "package-dev.html#create-framework-your-turn",
+    "objectID": "package-dev.html#edit-description-your-turn",
+    "href": "package-dev.html#edit-description-your-turn",
     "title": "💻 🏦 Code You Can Bank On",
-    "section": "Create framework (your turn)",
-    "text": "Create framework (your turn)\n\nuse_mit_license()\n\nlets the world know how it can use the stuff you create\n\nCRAN requires you to specify a (valid) license\nMay be less relevant in your usecase!\n\nother choices include\n\nuse_apl2_license(): Apache 2.0\nuse_gpl3_license(): GPL3\n\nuses option(\"usethis.full_name\") or option(\"devtools.name\")\n\nwe set this in .Rprofile"
+    "section": "Edit DESCRIPTION (your turn)",
+    "text": "Edit DESCRIPTION (your turn)\n\nOpen DESCRIPTION file to edit it:\n\nAuthors@R field uses options(\"usethis.description\")\n\nwe set this in our .Rprofile, so go back to the intro slides if you missed this!\n(Another possible issue is you didn’t restart R!)\n\n\n✏️ edit Title field. Should be one line, title case, with no period. Fewer than 65 characters.\n💾 save DESCRIPTION file"
   },
   {
-    "objectID": "package-dev.html#create-framework-your-turn-1",
-    "href": "package-dev.html#create-framework-your-turn-1",
+    "objectID": "package-dev.html#edit-description",
+    "href": "package-dev.html#edit-description",
     "title": "💻 🏦 Code You Can Bank On",
-    "section": "Create framework (your turn)",
-    "text": "Create framework (your turn)\n\nuse_roxygen_md()\n\nmakes it much easier to create and maintain your function documentation\n\nlets you use a markdown-like syntax\n\n\n\ndocument()\nload_all()\ncheck()"
+    "section": "Edit DESCRIPTION",
+    "text": "Edit DESCRIPTION\n\nPackage: BLT\nTitle: Work with data on bacon, lettuce, and tomatoes\nVersion: 0.0.0.9000\nAuthors@R: \n    person(\"Amelia\", \"McNamara\", , \"amelia.mcnamara@stthomas.edu\", role = c(\"aut\", \"cre\"))\nDescription: What the package does (one paragraph).\nLicense: `use_mit_license()`, `use_gpl3_license()` or friends to pick a\n    license\nEncoding: UTF-8\nRoxygen: list(markdown = TRUE)\nRoxygenNote: 7.3.3"
   },
   {
     "objectID": "package-dev.html#commit",
@@ -1237,6 +1230,13 @@
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Commit",
     "text": "Commit\nNow would be a good time to commit your changes.\n\n\n\nJason Long, CC BY 3.0 &lt;https://creativecommons.org/licenses/by/3.0&gt;, via Wikimedia Commons"
+  },
+  {
+    "objectID": "package-dev.html#create-framework-your-turn",
+    "href": "package-dev.html#create-framework-your-turn",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Create framework (your turn)",
+    "text": "Create framework (your turn)\n\nuse_roxygen_md()\n\nmakes it much easier to create and maintain your function documentation\n\nlets you use a markdown-like syntax"
   },
   {
     "objectID": "package-dev.html#develop",
@@ -1250,21 +1250,21 @@
     "href": "package-dev.html#develop-your-turn",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Develop (your turn)",
-    "text": "Develop (your turn)\nThere’s a usethis helper for adding .R files!\n\nusethis::use_r(\"AR1\")\nI like the idea of documenting, then writing functions:\n\nclaim what the function will do, then do it\nif your explanation is getting heavy, split into more functions\n\nStart by writing a shell for the function:\nAR1 &lt;- function(a, b) {\n  \n}\n\nplace the cursor on the blank line between the { ✏️ }\nRStudio IDE menu: Code &gt; Insert Roxygen Skeleton"
+    "text": "Develop (your turn)\nThere’s a usethis helper for adding .R files!\n\nusethis::use_r(\"AR1\")\nI like the idea of documenting, then writing functions:\n\nclaim what the function will do, then do it\nif your explanation is getting heavy, split into more functions\n\nStart by writing a shell for the function:\nAR1 &lt;- function(y) {\n  \n}\n\nplace the cursor on the blank line between the { ✏️ }\nRStudio IDE menu: Code &gt; Insert Roxygen Skeleton"
   },
   {
     "objectID": "package-dev.html#develop-your-turn-1",
     "href": "package-dev.html#develop-your-turn-1",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Develop (your turn)",
-    "text": "Develop (your turn)\n\nComplete the documentation:\n#' Convenience function to make first-order autoregressive model\n#'\n#' Wrapper around forecast::Arima \n#\n#' @param y a univariate time series of class `ts`\n#'\n#' @returns See the arima function in the stats package\n#' @export\n#'\n#' @examples\n#'  (AR1(LakeHuron))\n#'\nAR1 &lt;- function(y) {\n\n}"
+    "text": "Develop (your turn)\n\nComplete the documentation:\n\n#' Convenience function to make first-order autoregressive model\n#'\n#' Wrapper around forecast::Arima \n#\n#' @param y a univariate time series of class `ts`\n#'\n#' @returns See the arima function in the stats package\n#' @export\n#'\n#' @examples\n#'  (AR1(LakeHuron))\n#'\nAR1 &lt;- function(y) {\n\n}\n\n\n\n\n\n\n\n\n\n\n\n\n\nWe’re going to talk a lot more about documentation, but it’s good to get in the habit early."
   },
   {
     "objectID": "package-dev.html#develop-your-turn-2",
     "href": "package-dev.html#develop-your-turn-2",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Develop (your turn)",
-    "text": "Develop (your turn)\n\nWrite the function body:\n#' Convenience function to make first-order autoregressive model\n#'\n#' Wrapper around forecast::Arima \n#\n#' @param y a univariate time series of class `ts`\n#'\n#' @returns See the arima function in the stats package\n#' @export\n#'\n#' @examples\n#'  (AR1(LakeHuron))\n#'\nAR1 &lt;- function(y) {\n  forecast::Arima(y, order = c(1, 0, 0), include.constant = TRUE)\n}\n\n\n\n\n\n\n\n\n\n\n\n\nThe file R/strsplit1.R should NOT contain any of the other top-level code we have recently executed, such as the definition of our practice input x, library(devtools), or use_git(). This foreshadows an adjustment you’ll need to make as you transition from writing R scripts to R packages. Packages and scripts use different mechanisms to declare their dependency on other packages and to store example or test code."
+    "text": "Develop (your turn)\n\nWrite the function body:\n#' @examples\n#'  (AR1(LakeHuron))\n#'\nAR1 &lt;- function(y) {\n  forecast::Arima(y, order = c(1, 0, 0), include.constant = TRUE)\n}"
   },
   {
     "objectID": "package-dev.html#develop-your-turn-3",
@@ -1278,14 +1278,28 @@
     "href": "package-dev.html#develop-your-turn-4",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Develop (your turn)",
-    "text": "Develop (your turn)\n\nuse_package(\"forecast\")\nWe need to specify that our package will use the forecast package:\n\nindicate a stronger reliance using Imports (default)\nindicate a weaker reliance using Suggests (test for package in functions)\n\nDependency management is a long-debated topic in the R community:\n\nfor now, if you need to rely on a package, do it\n\n\ndocument()\nload_all()\ncheck()\n🚀 commit, pull, push"
+    "text": "Develop (your turn)\n\n❯ checking DESCRIPTION meta-information ... WARNING\n  Non-standard license specification:\n    `use_mit_license()`, `use_gpl3_license()` or friends to pick a\n    license\n  Standardizable: FALSE\n\n❯ checking dependencies in R code ... WARNING\n  '::' or ':::' import not declared from: ‘forecast’\n\n❯ checking for future file timestamps ... NOTE\n  unable to verify current time\n\n1 error ✖ | 2 warnings ✖ | 1 note ✖"
   },
   {
-    "objectID": "package-dev.html#devtoolscheck",
-    "href": "package-dev.html#devtoolscheck",
+    "objectID": "package-dev.html#develop-your-turn-5",
+    "href": "package-dev.html#develop-your-turn-5",
     "title": "💻 🏦 Code You Can Bank On",
-    "section": "devtools::check()",
-    "text": "devtools::check()\n🎬 Check your package:"
+    "section": "Develop (your turn)",
+    "text": "Develop (your turn)\nuse_package(\"forecast\")\nWe need to specify that our package will use the forecast package:\n\nindicate a stronger reliance using Imports (default)\nindicate a weaker reliance using Suggests (test for package in functions)\n\nDependency management is a long-debated topic in the R community:\n\nfor now, if you need to rely on a package, do it"
+  },
+  {
+    "objectID": "package-dev.html#develop-1",
+    "href": "package-dev.html#develop-1",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Develop",
+    "text": "Develop\nuse_package(\"forecast\")\n✔ Adding forecast to Imports field in DESCRIPTION.\n☐ Refer to functions with `forecast::fun()`.\ndocument()\nload_all()\ncheck()"
+  },
+  {
+    "objectID": "package-dev.html#check",
+    "href": "package-dev.html#check",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Check",
+    "text": "Check\nR CMD check is the gold standard for checking that an R package is in full working order.\n\n\nIt is a programme that is executed in the shell.\n\n\nHowever, devtools has the check() function to allow you to run this without leaving your R session.\n🎬 Check your package:"
   },
   {
     "objectID": "package-dev.html#aside-in-case-of-error",
@@ -1302,18 +1316,67 @@
     "text": "Aside: in case of error\nSave a copy of this file:\nfix_for_networked_drives.R\nSave it somewhere other than the BLT directory\nOpen the file from the BLT project session\nRun the whole file\nYou should now find that check() proceeds normally"
   },
   {
+    "objectID": "package-dev.html#commit-1",
+    "href": "package-dev.html#commit-1",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Commit",
+    "text": "Commit\nNow would be a good time to commit your changes.\n\n\n\nJason Long, CC BY 3.0 &lt;https://creativecommons.org/licenses/by/3.0&gt;, via Wikimedia Commons"
+  },
+  {
     "objectID": "package-dev.html#experiment",
     "href": "package-dev.html#experiment",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Experiment",
-    "text": "Experiment\nTry out the AR1() function in the console."
+    "text": "Experiment\nNow that we’ve document()ed, load_all()ed and check()ed, we can try out our AR1() function in the console.\n\nAR1(tomatoes$value)"
+  },
+  {
+    "objectID": "package-dev.html#develop-again",
+    "href": "package-dev.html#develop-again",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Develop (again)",
+    "text": "Develop (again)\nNow that we’ve made one function in our package, let’s try making another. I’d like this function to find the percent of a time series that is missing.\nThere are lots of approaches to this, I wrote a wrapper for imputeTS::statsNA().\nSome functions you may find useful as you work:\nuse_r()\nuse_package()\ndocument()\nload_all()\ncheck()"
+  },
+  {
+    "objectID": "package-dev.html#develop-again-1",
+    "href": "package-dev.html#develop-again-1",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Develop (again)",
+    "text": "Develop (again)\n\n#' Percent missing\n#'\n#' @param ts a timeseries object\n#'\n#' @returns the percent of missing observations in the time series\n#' @export\n#'\n#' @examples\n#' perc_missing(LakeHuron)\nperc_missing &lt;- function(ts){\n  na_stats &lt;- imputeTS::statsNA(ts, print_only = FALSE)\n\n  return(na_stats$percentage_NAs)\n}"
+  },
+  {
+    "objectID": "package-dev.html#commit-2",
+    "href": "package-dev.html#commit-2",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Commit",
+    "text": "Commit\nNow would be a good time to commit your changes.\n\n\n\nJason Long, CC BY 3.0 &lt;https://creativecommons.org/licenses/by/3.0&gt;, via Wikimedia Commons"
+  },
+  {
+    "objectID": "package-dev.html#develop-a-third-time",
+    "href": "package-dev.html#develop-a-third-time",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Develop (a third time)",
+    "text": "Develop (a third time)\nLet’s take this up one more notch by making our function take the dataset and variable name as two separate arguments, so we could use it in a tidy pipeline.\nSome functions you may find useful as you work:\nuse_r()\nuse_package()\ndocument()\nload_all()\ncheck()"
+  },
+  {
+    "objectID": "package-dev.html#develop-a-third-time-1",
+    "href": "package-dev.html#develop-a-third-time-1",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Develop (a third time)",
+    "text": "Develop (a third time)\n\n#' Percent missing, tidy version\n#'\n#' @param dataset is a dataset\n#' @param variable is a time series variable within the dataset\n#'\n#' @returns the percentage of missing values in that time series\n#' @export\n#'\n#' @examples\nperc_missing_tidy &lt;- function(dataset, variable){\n  var &lt;- substitute(variable)\n  var_eval &lt;- eval(var, envir = dataset)\n  na_stats &lt;- imputeTS::statsNA(var_eval, print_only = FALSE)\n  tibble_perc &lt;- tibble::tibble(perc = readr::parse_number(x = na_stats$percentage_NAs))\n  return(tibble_perc)\n}\n\nThis one gets tricky because I can’t find a good dataset to use in the example"
+  },
+  {
+    "objectID": "package-dev.html#commit-3",
+    "href": "package-dev.html#commit-3",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Commit",
+    "text": "Commit\nNow would be a good time to commit your changes.\n\n\n\nJason Long, CC BY 3.0 &lt;https://creativecommons.org/licenses/by/3.0&gt;, via Wikimedia Commons"
   },
   {
     "objectID": "package-dev.html#adding-data-to-packages",
     "href": "package-dev.html#adding-data-to-packages",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Adding data to packages",
-    "text": "Adding data to packages\nMany packages come with example datasets bundled with them. There are many reasons for this, but the most salient is that if you include your own dataset you know it has exactly the features you need for examples and testing.\nThe most common location for package data is data/. We recommend that each file in this directory be an .rda file created by save() containing a single R object, with the same name as the file.\nOf course, usethis has a helper function for this, usethis::use_data()."
+    "text": "Adding data to packages\nMany packages come with example datasets bundled with them. There are many reasons for this, but the most salient is that if you include your own dataset you know it has exactly the features you need for examples and testing.\n\n\nThe most common location for package data is data/. We recommend that each file in this directory be an .rda file created by save() containing a single R object, with the same name as the file.\n\n\nOf course, usethis has a helper function for this, usethis::use_data()."
   },
   {
     "objectID": "package-dev.html#adding-data-to-packages-your-turn",
@@ -1334,7 +1397,7 @@
     "href": "package-dev.html#documenting-data-1",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Documenting data",
-    "text": "Documenting data\nHere’s what the who documentation in tidyr looks like\n#' World Health Organization TB data\n#'\n#' A subset of data from the World Health Organization Global Tuberculosis\n#' Report ...\n#'\n#' @format ## `who`\n#' A data frame with 7,240 rows and 60 columns:\n#' \\describe{\n#'   \\item{country}{Country name}\n#'   \\item{iso2, iso3}{2 & 3 letter ISO country codes}\n#'   \\item{year}{Year}\n#'   ...\n#' }\n#' @source &lt;https://www.who.int/teams/global-tuberculosis-programme/data&gt;\n\"who\""
+    "text": "Documenting data\nHere’s what the who documentation in tidyr looks like\n#' World Health Organization TB data\n#'\n#' A subset of data from the World Health Organization Global Tuberculosis\n#' Report ...\n#'\n#' @format ## `who`\n#' A data frame with 7,240 rows and 60 columns:\n#' \\describe{\n#'   \\item{country}{Country name}\n#'   \\item{iso2, iso3}{2 & 3 letter ISO country codes}\n#'   \\item{year}{Year}\n#'   ...\n#' }\n#' @source &lt;https://www.who.int/teams/global-tuberculosis-programme/data&gt;\n\"who\"\nCan you write some documentation for the bacon data?"
   },
   {
     "objectID": "package-dev.html#data-in-packages",
@@ -1344,24 +1407,10 @@
     "text": "Data in packages\nThere is a lot more detail specific to including data in packages. Sometimes you want to include raw data, sometimes you need data only available to the package and not the user, etc. There is much more detail in the R packages book."
   },
   {
-    "objectID": "package-dev.html#documentation",
-    "href": "package-dev.html#documentation",
-    "title": "💻 🏦 Code You Can Bank On",
-    "section": "Documentation",
-    "text": "Documentation\npkgdown"
-  },
-  {
-    "objectID": "package-dev.html#package-states",
-    "href": "package-dev.html#package-states",
-    "title": "💻 🏦 Code You Can Bank On",
-    "section": "Package states",
-    "text": "Package states\nMaybe too much for this?\nGood reference"
-  },
-  {
     "objectID": "package-dev.html#resources",
     "href": "package-dev.html#resources",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Resources",
-    "text": "Resources\n\nHappy git and GitHub for the useR, Jenny Bryan, the STAT 545 TAs, Jim Hester.\nObject of type ‘closure’ is not subsettable, Jenny Bryan. rstudio::conf video, slides\nCode “smells” and feels, Jenny Bryan\nR packages, Hadley Wickham and Jenny Bryan.\nEvaluating the Design of the R Language This is for my computer scientists who want the nitty-gritty about R as a language\nAdvanced R"
+    "text": "Resources\n\nHappy git and GitHub for the useR, Jenny Bryan, the STAT 545 TAs, Jim Hester.\nObject of type ‘closure’ is not subsettable, Jenny Bryan. rstudio::conf video, slides\nCode “smells” and feels, Jenny Bryan\nR packages, Hadley Wickham and Jenny Bryan.\nEvaluating the Design of the R Language This is for my computer scientists who want the nitty-gritty about R as a language\nAdvanced R\nPackage states"
   }
 ]
