@@ -204,6 +204,14 @@ Amelia McNamara
 </div>
 
 </section>
+<section class="slide level2">
+
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4</code></pre>
+</div>
+</div>
+</section>
 <section id="motivation" class="slide level2">
 <h2>Motivation</h2>
 <p>In the R world, versions of this are attributed to Hadley Wickham:</p>
@@ -269,16 +277,29 @@ Amelia McNamara
 </ul>
 </div></div>
 </section>
-<section id="intro" class="slide level2">
-<h2>Intro</h2>
-<p>Materials in this slide desk based on - Ian Lyttle’s<a href="https://uncoast-unconf.github.io/uu-2019-day-zero/">Uncoast unconf Day Zero slides</a>, which in turn were based on <a href="https://github.com/hfrick/presentations/blob/master/2019-03-12_package_building/">Hannah Frick’s work</a> - Emma Rand and Ian Lyttle’s <a href="https://rstudio-conf-2022.github.io/build-tidy-tools/">Building tidy tools</a> - Hadley Wickham and Jenny Bryan’s <a href="https://r-pkgs.org/whole-game.html">R Packages (2e)</a></p>
-</section>
 <section id="overview" class="slide level2">
 <h2>Overview</h2>
 <div class="teach-left">
-
+<div class="cell" data-layout-align="left">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-left">
+<figure>
+<p><img data-src="img/img-verbs/base.png" class="quarto-figure quarto-figure-left" width="1237"></p>
+</figure>
+</div>
+</div>
+</div>
 </div>
 <div class="teach-right">
+<div class="cell" data-layout-align="right">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-right">
+<figure>
+<p><img data-src="img/img-nouns/prelim.png" class="quarto-figure quarto-figure-right" width="309"></p>
+</figure>
+</div>
+</div>
+</div>
 <p><span style="font-size: 0.6em;">(Does this remind you of anything?)</span></p>
 </div>
 <div class="footer">
@@ -288,28 +309,67 @@ Amelia McNamara
 <section id="overview-1" class="slide level2">
 <h2>Overview</h2>
 <div class="teach-left">
-
+<div class="cell" data-layout-align="left">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-left">
+<figure>
+<p><img data-src="img/img-verbs/base.png" class="quarto-figure quarto-figure-left" width="1237"></p>
+</figure>
+</div>
+</div>
+</div>
 </div>
 <div class="footer">
 <p>Figure adapted from <a href="https://github.com/hfrick/presentations/blob/master/2019-03-12_package_building/2019-03-12_package_building.pdf">Packages</a>, by Hannah Frick</p>
 </div>
 <div class="teach-right">
-
+<div class="cell" data-layout-align="right">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-right">
+<figure>
+<p><img data-src="img/img-nouns/all.png" class="quarto-figure quarto-figure-right" width="309"></p>
+</figure>
+</div>
+</div>
+</div>
 </div>
 </section>
 <section id="create-package" class="slide level2">
 <h2>Create package</h2>
 <div class="teach-left">
-
+<div class="cell" data-layout-align="left">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-left">
+<figure>
+<p><img data-src="img/img-verbs/create-package.png" class="quarto-figure quarto-figure-left" width="1237"></p>
+</figure>
+</div>
+</div>
+</div>
 </div>
 <div class="teach-right">
-
+<div class="cell" data-layout-align="right">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-right">
+<figure>
+<p><img data-src="img/img-nouns/create-package.png" class="quarto-figure quarto-figure-right" width="309"></p>
+</figure>
+</div>
+</div>
+</div>
 </div>
 </section>
 <section id="create-package-your-turn" class="slide level2">
 <h2>Create package (your turn)</h2>
-<p>Be deliberate about where you create your package</p>
-<p>Do not nest inside another RStudio project, R package or git repo.</p>
+<p>Be deliberate about where you create your package<br>
+<br>
+</p>
+<p>Do <strong>not</strong> nest inside another RStudio project, R package or git repo.<br>
+<br>
+</p>
+<p>That includes if you created an RStudio project for these materials!<br>
+<br>
+</p>
 <p>My practice is to put all packages under my home directory, but your Documents folder is also okay (as long as that’s not synced by OneDrive or other file-tracking software!).</p>
 </section>
 <section id="create_package" class="slide level2">
@@ -352,18 +412,27 @@ Amelia McNamara
 <section id="create-package-your-turn-1" class="slide level2">
 <h2>Create package (your turn)</h2>
 <div class="teach-left">
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">create_package</span>(<span class="st">"../BLT"</span>) <span class="co"># set the path to suit you</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">create_package</span>(<span class="st">"../BLT"</span>) <span class="co"># set the path to suit you</span></span>
+<span id="cb2-2"><a></a><span class="co"># getwd() will remind you where you currently are</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li><p>creates a minimal set of files for an installable package</p></li>
 <li><p>opens a new RStudio project</p></li>
 </ul>
 </div>
 <div class="teach-right">
-
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="img/img-nouns/create-package.png" width="309"></p>
+</figure>
+</div>
+</div>
+</div>
 </div>
 </section>
-<section id="create-package-your-turn-2" class="slide level2 smaller">
-<h2>Create package (your turn)</h2>
+<section id="edit-description-your-turn" class="slide level2">
+<h2>Edit description (your turn)</h2>
 <div class="teach-left">
 <p>Open <code>DESCRIPTION</code> file to edit it:</p>
 <ul>
@@ -373,27 +442,66 @@ Amelia McNamara
 <li>(Another possible issue is you didn’t restart R!)</li>
 </ul></li>
 </ul>
-<p>✏️ edit <code>Title</code> field</p>
-<p>✏️ edit <code>Description</code> field</p>
+<p>✏️ edit <code>Title</code> field. Should be one line, title case, with no period. Fewer than 65 characters.</p>
 <p>💾 save <code>DESCRIPTION</code> file</p>
 </div>
 <div class="teach-right">
-
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="img/img-nouns/create-package.png" width="309"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="update-description" class="slide level2">
+<h2>Update <code>DESCRIPTION</code></h2>
+<div class="small">
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb3-1"><a></a>Package: BLT</span>
+<span id="cb3-2"><a></a>Title: Work with data on bacon, lettuce, and tomatoes</span>
+<span id="cb3-3"><a></a>Version: 0.0.0.9000</span>
+<span id="cb3-4"><a></a>Authors@R: </span>
+<span id="cb3-5"><a></a>    person("Amelia", "McNamara", , "amelia.mcnamara@stthomas.edu", role = c("aut", "cre"))</span>
+<span id="cb3-6"><a></a>Description: What the package does (one paragraph).</span>
+<span id="cb3-7"><a></a>License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a</span>
+<span id="cb3-8"><a></a>    license</span>
+<span id="cb3-9"><a></a>Encoding: UTF-8</span>
+<span id="cb3-10"><a></a>Roxygen: list(markdown = TRUE)</span>
+<span id="cb3-11"><a></a>RoxygenNote: 7.3.3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="create-framework" class="slide level2">
 <h2>Create framework</h2>
 <div class="teach-left">
-
+<div class="cell" data-layout-align="left">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-left">
+<figure>
+<p><img data-src="img/img-verbs/framework.png" class="quarto-figure quarto-figure-left" width="1237"></p>
+</figure>
+</div>
+</div>
+</div>
 </div>
 <div class="teach-right">
-
+<div class="cell" data-layout-align="right">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-right">
+<figure>
+<p><img data-src="img/img-nouns/create-framework.png" class="quarto-figure quarto-figure-right" width="308"></p>
+</figure>
+</div>
+</div>
+</div>
 </div>
 </section>
 <section id="make-package-a-git-repo-your-turn" class="slide level2">
 <h2>Make package a git repo (your turn)</h2>
 <div class="teach-left">
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">use_git</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">use_git</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li><p>creates a git repository in your (package) project</p></li>
 <li><p>makes a first commit on your behalf</p></li>
@@ -401,7 +509,15 @@ Amelia McNamara
 </ul>
 </div>
 <div class="teach-right">
-
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="img/img-nouns/create-framework.png" width="308"></p>
+</figure>
+</div>
+</div>
+</div>
 </div>
 </section>
 <section id="make-package-a-git-repo-your-turn-1" class="slide level2">
@@ -409,34 +525,42 @@ Amelia McNamara
 <div class="teach-left">
 <p>you will get some messages sort of like this:</p>
 <!-- Update package name -->
-<div class="sourceCode" id="cb3" style="font-size: 0.6em;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>✔ Setting active project to <span class="st">"/Users/amcnamara2/BLT"</span>.</span>
-<span id="cb3-2"><a></a>✔ Initialising Git repo.</span>
-<span id="cb3-3"><a></a>✔ Adding <span class="st">".Rproj.user"</span>, <span class="st">".Rhistory"</span>, <span class="st">".Rdata"</span>, <span class="st">".httr-oauth"</span>,</span>
-<span id="cb3-4"><a></a>  <span class="st">".DS_Store"</span>, and <span class="st">".quarto"</span> to .gitignore.</span>
-<span id="cb3-5"><a></a>ℹ There are <span class="dv">7</span> uncommitted files<span class="sc">:</span></span>
-<span id="cb3-6"><a></a>• .gitignore</span>
-<span id="cb3-7"><a></a>• .Rbuildignore</span>
-<span id="cb3-8"><a></a>• DESCRIPTION</span>
-<span id="cb3-9"><a></a>• BLT.Rproj</span>
-<span id="cb3-10"><a></a>• man<span class="sc">/</span></span>
-<span id="cb3-11"><a></a>• NAMESPACE</span>
-<span id="cb3-12"><a></a>• R<span class="sc">/</span></span>
-<span id="cb3-13"><a></a><span class="sc">!</span> Is it ok to commit them?</span>
-<span id="cb3-14"><a></a></span>
-<span id="cb3-15"><a></a><span class="dv">1</span><span class="sc">:</span> Yeah</span>
-<span id="cb3-16"><a></a><span class="dv">2</span><span class="sc">:</span> No</span>
-<span id="cb3-17"><a></a><span class="dv">3</span><span class="sc">:</span> Negative</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5" style="font-size: 0.6em;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>✔ Setting active project to <span class="st">"/Users/amcnamara2/BLT"</span>.</span>
+<span id="cb5-2"><a></a>✔ Initialising Git repo.</span>
+<span id="cb5-3"><a></a>✔ Adding <span class="st">".Rproj.user"</span>, <span class="st">".Rhistory"</span>, <span class="st">".Rdata"</span>, <span class="st">".httr-oauth"</span>,</span>
+<span id="cb5-4"><a></a>  <span class="st">".DS_Store"</span>, and <span class="st">".quarto"</span> to .gitignore.</span>
+<span id="cb5-5"><a></a>ℹ There are <span class="dv">7</span> uncommitted files<span class="sc">:</span></span>
+<span id="cb5-6"><a></a>• .gitignore</span>
+<span id="cb5-7"><a></a>• .Rbuildignore</span>
+<span id="cb5-8"><a></a>• DESCRIPTION</span>
+<span id="cb5-9"><a></a>• BLT.Rproj</span>
+<span id="cb5-10"><a></a>• man<span class="sc">/</span></span>
+<span id="cb5-11"><a></a>• NAMESPACE</span>
+<span id="cb5-12"><a></a>• R<span class="sc">/</span></span>
+<span id="cb5-13"><a></a><span class="sc">!</span> Is it ok to commit them?</span>
+<span id="cb5-14"><a></a></span>
+<span id="cb5-15"><a></a><span class="dv">1</span><span class="sc">:</span> Yeah</span>
+<span id="cb5-16"><a></a><span class="dv">2</span><span class="sc">:</span> No</span>
+<span id="cb5-17"><a></a><span class="dv">3</span><span class="sc">:</span> Negative</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The specific language and order of items will change over time, to make it harder to make mistakes!</p>
 <p>Choose the option that means yes!</p>
 </div>
 <div class="teach-right">
-
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="img/img-nouns/create-framework.png" width="308"></p>
+</figure>
+</div>
+</div>
+</div>
 </div>
 </section>
 <section id="create-framework-were-skipping-this" class="slide level2" style="color: #888888;">
 <h2><span style="color: #888888;">Create framework (we’re skipping this)</span></h2>
 <div class="teach-left">
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">use_github</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">use_github</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li><p>this is the closest you may see to <strong>actual</strong> magic:</p>
 <ul>
@@ -449,13 +573,21 @@ Amelia McNamara
 </ul>
 </div>
 <div class="teach-right">
-
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="img/img-nouns/create-framework.png" width="308"></p>
+</figure>
+</div>
+</div>
+</div>
 </div>
 </section>
 <section id="create-framework-your-turn" class="slide level2 smaller">
 <h2>Create framework (your turn)</h2>
 <div class="teach-left">
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">use_mit_license</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">use_mit_license</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li><p>lets the world know how it can use the stuff you create</p>
 <ul>
@@ -474,13 +606,21 @@ Amelia McNamara
 </ul>
 </div>
 <div class="teach-right">
-
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="img/img-nouns/create-framework.png" width="308"></p>
+</figure>
+</div>
+</div>
+</div>
 </div>
 </section>
 <section id="create-framework-your-turn-1" class="slide level2">
 <h2>Create framework (your turn)</h2>
 <div class="teach-left">
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">use_roxygen_md</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">use_roxygen_md</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li><p>makes it <strong>much</strong> easier to create and maintain your function documentation</p>
 <ul>
@@ -488,115 +628,178 @@ Amelia McNamara
 </ul></li>
 </ul>
 <hr>
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">document</span>()</span>
-<span id="cb7-2"><a></a><span class="fu">load_all</span>()</span>
-<span id="cb7-3"><a></a><span class="fu">check</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">document</span>()</span>
+<span id="cb9-2"><a></a><span class="fu">load_all</span>()</span>
+<span id="cb9-3"><a></a><span class="fu">check</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="teach-right">
-
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="img/img-nouns/create-framework.png" width="308"></p>
+</figure>
+</div>
+</div>
+</div>
 </div>
 </section>
+<section id="commit" class="slide level2">
+<h2>Commit</h2>
+<p>Now would be a good time to commit your changes.</p>
+<p><br>
+</p>
+
+<img data-src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg" alt="Git icon" width="300" class="r-stretch quarto-figure-center"><p class="caption">Jason Long, CC BY 3.0 &lt;https://creativecommons.org/licenses/by/3.0&gt;, via Wikimedia Commons</p></section>
 <section id="develop" class="slide level2">
 <h2>Develop</h2>
 <div class="teach-left">
-
+<div class="cell" data-layout-align="left">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-left">
+<figure>
+<p><img data-src="img/img-verbs/develop.png" class="quarto-figure quarto-figure-left" width="1237"></p>
+</figure>
+</div>
+</div>
+</div>
 </div>
 <div class="teach-right">
-
+<div class="cell" data-layout-align="right">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-right">
+<figure>
+<p><img data-src="img/img-nouns/develop.png" class="quarto-figure quarto-figure-right" width="309"></p>
+</figure>
+</div>
+</div>
+</div>
 </div>
 </section>
 <section id="develop-your-turn" class="slide level2 smaller">
 <h2>Develop (your turn)</h2>
 <p>There’s a <strong><code>usethis</code></strong> helper for adding <code>.R</code> files!</p>
 <div class="teach-left">
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>usethis<span class="sc">::</span><span class="fu">use_r</span>(<span class="st">"AR1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>usethis<span class="sc">::</span><span class="fu">use_r</span>(<span class="st">"AR1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>I like the idea of documenting, then writing <strong>functions</strong>:</p>
 <ul>
 <li><p>claim what the function will do, then do it</p></li>
 <li><p>if your explanation is getting heavy, split into more functions</p></li>
 </ul>
 <p>Start by writing a shell for the function:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>AR1 <span class="ot">&lt;-</span> <span class="cf">function</span>(a, b) {</span>
-<span id="cb9-2"><a></a>  </span>
-<span id="cb9-3"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>AR1 <span class="ot">&lt;-</span> <span class="cf">function</span>(a, b) {</span>
+<span id="cb11-2"><a></a>  </span>
+<span id="cb11-3"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
-<li><p>place the cursor on the blank line between the <code>{</code> 📝 <code>}</code></p></li>
+<li><p>place the cursor on the blank line between the <code>{</code> ✏️ <code>}</code></p></li>
 <li><p>RStudio IDE menu: <strong>Code</strong> &gt; <strong>Insert Roxygen Skeleton</strong></p></li>
 </ul>
 </div>
 <div class="teach-right">
-
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="img/img-nouns/develop.png" width="309"></p>
+</figure>
+</div>
+</div>
+</div>
 </div>
 </section>
 <section id="develop-your-turn-1" class="slide level2">
 <h2>Develop (your turn)</h2>
 <div class="teach-left">
 <p>Complete the documentation:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="co">#' Convenience function to make first-order autoregressive model</span></span>
-<span id="cb10-2"><a></a><span class="co">#'</span></span>
-<span id="cb10-3"><a></a><span class="co">#' Wrapper around forecast::Arima </span></span>
-<span id="cb10-4"><a></a><span class="co">#</span></span>
-<span id="cb10-5"><a></a><span class="co">#' @param y a univariate time series of class `ts`</span></span>
-<span id="cb10-6"><a></a><span class="co">#'</span></span>
-<span id="cb10-7"><a></a><span class="co">#' @returns See the arima function in the stats package</span></span>
-<span id="cb10-8"><a></a><span class="co">#' @export</span></span>
-<span id="cb10-9"><a></a><span class="co">#'</span></span>
-<span id="cb10-10"><a></a><span class="co">#' @examples</span></span>
-<span id="cb10-11"><a></a><span class="co">#'  (AR1(LakeHuron))</span></span>
-<span id="cb10-12"><a></a><span class="co">#'</span></span>
-<span id="cb10-13"><a></a>AR1 <span class="ot">&lt;-</span> <span class="cf">function</span>(y) {</span>
-<span id="cb10-14"><a></a></span>
-<span id="cb10-15"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="co">#' Convenience function to make first-order autoregressive model</span></span>
+<span id="cb12-2"><a></a><span class="co">#'</span></span>
+<span id="cb12-3"><a></a><span class="co">#' Wrapper around forecast::Arima </span></span>
+<span id="cb12-4"><a></a><span class="co">#</span></span>
+<span id="cb12-5"><a></a><span class="co">#' @param y a univariate time series of class `ts`</span></span>
+<span id="cb12-6"><a></a><span class="co">#'</span></span>
+<span id="cb12-7"><a></a><span class="co">#' @returns See the arima function in the stats package</span></span>
+<span id="cb12-8"><a></a><span class="co">#' @export</span></span>
+<span id="cb12-9"><a></a><span class="co">#'</span></span>
+<span id="cb12-10"><a></a><span class="co">#' @examples</span></span>
+<span id="cb12-11"><a></a><span class="co">#'  (AR1(LakeHuron))</span></span>
+<span id="cb12-12"><a></a><span class="co">#'</span></span>
+<span id="cb12-13"><a></a>AR1 <span class="ot">&lt;-</span> <span class="cf">function</span>(y) {</span>
+<span id="cb12-14"><a></a></span>
+<span id="cb12-15"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="teach-right">
-
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="img/img-nouns/develop.png" width="309"></p>
+</figure>
+</div>
+</div>
+</div>
 </div>
 </section>
 <section id="develop-your-turn-2" class="slide level2">
 <h2>Develop (your turn)</h2>
 <div class="teach-left">
 <p>Write the function body:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="co">#' Convenience function to make first-order autoregressive model</span></span>
-<span id="cb11-2"><a></a><span class="co">#'</span></span>
-<span id="cb11-3"><a></a><span class="co">#' Wrapper around forecast::Arima </span></span>
-<span id="cb11-4"><a></a><span class="co">#</span></span>
-<span id="cb11-5"><a></a><span class="co">#' @param y a univariate time series of class `ts`</span></span>
-<span id="cb11-6"><a></a><span class="co">#'</span></span>
-<span id="cb11-7"><a></a><span class="co">#' @returns See the arima function in the stats package</span></span>
-<span id="cb11-8"><a></a><span class="co">#' @export</span></span>
-<span id="cb11-9"><a></a><span class="co">#'</span></span>
-<span id="cb11-10"><a></a><span class="co">#' @examples</span></span>
-<span id="cb11-11"><a></a><span class="co">#'  (AR1(LakeHuron))</span></span>
-<span id="cb11-12"><a></a><span class="co">#'</span></span>
-<span id="cb11-13"><a></a>AR1 <span class="ot">&lt;-</span> <span class="cf">function</span>(y) {</span>
-<span id="cb11-14"><a></a>  forecast<span class="sc">::</span><span class="fu">Arima</span>(y, <span class="at">order =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>), <span class="at">include.constant =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb11-15"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="co">#' Convenience function to make first-order autoregressive model</span></span>
+<span id="cb13-2"><a></a><span class="co">#'</span></span>
+<span id="cb13-3"><a></a><span class="co">#' Wrapper around forecast::Arima </span></span>
+<span id="cb13-4"><a></a><span class="co">#</span></span>
+<span id="cb13-5"><a></a><span class="co">#' @param y a univariate time series of class `ts`</span></span>
+<span id="cb13-6"><a></a><span class="co">#'</span></span>
+<span id="cb13-7"><a></a><span class="co">#' @returns See the arima function in the stats package</span></span>
+<span id="cb13-8"><a></a><span class="co">#' @export</span></span>
+<span id="cb13-9"><a></a><span class="co">#'</span></span>
+<span id="cb13-10"><a></a><span class="co">#' @examples</span></span>
+<span id="cb13-11"><a></a><span class="co">#'  (AR1(LakeHuron))</span></span>
+<span id="cb13-12"><a></a><span class="co">#'</span></span>
+<span id="cb13-13"><a></a>AR1 <span class="ot">&lt;-</span> <span class="cf">function</span>(y) {</span>
+<span id="cb13-14"><a></a>  forecast<span class="sc">::</span><span class="fu">Arima</span>(y, <span class="at">order =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>), <span class="at">include.constant =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb13-15"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="teach-right">
-
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="img/img-nouns/develop.png" width="309"></p>
+</figure>
+</div>
+</div>
+</div>
 </div>
 <p>The file R/strsplit1.R should NOT contain any of the other top-level code we have recently executed, such as the definition of our practice input x, library(devtools), or use_git(). This foreshadows an adjustment you’ll need to make as you transition from writing R scripts to R packages. Packages and scripts use different mechanisms to declare their dependency on other packages and to store example or test code.</p>
 </section>
 <section id="develop-your-turn-3" class="slide level2">
 <h2>Develop (your turn)</h2>
 <div class="teach-left">
-<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>forecast<span class="sc">::</span><span class="fu">Arima</span>(y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>forecast<span class="sc">::</span><span class="fu">Arima</span>(y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>☝️ Use this notation to be explicit about where R looks for the function <code>Arima()</code>.</p>
 <hr>
 <p>💾 Save <code>AR1.R</code>.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="fu">document</span>()</span>
-<span id="cb13-2"><a></a><span class="fu">load_all</span>()</span>
-<span id="cb13-3"><a></a><span class="fu">check</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="fu">document</span>()</span>
+<span id="cb15-2"><a></a><span class="fu">load_all</span>()</span>
+<span id="cb15-3"><a></a><span class="fu">check</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>🤔 What happened?</p>
 </div>
 <div class="teach-right">
-
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="img/img-nouns/develop.png" width="309"></p>
+</figure>
+</div>
+</div>
+</div>
 </div>
 </section>
 <section id="develop-your-turn-4" class="slide level2">
 <h2>Develop (your turn)</h2>
 <div class="teach-left">
-<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">use_package</span>(<span class="st">"forecast"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">use_package</span>(<span class="st">"forecast"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>We need to specify that <em>our</em> package will use the <strong>forecast</strong> package:</p>
 <ul>
 <li><p>indicate a stronger reliance using <code>Imports</code> (default)</p></li>
@@ -607,13 +810,21 @@ Amelia McNamara
 <li>for now, if you need to rely on a package, do it</li>
 </ul>
 <hr>
-<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="fu">document</span>()</span>
-<span id="cb15-2"><a></a><span class="fu">load_all</span>()</span>
-<span id="cb15-3"><a></a><span class="fu">check</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="fu">document</span>()</span>
+<span id="cb17-2"><a></a><span class="fu">load_all</span>()</span>
+<span id="cb17-3"><a></a><span class="fu">check</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>🚀 commit, pull, push</p>
 </div>
 <div class="teach-right">
-
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="img/img-nouns/develop.png" width="309"></p>
+</figure>
+</div>
+</div>
+</div>
 </div>
 </section>
 <section class="slide level2">
@@ -629,15 +840,12 @@ Amelia McNamara
 <section id="devtoolscheck" class="slide level2">
 <h2><code>devtools::check()</code></h2>
 <p>🎬 Check your package:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>devtools<span class="sc">::</span><span class="fu">check</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 </section>
 <section id="aside-in-case-of-error" class="slide level2">
 <h2>Aside: in case of error</h2>
 <p>On running <code>devtools::check()</code> you may get an error if you are using a networked drive.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb17-1"><a></a>Updating BLT documentation  </span>
-<span id="cb17-2"><a></a>Error: The specified file is not readable: path-to\BLT\NAMESPACE</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb18-1"><a></a>Updating BLT documentation  </span>
+<span id="cb18-2"><a></a>Error: The specified file is not readable: path-to\BLT\NAMESPACE</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><br>
 </p>
 <p>This is covered <a href="https://stackoverflow.com/questions/40530968/overwriting-namespace-and-rd-with-roxygen2">here</a> and can be fixed.</p>
@@ -654,11 +862,6 @@ Amelia McNamara
 <section id="experiment" class="slide level2">
 <h2>Experiment</h2>
 <p>Try out the <code>AR1()</code> function in the console.</p>
-<div class="fragment">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="fu">AR1</span>(tomatoes<span class="sc">$</span>value)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
 </section>
 <section id="adding-data-to-packages" class="slide level2">
 <h2>Adding data to packages</h2>
@@ -669,9 +872,6 @@ Amelia McNamara
 <section id="adding-data-to-packages-your-turn" class="slide level2">
 <h2>Adding data to packages (your turn)</h2>
 <p>Add the bacon data to the package,</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a>usethis<span class="sc">::</span><span class="fu">use_data</span>(bacon)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 <pre><code>✔ Adding R to Depends field in DESCRIPTION.
 ✔ Creating data/.
 ✔ Setting LazyData to "true" in DESCRIPTION.
@@ -682,9 +882,6 @@ Amelia McNamara
 <h2>Documenting data</h2>
 <p>Data gets documented in the data.R file. How can we create and open this file for editing?</p>
 <div class="fragment">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a>devtools<span class="sc">::</span><span class="fu">use_r</span>(<span class="st">"data"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 <p>Unfortunately, the trick to insert Roxygen skeleton doesn’t work with data, so we have to do the documentation more manually.</p>
 </div>
 </section>
@@ -719,6 +916,17 @@ Amelia McNamara
 <h2>Package states</h2>
 <p>Maybe too much for this?</p>
 <p><a href="https://rstudio-conf-2022.github.io/build-tidy-tools/materials/day-1-session-1-introduction.html#/package-states">Good reference</a></p>
+</section>
+<section id="resources" class="slide level2">
+<h2>Resources</h2>
+<ul>
+<li><a href="https://happygitwithr.com/">Happy git and GitHub for the useR</a>, Jenny Bryan, the STAT 545 TAs, Jim Hester.</li>
+<li>Object of type ‘closure’ is not subsettable, Jenny Bryan. rstudio::conf <a href="https://posit.co/resources/videos/object-of-type-closure-is-not-subsettable">video</a>, <a href="https://speakerdeck.com/jennybc/object-of-type-closure-is-not-subsettable">slides</a></li>
+<li><a href="https://www.youtube.com/watch?v=7oyiPBjLAWY">Code “smells” and feels</a>, Jenny Bryan</li>
+<li><a href="https://r-pkgs.org/">R packages</a>, Hadley Wickham and Jenny Bryan.</li>
+<li><a href="https://janvitek.org/pubs/ecoop12.pdf">Evaluating the Design of the R Language</a> This is for my computer scientists who want the nitty-gritty about R as a language</li>
+<li><a href="https://adv-r.hadley.nz/">Advanced R</a></li>
+</ul>
 
 
 </section></section>

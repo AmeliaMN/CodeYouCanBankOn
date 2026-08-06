@@ -10,11 +10,11 @@ format:
     height: 900
     width: 1600
 execute:
-  echo: true
-  eval: false
+  echo: false
+  eval: true
 ---
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, }
 2+2
 ```
 
@@ -25,6 +25,8 @@ execute:
 # install.packages("devtools")
 devtools::install_github("hadley/emo")
 ```
+
+
 
 ## Motivation
 In the R world, versions of this are attributed to Hadley Wickham:
@@ -83,13 +85,6 @@ Also known as the [rule of three](https://en.wikipedia.org/wiki/Rule_of_three_(c
 -   Install and restart
 :::
 :::
-
-## Intro
-
-Materials in this slide desk based on 
-- Ian Lyttle's[Uncoast unconf Day Zero slides](https://uncoast-unconf.github.io/uu-2019-day-zero/), which in turn were based on [Hannah Frick's work](https://github.com/hfrick/presentations/blob/master/2019-03-12_package_building/)
--  Emma Rand and Ian Lyttle's  [Building tidy tools](https://rstudio-conf-2022.github.io/build-tidy-tools/)
-- Hadley Wickham and Jenny Bryan's [R Packages (2e)](https://r-pkgs.org/whole-game.html)
 
 ## Overview
 
@@ -153,8 +148,16 @@ knitr::include_graphics("img/img-nouns/create-package.png")
 ## Create package (your turn)
 
 Be deliberate about where you create your package
+\
+\
 
-Do not nest inside another RStudio project, R package or git repo.
+Do **not** nest inside another RStudio project, R package or git repo.
+\
+\
+
+That includes if you created an RStudio project for these materials!
+\
+\
 
 My practice is to put all packages under my home directory, but your Documents folder is also okay (as long as that's not synced by OneDrive or other file-tracking software!). 
 
@@ -208,6 +211,7 @@ continued.....
 
 ```r
 create_package("../BLT") # set the path to suit you
+# getwd() will remind you where you currently are
 ```
 
 - creates a minimal set of files for an installable package
@@ -226,7 +230,7 @@ create_package("../BLT") # set the path to suit you
 
 
 
-## Create package (your turn) {.smaller}
+## Edit description (your turn)
 
 ::: {.teach-left}
 
@@ -237,11 +241,9 @@ Open `DESCRIPTION` file to edit it:
    - we set this in our `.Rprofile`, so go back to the intro slides if you missed this!
    - (Another possible issue is you didn't restart R!)
 
-`r emo::ji("pencil2")` edit `Title` field
+✏️ edit `Title` field. Should be one line, title case, with no period. Fewer than 65 characters.
 
-`r emo::ji("pencil2")` edit `Description` field
-
-`r emo::ji("floppy_disk")` save `DESCRIPTION` file
+💾 save `DESCRIPTION` file
 
 :::
 
@@ -251,6 +253,27 @@ Open `DESCRIPTION` file to edit it:
 #| echo: false
 ```
 :::
+
+## Update `DESCRIPTION`
+
+::: small
+``` default
+Package: BLT
+Title: Work with data on bacon, lettuce, and tomatoes
+Version: 0.0.0.9000
+Authors@R: 
+    person("Amelia", "McNamara", , "amelia.mcnamara@stthomas.edu", role = c("aut", "cre"))
+Description: What the package does (one paragraph).
+License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
+    license
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.3
+```
+:::
+
+
+
 
 ---
 
@@ -436,6 +459,17 @@ check()
 ```
 :::
 
+## Commit
+
+Now would be a good time to commit your changes.
+
+\
+
+
+
+![Jason Long, CC BY 3.0 \<https://creativecommons.org/licenses/by/3.0\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg){fig-alt="Git icon" width="300"} 
+
+
 ---
 
 ## Develop
@@ -478,7 +512,7 @@ AR1 <- function(a, b) {
 }
 ```
 
-- place the cursor on the blank line between the `{` `r emo::ji("pencil")` `}` 
+- place the cursor on the blank line between the `{` ✏️ `}` 
 
 - RStudio IDE menu: **Code** > **Insert Roxygen Skeleton**
 
@@ -578,7 +612,7 @@ forecast::Arima(y)
 
 ----
 
-`r emo::ji("floppy_disk")` Save `AR1.R`.
+💾 Save `AR1.R`.
 
 ```r
 document()
@@ -703,7 +737,7 @@ Of course, `usethis` has a helper function for this, `usethis::use_data()`.
 
 Add the bacon data to the package,
 
-```{r}
+```{r, eval=FALSE}
 usethis::use_data(bacon)
 ```
 
@@ -721,7 +755,7 @@ Data gets documented in the data.R file. How can we create and open this file fo
 
 . . .
 
-```{r}
+```{r, eval=FALSE}
 devtools::use_r("data")
 ```
 
@@ -763,3 +797,13 @@ There is a lot more detail specific to including data in packages. Sometimes you
 Maybe too much for this?
 
 [Good reference](https://rstudio-conf-2022.github.io/build-tidy-tools/materials/day-1-session-1-introduction.html#/package-states)
+
+
+## Resources
+
+- [Happy git and GitHub for the useR](https://happygitwithr.com/), Jenny Bryan, the STAT 545 TAs, Jim Hester.
+- Object of type ‘closure’ is not subsettable, Jenny Bryan. rstudio::conf [video](https://posit.co/resources/videos/object-of-type-closure-is-not-subsettable), [slides](https://speakerdeck.com/jennybc/object-of-type-closure-is-not-subsettable)
+- [Code "smells" and feels](https://www.youtube.com/watch?v=7oyiPBjLAWY), Jenny Bryan
+- [R packages](https://r-pkgs.org/), Hadley Wickham and Jenny Bryan. 
+- [Evaluating the Design of the R Language](https://janvitek.org/pubs/ecoop12.pdf) This is for my computer scientists who want the nitty-gritty about R as a language
+- [Advanced R](https://adv-r.hadley.nz/)

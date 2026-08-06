@@ -7,6 +7,7 @@ format:
   revealjs:
     theme: [dracula, extra.scss]
     slide-number: true
+    footer: <https://bit.ly/CYCBO>     
     height: 900
     width: 1600
 execute:
@@ -15,6 +16,22 @@ execute:
 editor_options: 
   chunk_output_type: console
 ---
+
+## Getting these materials {.smaller}
+
+At least at first, it should be totally adequate to follow along with the slides I'm sharing on the screen. But I know people like to have all the materials! 
+
+Everything is available on GitHub, <https://github.com/AmeliaMN/CodeYouCanBankOn>
+
+If you are a git/GitHub user, you can fork this repo, or 
+
+```
+git clone https://github.com/AmeliaMN/CodeYouCanBankOn.git
+```
+
+If you're not, you can download everything as a zip file 
+
+![](img/DownloadZip.png)
 
 ## About me
 
@@ -25,13 +42,27 @@ I'm an Associate Professor of data science at the University of St. Thomas, and 
 The materials you'll be seeing from me have been modified from a number of sources, including:
 
 - [Building tidy tools](https://github.com/rstudio-conf-2022/build-tidy-tools) workshop, Emma Rand and Ian Lyttle. 
-- [uncoast::unconf](https://github.com/uncoast-unconf/uu-2019-day-zero) workshop, Ian Lyttle, Amelia McNamara, Haley Jeppson, and Yihui Xie.
+- [uncoast::unconf](https://github.com/uncoast-unconf/uu-2019-day-zero) workshop, Ian Lyttle, Amelia McNamara, Haley Jeppson, and Yihui Xie, which in turn were based on [Hannah Frick's work](https://github.com/hfrick/presentations/blob/master/2019-03-12_package_building/)
 - [R packages](https://r-pkgs.org/) book, by Hadley Wickham and Jenny Bryan.
 - ... and likely many more things that I will reference throughout. 
 
 ---
 
+:::: {.columns}
+
+::: {.column width="50%"}
+
 ![](img/doing-it-myself.png)
+:::
+
+::: {.column width="50%"}
+
+One huge feature of the R community is that everyone is so generous with their time, expertise, and materials. Almost everything (including this workshop!) is Creative Commons licensed, so others can remix and reuse as they see fit. 
+
+:::
+
+::::
+
 
 ::: footer
 Artwork by [Allison Horst](https://allisonhorst.com/everything-else)
@@ -63,7 +94,7 @@ I am assuming you have a baseline familiarity with
 - Markdown (RMarkdown/Quarto/plain Markdown)
 - git/GitHub
 
-## Catch up
+## Catch up {.smaller}
 I'll do a little bit of review of each of those topics, but if they are totally new to you, here is some background reading to help you get caught up. 
 
 :::: {.columns}
@@ -100,11 +131,14 @@ install.packages(c("fredr", "roxygen2", "testthat", "usethis"))
 ```
 
 
+# Workflow and best practices
+
 ## Workflow
 
 - Starting from a blank slate
 - Relative paths
 - File organization
+- Naming things
 - [tidyverse design principles](https://design.tidyverse.org/)
 
 ## Starting from a blank slate 
@@ -119,6 +153,8 @@ We're going to strive not to be data-hoarders
 
 
 ::: {.column width="40%"}
+Tools -> Global Options
+
 Restore .RData into workspace at startup: unchecked
 
 Save workspace to .RData on exit: Never
@@ -129,7 +165,7 @@ Save workspace to .RData on exit: Never
 
 ## Relative paths
 
-- Files should be stored in folders (also called directories) in some intelligible way, and any references to files should be “relative” rather than “absolute” paths. e.g., 
+- Files should be stored in folders (also called directories) in some intelligible way, and any references to files should be "relative" rather than "absolute" paths. e.g., 
 
 ```
     ../Data/InputData/some_file.csv, 
@@ -140,6 +176,18 @@ rather than
 ```
     /Users/myUserName/Documents/Project/Data/InputData/some_file.csv
 ```
+
+
+## Use Projects
+
+One way to avoid absolute file paths is to use RStudio Projects. Projects are basically directories (folders) that RStudio maintains a bit more information about. 
+
+To make a project, go to File -> New Project. You can either make a project out of an existing directory, or RStudio will create the directory for you if you're starting from scratch! 
+
+![](img/NewProject.png)
+
+(if you haven't already downloaded the materials, you could make a New Project from Version Control!)
+
 ## File organization {.smaller}
 
 The [TIER Protocol](https://www.projecttier.org/tier-protocol/protocol-4-0/) is one suggested organizational method
@@ -192,7 +240,7 @@ Names should strive to be:
 - human readable
 - useful with default ordering
 
-## Naming things
+## Naming things {.smaller}
 
 NO
 
@@ -212,9 +260,19 @@ YES
   
 Via [Jenny Bryan](https://speakerdeck.com/jennybc/how-to-name-files)
 
-## Naming functions and objects
+## Tidyverse style guide
 
+There used to be several competing style guides for R code style, but many (most?) people have coalesced around the [tidyverse style guide](https://style.tidyverse.org/). Some organizations have modifications of the guide, like [Google's R style guide](https://google.github.io/styleguide/Rguide.html). 
+\
+\
 
+Tidyverse style uses `snake_case` rather than `CamelCase`.
+\
+\
+
+Generally, variable names should be nouns and function names should be verbs. Strive for names that are concise and meaningful (this is not easy!).
+
+# Setting up for development
 
 ## Set up your `.Rprofile`
 
@@ -264,9 +322,6 @@ if (interactive()) {
 
 Restart R for these to take an effect.
 
-
-
-## Functions
 
 ## Grabbing some data
 
@@ -341,21 +396,20 @@ Looks good!
 
 ## Make a plot (your turn)
 
+Let's do some quick EDA. What does the tomato price data look like? 
+
 
 
 ## Getting a little more data (your turn)
 
 I'd also like data on the average price of bacon (sliced), and iceberg lettuce. Can you find those API endpoints and grab the data for the past ten years on them?
 
+Save the datasets as .csv files so we can access them without hitting the API again. 
+
 
 ## Resources 
 
-- [Happy git and GitHub for the useR](https://happygitwithr.com/), Jenny Bryan, the STAT 545 TAs, Jim Hester.
 - [What They Forgot to Teach You About R](https://rstats.wtf/),  Jennifer Bryan, Jim Hester, Shannon Pileggi, E. David Aja. 
-- Object of type ‘closure’ is not subsettable, Jenny Bryan. rstudio::conf [video](https://posit.co/resources/videos/object-of-type-closure-is-not-subsettable), [slides](https://speakerdeck.com/jennybc/object-of-type-closure-is-not-subsettable)
-- [Code "smells" and feels](https://www.youtube.com/watch?v=7oyiPBjLAWY), Jenny Bryan
 - [R for Data Science](https://r4ds.hadley.nz/), Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. 
-- [R packages](https://r-pkgs.org/), Hadley Wickham and Jenny Bryan. 
+- [Tidyverse style guide](https://style.tidyverse.org/)
 
-- [Evaluating the Design of the R Language](https://janvitek.org/pubs/ecoop12.pdf) This is for my computer scientists who want the nitty-gritty about R as a language
-- [Advanced R](https://adv-r.hadley.nz/)

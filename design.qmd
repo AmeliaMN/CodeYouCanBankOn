@@ -15,6 +15,12 @@ execute:
 ---
 
 
+Best practices for data analysis
+
+Good enough practices for data analysis
+
+https://speakerdeck.com/jennybc/zen-and-the-art-of-workflow-maintenance?slide=59
+
 
 ## Naming functions
 

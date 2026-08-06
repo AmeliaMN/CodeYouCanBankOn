@@ -17,9 +17,6 @@ execute:
 # ☑️ Unit Testing
 
 
-
-# Why test?
-
 ## Why test?
 
 - To make sure our code works

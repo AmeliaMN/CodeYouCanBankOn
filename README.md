@@ -20,7 +20,6 @@ Onsite at the Minneapolis Federal Reserve August 10, 11, and 17, and online.
   - 12-1 pm lunch break
   - 1-4 pm [design](design.qmd)
 
-
 ## Prereqs
 
 1.  Ensure you have R and RStudio installed. You don't need the most recent version of either. I'm currently running R version 4.4.1 "Race for Your Life" and RStudio version 2026.07.
@@ -64,4 +63,3 @@ I'll do a little bit of review of each of those topics, but if they are totally 
   - [Quarto](https://r4ds.hadley.nz/quarto.html)
   - [Markdown](https://daringfireball.net/projects/markdown/syntax)
 - [git](https://happygitwithr.com/big-picture)
-

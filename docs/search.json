@@ -259,11 +259,18 @@
     "text": "Additional material\nHadley’s keynote at rstudio::conf(2017):\n\nnot available on YouTube 😢\ntalks about tidyverse design\n\nJoe Cheng’s talks (Part 1, Part 2) on reactivity at Shiny Developers Conference (2016), precursor to rstudio::conf():\n\npure functions vs. side effects"
   },
   {
+    "objectID": "intro.html#getting-these-materials",
+    "href": "intro.html#getting-these-materials",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Getting these materials",
+    "text": "Getting these materials\nAt least at first, it should be totally adequate to follow along with the slides I’m sharing on the screen. But I know people like to have all the materials!\nEverything is available on GitHub, https://github.com/AmeliaMN/CodeYouCanBankOn\nIf you are a git/GitHub user, you can fork this repo, or\ngit clone https://github.com/AmeliaMN/CodeYouCanBankOn.git\nIf you’re not, you can download everything as a zip file"
+  },
+  {
     "objectID": "intro.html#about-me",
     "href": "intro.html#about-me",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "About me",
-    "text": "About me\nI’m an Associate Professor of data science at the University of St. Thomas, and a proud R-lady. I’ve taught a ton of workshops like this over the years, from Software Carpentry to rstudio::conf to NICAR and everything in between.\n\n\nThe materials you’ll be seeing from me have been modified from a number of sources, including:\n\nBuilding tidy tools workshop, Emma Rand and Ian Lyttle.\nuncoast::unconf workshop, Ian Lyttle, Amelia McNamara, Haley Jeppson, and Yihui Xie.\nR packages book, by Hadley Wickham and Jenny Bryan.\n… and likely many more things that I will reference throughout."
+    "text": "About me\nI’m an Associate Professor of data science at the University of St. Thomas, and a proud R-lady. I’ve taught a ton of workshops like this over the years, from Software Carpentry to rstudio::conf to NICAR and everything in between.\n\n\nThe materials you’ll be seeing from me have been modified from a number of sources, including:\n\nBuilding tidy tools workshop, Emma Rand and Ian Lyttle.\nuncoast::unconf workshop, Ian Lyttle, Amelia McNamara, Haley Jeppson, and Yihui Xie, which in turn were based on Hannah Frick’s work\nR packages book, by Hadley Wickham and Jenny Bryan.\n… and likely many more things that I will reference throughout."
   },
   {
     "objectID": "intro.html#everything-i-know-is-from-jenny-bryan",
@@ -298,14 +305,14 @@
     "href": "intro.html#workflow",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Workflow",
-    "text": "Workflow\n\nStarting from a blank slate\nRelative paths\nFile organization\ntidyverse design principles"
+    "text": "Workflow\n\nStarting from a blank slate\nRelative paths\nFile organization\nNaming things\ntidyverse design principles"
   },
   {
     "objectID": "intro.html#starting-from-a-blank-slate",
     "href": "intro.html#starting-from-a-blank-slate",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Starting from a blank slate",
-    "text": "Starting from a blank slate\nWe’re going to strive not to be data-hoarders\n\n\n\n\nRestore .RData into workspace at startup: unchecked\nSave workspace to .RData on exit: Never"
+    "text": "Starting from a blank slate\nWe’re going to strive not to be data-hoarders\n\n\n\n\nTools -&gt; Global Options\nRestore .RData into workspace at startup: unchecked\nSave workspace to .RData on exit: Never"
   },
   {
     "objectID": "intro.html#relative-paths",
@@ -313,6 +320,13 @@
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Relative paths",
     "text": "Relative paths\n\nFiles should be stored in folders (also called directories) in some intelligible way, and any references to files should be “relative” rather than “absolute” paths. e.g.,\n\n    ../Data/InputData/some_file.csv, \nrather than\n    /Users/myUserName/Documents/Project/Data/InputData/some_file.csv"
+  },
+  {
+    "objectID": "intro.html#use-projects",
+    "href": "intro.html#use-projects",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Use Projects",
+    "text": "Use Projects\nOne way to avoid absolute file paths is to use RStudio Projects. Projects are basically directories (folders) that RStudio maintains a bit more information about.\nTo make a project, go to File -&gt; New Project. You can either make a project out of an existing directory, or RStudio will create the directory for you if you’re starting from scratch!\n\n(if you haven’t already downloaded the materials, you could make a New Project from Version Control!)"
   },
   {
     "objectID": "intro.html#file-organization",
@@ -336,11 +350,11 @@
     "text": "Naming things\nNO\n\nmy abstract.docx\nJoe’s Filenames Use Spaces and Punctuation.xlsx\nfigure I.png\nfig 2.png\nJW&^(2sl@deletethisandyourcareerisoverWx2*.txt\n\nYES\n\n2014-06-08_abstract-for-sla.docx\njoes-filenames-are-getting-better.xlsx\nfig01_scatterplot-talk-length-vs-interest.png\nfig02_histogram-talk-attendance.png\n1986-01-28_raw-data-from-challenger-o-rings.txt\n\nVia Jenny Bryan"
   },
   {
-    "objectID": "intro.html#naming-functions-and-objects",
-    "href": "intro.html#naming-functions-and-objects",
+    "objectID": "intro.html#tidyverse-style-guide",
+    "href": "intro.html#tidyverse-style-guide",
     "title": "💻 🏦 Code You Can Bank On",
-    "section": "Naming functions and objects",
-    "text": "Naming functions and objects"
+    "section": "Tidyverse style guide",
+    "text": "Tidyverse style guide\nThere used to be several competing style guides for R code style, but many (most?) people have coalesced around the tidyverse style guide. Some organizations have modifications of the guide, like Google’s R style guide.\n\n\nTidyverse style uses snake_case rather than CamelCase.\n\n\nGenerally, variable names should be nouns and function names should be verbs. Strive for names that are concise and meaningful (this is not easy!)."
   },
   {
     "objectID": "intro.html#set-up-your-.rprofile",
@@ -362,13 +376,6 @@
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Set up your .Rprofile",
     "text": "Set up your .Rprofile\nLoad devtools and testthat on start up\n\n\n\nif (interactive()) {\n  suppressMessages(require(devtools))\n  suppressMessages(require(testthat))\n}\n\n\n\nRestart R for these to take an effect."
-  },
-  {
-    "objectID": "intro.html#functions",
-    "href": "intro.html#functions",
-    "title": "💻 🏦 Code You Can Bank On",
-    "section": "Functions",
-    "text": "Functions"
   },
   {
     "objectID": "intro.html#grabbing-some-data",
@@ -424,21 +431,21 @@
     "href": "intro.html#make-a-plot-your-turn",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Make a plot (your turn)",
-    "text": "Make a plot (your turn)"
+    "text": "Make a plot (your turn)\nLet’s do some quick EDA. What does the tomato price data look like?"
   },
   {
     "objectID": "intro.html#getting-a-little-more-data-your-turn",
     "href": "intro.html#getting-a-little-more-data-your-turn",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Getting a little more data (your turn)",
-    "text": "Getting a little more data (your turn)\nI’d also like data on the average price of bacon (sliced), and iceberg lettuce. Can you find those API endpoints and grab the data for the past ten years on them?"
+    "text": "Getting a little more data (your turn)\nI’d also like data on the average price of bacon (sliced), and iceberg lettuce. Can you find those API endpoints and grab the data for the past ten years on them?\nSave the datasets as .csv files so we can access them without hitting the API again."
   },
   {
     "objectID": "intro.html#resources",
     "href": "intro.html#resources",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Resources",
-    "text": "Resources\n\nHappy git and GitHub for the useR, Jenny Bryan, the STAT 545 TAs, Jim Hester.\nWhat They Forgot to Teach You About R, Jennifer Bryan, Jim Hester, Shannon Pileggi, E. David Aja.\nObject of type ‘closure’ is not subsettable, Jenny Bryan. rstudio::conf video, slides\nCode “smells” and feels, Jenny Bryan\nR for Data Science, Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund.\nR packages, Hadley Wickham and Jenny Bryan.\nEvaluating the Design of the R Language This is for my computer scientists who want the nitty-gritty about R as a language\nAdvanced R"
+    "text": "Resources\n\nWhat They Forgot to Teach You About R, Jennifer Bryan, Jim Hester, Shannon Pileggi, E. David Aja.\nR for Data Science, Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund.\nTidyverse style guide"
   },
   {
     "objectID": "LICENSE.html#creative-commons-attribution-sharealike-4.0-international-public-license",
@@ -448,8 +455,8 @@
     "text": "Creative Commons Attribution-ShareAlike 4.0 International Public License\nBy exercising the Licensed Rights (defined below), You accept and agree to be bound by the terms and conditions of this Creative Commons Attribution-ShareAlike 4.0 International Public License (“Public License”). To the extent this Public License may be interpreted as a contract, You are granted the Licensed Rights in consideration of Your acceptance of these terms and conditions, and the Licensor grants You such rights in consideration of benefits the Licensor receives from making the Licensed Material available under these terms and conditions.\n\nSection 1 – Definitions.\n\nAdapted Material means material subject to Copyright and Similar Rights that is derived from or based upon the Licensed Material and in which the Licensed Material is translated, altered, arranged, transformed, or otherwise modified in a manner requiring permission under the Copyright and Similar Rights held by the Licensor. For purposes of this Public License, where the Licensed Material is a musical work, performance, or sound recording, Adapted Material is always produced where the Licensed Material is synched in timed relation with a moving image.\nAdapter’s License means the license You apply to Your Copyright and Similar Rights in Your contributions to Adapted Material in accordance with the terms and conditions of this Public License.\nBY-SA Compatible License means a license listed at creativecommons.org/compatiblelicenses, approved by Creative Commons as essentially the equivalent of this Public License.\nCopyright and Similar Rights means copyright and/or similar rights closely related to copyright including, without limitation, performance, broadcast, sound recording, and Sui Generis Database Rights, without regard to how the rights are labeled or categorized. For purposes of this Public License, the rights specified in Section 2(b)(1)-(2) are not Copyright and Similar Rights.\nEffective Technological Measures means those measures that, in the absence of proper authority, may not be circumvented under laws fulfilling obligations under Article 11 of the WIPO Copyright Treaty adopted on December 20, 1996, and/or similar international agreements.\nExceptions and Limitations means fair use, fair dealing, and/or any other exception or limitation to Copyright and Similar Rights that applies to Your use of the Licensed Material.\nLicense Elements means the license attributes listed in the name of a Creative Commons Public License. The License Elements of this Public License are Attribution and ShareAlike.\nLicensed Material means the artistic or literary work, database, or other material to which the Licensor applied this Public License.\nLicensed Rights means the rights granted to You subject to the terms and conditions of this Public License, which are limited to all Copyright and Similar Rights that apply to Your use of the Licensed Material and that the Licensor has authority to license.\nLicensor means the individual(s) or entity(ies) granting rights under this Public License.\nShare means to provide material to the public by any means or process that requires permission under the Licensed Rights, such as reproduction, public display, public performance, distribution, dissemination, communication, or importation, and to make material available to the public including in ways that members of the public may access the material from a place and at a time individually chosen by them.\nSui Generis Database Rights means rights other than copyright resulting from Directive 96/9/EC of the European Parliament and of the Council of 11 March 1996 on the legal protection of databases, as amended and/or succeeded, as well as other essentially equivalent rights anywhere in the world.\nYou means the individual or entity exercising the Licensed Rights under this Public License. Your has a corresponding meaning.\n\n\n\nSection 2 – Scope.\n\nLicense grant.\n\nSubject to the terms and conditions of this Public License, the Licensor hereby grants You a worldwide, royalty-free, non-sublicensable, non-exclusive, irrevocable license to exercise the Licensed Rights in the Licensed Material to:\nA. reproduce and Share the Licensed Material, in whole or in part; and\nB. produce, reproduce, and Share Adapted Material.\nExceptions and Limitations. For the avoidance of doubt, where Exceptions and Limitations apply to Your use, this Public License does not apply, and You do not need to comply with its terms and conditions.\nTerm. The term of this Public License is specified in Section 6(a).\nMedia and formats; technical modifications allowed. The Licensor authorizes You to exercise the Licensed Rights in all media and formats whether now known or hereafter created, and to make technical modifications necessary to do so. The Licensor waives and/or agrees not to assert any right or authority to forbid You from making technical modifications necessary to exercise the Licensed Rights, including technical modifications necessary to circumvent Effective Technological Measures. For purposes of this Public License, simply making modifications authorized by this Section 2(a)(4) never produces Adapted Material.\nDownstream recipients.\nA. Offer from the Licensor – Licensed Material. Every recipient of the Licensed Material automatically receives an offer from the Licensor to exercise the Licensed Rights under the terms and conditions of this Public License.\nB. __Additional offer from the Licensor – Adapted Material. Every recipient of Adapted Material from You automatically receives an offer from the Licensor to exercise the Licensed Rights in the Adapted Material under the conditions of the Adapter’s License You apply.\nC. No downstream restrictions. You may not offer or impose any additional or different terms or conditions on, or apply any Effective Technological Measures to, the Licensed Material if doing so restricts exercise of the Licensed Rights by any recipient of the Licensed Material.\nNo endorsement. Nothing in this Public License constitutes or may be construed as permission to assert or imply that You are, or that Your use of the Licensed Material is, connected with, or sponsored, endorsed, or granted official status by, the Licensor or others designated to receive attribution as provided in Section 3(a)(1)(A)(i).\n\nOther rights.\n\nMoral rights, such as the right of integrity, are not licensed under this Public License, nor are publicity, privacy, and/or other similar personality rights; however, to the extent possible, the Licensor waives and/or agrees not to assert any such rights held by the Licensor to the limited extent necessary to allow You to exercise the Licensed Rights, but not otherwise.\nPatent and trademark rights are not licensed under this Public License.\nTo the extent possible, the Licensor waives any right to collect royalties from You for the exercise of the Licensed Rights, whether directly or through a collecting society under any voluntary or waivable statutory or compulsory licensing scheme. In all other cases the Licensor expressly reserves any right to collect such royalties.\n\n\n\n\nSection 3 – License Conditions.\nYour exercise of the Licensed Rights is expressly made subject to the following conditions.\n\nAttribution.\n\nIf You Share the Licensed Material (including in modified form), You must:\nA. retain the following if it is supplied by the Licensor with the Licensed Material:\n\nidentification of the creator(s) of the Licensed Material and any others designated to receive attribution, in any reasonable manner requested by the Licensor (including by pseudonym if designated);\na copyright notice;\na notice that refers to this Public License;\na notice that refers to the disclaimer of warranties;\na URI or hyperlink to the Licensed Material to the extent reasonably practicable;\n\nB. indicate if You modified the Licensed Material and retain an indication of any previous modifications; and\nC. indicate the Licensed Material is licensed under this Public License, and include the text of, or the URI or hyperlink to, this Public License.\nYou may satisfy the conditions in Section 3(a)(1) in any reasonable manner based on the medium, means, and context in which You Share the Licensed Material. For example, it may be reasonable to satisfy the conditions by providing a URI or hyperlink to a resource that includes the required information.\nIf requested by the Licensor, You must remove any of the information required by Section 3(a)(1)(A) to the extent reasonably practicable.\n\nShareAlike.\n\nIn addition to the conditions in Section 3(a), if You Share Adapted Material You produce, the following conditions also apply.\n\nThe Adapter’s License You apply must be a Creative Commons license with the same License Elements, this version or later, or a BY-SA Compatible License.\nYou must include the text of, or the URI or hyperlink to, the Adapter’s License You apply. You may satisfy this condition in any reasonable manner based on the medium, means, and context in which You Share Adapted Material.\nYou may not offer or impose any additional or different terms or conditions on, or apply any Effective Technological Measures to, Adapted Material that restrict exercise of the rights granted under the Adapter’s License You apply.\n\n\n\nSection 4 – Sui Generis Database Rights.\nWhere the Licensed Rights include Sui Generis Database Rights that apply to Your use of the Licensed Material:\n\nfor the avoidance of doubt, Section 2(a)(1) grants You the right to extract, reuse, reproduce, and Share all or a substantial portion of the contents of the database;\nif You include all or a substantial portion of the database contents in a database in which You have Sui Generis Database Rights, then the database in which You have Sui Generis Database Rights (but not its individual contents) is Adapted Material, including for purposes of Section 3(b); and\nYou must comply with the conditions in Section 3(a) if You Share all or a substantial portion of the contents of the database.\n\nFor the avoidance of doubt, this Section 4 supplements and does not replace Your obligations under this Public License where the Licensed Rights include other Copyright and Similar Rights.\n\n\nSection 5 – Disclaimer of Warranties and Limitation of Liability.\n\nUnless otherwise separately undertaken by the Licensor, to the extent possible, the Licensor offers the Licensed Material as-is and as-available, and makes no representations or warranties of any kind concerning the Licensed Material, whether express, implied, statutory, or other. This includes, without limitation, warranties of title, merchantability, fitness for a particular purpose, non-infringement, absence of latent or other defects, accuracy, or the presence or absence of errors, whether or not known or discoverable. Where disclaimers of warranties are not allowed in full or in part, this disclaimer may not apply to You.\nTo the extent possible, in no event will the Licensor be liable to You on any legal theory (including, without limitation, negligence) or otherwise for any direct, special, indirect, incidental, consequential, punitive, exemplary, or other losses, costs, expenses, or damages arising out of this Public License or use of the Licensed Material, even if the Licensor has been advised of the possibility of such losses, costs, expenses, or damages. Where a limitation of liability is not allowed in full or in part, this limitation may not apply to You.\nThe disclaimer of warranties and limitation of liability provided above shall be interpreted in a manner that, to the extent possible, most closely approximates an absolute disclaimer and waiver of all liability.\n\n\n\nSection 6 – Term and Termination.\n\nThis Public License applies for the term of the Copyright and Similar Rights licensed here. However, if You fail to comply with this Public License, then Your rights under this Public License terminate automatically.\nWhere Your right to use the Licensed Material has terminated under Section 6(a), it reinstates:\n\nautomatically as of the date the violation is cured, provided it is cured within 30 days of Your discovery of the violation; or\nupon express reinstatement by the Licensor.\n\nFor the avoidance of doubt, this Section 6(b) does not affect any right the Licensor may have to seek remedies for Your violations of this Public License.\nFor the avoidance of doubt, the Licensor may also offer the Licensed Material under separate terms or conditions or stop distributing the Licensed Material at any time; however, doing so will not terminate this Public License.\nSections 1, 5, 6, 7, and 8 survive termination of this Public License.\n\n\n\nSection 7 – Other Terms and Conditions.\n\nThe Licensor shall not be bound by any additional or different terms or conditions communicated by You unless expressly agreed.\nAny arrangements, understandings, or agreements regarding the Licensed Material not stated herein are separate from and independent of the terms and conditions of this Public License.t stated herein are separate from and independent of the terms and conditions of this Public License.\n\n\n\nSection 8 – Interpretation.\n\nFor the avoidance of doubt, this Public License does not, and shall not be interpreted to, reduce, limit, restrict, or impose conditions on any use of the Licensed Material that could lawfully be made without permission under this Public License.\nTo the extent possible, if any provision of this Public License is deemed unenforceable, it shall be automatically reformed to the minimum extent necessary to make it enforceable. If the provision cannot be reformed, it shall be severed from this Public License without affecting the enforceability of the remaining terms and conditions.\nNo term or condition of this Public License will be waived and no failure to comply consented to unless expressly agreed to by the Licensor.\nNothing in this Public License constitutes or may be interpreted as a limitation upon, or waiver of, any privileges and immunities that apply to the Licensor or You, including from the legal processes of any jurisdiction or authority.\n\n\nCreative Commons is not a party to its public licenses. Notwithstanding, Creative Commons may elect to apply one of its public licenses to material it publishes and in those instances will be considered the “Licensor.” Except for the limited purpose of indicating that material is shared under a Creative Commons public license or as otherwise permitted by the Creative Commons policies published at creativecommons.org/policies, Creative Commons does not authorize the use of the trademark “Creative Commons” or any other trademark or logo of Creative Commons without its prior written consent including, without limitation, in connection with any unauthorized modifications to any of its public licenses or any other arrangements, understandings, or agreements concerning use of licensed material. For the avoidance of doubt, this paragraph does not form part of the public licenses.\nCreative Commons may be contacted at creativecommons.org"
   },
   {
-    "objectID": "testing.html#why-test-1",
-    "href": "testing.html#why-test-1",
+    "objectID": "testing.html#why-test",
+    "href": "testing.html#why-test",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Why test?",
     "text": "Why test?\n\nTo make sure our code works\n\n\n\n\n\nTo make sure our code keeps working after we add features"
@@ -1113,25 +1120,18 @@
     "text": "Script vs package\n\n\nScript\n\none-off data analysis\ndefined by .R extension\nlibrary() calls\ndocumentation in # comments\nsource()\n\n\nPackage\n\ndefines reusable components\ndefined by presence of DESCRIPTION file\nRequired packages specified in DESCRIPTION, made available in NAMESPACE file\ndocumentation in files and Roxygen comments\nInstall and restart"
   },
   {
-    "objectID": "package-dev.html#intro",
-    "href": "package-dev.html#intro",
-    "title": "💻 🏦 Code You Can Bank On",
-    "section": "Intro",
-    "text": "Intro\nMaterials in this slide desk based on - Ian Lyttle’sUncoast unconf Day Zero slides, which in turn were based on Hannah Frick’s work - Emma Rand and Ian Lyttle’s Building tidy tools - Hadley Wickham and Jenny Bryan’s R Packages (2e)"
-  },
-  {
     "objectID": "package-dev.html#overview",
     "href": "package-dev.html#overview",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Overview",
-    "text": "Overview\n\n\n\n\n(Does this remind you of anything?)\n\n\nFigure adapted from Packages, by Hannah Frick"
+    "text": "Overview\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n(Does this remind you of anything?)\n\n\nFigure adapted from Packages, by Hannah Frick"
   },
   {
     "objectID": "package-dev.html#overview-1",
     "href": "package-dev.html#overview-1",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Overview",
-    "text": "Overview\n\n\n\n\nFigure adapted from Packages, by Hannah Frick"
+    "text": "Overview\n\n\n\n\n\n\n\n\n\n\n\n\nFigure adapted from Packages, by Hannah Frick"
   },
   {
     "objectID": "package-dev.html#create-package",
@@ -1145,7 +1145,7 @@
     "href": "package-dev.html#create-package-your-turn",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Create package (your turn)",
-    "text": "Create package (your turn)\nBe deliberate about where you create your package\nDo not nest inside another RStudio project, R package or git repo.\nMy practice is to put all packages under my home directory, but your Documents folder is also okay (as long as that’s not synced by OneDrive or other file-tracking software!)."
+    "text": "Create package (your turn)\nBe deliberate about where you create your package\n\n\nDo not nest inside another RStudio project, R package or git repo.\n\n\nThat includes if you created an RStudio project for these materials!\n\n\nMy practice is to put all packages under my home directory, but your Documents folder is also okay (as long as that’s not synced by OneDrive or other file-tracking software!)."
   },
   {
     "objectID": "package-dev.html#create_package",
@@ -1173,14 +1173,21 @@
     "href": "package-dev.html#create-package-your-turn-1",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Create package (your turn)",
-    "text": "Create package (your turn)\n\ncreate_package(\"../BLT\") # set the path to suit you\n\ncreates a minimal set of files for an installable package\nopens a new RStudio project"
+    "text": "Create package (your turn)\n\ncreate_package(\"../BLT\") # set the path to suit you\n# getwd() will remind you where you currently are\n\ncreates a minimal set of files for an installable package\nopens a new RStudio project"
   },
   {
-    "objectID": "package-dev.html#create-package-your-turn-2",
-    "href": "package-dev.html#create-package-your-turn-2",
+    "objectID": "package-dev.html#edit-description-your-turn",
+    "href": "package-dev.html#edit-description-your-turn",
     "title": "💻 🏦 Code You Can Bank On",
-    "section": "Create package (your turn)",
-    "text": "Create package (your turn)\n\nOpen DESCRIPTION file to edit it:\n\nAuthors@R field uses options(\"usethis.description\")\n\nwe set this in our .Rprofile, so go back to the intro slides if you missed this!\n(Another possible issue is you didn’t restart R!)\n\n\n✏️ edit Title field\n✏️ edit Description field\n💾 save DESCRIPTION file"
+    "section": "Edit description (your turn)",
+    "text": "Edit description (your turn)\n\nOpen DESCRIPTION file to edit it:\n\nAuthors@R field uses options(\"usethis.description\")\n\nwe set this in our .Rprofile, so go back to the intro slides if you missed this!\n(Another possible issue is you didn’t restart R!)\n\n\n✏️ edit Title field. Should be one line, title case, with no period. Fewer than 65 characters.\n💾 save DESCRIPTION file"
+  },
+  {
+    "objectID": "package-dev.html#update-description",
+    "href": "package-dev.html#update-description",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Update DESCRIPTION",
+    "text": "Update DESCRIPTION\n\nPackage: BLT\nTitle: Work with data on bacon, lettuce, and tomatoes\nVersion: 0.0.0.9000\nAuthors@R: \n    person(\"Amelia\", \"McNamara\", , \"amelia.mcnamara@stthomas.edu\", role = c(\"aut\", \"cre\"))\nDescription: What the package does (one paragraph).\nLicense: `use_mit_license()`, `use_gpl3_license()` or friends to pick a\n    license\nEncoding: UTF-8\nRoxygen: list(markdown = TRUE)\nRoxygenNote: 7.3.3"
   },
   {
     "objectID": "package-dev.html#create-framework",
@@ -1225,6 +1232,13 @@
     "text": "Create framework (your turn)\n\nuse_roxygen_md()\n\nmakes it much easier to create and maintain your function documentation\n\nlets you use a markdown-like syntax\n\n\n\ndocument()\nload_all()\ncheck()"
   },
   {
+    "objectID": "package-dev.html#commit",
+    "href": "package-dev.html#commit",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Commit",
+    "text": "Commit\nNow would be a good time to commit your changes.\n\n\n\nJason Long, CC BY 3.0 &lt;https://creativecommons.org/licenses/by/3.0&gt;, via Wikimedia Commons"
+  },
+  {
     "objectID": "package-dev.html#develop",
     "href": "package-dev.html#develop",
     "title": "💻 🏦 Code You Can Bank On",
@@ -1236,7 +1250,7 @@
     "href": "package-dev.html#develop-your-turn",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Develop (your turn)",
-    "text": "Develop (your turn)\nThere’s a usethis helper for adding .R files!\n\nusethis::use_r(\"AR1\")\nI like the idea of documenting, then writing functions:\n\nclaim what the function will do, then do it\nif your explanation is getting heavy, split into more functions\n\nStart by writing a shell for the function:\nAR1 &lt;- function(a, b) {\n  \n}\n\nplace the cursor on the blank line between the { 📝 }\nRStudio IDE menu: Code &gt; Insert Roxygen Skeleton"
+    "text": "Develop (your turn)\nThere’s a usethis helper for adding .R files!\n\nusethis::use_r(\"AR1\")\nI like the idea of documenting, then writing functions:\n\nclaim what the function will do, then do it\nif your explanation is getting heavy, split into more functions\n\nStart by writing a shell for the function:\nAR1 &lt;- function(a, b) {\n  \n}\n\nplace the cursor on the blank line between the { ✏️ }\nRStudio IDE menu: Code &gt; Insert Roxygen Skeleton"
   },
   {
     "objectID": "package-dev.html#develop-your-turn-1",
@@ -1250,7 +1264,7 @@
     "href": "package-dev.html#develop-your-turn-2",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Develop (your turn)",
-    "text": "Develop (your turn)\n\nWrite the function body:\n#' Convenience function to make first-order autoregressive model\n#'\n#' Wrapper around forecast::Arima \n#\n#' @param y a univariate time series of class `ts`\n#'\n#' @returns See the arima function in the stats package\n#' @export\n#'\n#' @examples\n#'  (AR1(LakeHuron))\n#'\nAR1 &lt;- function(y) {\n  forecast::Arima(y, order = c(1, 0, 0), include.constant = TRUE)\n}\n\n\n\n\nThe file R/strsplit1.R should NOT contain any of the other top-level code we have recently executed, such as the definition of our practice input x, library(devtools), or use_git(). This foreshadows an adjustment you’ll need to make as you transition from writing R scripts to R packages. Packages and scripts use different mechanisms to declare their dependency on other packages and to store example or test code."
+    "text": "Develop (your turn)\n\nWrite the function body:\n#' Convenience function to make first-order autoregressive model\n#'\n#' Wrapper around forecast::Arima \n#\n#' @param y a univariate time series of class `ts`\n#'\n#' @returns See the arima function in the stats package\n#' @export\n#'\n#' @examples\n#'  (AR1(LakeHuron))\n#'\nAR1 &lt;- function(y) {\n  forecast::Arima(y, order = c(1, 0, 0), include.constant = TRUE)\n}\n\n\n\n\n\n\n\n\n\n\n\n\nThe file R/strsplit1.R should NOT contain any of the other top-level code we have recently executed, such as the definition of our practice input x, library(devtools), or use_git(). This foreshadows an adjustment you’ll need to make as you transition from writing R scripts to R packages. Packages and scripts use different mechanisms to declare their dependency on other packages and to store example or test code."
   },
   {
     "objectID": "package-dev.html#develop-your-turn-3",
@@ -1271,7 +1285,7 @@
     "href": "package-dev.html#devtoolscheck",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "devtools::check()",
-    "text": "devtools::check()\n🎬 Check your package:\n\ndevtools::check()"
+    "text": "devtools::check()\n🎬 Check your package:"
   },
   {
     "objectID": "package-dev.html#aside-in-case-of-error",
@@ -1292,7 +1306,7 @@
     "href": "package-dev.html#experiment",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Experiment",
-    "text": "Experiment\nTry out the AR1() function in the console.\n\n\nAR1(tomatoes$value)"
+    "text": "Experiment\nTry out the AR1() function in the console."
   },
   {
     "objectID": "package-dev.html#adding-data-to-packages",
@@ -1306,14 +1320,14 @@
     "href": "package-dev.html#adding-data-to-packages-your-turn",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Adding data to packages (your turn)",
-    "text": "Adding data to packages (your turn)\nAdd the bacon data to the package,\n\nusethis::use_data(bacon)\n\n✔ Adding R to Depends field in DESCRIPTION.\n✔ Creating data/.\n✔ Setting LazyData to \"true\" in DESCRIPTION.\n✔ Saving \"bacon\" to \"data/bacon.rda\".\n☐ Document your data (see &lt;https://r-pkgs.org/data.html&gt;)."
+    "text": "Adding data to packages (your turn)\nAdd the bacon data to the package,\n✔ Adding R to Depends field in DESCRIPTION.\n✔ Creating data/.\n✔ Setting LazyData to \"true\" in DESCRIPTION.\n✔ Saving \"bacon\" to \"data/bacon.rda\".\n☐ Document your data (see &lt;https://r-pkgs.org/data.html&gt;)."
   },
   {
     "objectID": "package-dev.html#documenting-data",
     "href": "package-dev.html#documenting-data",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Documenting data",
-    "text": "Documenting data\nData gets documented in the data.R file. How can we create and open this file for editing?\n\n\ndevtools::use_r(\"data\")\n\nUnfortunately, the trick to insert Roxygen skeleton doesn’t work with data, so we have to do the documentation more manually."
+    "text": "Documenting data\nData gets documented in the data.R file. How can we create and open this file for editing?\n\nUnfortunately, the trick to insert Roxygen skeleton doesn’t work with data, so we have to do the documentation more manually."
   },
   {
     "objectID": "package-dev.html#documenting-data-1",
@@ -1342,5 +1356,12 @@
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Package states",
     "text": "Package states\nMaybe too much for this?\nGood reference"
+  },
+  {
+    "objectID": "package-dev.html#resources",
+    "href": "package-dev.html#resources",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Resources",
+    "text": "Resources\n\nHappy git and GitHub for the useR, Jenny Bryan, the STAT 545 TAs, Jim Hester.\nObject of type ‘closure’ is not subsettable, Jenny Bryan. rstudio::conf video, slides\nCode “smells” and feels, Jenny Bryan\nR packages, Hadley Wickham and Jenny Bryan.\nEvaluating the Design of the R Language This is for my computer scientists who want the nitty-gritty about R as a language\nAdvanced R"
   }
 ]

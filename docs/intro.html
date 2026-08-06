@@ -204,6 +204,15 @@ Amelia McNamara
 </div>
 
 </section>
+<section id="getting-these-materials" class="slide level2 smaller">
+<h2>Getting these materials</h2>
+<p>At least at first, it should be totally adequate to follow along with the slides I’m sharing on the screen. But I know people like to have all the materials!</p>
+<p>Everything is available on GitHub, <a href="https://github.com/AmeliaMN/CodeYouCanBankOn" class="uri">https://github.com/AmeliaMN/CodeYouCanBankOn</a></p>
+<p>If you are a git/GitHub user, you can fork this repo, or</p>
+<pre><code>git clone https://github.com/AmeliaMN/CodeYouCanBankOn.git</code></pre>
+<p>If you’re not, you can download everything as a zip file</p>
+
+<img data-src="img/DownloadZip.png" class="r-stretch"></section>
 <section id="about-me" class="slide level2">
 <h2>About me</h2>
 <p>I’m an Associate Professor of data science at the University of St.&nbsp;Thomas, and a proud R-lady. I’ve taught a ton of workshops like this over the years, from Software Carpentry to rstudio::conf to NICAR and everything in between.</p>
@@ -212,15 +221,20 @@ Amelia McNamara
 <p>The materials you’ll be seeing from me have been modified from a number of sources, including:</p>
 <ul>
 <li><a href="https://github.com/rstudio-conf-2022/build-tidy-tools">Building tidy tools</a> workshop, Emma Rand and Ian Lyttle.</li>
-<li><a href="https://github.com/uncoast-unconf/uu-2019-day-zero">uncoast::unconf</a> workshop, Ian Lyttle, Amelia McNamara, Haley Jeppson, and Yihui Xie.</li>
+<li><a href="https://github.com/uncoast-unconf/uu-2019-day-zero">uncoast::unconf</a> workshop, Ian Lyttle, Amelia McNamara, Haley Jeppson, and Yihui Xie, which in turn were based on <a href="https://github.com/hfrick/presentations/blob/master/2019-03-12_package_building/">Hannah Frick’s work</a></li>
 <li><a href="https://r-pkgs.org/">R packages</a> book, by Hadley Wickham and Jenny Bryan.</li>
 <li>… and likely many more things that I will reference throughout.</li>
 </ul>
 </section>
 <section class="slide level2">
 
-
-<img data-src="img/doing-it-myself.png" class="r-stretch"><div class="footer">
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="img/doing-it-myself.png"></p>
+</div><div class="column" style="width:50%;">
+<p>One huge feature of the R community is that everyone is so generous with their time, expertise, and materials. Almost everything (including this workshop!) is Creative Commons licensed, so others can remix and reuse as they see fit.</p>
+</div></div>
+<div class="footer">
 <p>Artwork by <a href="https://allisonhorst.com/everything-else">Allison Horst</a></p>
 </div>
 </section>
@@ -243,7 +257,7 @@ Amelia McNamara
 <li>git/GitHub</li>
 </ul>
 </section>
-<section id="catch-up" class="slide level2">
+<section id="catch-up" class="slide level2 smaller">
 <h2>Catch up</h2>
 <p>I’ll do a little bit of review of each of those topics, but if they are totally new to you, here is some background reading to help you get caught up.</p>
 <div class="columns">
@@ -279,8 +293,13 @@ Amelia McNamara
 <h2>Packages</h2>
 <p>We’re going to be using the following packages, so make sure they are installed!</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"fredr"</span>, <span class="st">"roxygen2"</span>, <span class="st">"testthat"</span>, <span class="st">"usethis"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"fredr"</span>, <span class="st">"roxygen2"</span>, <span class="st">"testthat"</span>, <span class="st">"usethis"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
+<section>
+<section id="workflow-and-best-practices" class="title-slide slide level1 center">
+<h1>Workflow and best practices</h1>
+
 </section>
 <section id="workflow" class="slide level2">
 <h2>Workflow</h2>
@@ -288,6 +307,7 @@ Amelia McNamara
 <li>Starting from a blank slate</li>
 <li>Relative paths</li>
 <li>File organization</li>
+<li>Naming things</li>
 <li><a href="https://design.tidyverse.org/">tidyverse design principles</a></li>
 </ul>
 </section>
@@ -298,6 +318,7 @@ Amelia McNamara
 <div class="column" style="width:60%;">
 <p><img data-src="img/SaveAsk.png" style="height:20.0%"></p>
 </div><div class="column" style="width:40%;">
+<p>Tools -&gt; Global Options</p>
 <p>Restore .RData into workspace at startup: unchecked</p>
 <p>Save workspace to .RData on exit: Never</p>
 </div></div>
@@ -310,6 +331,13 @@ Amelia McNamara
 <pre><code>    ../Data/InputData/some_file.csv, </code></pre>
 <p>rather than</p>
 <pre><code>    /Users/myUserName/Documents/Project/Data/InputData/some_file.csv</code></pre>
+</section>
+<section id="use-projects" class="slide level2">
+<h2>Use Projects</h2>
+<p>One way to avoid absolute file paths is to use RStudio Projects. Projects are basically directories (folders) that RStudio maintains a bit more information about.</p>
+<p>To make a project, go to File -&gt; New Project. You can either make a project out of an existing directory, or RStudio will create the directory for you if you’re starting from scratch!</p>
+
+<img data-src="img/NewProject.png" class="r-stretch"><p>(if you haven’t already downloaded the materials, you could make a New Project from Version Control!)</p>
 </section>
 <section id="file-organization" class="slide level2 smaller">
 <h2>File organization</h2>
@@ -366,7 +394,7 @@ Amelia McNamara
 <li>useful with default ordering</li>
 </ul>
 </section>
-<section id="naming-things-1" class="slide level2">
+<section id="naming-things-1" class="slide level2 smaller">
 <h2>Naming things</h2>
 <p>NO</p>
 <ul>
@@ -386,8 +414,20 @@ Amelia McNamara
 </ul>
 <p>Via <a href="https://speakerdeck.com/jennybc/how-to-name-files">Jenny Bryan</a></p>
 </section>
-<section id="naming-functions-and-objects" class="slide level2">
-<h2>Naming functions and objects</h2>
+<section id="tidyverse-style-guide" class="slide level2">
+<h2>Tidyverse style guide</h2>
+<p>There used to be several competing style guides for R code style, but many (most?) people have coalesced around the <a href="https://style.tidyverse.org/">tidyverse style guide</a>. Some organizations have modifications of the guide, like <a href="https://google.github.io/styleguide/Rguide.html">Google’s R style guide</a>.<br>
+<br>
+</p>
+<p>Tidyverse style uses <code>snake_case</code> rather than <code>CamelCase</code>.<br>
+<br>
+</p>
+<p>Generally, variable names should be nouns and function names should be verbs. Strive for names that are concise and meaningful (this is not easy!).</p>
+</section></section>
+<section>
+<section id="setting-up-for-development" class="title-slide slide level1 center">
+<h1>Setting up for development</h1>
+
 </section>
 <section id="set-up-your-.rprofile" class="slide level2">
 <h2>Set up your <code>.Rprofile</code></h2>
@@ -397,7 +437,7 @@ Amelia McNamara
 <p>Edit your <code>.Rprofile</code> with <code>usethis::edit_r_profile</code>:<br>
 </p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>usethis<span class="sc">::</span><span class="fu">edit_r_profile</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>usethis<span class="sc">::</span><span class="fu">edit_r_profile</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br>
 </p>
@@ -406,14 +446,14 @@ Amelia McNamara
 <section id="set-up-your-.rprofile-1" class="slide level2">
 <h2>Set up your <code>.Rprofile</code></h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">options</span>(</span>
-<span id="cb5-2"><a></a>  <span class="at">usethis.full_name =</span> <span class="st">"Amelia McNamara"</span>,</span>
-<span id="cb5-3"><a></a>  <span class="at">usethis.description =</span> <span class="fu">list</span>(</span>
-<span id="cb5-4"><a></a>    <span class="st">`</span><span class="at">Authors@R</span><span class="st">`</span> <span class="ot">=</span> <span class="st">'person("Amelia", "McNamara",</span></span>
-<span id="cb5-5"><a></a><span class="st">          email = "amelia.mcnamara@stthomas.edu",</span></span>
-<span id="cb5-6"><a></a><span class="st">          role = c("aut", "cre"))'</span></span>
-<span id="cb5-7"><a></a>  )</span>
-<span id="cb5-8"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">options</span>(</span>
+<span id="cb6-2"><a></a>  <span class="at">usethis.full_name =</span> <span class="st">"Amelia McNamara"</span>,</span>
+<span id="cb6-3"><a></a>  <span class="at">usethis.description =</span> <span class="fu">list</span>(</span>
+<span id="cb6-4"><a></a>    <span class="st">`</span><span class="at">Authors@R</span><span class="st">`</span> <span class="ot">=</span> <span class="st">'person("Amelia", "McNamara",</span></span>
+<span id="cb6-5"><a></a><span class="st">          email = "amelia.mcnamara@stthomas.edu",</span></span>
+<span id="cb6-6"><a></a><span class="st">          role = c("aut", "cre"))'</span></span>
+<span id="cb6-7"><a></a>  )</span>
+<span id="cb6-8"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="set-up-your-.rprofile-2" class="slide level2">
@@ -422,23 +462,20 @@ Amelia McNamara
 <p><br>
 </p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="cf">if</span> (<span class="fu">interactive</span>()) {</span>
-<span id="cb6-2"><a></a>  <span class="fu">suppressMessages</span>(<span class="fu">require</span>(devtools))</span>
-<span id="cb6-3"><a></a>  <span class="fu">suppressMessages</span>(<span class="fu">require</span>(testthat))</span>
-<span id="cb6-4"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="cf">if</span> (<span class="fu">interactive</span>()) {</span>
+<span id="cb7-2"><a></a>  <span class="fu">suppressMessages</span>(<span class="fu">require</span>(devtools))</span>
+<span id="cb7-3"><a></a>  <span class="fu">suppressMessages</span>(<span class="fu">require</span>(testthat))</span>
+<span id="cb7-4"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br>
 </p>
 <p>Restart R for these to take an effect.</p>
 </section>
-<section id="functions" class="slide level2">
-<h2>Functions</h2>
-</section>
 <section id="grabbing-some-data" class="slide level2">
 <h2>Grabbing some data</h2>
 <p>We’re going to be using some data from FRED as we work, so we need to go get it first.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">library</span>(fredr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">library</span>(fredr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>This package makes it easier to get FRED data, but it does require an API key. <a href="https://fred.stlouisfed.org/docs/api/api_key.html">Request an API key</a></p>
 </section>
@@ -453,7 +490,7 @@ Amelia McNamara
 <section id="adding-api-key-to-renviron" class="slide level2">
 <h2>Adding API key to Renviron</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>usethis<span class="sc">::</span><span class="fu">edit_r_environ</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>usethis<span class="sc">::</span><span class="fu">edit_r_environ</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>add your API key like this (replace with your own key)</p>
 <pre><code>FRED_API_KEY='abcdefghijklmnopqrstuvwxyz123456'</code></pre>
@@ -466,55 +503,52 @@ Amelia McNamara
 <h2>Tomato prices</h2>
 <p>From <a href="https://fred.stlouisfed.org/series/APU0000712311">FRED</a></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">library</span>(fredr)</span>
-<span id="cb10-2"><a></a>tomatoes <span class="ot">&lt;-</span> <span class="fu">fredr</span>(</span>
-<span id="cb10-3"><a></a>  <span class="at">series_id =</span> <span class="st">"APU0000712311"</span>,</span>
-<span id="cb10-4"><a></a>  <span class="at">observation_start =</span> <span class="fu">as.Date</span>(<span class="st">"2016-08-01"</span>),</span>
-<span id="cb10-5"><a></a>  <span class="at">observation_end =</span> <span class="fu">as.Date</span>(<span class="st">"2026-08-10"</span>)</span>
-<span id="cb10-6"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">library</span>(fredr)</span>
+<span id="cb11-2"><a></a>tomatoes <span class="ot">&lt;-</span> <span class="fu">fredr</span>(</span>
+<span id="cb11-3"><a></a>  <span class="at">series_id =</span> <span class="st">"APU0000712311"</span>,</span>
+<span id="cb11-4"><a></a>  <span class="at">observation_start =</span> <span class="fu">as.Date</span>(<span class="st">"2016-08-01"</span>),</span>
+<span id="cb11-5"><a></a>  <span class="at">observation_end =</span> <span class="fu">as.Date</span>(<span class="st">"2026-08-10"</span>)</span>
+<span id="cb11-6"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="save-the-data-your-turn" class="slide level2">
 <h2>Save the data (your turn)</h2>
 <p>We’d rather not be using the API every time we want to play with this data, so let’s save it as a local CSV.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>readr<span class="sc">::</span><span class="fu">write_csv</span>(tomatoes, <span class="st">"tomatoes.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>readr<span class="sc">::</span><span class="fu">write_csv</span>(tomatoes, <span class="st">"tomatoes.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="read-the-data-back-in-your-turn" class="slide level2">
 <h2>Read the data back in (your turn)</h2>
 <p>When I save out data, I always do a quick test to make sure I did it right!</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>tomatoes2 <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"tomatoes.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>tomatoes2 <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"tomatoes.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Looks good!</p>
 </section>
 <section id="make-a-plot-your-turn" class="slide level2">
 <h2>Make a plot (your turn)</h2>
+<p>Let’s do some quick EDA. What does the tomato price data look like?</p>
 </section>
 <section id="getting-a-little-more-data-your-turn" class="slide level2">
 <h2>Getting a little more data (your turn)</h2>
 <p>I’d also like data on the average price of bacon (sliced), and iceberg lettuce. Can you find those API endpoints and grab the data for the past ten years on them?</p>
+<p>Save the datasets as .csv files so we can access them without hitting the API again.</p>
 </section>
 <section id="resources" class="slide level2">
 <h2>Resources</h2>
 <ul>
-<li><p><a href="https://happygitwithr.com/">Happy git and GitHub for the useR</a>, Jenny Bryan, the STAT 545 TAs, Jim Hester.</p></li>
-<li><p><a href="https://rstats.wtf/">What They Forgot to Teach You About R</a>, Jennifer Bryan, Jim Hester, Shannon Pileggi, E. David Aja.</p></li>
-<li><p>Object of type ‘closure’ is not subsettable, Jenny Bryan. rstudio::conf <a href="https://posit.co/resources/videos/object-of-type-closure-is-not-subsettable">video</a>, <a href="https://speakerdeck.com/jennybc/object-of-type-closure-is-not-subsettable">slides</a></p></li>
-<li><p><a href="https://www.youtube.com/watch?v=7oyiPBjLAWY">Code “smells” and feels</a>, Jenny Bryan</p></li>
-<li><p><a href="https://r4ds.hadley.nz/">R for Data Science</a>, Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund.</p></li>
-<li><p><a href="https://r-pkgs.org/">R packages</a>, Hadley Wickham and Jenny Bryan.</p></li>
-<li><p><a href="https://janvitek.org/pubs/ecoop12.pdf">Evaluating the Design of the R Language</a> This is for my computer scientists who want the nitty-gritty about R as a language</p></li>
-<li><p><a href="https://adv-r.hadley.nz/">Advanced R</a></p></li>
+<li><a href="https://rstats.wtf/">What They Forgot to Teach You About R</a>, Jennifer Bryan, Jim Hester, Shannon Pileggi, E. David Aja.</li>
+<li><a href="https://r4ds.hadley.nz/">R for Data Science</a>, Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund.</li>
+<li><a href="https://style.tidyverse.org/">Tidyverse style guide</a></li>
 </ul>
 
 
-</section>
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
-
+<p><a href="https://bit.ly/CYCBO" class="uri">https://bit.ly/CYCBO</a></p>
 </div>
 </div></div>
 
