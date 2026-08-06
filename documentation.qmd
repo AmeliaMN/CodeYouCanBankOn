@@ -98,6 +98,38 @@ Description: This is a demo package for the "Code you can bank on" workshop at t
 
 👀 The full stop matters!
 
+## Create framework (your turn) {.smaller}
+
+::: {.teach-left}
+
+```r
+use_mit_license()
+```
+
+- lets the world know how it can use the stuff you create
+
+  - CRAN requires you to specify a (valid) license
+  - May be less relevant in your usecase!
+
+- other choices include 
+ 
+  - `use_apl2_license()`: Apache 2.0
+  - `use_gpl3_license()`: GPL3
+
+- uses `option("usethis.full_name")` or `option("devtools.name")` 
+  - we set this in `.Rprofile`
+
+:::
+
+
+::: {.teach-right} 
+```{r}
+#| ref.label: noun-framework
+#| echo: false
+```
+:::
+
+
 ## Commit and push
 
 Now would be a good time to commit your changes.

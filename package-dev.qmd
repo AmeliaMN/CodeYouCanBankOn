@@ -14,19 +14,6 @@ execute:
   eval: true
 ---
 
-```{r, echo=FALSE, }
-2+2
-```
-
-
-```{r, echo=FALSE, eval=FALSE}
-# Dependencies
-
-# install.packages("devtools")
-devtools::install_github("hadley/emo")
-```
-
-
 
 ## Motivation
 In the R world, versions of this are attributed to Hadley Wickham:
@@ -125,11 +112,14 @@ Figure adapted from [Packages](https://github.com/hfrick/presentations/blob/mast
 ```{r noun-all, echo=FALSE, fig.align='right'}
 knitr::include_graphics("img/img-nouns/all.png")
 ```
+[(Does this remind you of anything?)]{style="font-size: 0.6em;"}
 :::
 
----
+
 
 ## Create package
+
+<!-- Fix graffle -->
 
 ::: {.teach-left}
 ```{r verb-create-package, echo=FALSE, fig.align='left'}
@@ -143,7 +133,7 @@ knitr::include_graphics("img/img-nouns/create-package.png")
 ```
 :::
 
----
+
 
 ## Create package (your turn)
 
@@ -227,56 +217,6 @@ create_package("../BLT") # set the path to suit you
 ```
 :::
 
-
-
-
-## Edit description (your turn)
-
-::: {.teach-left}
-
-Open `DESCRIPTION` file to edit it:
-
-- `Authors@R` field uses `options("usethis.description")` 
-
-   - we set this in our `.Rprofile`, so go back to the intro slides if you missed this!
-   - (Another possible issue is you didn't restart R!)
-
-✏️ edit `Title` field. Should be one line, title case, with no period. Fewer than 65 characters.
-
-💾 save `DESCRIPTION` file
-
-:::
-
-::: {.teach-right} 
-```{r}
-#| ref.label: noun-create-package
-#| echo: false
-```
-:::
-
-## Update `DESCRIPTION`
-
-::: small
-``` default
-Package: BLT
-Title: Work with data on bacon, lettuce, and tomatoes
-Version: 0.0.0.9000
-Authors@R: 
-    person("Amelia", "McNamara", , "amelia.mcnamara@stthomas.edu", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
-Encoding: UTF-8
-Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.3
-```
-:::
-
-
-
-
----
-
 ## Create framework
 
 ::: {.teach-left}
@@ -288,11 +228,10 @@ knitr::include_graphics("img/img-verbs/framework.png")
 
 ::: {.teach-right} 
 ```{r noun-framework, echo=FALSE, fig.align='right'}
-knitr::include_graphics("img/img-nouns/create-framework.png")
+knitr::include_graphics("img/img-nouns/create-package.png")
 ```
 :::
 
----
 
 ## Make package a git repo (your turn)
 
@@ -309,6 +248,7 @@ use_git()
 
 :::
 
+<!-- Fix graffle -->
 
 ::: {.teach-right} 
 ```{r}
@@ -317,34 +257,32 @@ use_git()
 ```
 :::
 
----
 
 ## Make package a git repo (your turn)
 
 ::: {.teach-left}
 you will get some messages sort of like this:
 
-<!-- Update package name -->
 
+```r
+use_git()
+```
 
 ```{.r style="font-size: 0.6em;"}
 ✔ Setting active project to "/Users/amcnamara2/BLT".
 ✔ Initialising Git repo.
-✔ Adding ".Rproj.user", ".Rhistory", ".Rdata", ".httr-oauth",
-  ".DS_Store", and ".quarto" to .gitignore.
-ℹ There are 7 uncommitted files:
+✔ Adding ".Rhistory", ".RData", ".httr-oauth", ".DS_Store", and ".quarto" to .gitignore.
+ℹ There are 5 uncommitted files:
 • .gitignore
 • .Rbuildignore
-• DESCRIPTION
 • BLT.Rproj
-• man/
+• DESCRIPTION
 • NAMESPACE
-• R/
 ! Is it ok to commit them?
 
-1: Yeah
-2: No
-3: Negative
+1: No
+2: Absolutely not
+3: Yup
 ```
 
 The specific language and order of items will change over time, to make it harder to make mistakes! 
@@ -353,7 +291,7 @@ Choose the option that means yes!
 
 ::: 
 
-
+<!-- Fix graffle -->
 ::: {.teach-right} 
 
 ```{r}
@@ -362,7 +300,7 @@ Choose the option that means yes!
 ```
 :::
 
----
+
 
 
 ## [Create framework (we're skipping this)]{style="color: #888888;"} {style="color: #888888;"}
@@ -387,7 +325,7 @@ use_github()
 
 :::
 
-
+<!-- Fix graffle -->
 ::: {.teach-right} 
 ```{r}
 #| ref.label: noun-framework
@@ -395,40 +333,61 @@ use_github()
 ```
 :::
 
----
 
-## Create framework (your turn) {.smaller}
+
+## Edit `DESCRIPTION` (your turn)
 
 ::: {.teach-left}
 
-```r
-use_mit_license()
-```
+Open `DESCRIPTION` file to edit it:
 
-- lets the world know how it can use the stuff you create
+- `Authors@R` field uses `options("usethis.description")` 
 
-  - CRAN requires you to specify a (valid) license
-  - May be less relevant in your usecase!
+   - we set this in our `.Rprofile`, so go back to the intro slides if you missed this!
+   - (Another possible issue is you didn't restart R!)
 
-- other choices include 
- 
-  - `use_apl2_license()`: Apache 2.0
-  - `use_gpl3_license()`: GPL3
+✏️ edit `Title` field. Should be one line, title case, with no period. Fewer than 65 characters.
 
-- uses `option("usethis.full_name")` or `option("devtools.name")` 
-  - we set this in `.Rprofile`
+💾 save `DESCRIPTION` file
 
 :::
 
-
 ::: {.teach-right} 
 ```{r}
-#| ref.label: noun-framework
+#| ref.label: noun-create-package
 #| echo: false
 ```
 :::
 
----
+## Edit `DESCRIPTION`
+
+::: small
+``` default
+Package: BLT
+Title: Work with data on bacon, lettuce, and tomatoes
+Version: 0.0.0.9000
+Authors@R: 
+    person("Amelia", "McNamara", , "amelia.mcnamara@stthomas.edu", role = c("aut", "cre"))
+Description: What the package does (one paragraph).
+License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
+    license
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.3
+```
+:::
+
+
+## Commit
+
+Now would be a good time to commit your changes.
+
+\
+
+
+
+![Jason Long, CC BY 3.0 \<https://creativecommons.org/licenses/by/3.0\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg){fig-alt="Git icon" width="300"} 
+
 
 ## Create framework (your turn)
 
@@ -442,13 +401,6 @@ use_roxygen_md()
 
   - lets you use a markdown-like syntax
 
-----
-
-```r
-document()
-load_all()
-check()
-```
 
 :::
 
@@ -459,18 +411,8 @@ check()
 ```
 :::
 
-## Commit
-
-Now would be a good time to commit your changes.
-
-\
 
 
-
-![Jason Long, CC BY 3.0 \<https://creativecommons.org/licenses/by/3.0\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg){fig-alt="Git icon" width="300"} 
-
-
----
 
 ## Develop
 
@@ -487,7 +429,7 @@ knitr::include_graphics("img/img-nouns/develop.png")
 ```
 :::
 
----
+
 
 ## Develop (your turn) {.smaller}
 
@@ -507,7 +449,7 @@ I like the idea of documenting, then writing **functions**:
 Start by writing a shell for the function:
 
 ```r
-AR1 <- function(a, b) {
+AR1 <- function(y) {
   
 }
 ```
@@ -527,7 +469,7 @@ AR1 <- function(a, b) {
 :::
 
 
----
+
 
 ## Develop (your turn)
 
@@ -535,6 +477,7 @@ AR1 <- function(a, b) {
 
 Complete the documentation:
 
+::: small
 ```r
 #' Convenience function to make first-order autoregressive model
 #'
@@ -552,6 +495,8 @@ AR1 <- function(y) {
 
 }
 ```
+::: 
+
 :::
 
 ::: {.teach-right} 
@@ -561,7 +506,9 @@ AR1 <- function(y) {
 ```
 :::
 
----
+We're going to talk a lot more about documentation, but it's good to get in the habit early. 
+
+
 
 ## Develop (your turn)
 
@@ -570,15 +517,6 @@ AR1 <- function(y) {
 Write the function body:
 
 ```r
-#' Convenience function to make first-order autoregressive model
-#'
-#' Wrapper around forecast::Arima 
-#
-#' @param y a univariate time series of class `ts`
-#'
-#' @returns See the arima function in the stats package
-#' @export
-#'
 #' @examples
 #'  (AR1(LakeHuron))
 #'
@@ -595,9 +533,8 @@ AR1 <- function(y) {
 ```
 :::
 
-The file R/strsplit1.R should NOT contain any of the other top-level code we have recently executed, such as the definition of our practice input x, library(devtools), or use_git(). This foreshadows an adjustment you’ll need to make as you transition from writing R scripts to R packages. Packages and scripts use different mechanisms to declare their dependency on other packages and to store example or test code.
 
----
+
 
 ## Develop (your turn)
 
@@ -607,7 +544,7 @@ The file R/strsplit1.R should NOT contain any of the other top-level code we hav
 forecast::Arima(y)
 ```
 
-`r emo::ji("point_up")` Use this notation to be explicit about where R looks for the function `Arima()`.
+☝️ Use this notation to be explicit about where R looks for the function `Arima()`.
 
 
 ----
@@ -620,7 +557,7 @@ load_all()
 check()
 ```
 
-`r emo::ji("thinking")` What happened?
+🤔 What happened?
 
 :::
 
@@ -630,11 +567,32 @@ check()
 #| echo: false
 ```
 :::
----
+
+## Develop (your turn) {.smaller}
+
+::: small
+
+```r
+❯ checking DESCRIPTION meta-information ... WARNING
+  Non-standard license specification:
+    `use_mit_license()`, `use_gpl3_license()` or friends to pick a
+    license
+  Standardizable: FALSE
+
+❯ checking dependencies in R code ... WARNING
+  '::' or ':::' import not declared from: ‘forecast’
+
+❯ checking for future file timestamps ... NOTE
+  unable to verify current time
+
+1 error ✖ | 2 warnings ✖ | 1 note ✖
+```
+
+:::
+
 
 ## Develop (your turn)
 
-::: {.teach-left}
 
 ```r
 use_package("forecast")
@@ -650,7 +608,18 @@ Dependency management is a long-debated topic in the R community:
 
 - for now, if you need to rely on a package, do it
 
-----
+
+
+## Develop 
+
+```r
+use_package("forecast")
+```
+
+```r
+✔ Adding forecast to Imports field in DESCRIPTION.
+☐ Refer to functions with `forecast::fun()`.
+```
 
 ```r
 document()
@@ -658,18 +627,8 @@ load_all()
 check()
 ```
 
-`r emo::ji("rocket")` commit, pull, push
 
-:::
-
-::: {.teach-right} 
-```{r}
-#| ref.label: noun-develop
-#| echo: false
-```
-:::
-
----
+## Check
 
 `R CMD check` is the gold standard for checking that an R package is in full working order.
 
@@ -681,7 +640,6 @@ It is a programme that is executed in the shell.
 
 However, `devtools` has the `check()` function to allow you to run this without leaving your R session.
 
-## `devtools::check()`
 🎬 Check your package:
 
 ```{r, eval=FALSE}
@@ -715,21 +673,137 @@ Run the whole file
 
 You should now find that `check()` proceeds normally
 
-## Experiment
+## Commit
 
-Try out the `AR1()` function in the console.
+Now would be a good time to commit your changes.
+
+\
+
+
+
+![Jason Long, CC BY 3.0 \<https://creativecommons.org/licenses/by/3.0\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg){fig-alt="Git icon" width="300"} 
+
+
+## Experiment
+Now that we've `document()`ed, `load_all()`ed and `check()`ed, we can try out our `AR1()` function in the console.
 
 . . .
 
-```{r, eval=FALSE}
+```r
 AR1(tomatoes$value)
 ```
+
+## Develop (again)
+
+Now that we've made one function in our package, let's try making another. I'd like this function to find the percent of a time series that is missing. 
+
+There are lots of approaches to this, I wrote a wrapper for `imputeTS::statsNA()`. 
+
+Some functions you may find useful as you work: 
+
+```r
+use_r()
+use_package()
+document()
+load_all()
+check()
+```
+
+## Develop (again)
+
+::: small
+```default
+#' Percent missing
+#'
+#' @param ts a timeseries object
+#'
+#' @returns the percent of missing observations in the time series
+#' @export
+#'
+#' @examples
+#' perc_missing(LakeHuron)
+perc_missing <- function(ts){
+  na_stats <- imputeTS::statsNA(ts, print_only = FALSE)
+
+  return(na_stats$percentage_NAs)
+}
+
+```
+:::
+
+## Commit
+
+Now would be a good time to commit your changes.
+
+\
+
+
+
+![Jason Long, CC BY 3.0 \<https://creativecommons.org/licenses/by/3.0\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg){fig-alt="Git icon" width="300"} 
+
+
+
+## Develop (a third time)
+
+Let's take this up one more notch by making our function take the dataset and variable name as two separate arguments, so we could use it in a tidy pipeline. 
+
+Some functions you may find useful as you work: 
+
+```r
+use_r()
+use_package()
+document()
+load_all()
+check()
+```
+
+## Develop (a third time)
+
+::: small
+```
+#' Percent missing, tidy version
+#'
+#' @param dataset is a dataset
+#' @param variable is a time series variable within the dataset
+#'
+#' @returns the percentage of missing values in that time series
+#' @export
+#'
+#' @examples
+perc_missing_tidy <- function(dataset, variable){
+  var <- substitute(variable)
+  var_eval <- eval(var, envir = dataset)
+  na_stats <- imputeTS::statsNA(var_eval, print_only = FALSE)
+  tibble_perc <- tibble::tibble(perc = readr::parse_number(x = na_stats$percentage_NAs))
+  return(tibble_perc)
+}
+```
+:::
+
+This one gets tricky because I can't find a good dataset to use in the example
+
+
+## Commit
+
+Now would be a good time to commit your changes.
+
+\
+
+
+
+![Jason Long, CC BY 3.0 \<https://creativecommons.org/licenses/by/3.0\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg){fig-alt="Git icon" width="300"} 
+
+
 
 ## Adding data to packages
 
 Many packages come with example datasets bundled with them. There are many reasons for this, but the most salient is that if you include your own dataset you know it has exactly the features you need for examples and testing. 
+\
+\
 
 The most common location for package data is `data/`. We recommend that each file in this directory be an `.rda` file created by `save()` containing a single R object, with the same name as the file. 
+\
+\
 
 Of course, `usethis` has a helper function for this, `usethis::use_data()`.
 
@@ -783,20 +857,17 @@ Here's what the `who` documentation in `tidyr` looks like
 "who"
 ```
 
+Can you write some documentation for the `bacon` data?
+
 ## Data in packages
 
 There is a lot more detail specific to including data in packages. Sometimes you want to include raw data, sometimes you need data only available to the package and not the user, etc. There is much more detail in the [R packages](https://r-pkgs.org/data.html) book. 
 
-## Documentation
-
-[pkgdown](https://pkgdown.r-lib.org/index.html)
 
 
-## Package states
 
-Maybe too much for this?
 
-[Good reference](https://rstudio-conf-2022.github.io/build-tidy-tools/materials/day-1-session-1-introduction.html#/package-states)
+
 
 
 ## Resources
@@ -807,3 +878,4 @@ Maybe too much for this?
 - [R packages](https://r-pkgs.org/), Hadley Wickham and Jenny Bryan. 
 - [Evaluating the Design of the R Language](https://janvitek.org/pubs/ecoop12.pdf) This is for my computer scientists who want the nitty-gritty about R as a language
 - [Advanced R](https://adv-r.hadley.nz/)
+- [Package states](https://rstudio-conf-2022.github.io/build-tidy-tools/materials/day-1-session-1-introduction.html#/package-states)
