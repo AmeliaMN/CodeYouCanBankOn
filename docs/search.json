@@ -35,6 +35,20 @@
     "text": "Materials for the Federal Reserve training August 10, 11, and 17 Topics: Package building, automated testing, designing code\nTentative schedule\n\nAugust 10th\n\n9-10 am intro, review\n10 am - 12 pm package dev\n12-1 pm lunch break\n1-4 pm more package dev\n\nAugust 11th\n\n9 am - 12 pm documentation\n\nAugust 17th\n\n9 am - 12 pm testing\n12-1 pm lunch break\n1-4 pm design"
   },
   {
+    "objectID": "design.html#pass-the-dots",
+    "href": "design.html#pass-the-dots",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Pass the dots",
+    "text": "Pass the dots\nThis is the simplest possible solution.\n\n\nIf the tidyverse function you’re using takes ... as an argument,\n\n\n\n\nand that’s what you want to pass along,\n\n\n\nthen you can pass the dots.\nmy_select &lt;- function(.data, ...) {\n  dplyr::select(.data, ...)\n}"
+  },
+  {
+    "objectID": "design.html#data-in-packages",
+    "href": "design.html#data-in-packages",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Data in packages",
+    "text": "Data in packages\nThere is a lot more detail specific to including data in packages. Sometimes you want to include raw data, sometimes you need data only available to the package and not the user, etc. There is much more detail in the R packages book."
+  },
+  {
     "objectID": "design.html#naming-functions",
     "href": "design.html#naming-functions",
     "title": "💻 🏦 Code You Can Bank On",
@@ -791,20 +805,6 @@
     "text": "Metadata in DESCRIPTION\n\nTitle: One line, title case, with no period. Fewer than 65 characters.\nVersion\nfor release: MAJOR.MINOR.PATCH version.\nfor development version: MAJOR.MINOR.PATCH.9000\nAuthors@R:\n“aut” means author, “cre” means creator, “ctb” means contributor."
   },
   {
-    "objectID": "documentation.html#update-description",
-    "href": "documentation.html#update-description",
-    "title": "💻 🏦 Code You Can Bank On",
-    "section": "Update DESCRIPTION",
-    "text": "Update DESCRIPTION\n🎬 Edit the title\n\n\n🎬 You should find that your information as an author is already included because you edited your .RProfile in intro"
-  },
-  {
-    "objectID": "documentation.html#update-description-1",
-    "href": "documentation.html#update-description-1",
-    "title": "💻 🏦 Code You Can Bank On",
-    "section": "Update DESCRIPTION",
-    "text": "Update DESCRIPTION\n\nPackage: BLT\nTitle: Work with data on bacon, lettuce, and tomatoes\nVersion: 0.0.0.9000\nAuthors@R: \n    person(\"Amelia\", \"McNamara\",\n          email = \"amelia.mcnamara@stthomas.edu\",\n          role = c(\"aut\", \"cre\"))\nDescription: What the package does (one paragraph).\nLicense: MIT + file LICENSE\nEncoding: UTF-8\nRoxygen: list(markdown = TRUE)\nRoxygenNote: 7.2.0"
-  },
-  {
     "objectID": "documentation.html#metadata-in-description-1",
     "href": "documentation.html#metadata-in-description-1",
     "title": "💻 🏦 Code You Can Bank On",
@@ -812,18 +812,46 @@
     "text": "Metadata in DESCRIPTION\n\nDescription: One paragraph describing what the package does. Keep the width of the paragraph to 80 characters; indent subsequent lines with 4 spaces.\nLicense\nEncoding: How to encode text, use UTF-8 encoding.\nLazyData: Use true to lazy-load data sets in the package."
   },
   {
-    "objectID": "documentation.html#update-description-2",
-    "href": "documentation.html#update-description-2",
+    "objectID": "documentation.html#edit-description-your-turn",
+    "href": "documentation.html#edit-description-your-turn",
     "title": "💻 🏦 Code You Can Bank On",
-    "section": "Update DESCRIPTION",
-    "text": "Update DESCRIPTION\n🎬 Edit the description\n\nDescription: This is a demo package for the \"Code you can bank on\" workshop at the Federal Reserve. It allows you to work with time series data.\n\n\n👀 The full stop matters!"
+    "section": "Edit DESCRIPTION (your turn)",
+    "text": "Edit DESCRIPTION (your turn)\n\nOpen DESCRIPTION file to edit it:\n\nAuthors@R field uses options(\"usethis.description\")\n\nwe set this in our .Rprofile, so go back to the intro slides if you missed this!\n(Another possible issue is you didn’t restart R!)\n\n\n✏️ edit Title field. Should be one line, title case, with no period. Fewer than 65 characters.\n💾 save DESCRIPTION file"
+  },
+  {
+    "objectID": "documentation.html#edit-description",
+    "href": "documentation.html#edit-description",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Edit DESCRIPTION",
+    "text": "Edit DESCRIPTION\n\nPackage: BLT\nTitle: Work with data on bacon, lettuce, and tomatoes\nVersion: 0.0.0.9000\nAuthors@R: \n    person(\"Amelia\", \"McNamara\", , \"amelia.mcnamara@stthomas.edu\", role = c(\"aut\", \"cre\"))\nDescription: What the package does (one paragraph).\nLicense: `use_mit_license()`, `use_gpl3_license()` or friends to pick a\n    license\nEncoding: UTF-8\nRoxygen: list(markdown = TRUE)\nRoxygenNote: 7.3.3"
+  },
+  {
+    "objectID": "documentation.html#commit",
+    "href": "documentation.html#commit",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Commit",
+    "text": "Commit\nNow would be a good time to commit your changes.\n\n\n\nJason Long, CC BY 3.0 &lt;https://creativecommons.org/licenses/by/3.0&gt;, via Wikimedia Commons"
   },
   {
     "objectID": "documentation.html#create-framework-your-turn",
     "href": "documentation.html#create-framework-your-turn",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Create framework (your turn)",
-    "text": "Create framework (your turn)\n\nuse_mit_license()\n\nlets the world know how it can use the stuff you create\n\nCRAN requires you to specify a (valid) license\nMay be less relevant in your usecase!\n\nother choices include\n\nuse_apl2_license(): Apache 2.0\nuse_gpl3_license(): GPL3\n\nuses option(\"usethis.full_name\") or option(\"devtools.name\")\n\nwe set this in .Rprofile"
+    "text": "Create framework (your turn)\n\nuse_roxygen_md()\n\nmakes it much easier to create and maintain your function documentation\n\nlets you use a markdown-like syntax"
+  },
+  {
+    "objectID": "documentation.html#update-description",
+    "href": "documentation.html#update-description",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Update DESCRIPTION",
+    "text": "Update DESCRIPTION\n🎬 Edit the description\n\nDescription: This is a demo package for the \"Code you can bank on\" workshop at the Federal Reserve. It allows you to work with time series data, and example datasets on bacon, lettuce, and tomatoes. \n\n\n👀 The full stop matters!"
+  },
+  {
+    "objectID": "documentation.html#add-a-license",
+    "href": "documentation.html#add-a-license",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Add a license",
+    "text": "Add a license\n\nuse_mit_license()\n\nlets the world know how it can use the stuff you create\n\nCRAN requires you to specify a (valid) license\nMay be less relevant in your usecase!\n\nother choices include\n\nuse_apl2_license(): Apache 2.0\nuse_gpl3_license(): GPL3\n\nuses option(\"usethis.full_name\") or option(\"devtools.name\")\n\nwe set this in .Rprofile"
   },
   {
     "objectID": "documentation.html#commit-and-push",
@@ -831,6 +859,13 @@
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Commit and push",
     "text": "Commit and push\nNow would be a good time to commit your changes.\n\n\n\nJason Long, CC BY 3.0 &lt;https://creativecommons.org/licenses/by/3.0&gt;, via Wikimedia Commons"
+  },
+  {
+    "objectID": "documentation.html#develop-your-turn",
+    "href": "documentation.html#develop-your-turn",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Develop (your turn)",
+    "text": "Develop (your turn)\n\nComplete the documentation:\n\n#' Convenience function to make first-order autoregressive model\n#'\n#' Wrapper around forecast::Arima \n#\n#' @param y a univariate time series of class `ts`\n#'\n#' @returns See the arima function in the stats package\n#' @export\n#'\n#' @examples\n#'  (AR1(LakeHuron))\n#'\nAR1 &lt;- function(y) {\n\n}\n\n\n\n\n\nWe’re going to talk a lot more about documentation, but it’s good to get in the habit early."
   },
   {
     "objectID": "documentation.html#object-documentation-1",
@@ -844,21 +879,21 @@
     "href": "documentation.html#manar1.rd",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "man/AR1.Rd",
-    "text": "man/AR1.Rd\n\n\n\n% Generated by roxygen2: do not edit by hand\n% Please edit documentation in R/fbind.R\n\\name{AR1}\n\\alias{AR1}\n\\title{Convenience function to make first-order autoregressive model}\n\\usage{\nAR1(y)\n}\n\\arguments{\n\\item{y}{a univariate time series of class \\code{ts}}\n\n\\item{...}{Additional arguments to be passed to \\href{arima}{stats::arima()}.}\n}\n\\value{\nSee the \\code{\\link[stats:arima]{arima}} function in the stats package\n}\n\\description{\nConvenience function to make first-order autoregressive model\n}\n\\examples{\n(AR1(LakeHuron))"
+    "text": "man/AR1.Rd\n\n\n\n% Generated by roxygen2: do not edit by hand\n% Please edit documentation in R/AR1.R\n\\name{AR1}\n\\alias{AR1}\n\\title{Convenience function to make first-order autoregressive model}\n\\usage{\nAR1(y)\n}\n\\arguments{\n\\item{y}{a univariate time series of class \\code{ts}}\n}\n\\value{\nSee the arima function in the stats package\n}\n\\description{\nWrapper around forecast::Arima\n}\n\\examples{\n (AR1(LakeHuron))\n\n}"
   },
   {
     "objectID": "documentation.html#object-documentation-2",
     "href": "documentation.html#object-documentation-2",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Object documentation",
-    "text": "Object documentation\n🥳 We don’t have to write it!!\n\n\nWe write “roxygen comments” in the .R files\nThese get turned into .Rd format\n\n\n\n\nFunctions from roxygen2 [@roxygen2] do the work but we can use devtools functions to call them"
+    "text": "Object documentation\n🥳 We don’t have to write it!!\n\n\nWe write “roxygen comments” in the .R files\nThese get turned into .Rd format\n\n\n\n\nFunctions from roxygen2 [@roxygen2] do the work but we can use devtools functions to call them."
   },
   {
     "objectID": "documentation.html#roxygen-comments",
     "href": "documentation.html#roxygen-comments",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Roxygen comments",
-    "text": "Roxygen comments\n\n#' Convenience function to make first-order autoregressive model\n#'\n#' @param y a univariate time series of class `ts`\n#' @param ... Additional arguments to be passed to [`arima`][stats::arima()]\n#'\n#' @returns See the [`arima`][stats::arima()] function in the stats package\n#' @export\n#'\n#' @examples\n#' (AR1(LakeHuron))\nAR1 &lt;- function(y) {\n  forecast::Arima(y, order = c(1, 0, 0), include.constant = TRUE)\n\n}\n\n\nthe #' indicates it is a roxygen comment"
+    "text": "Roxygen comments\n\n% Generated by roxygen2: do not edit by hand\n% Please edit documentation in R/AR1.R\n\\name{AR1}\n\\alias{AR1}\n\\title{Convenience function to make first-order autoregressive model}\n\\usage{\nAR1(y)\n}\n\\arguments{\n\\item{y}{a univariate time series of class \\code{ts}}\n}\n\\value{\nSee the arima function in the stats package\n}\n\\description{\nWrapper around forecast::Arima\n}\n\\examples{\n (AR1(LakeHuron))\n\n}\n\n\nthe #' indicates it is a roxygen comment"
   },
   {
     "objectID": "documentation.html#object-documentation-workflow",
@@ -868,18 +903,11 @@
     "text": "Object documentation workflow\n\nAdd roxygen comments to your .R files.\n\n\n\nRun devtools::document() to convert roxygen comments to .Rd files.\n\n\n\n\nLoad the package with devtools::load_all()\n\n\n\n\nPreview documentation with ?\n\n\n\n\nRepeat until the documentation looks the way you want."
   },
   {
-    "objectID": "documentation.html#document-your-function",
-    "href": "documentation.html#document-your-function",
+    "objectID": "documentation.html#edit-function-documentation",
+    "href": "documentation.html#edit-function-documentation",
     "title": "💻 🏦 Code You Can Bank On",
-    "section": "Document your function",
-    "text": "Document your function\n🎬 Open BLT.R\n\n\nusethis::use_r(\"BLT\")\n\n\n. . .\n🎬 Put your cursor anywhere in the function and do Code | Insert Roxygen Documentation (Ctrl-Alt-Shift-R)"
-  },
-  {
-    "objectID": "documentation.html#section",
-    "href": "documentation.html#section",
-    "title": "💻 🏦 Code You Can Bank On",
-    "section": "",
-    "text": "#' Title\n#'\n#' @param data_engsoc \n#' @param country \n#'\n#' @return\n#' @export\n#'\n#' @examples\nuss_make_matches &lt;- function(data_engsoc, country) {\n  result &lt;-\n    data_engsoc |&gt;\n    tibble::as_tibble() |&gt;\n    dplyr::transmute(\n      country = as.character(country),\n      tier = as.integer(tier),\n      season = as.integer(Season),\n      date = as.Date(Date),\n      home = as.character(home),\n      visitor = as.character(visitor),\n      goals_home = as.integer(hgoal),\n      goals_visitor = as.integer(vgoal)\n    )\n  result\n}"
+    "section": "Edit function documentation",
+    "text": "Edit function documentation\n🎬 Open AR1.R\n\n\nusethis::use_r(\"AR1\")"
   },
   {
     "objectID": "documentation.html#roxygen-comments-and-tags",
@@ -889,25 +917,25 @@
     "text": "Roxygen comments and tags\n\n#' indicates it is a roxygen comment\n@ indicates a roxygen tag\n\n@param arg — describe the inputs\n@examples— show how the function works\n@seealso — point out related functions\n@return — describe the outputs\n@export — is this a user visible function"
   },
   {
-    "objectID": "documentation.html#document-your-function-1",
-    "href": "documentation.html#document-your-function-1",
+    "objectID": "documentation.html#document-your-function",
+    "href": "documentation.html#document-your-function",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Document your function",
-    "text": "Document your function\n🎬 Give your function a title and a brief description\n\n\n🎬 Define the parameter\n\n\n🎬 Describe what the function returns"
+    "text": "Document your function\n🎬 Give your function a title and a brief description\n\n\n🎬 Define the parameter(s)\n\n\n🎬 Describe what the function returns"
   },
   {
     "objectID": "documentation.html#our-answer",
     "href": "documentation.html#our-answer",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Our answer",
-    "text": "Our answer\n\n#' Make a standard league-play tibble\n#'\n#' Given a league-play data frame from {engsoccer}, returns a tibble with\n#' standardised column-names and types, e.g. `date` is a `Date`.\n#'\n#' @param data_engsoc  obtained from {engsoccerdata}.\n#' @param country `character` scalar, specifies the league.\n#'\n#' @return a tibble with columns `country`, `date`, `season`, `tier`, `home`,\n#'    `visitor`, `goals_home`, `goals_visitor`.\n#' @export\n#'\n#' @examples\n\n\n\n\n🎬 Save matches.R"
+    "text": "Our answer\n\n#' Convenience function to make first-order autoregressive model\n#'\n#' Wrapper around forecast::Arima\n#\n#' @param y a univariate time series of class `ts`\n#'\n#' @returns See the arima function in the stats package\n#' @export\n#'\n#' @examples\n#'  (AR1(LakeHuron))\n#'\n\n\n\n\n🎬 Save AR1.R"
   },
   {
     "objectID": "documentation.html#build-documentation",
     "href": "documentation.html#build-documentation",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Build documentation",
-    "text": "Build documentation\n🎬 Run devtools::document() to turn roxygen comments to .Rd\n\ndevtools::document()\n\n\nℹ Updating BLT documentation\nℹ Loading BLT\nWriting NAMESPACE\nWriting uss_make_matches.Rd\nWarning message:\n[matches.R:13] @examples requires a value \n\n\nWe will that fix later!"
+    "text": "Build documentation\n🎬 Run devtools::document() to turn roxygen comments to .Rd\n\ndevtools::document()\n\n\nℹ Updating BLT documentation\nℹ Loading BLT\nWriting NAMESPACE\nWriting AR1.Rd\nWarning message:\n[matches.R:13] @examples requires a value \n\n\nWe will that fix later!"
   },
   {
     "objectID": "documentation.html#take-a-look-1",
@@ -921,7 +949,7 @@
     "href": "documentation.html#take-a-look-2",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Take a look 2",
-    "text": "Take a look 2\n🎬 Load the package : devtools::load_all()\n\n\n🎬 Preview the documentation with:\n\n?uss_make_matches\n\n\n\n\n😮 🥳"
+    "text": "Take a look 2\n🎬 Load the package : devtools::load_all()\n\n\n🎬 Preview the documentation with:\n\n?AR1\n\n\n\n\n😮 🥳"
   },
   {
     "objectID": "documentation.html#fix-warning",
@@ -966,8 +994,29 @@
     "text": "devtools::check()\nThis is a good time to run R CMD check to ensure our package is in full working order.\n\n🎬 Use devtools to run R CMD check\n\n\n\ndevtools::check()"
   },
   {
-    "objectID": "documentation.html#section-1",
-    "href": "documentation.html#section-1",
+    "objectID": "documentation.html#documenting-data",
+    "href": "documentation.html#documenting-data",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Documenting data",
+    "text": "Documenting data\nData gets documented in the data.R file. How can we create and open this file for editing?\n\nuse_r(\"data\")\nUnfortunately, the trick to insert Roxygen skeleton doesn’t work with data, so we have to do the documentation more manually."
+  },
+  {
+    "objectID": "documentation.html#documenting-data-1",
+    "href": "documentation.html#documenting-data-1",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Documenting data",
+    "text": "Documenting data\nHere’s what the who documentation in tidyr looks like\n\n#' World Health Organization TB data\n#'\n#' A subset of data from the World Health Organization Global Tuberculosis\n#' Report ...\n#'\n#' @format ## `who`\n#' A data frame with 7,240 rows and 60 columns:\n#' \\describe{\n#'   \\item{country}{Country name}\n#'   \\item{iso2, iso3}{2 & 3 letter ISO country codes}\n#'   \\item{year}{Year}\n#'   ...\n#' }\n#' @source &lt;https://www.who.int/teams/global-tuberculosis-programme/data&gt;\n\"who\"\n\nCan you write some documentation for the bacon data?"
+  },
+  {
+    "objectID": "documentation.html#documenting-data-your-turn",
+    "href": "documentation.html#documenting-data-your-turn",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Documenting data (your turn)",
+    "text": "Documenting data (your turn)\n\n#' FRED bacon price data\n#'\n#' A subset of data on the average price of sliced bacon in the US.\n#' Data is from 2016 to 2026\n#'\n#' @format ## `bacon`\n#' A data frame with 119 rows and 5 columns:\n#' \\describe{\n#'   \\item{date}{Date of observation}\n#'   \\item{series_id}{APU0000704111, the series ID for the series}\n#'   \\item{value}{the average price of bacon at that date}\n#'   \\item{real_timestart, realtime_end}{the date the data was downloaded}\n#' }\n#' @source &lt;https://fred.stlouisfed.org/series/APU0000704111&gt;\n\"bacon\""
+  },
+  {
+    "objectID": "documentation.html#section",
+    "href": "documentation.html#section",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "",
     "text": "── R CMD check results ─────────────────────────────────── BLT 0.0.0.9000 ────\nDuration: 40.4s\n\n❯ checking dependencies in R code ... WARNING\n  '::' or ':::' imports not declared from:\n    'dplyr' 'tibble'\n\n❯ checking for unstated dependencies in examples ... WARNING\n  '::' or ':::' import not declared from: 'engsoccerdata'\n\n❯ checking R code for possible problems ... NOTE\n  uss_make_matches: no visible binding for global variable 'tier'\n  uss_make_matches: no visible binding for global variable 'Season'\n  uss_make_matches: no visible binding for global variable 'Date'\n  uss_make_matches: no visible binding for global variable 'home'\n  uss_make_matches: no visible binding for global variable 'visitor'\n  uss_make_matches: no visible binding for global variable 'hgoal'\n  uss_make_matches: no visible binding for global variable 'vgoal'\n  Undefined global functions or variables:\n    Date Season hgoal home tier vgoal visitor\n\n0 errors ✔ | 2 warnings ✖ | 1 note ✖\n\n\n\nWe’ve gained a warning!\n\n\nOur warnings are about Package dependencies"
@@ -987,8 +1036,8 @@
     "text": "Package dependencies\nLevels of dependency\n\nImports: must be installed for your package to work. If they’re not, they will get installed.\n\n\n\nSuggests: used by your package, but not required. Might provide data for examples, to run tests, build vignettes.\n\n\n\n\nDepends: Avoid where possible. When your package requires a specific version of R, e.g. Depends: R (&gt;= 3.4.0). Think critically: downstream effects on packages that depend on your package."
   },
   {
-    "objectID": "documentation.html#section-2",
-    "href": "documentation.html#section-2",
+    "objectID": "documentation.html#section-1",
+    "href": "documentation.html#section-1",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "",
     "text": "❯ checking dependencies in R code ... WARNING\n  '::' or ':::' imports not declared from:\n    'dplyr' 'tibble'\n\n❯ checking for unstated dependencies in examples ... WARNING\n  '::' or ':::' import not declared from: 'engsoccerdata'"
@@ -1022,8 +1071,8 @@
     "text": "devtools::check()\n🎬 Run devtools::check() on your package again"
   },
   {
-    "objectID": "documentation.html#section-3",
-    "href": "documentation.html#section-3",
+    "objectID": "documentation.html#section-2",
+    "href": "documentation.html#section-2",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "",
     "text": "── R CMD check results ─────────── BLT 0.0.0.9000 ────\nDuration: 24s\n\n❯ checking dependencies in R code ... WARNING\n  '::' or ':::' import not declared from: 'tibble'\n\n❯ checking for unstated dependencies in examples ... WARNING\n  '::' or ':::' import not declared from: 'engsoccerdata'\n\n❯ checking R code for possible problems ... NOTE\n  uss_make_matches: no visible binding for global variable 'tier'\n  uss_make_matches: no visible binding for global variable 'Season'\n  uss_make_matches: no visible binding for global variable 'Date'\n  uss_make_matches: no visible binding for global variable 'home'\n  uss_make_matches: no visible binding for global variable 'visitor'\n  uss_make_matches: no visible binding for global variable 'hgoal'\n  uss_make_matches: no visible binding for global variable 'vgoal'\n  Undefined global functions or variables:\n    Date Season hgoal home tier vgoal visitor\n\n0 errors ✔ | 2 warnings ✖ | 1 note ✖"
@@ -1211,34 +1260,6 @@
     "text": "Create framework (we’re skipping this)\n\nuse_github()\n\nthis is the closest you may see to actual magic:\n\ncreates GitHub repository\ncreates git remote origin, sets to GitHub repository\npushes your master branch to git remote\nadds information to DESCRIPTION file\nopens your repository page at GitHub"
   },
   {
-    "objectID": "package-dev.html#edit-description-your-turn",
-    "href": "package-dev.html#edit-description-your-turn",
-    "title": "💻 🏦 Code You Can Bank On",
-    "section": "Edit DESCRIPTION (your turn)",
-    "text": "Edit DESCRIPTION (your turn)\n\nOpen DESCRIPTION file to edit it:\n\nAuthors@R field uses options(\"usethis.description\")\n\nwe set this in our .Rprofile, so go back to the intro slides if you missed this!\n(Another possible issue is you didn’t restart R!)\n\n\n✏️ edit Title field. Should be one line, title case, with no period. Fewer than 65 characters.\n💾 save DESCRIPTION file"
-  },
-  {
-    "objectID": "package-dev.html#edit-description",
-    "href": "package-dev.html#edit-description",
-    "title": "💻 🏦 Code You Can Bank On",
-    "section": "Edit DESCRIPTION",
-    "text": "Edit DESCRIPTION\n\nPackage: BLT\nTitle: Work with data on bacon, lettuce, and tomatoes\nVersion: 0.0.0.9000\nAuthors@R: \n    person(\"Amelia\", \"McNamara\", , \"amelia.mcnamara@stthomas.edu\", role = c(\"aut\", \"cre\"))\nDescription: What the package does (one paragraph).\nLicense: `use_mit_license()`, `use_gpl3_license()` or friends to pick a\n    license\nEncoding: UTF-8\nRoxygen: list(markdown = TRUE)\nRoxygenNote: 7.3.3"
-  },
-  {
-    "objectID": "package-dev.html#commit",
-    "href": "package-dev.html#commit",
-    "title": "💻 🏦 Code You Can Bank On",
-    "section": "Commit",
-    "text": "Commit\nNow would be a good time to commit your changes.\n\n\n\nJason Long, CC BY 3.0 &lt;https://creativecommons.org/licenses/by/3.0&gt;, via Wikimedia Commons"
-  },
-  {
-    "objectID": "package-dev.html#create-framework-your-turn",
-    "href": "package-dev.html#create-framework-your-turn",
-    "title": "💻 🏦 Code You Can Bank On",
-    "section": "Create framework (your turn)",
-    "text": "Create framework (your turn)\n\nuse_roxygen_md()\n\nmakes it much easier to create and maintain your function documentation\n\nlets you use a markdown-like syntax"
-  },
-  {
     "objectID": "package-dev.html#develop",
     "href": "package-dev.html#develop",
     "title": "💻 🏦 Code You Can Bank On",
@@ -1250,39 +1271,32 @@
     "href": "package-dev.html#develop-your-turn",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Develop (your turn)",
-    "text": "Develop (your turn)\nThere’s a usethis helper for adding .R files!\n\nusethis::use_r(\"AR1\")\nI like the idea of documenting, then writing functions:\n\nclaim what the function will do, then do it\nif your explanation is getting heavy, split into more functions\n\nStart by writing a shell for the function:\nAR1 &lt;- function(y) {\n  \n}\n\nplace the cursor on the blank line between the { ✏️ }\nRStudio IDE menu: Code &gt; Insert Roxygen Skeleton"
+    "text": "Develop (your turn)\nThere’s a usethis helper for adding .R files!\n\nusethis::use_r(\"AR1\")\nIn real life, I like the idea of documenting, then writing functions:\n\nclaim what the function will do, then do it\nif your explanation is getting heavy, split into more functions\n\nFor today, we’re going to push off documentation.\nStart by writing a shell for the function:\nAR1 &lt;- function(y) {\n  \n}"
   },
   {
     "objectID": "package-dev.html#develop-your-turn-1",
     "href": "package-dev.html#develop-your-turn-1",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Develop (your turn)",
-    "text": "Develop (your turn)\n\nComplete the documentation:\n\n#' Convenience function to make first-order autoregressive model\n#'\n#' Wrapper around forecast::Arima \n#\n#' @param y a univariate time series of class `ts`\n#'\n#' @returns See the arima function in the stats package\n#' @export\n#'\n#' @examples\n#'  (AR1(LakeHuron))\n#'\nAR1 &lt;- function(y) {\n\n}\n\n\n\n\n\n\n\n\n\n\n\n\n\nWe’re going to talk a lot more about documentation, but it’s good to get in the habit early."
+    "text": "Develop (your turn)\n\nWrite the function body\nAR1 &lt;- function(y) {\n  forecast::Arima(y, order = c(1, 0, 0), include.constant = TRUE)\n}"
   },
   {
     "objectID": "package-dev.html#develop-your-turn-2",
     "href": "package-dev.html#develop-your-turn-2",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Develop (your turn)",
-    "text": "Develop (your turn)\n\nWrite the function body:\n#' @examples\n#'  (AR1(LakeHuron))\n#'\nAR1 &lt;- function(y) {\n  forecast::Arima(y, order = c(1, 0, 0), include.constant = TRUE)\n}"
+    "text": "Develop (your turn)\n\nforecast::Arima(y)\n☝️ Use this notation to be explicit about where R looks for the function Arima().\n\n💾 Save AR1.R.\ndocument()\nload_all()\ncheck()\n🤔 What happened?"
   },
   {
     "objectID": "package-dev.html#develop-your-turn-3",
     "href": "package-dev.html#develop-your-turn-3",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Develop (your turn)",
-    "text": "Develop (your turn)\n\nforecast::Arima(y)\n☝️ Use this notation to be explicit about where R looks for the function Arima().\n\n💾 Save AR1.R.\ndocument()\nload_all()\ncheck()\n🤔 What happened?"
+    "text": "Develop (your turn)\n\n❯ checking DESCRIPTION meta-information ... WARNING\n  Non-standard license specification:\n    `use_mit_license()`, `use_gpl3_license()` or friends to pick a\n    license\n  Standardizable: FALSE\n\n❯ checking dependencies in R code ... WARNING\n  '::' or ':::' import not declared from: ‘forecast’\n\n❯ checking for future file timestamps ... NOTE\n  unable to verify current time\n\n1 error ✖ | 2 warnings ✖ | 1 note ✖"
   },
   {
     "objectID": "package-dev.html#develop-your-turn-4",
     "href": "package-dev.html#develop-your-turn-4",
-    "title": "💻 🏦 Code You Can Bank On",
-    "section": "Develop (your turn)",
-    "text": "Develop (your turn)\n\n❯ checking DESCRIPTION meta-information ... WARNING\n  Non-standard license specification:\n    `use_mit_license()`, `use_gpl3_license()` or friends to pick a\n    license\n  Standardizable: FALSE\n\n❯ checking dependencies in R code ... WARNING\n  '::' or ':::' import not declared from: ‘forecast’\n\n❯ checking for future file timestamps ... NOTE\n  unable to verify current time\n\n1 error ✖ | 2 warnings ✖ | 1 note ✖"
-  },
-  {
-    "objectID": "package-dev.html#develop-your-turn-5",
-    "href": "package-dev.html#develop-your-turn-5",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Develop (your turn)",
     "text": "Develop (your turn)\nuse_package(\"forecast\")\nWe need to specify that our package will use the forecast package:\n\nindicate a stronger reliance using Imports (default)\nindicate a weaker reliance using Suggests (test for package in functions)\n\nDependency management is a long-debated topic in the R community:\n\nfor now, if you need to rely on a package, do it"
@@ -1299,7 +1313,7 @@
     "href": "package-dev.html#check",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Check",
-    "text": "Check\nR CMD check is the gold standard for checking that an R package is in full working order.\n\n\nIt is a programme that is executed in the shell.\n\n\nHowever, devtools has the check() function to allow you to run this without leaving your R session.\n🎬 Check your package:"
+    "text": "Check\nR CMD check is the gold standard for checking that an R package is in full working order.\n\n\nIt is a program that is executed in the shell.\n\n\nHowever, devtools has the check() function to allow you to run this without leaving your R session.\n🎬 Check your package:"
   },
   {
     "objectID": "package-dev.html#aside-in-case-of-error",
@@ -1316,8 +1330,8 @@
     "text": "Aside: in case of error\nSave a copy of this file:\nfix_for_networked_drives.R\nSave it somewhere other than the BLT directory\nOpen the file from the BLT project session\nRun the whole file\nYou should now find that check() proceeds normally"
   },
   {
-    "objectID": "package-dev.html#commit-1",
-    "href": "package-dev.html#commit-1",
+    "objectID": "package-dev.html#commit",
+    "href": "package-dev.html#commit",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Commit",
     "text": "Commit\nNow would be a good time to commit your changes.\n\n\n\nJason Long, CC BY 3.0 &lt;https://creativecommons.org/licenses/by/3.0&gt;, via Wikimedia Commons"
@@ -1341,11 +1355,11 @@
     "href": "package-dev.html#develop-again-1",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Develop (again)",
-    "text": "Develop (again)\n\n#' Percent missing\n#'\n#' @param ts a timeseries object\n#'\n#' @returns the percent of missing observations in the time series\n#' @export\n#'\n#' @examples\n#' perc_missing(LakeHuron)\nperc_missing &lt;- function(ts){\n  na_stats &lt;- imputeTS::statsNA(ts, print_only = FALSE)\n\n  return(na_stats$percentage_NAs)\n}"
+    "text": "Develop (again)\n\nperc_missing &lt;- function(ts){\n  na_stats &lt;- imputeTS::statsNA(ts, print_only = FALSE)\n\n  return(na_stats$percentage_NAs)\n}"
   },
   {
-    "objectID": "package-dev.html#commit-2",
-    "href": "package-dev.html#commit-2",
+    "objectID": "package-dev.html#commit-1",
+    "href": "package-dev.html#commit-1",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Commit",
     "text": "Commit\nNow would be a good time to commit your changes.\n\n\n\nJason Long, CC BY 3.0 &lt;https://creativecommons.org/licenses/by/3.0&gt;, via Wikimedia Commons"
@@ -1362,11 +1376,32 @@
     "href": "package-dev.html#develop-a-third-time-1",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Develop (a third time)",
-    "text": "Develop (a third time)\n\n#' Percent missing, tidy version\n#'\n#' @param dataset is a dataset\n#' @param variable is a time series variable within the dataset\n#'\n#' @returns the percentage of missing values in that time series\n#' @export\n#'\n#' @examples\nperc_missing_tidy &lt;- function(dataset, variable){\n  var &lt;- substitute(variable)\n  var_eval &lt;- eval(var, envir = dataset)\n  na_stats &lt;- imputeTS::statsNA(var_eval, print_only = FALSE)\n  tibble_perc &lt;- tibble::tibble(perc = readr::parse_number(x = na_stats$percentage_NAs))\n  return(tibble_perc)\n}\n\nThis one gets tricky because I can’t find a good dataset to use in the example"
+    "text": "Develop (a third time)\n\nperc_missing_tidy &lt;- function(dataset, variable){\n  var &lt;- substitute(variable)\n  var_eval &lt;- eval(var, envir = dataset)\n  na_stats &lt;- imputeTS::statsNA(var_eval, print_only = FALSE)\n  tibble_perc &lt;- tibble::tibble(perc = readr::parse_number(x = na_stats$percentage_NAs))\n  return(tibble_perc)\n}\n\nThis one gets tricky for a couple of reasons. One is non-standard evaluation."
   },
   {
-    "objectID": "package-dev.html#commit-3",
-    "href": "package-dev.html#commit-3",
+    "objectID": "package-dev.html#non-standard-evaluation",
+    "href": "package-dev.html#non-standard-evaluation",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Non-standard evaluation",
+    "text": "Non-standard evaluation\nIf you’re masking specific tidyverse functions, you can get away with { } and passing arguments along with ....\nBut if we’re doing more general-purpose programming, we need to leverage non-standard evaluation in R.\n\n\n\npurpose\nbase\nrlang\nrlang (quosure)\n\n\n\n\ncapture unevaluated expression\nquote()\nexpr()\nquo()\n\n\nsubstitute name for value\nsubstitute()\nenexpr()\nenquo()\n\n\nevaluate a captured expression\neval()\neval_tidy()\n!!\n\n\n\nThere are many more NSE functions, but I find these three concepts usually get me pretty far.\nI’m not a big AI fan, but NSE is a nice use case for asking an LLM questions."
+  },
+  {
+    "objectID": "package-dev.html#develop-a-third-time-2",
+    "href": "package-dev.html#develop-a-third-time-2",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Develop (a third time)",
+    "text": "Develop (a third time)\nCould we change my tidy percent missing function so it uses rlang syntax rather than base R?\n\nperc_missing_tidy &lt;- function(dataset, variable){\n  var &lt;- substitute(variable)\n  var_eval &lt;- eval(var, envir = dataset)\n  na_stats &lt;- imputeTS::statsNA(var_eval, print_only = FALSE)\n  tibble_perc &lt;- tibble::tibble(perc = readr::parse_number(x = na_stats$percentage_NAs))\n  return(tibble_perc)\n}"
+  },
+  {
+    "objectID": "package-dev.html#develop-a-third-time-3",
+    "href": "package-dev.html#develop-a-third-time-3",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Develop (a third time)",
+    "text": "Develop (a third time)\n\nperc_missing_tidy &lt;- function(dataset, variable){\n  var &lt;- rlang::enexpr(variable)\n  var_eval &lt;- rlang::eval_tidy(var, data = dataset)\n  na_stats &lt;- imputeTS::statsNA(var_eval, print_only = FALSE)\n  tibble_perc &lt;- tibble::tibble(perc = readr::parse_number(x = na_stats$percentage_NAs))\n  return(tibble_perc)\n}\n\nI believe enquo() would work in place of enexpr(), as well."
+  },
+  {
+    "objectID": "package-dev.html#commit-2",
+    "href": "package-dev.html#commit-2",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Commit",
     "text": "Commit\nNow would be a good time to commit your changes.\n\n\n\nJason Long, CC BY 3.0 &lt;https://creativecommons.org/licenses/by/3.0&gt;, via Wikimedia Commons"
@@ -1386,31 +1421,17 @@
     "text": "Adding data to packages (your turn)\nAdd the bacon data to the package,\n✔ Adding R to Depends field in DESCRIPTION.\n✔ Creating data/.\n✔ Setting LazyData to \"true\" in DESCRIPTION.\n✔ Saving \"bacon\" to \"data/bacon.rda\".\n☐ Document your data (see &lt;https://r-pkgs.org/data.html&gt;)."
   },
   {
-    "objectID": "package-dev.html#documenting-data",
-    "href": "package-dev.html#documenting-data",
+    "objectID": "package-dev.html#commit-3",
+    "href": "package-dev.html#commit-3",
     "title": "💻 🏦 Code You Can Bank On",
-    "section": "Documenting data",
-    "text": "Documenting data\nData gets documented in the data.R file. How can we create and open this file for editing?\n\nUnfortunately, the trick to insert Roxygen skeleton doesn’t work with data, so we have to do the documentation more manually."
-  },
-  {
-    "objectID": "package-dev.html#documenting-data-1",
-    "href": "package-dev.html#documenting-data-1",
-    "title": "💻 🏦 Code You Can Bank On",
-    "section": "Documenting data",
-    "text": "Documenting data\nHere’s what the who documentation in tidyr looks like\n#' World Health Organization TB data\n#'\n#' A subset of data from the World Health Organization Global Tuberculosis\n#' Report ...\n#'\n#' @format ## `who`\n#' A data frame with 7,240 rows and 60 columns:\n#' \\describe{\n#'   \\item{country}{Country name}\n#'   \\item{iso2, iso3}{2 & 3 letter ISO country codes}\n#'   \\item{year}{Year}\n#'   ...\n#' }\n#' @source &lt;https://www.who.int/teams/global-tuberculosis-programme/data&gt;\n\"who\"\nCan you write some documentation for the bacon data?"
-  },
-  {
-    "objectID": "package-dev.html#data-in-packages",
-    "href": "package-dev.html#data-in-packages",
-    "title": "💻 🏦 Code You Can Bank On",
-    "section": "Data in packages",
-    "text": "Data in packages\nThere is a lot more detail specific to including data in packages. Sometimes you want to include raw data, sometimes you need data only available to the package and not the user, etc. There is much more detail in the R packages book."
+    "section": "Commit",
+    "text": "Commit\nNow would be a good time to commit your changes.\n\n\n\nJason Long, CC BY 3.0 &lt;https://creativecommons.org/licenses/by/3.0&gt;, via Wikimedia Commons"
   },
   {
     "objectID": "package-dev.html#resources",
     "href": "package-dev.html#resources",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Resources",
-    "text": "Resources\n\nHappy git and GitHub for the useR, Jenny Bryan, the STAT 545 TAs, Jim Hester.\nObject of type ‘closure’ is not subsettable, Jenny Bryan. rstudio::conf video, slides\nCode “smells” and feels, Jenny Bryan\nR packages, Hadley Wickham and Jenny Bryan.\nEvaluating the Design of the R Language This is for my computer scientists who want the nitty-gritty about R as a language\nAdvanced R\nPackage states"
+    "text": "Resources\n\nHappy git and GitHub for the useR, Jenny Bryan, the STAT 545 TAs, Jim Hester.\nWhat are quosures and when are they needed?, rlang documentation.\nR packages, Hadley Wickham and Jenny Bryan.\nEvaluating the Design of the R Language This is for my computer scientists who want the nitty-gritty about R as a language\nAdvanced R\nPackage states\nObject of type ‘closure’ is not subsettable, Jenny Bryan. rstudio::conf video, slides\nCode “smells” and feels, Jenny Bryan"
   }
 ]

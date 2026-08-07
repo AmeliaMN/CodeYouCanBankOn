@@ -238,30 +238,6 @@ Amelia McNamara
 <li><p>“aut” means author, “cre” means creator, “ctb” means contributor.</p></li>
 </ul>
 </section>
-<section id="update-description" class="slide level2">
-<h2>Update <code>DESCRIPTION</code></h2>
-<p>🎬 Edit the title</p>
-<p><br>
-</p>
-<p>🎬 You should find that your information as an author is already included because you edited your <code>.RProfile</code> in intro</p>
-</section>
-<section id="update-description-1" class="slide level2">
-<h2>Update <code>DESCRIPTION</code></h2>
-<div class="small">
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a></a>Package: BLT</span>
-<span id="cb1-2"><a></a>Title: Work with data on bacon, lettuce, and tomatoes</span>
-<span id="cb1-3"><a></a>Version: 0.0.0.9000</span>
-<span id="cb1-4"><a></a>Authors@R: </span>
-<span id="cb1-5"><a></a>    person("Amelia", "McNamara",</span>
-<span id="cb1-6"><a></a>          email = "amelia.mcnamara@stthomas.edu",</span>
-<span id="cb1-7"><a></a>          role = c("aut", "cre"))</span>
-<span id="cb1-8"><a></a>Description: What the package does (one paragraph).</span>
-<span id="cb1-9"><a></a>License: MIT + file LICENSE</span>
-<span id="cb1-10"><a></a>Encoding: UTF-8</span>
-<span id="cb1-11"><a></a>Roxygen: list(markdown = TRUE)</span>
-<span id="cb1-12"><a></a>RoxygenNote: 7.2.0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
 <section id="metadata-in-description-1" class="slide level2">
 <h2>Metadata in <code>DESCRIPTION</code></h2>
 <ul>
@@ -271,20 +247,76 @@ Amelia McNamara
 <li><p>LazyData: Use true to lazy-load data sets in the package.</p></li>
 </ul>
 </section>
-<section id="update-description-2" class="slide level2">
+<section id="edit-description-your-turn" class="slide level2">
+<h2>Edit <code>DESCRIPTION</code> (your turn)</h2>
+<div class="teach-left">
+<p>Open <code>DESCRIPTION</code> file to edit it:</p>
+<ul>
+<li><p><code>Authors@R</code> field uses <code>options("usethis.description")</code></p>
+<ul>
+<li>we set this in our <code>.Rprofile</code>, so go back to the intro slides if you missed this!</li>
+<li>(Another possible issue is you didn’t restart R!)</li>
+</ul></li>
+</ul>
+<p>✏️ edit <code>Title</code> field. Should be one line, title case, with no period. Fewer than 65 characters.</p>
+<p>💾 save <code>DESCRIPTION</code> file</p>
+</div>
+<div class="teach-right">
+
+</div>
+</section>
+<section id="edit-description" class="slide level2">
+<h2>Edit <code>DESCRIPTION</code></h2>
+<div class="small">
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a></a>Package: BLT</span>
+<span id="cb1-2"><a></a>Title: Work with data on bacon, lettuce, and tomatoes</span>
+<span id="cb1-3"><a></a>Version: 0.0.0.9000</span>
+<span id="cb1-4"><a></a>Authors@R: </span>
+<span id="cb1-5"><a></a>    person("Amelia", "McNamara", , "amelia.mcnamara@stthomas.edu", role = c("aut", "cre"))</span>
+<span id="cb1-6"><a></a>Description: What the package does (one paragraph).</span>
+<span id="cb1-7"><a></a>License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a</span>
+<span id="cb1-8"><a></a>    license</span>
+<span id="cb1-9"><a></a>Encoding: UTF-8</span>
+<span id="cb1-10"><a></a>Roxygen: list(markdown = TRUE)</span>
+<span id="cb1-11"><a></a>RoxygenNote: 7.3.3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="commit" class="slide level2">
+<h2>Commit</h2>
+<p>Now would be a good time to commit your changes.</p>
+<p><br>
+</p>
+
+<img data-src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg" alt="Git icon" width="300" class="r-stretch quarto-figure-center"><p class="caption">Jason Long, CC BY 3.0 &lt;https://creativecommons.org/licenses/by/3.0&gt;, via Wikimedia Commons</p></section>
+<section id="create-framework-your-turn" class="slide level2">
+<h2>Create framework (your turn)</h2>
+<div class="teach-left">
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">use_roxygen_md</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><p>makes it <strong>much</strong> easier to create and maintain your function documentation</p>
+<ul>
+<li>lets you use a markdown-like syntax</li>
+</ul></li>
+</ul>
+</div>
+<div class="teach-right">
+
+</div>
+</section>
+<section id="update-description" class="slide level2">
 <h2>Update <code>DESCRIPTION</code></h2>
 <p>🎬 Edit the description</p>
 <div class="fragment">
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a></a>Description: This is a demo package for the "Code you can bank on" workshop at the Federal Reserve. It allows you to work with time series data.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb3-1"><a></a>Description: This is a demo package for the "Code you can bank on" workshop at the Federal Reserve. It allows you to work with time series data, and example datasets on bacon, lettuce, and tomatoes. </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <p>👀 The full stop matters!</p>
 </div>
 </section>
-<section id="create-framework-your-turn" class="slide level2 smaller">
-<h2>Create framework (your turn)</h2>
+<section id="add-a-license" class="slide level2 smaller">
+<h2>Add a license</h2>
 <div class="teach-left">
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">use_mit_license</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">use_mit_license</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li><p>lets the world know how it can use the stuff you create</p>
 <ul>
@@ -318,6 +350,33 @@ Amelia McNamara
 <h1>Object documentation</h1>
 
 </section>
+<section id="develop-your-turn" class="slide level2">
+<h2>Develop (your turn)</h2>
+<div class="teach-left">
+<p>Complete the documentation:</p>
+<div class="small">
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="co">#' Convenience function to make first-order autoregressive model</span></span>
+<span id="cb5-2"><a></a><span class="co">#'</span></span>
+<span id="cb5-3"><a></a><span class="co">#' Wrapper around forecast::Arima </span></span>
+<span id="cb5-4"><a></a><span class="co">#</span></span>
+<span id="cb5-5"><a></a><span class="co">#' @param y a univariate time series of class `ts`</span></span>
+<span id="cb5-6"><a></a><span class="co">#'</span></span>
+<span id="cb5-7"><a></a><span class="co">#' @returns See the arima function in the stats package</span></span>
+<span id="cb5-8"><a></a><span class="co">#' @export</span></span>
+<span id="cb5-9"><a></a><span class="co">#'</span></span>
+<span id="cb5-10"><a></a><span class="co">#' @examples</span></span>
+<span id="cb5-11"><a></a><span class="co">#'  (AR1(LakeHuron))</span></span>
+<span id="cb5-12"><a></a><span class="co">#'</span></span>
+<span id="cb5-13"><a></a>AR1 <span class="ot">&lt;-</span> <span class="cf">function</span>(y) {</span>
+<span id="cb5-14"><a></a></span>
+<span id="cb5-15"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="teach-right">
+
+</div>
+<p>We’re going to talk a lot more about documentation, but it’s good to get in the habit early.</p>
+</section>
 <section id="object-documentation-1" class="slide level2">
 <h2>Object documentation</h2>
 <ul>
@@ -326,7 +385,7 @@ Amelia McNamara
 <div class="fragment">
 <p>🎬 Try this now:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>?AR1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>?AR1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="fragment">
@@ -341,27 +400,27 @@ Amelia McNamara
 <p><br>
 </p>
 <div class="extrasmall">
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb5-1"><a></a>% Generated by roxygen2: do not edit by hand</span>
-<span id="cb5-2"><a></a>% Please edit documentation in R/fbind.R</span>
-<span id="cb5-3"><a></a>\name{AR1}</span>
-<span id="cb5-4"><a></a>\alias{AR1}</span>
-<span id="cb5-5"><a></a>\title{Convenience function to make first-order autoregressive model}</span>
-<span id="cb5-6"><a></a>\usage{</span>
-<span id="cb5-7"><a></a>AR1(y)</span>
-<span id="cb5-8"><a></a>}</span>
-<span id="cb5-9"><a></a>\arguments{</span>
-<span id="cb5-10"><a></a>\item{y}{a univariate time series of class \code{ts}}</span>
-<span id="cb5-11"><a></a></span>
-<span id="cb5-12"><a></a>\item{...}{Additional arguments to be passed to \href{arima}{stats::arima()}.}</span>
-<span id="cb5-13"><a></a>}</span>
-<span id="cb5-14"><a></a>\value{</span>
-<span id="cb5-15"><a></a>See the \code{\link[stats:arima]{arima}} function in the stats package</span>
-<span id="cb5-16"><a></a>}</span>
-<span id="cb5-17"><a></a>\description{</span>
-<span id="cb5-18"><a></a>Convenience function to make first-order autoregressive model</span>
-<span id="cb5-19"><a></a>}</span>
-<span id="cb5-20"><a></a>\examples{</span>
-<span id="cb5-21"><a></a>(AR1(LakeHuron))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb7-1"><a></a>% Generated by roxygen2: do not edit by hand</span>
+<span id="cb7-2"><a></a>% Please edit documentation in R/AR1.R</span>
+<span id="cb7-3"><a></a>\name{AR1}</span>
+<span id="cb7-4"><a></a>\alias{AR1}</span>
+<span id="cb7-5"><a></a>\title{Convenience function to make first-order autoregressive model}</span>
+<span id="cb7-6"><a></a>\usage{</span>
+<span id="cb7-7"><a></a>AR1(y)</span>
+<span id="cb7-8"><a></a>}</span>
+<span id="cb7-9"><a></a>\arguments{</span>
+<span id="cb7-10"><a></a>\item{y}{a univariate time series of class \code{ts}}</span>
+<span id="cb7-11"><a></a>}</span>
+<span id="cb7-12"><a></a>\value{</span>
+<span id="cb7-13"><a></a>See the arima function in the stats package</span>
+<span id="cb7-14"><a></a>}</span>
+<span id="cb7-15"><a></a>\description{</span>
+<span id="cb7-16"><a></a>Wrapper around forecast::Arima</span>
+<span id="cb7-17"><a></a>}</span>
+<span id="cb7-18"><a></a>\examples{</span>
+<span id="cb7-19"><a></a> (AR1(LakeHuron))</span>
+<span id="cb7-20"><a></a></span>
+<span id="cb7-21"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="object-documentation-2" class="slide level2">
@@ -375,27 +434,34 @@ Amelia McNamara
 </div>
 <div class="fragment">
 <ul>
-<li>Functions from <strong><code>roxygen2</code></strong> <span class="citation" data-cites="roxygen2">[@roxygen2]</span> do the work but we can use <strong><code>devtools</code></strong> functions to call them</li>
+<li>Functions from <strong><code>roxygen2</code></strong> <span class="citation" data-cites="roxygen2">[@roxygen2]</span> do the work but we can use <strong><code>devtools</code></strong> functions to call them.</li>
 </ul>
 </div>
 </section>
 <section id="roxygen-comments" class="slide level2">
 <h2>Roxygen comments</h2>
 <div class="extrasmall">
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb6-1"><a></a>#' Convenience function to make first-order autoregressive model</span>
-<span id="cb6-2"><a></a>#'</span>
-<span id="cb6-3"><a></a>#' @param y a univariate time series of class `ts`</span>
-<span id="cb6-4"><a></a>#' @param ... Additional arguments to be passed to [`arima`][stats::arima()]</span>
-<span id="cb6-5"><a></a>#'</span>
-<span id="cb6-6"><a></a>#' @returns See the [`arima`][stats::arima()] function in the stats package</span>
-<span id="cb6-7"><a></a>#' @export</span>
-<span id="cb6-8"><a></a>#'</span>
-<span id="cb6-9"><a></a>#' @examples</span>
-<span id="cb6-10"><a></a>#' (AR1(LakeHuron))</span>
-<span id="cb6-11"><a></a>AR1 &lt;- function(y) {</span>
-<span id="cb6-12"><a></a>  forecast::Arima(y, order = c(1, 0, 0), include.constant = TRUE)</span>
-<span id="cb6-13"><a></a></span>
-<span id="cb6-14"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb8-1"><a></a>% Generated by roxygen2: do not edit by hand</span>
+<span id="cb8-2"><a></a>% Please edit documentation in R/AR1.R</span>
+<span id="cb8-3"><a></a>\name{AR1}</span>
+<span id="cb8-4"><a></a>\alias{AR1}</span>
+<span id="cb8-5"><a></a>\title{Convenience function to make first-order autoregressive model}</span>
+<span id="cb8-6"><a></a>\usage{</span>
+<span id="cb8-7"><a></a>AR1(y)</span>
+<span id="cb8-8"><a></a>}</span>
+<span id="cb8-9"><a></a>\arguments{</span>
+<span id="cb8-10"><a></a>\item{y}{a univariate time series of class \code{ts}}</span>
+<span id="cb8-11"><a></a>}</span>
+<span id="cb8-12"><a></a>\value{</span>
+<span id="cb8-13"><a></a>See the arima function in the stats package</span>
+<span id="cb8-14"><a></a>}</span>
+<span id="cb8-15"><a></a>\description{</span>
+<span id="cb8-16"><a></a>Wrapper around forecast::Arima</span>
+<span id="cb8-17"><a></a>}</span>
+<span id="cb8-18"><a></a>\examples{</span>
+<span id="cb8-19"><a></a> (AR1(LakeHuron))</span>
+<span id="cb8-20"><a></a></span>
+<span id="cb8-21"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>the <code>#'</code> indicates it is a roxygen comment</li>
@@ -427,46 +493,13 @@ Amelia McNamara
 </ul>
 </div>
 </section>
-<section id="document-your-function" class="slide level2">
-<h2>Document your function</h2>
-<p>🎬 Open <code>BLT.R</code></p>
+<section id="edit-function-documentation" class="slide level2">
+<h2>Edit function documentation</h2>
+<p>🎬 Open <code>AR1.R</code></p>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>usethis<span class="sc">::</span><span class="fu">use_r</span>(<span class="st">"BLT"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>usethis<span class="sc">::</span><span class="fu">use_r</span>(<span class="st">"AR1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><br>
-. . .</p>
-<p>🎬 Put your cursor anywhere in the function and do Code | Insert Roxygen Documentation (Ctrl-Alt-Shift-R)</p>
-</div>
-</section>
-<section id="section" class="slide level2">
-<h2></h2>
-<div class="small">
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb8-1"><a></a>#' Title</span>
-<span id="cb8-2"><a></a>#'</span>
-<span id="cb8-3"><a></a>#' @param data_engsoc </span>
-<span id="cb8-4"><a></a>#' @param country </span>
-<span id="cb8-5"><a></a>#'</span>
-<span id="cb8-6"><a></a>#' @return</span>
-<span id="cb8-7"><a></a>#' @export</span>
-<span id="cb8-8"><a></a>#'</span>
-<span id="cb8-9"><a></a>#' @examples</span>
-<span id="cb8-10"><a></a>uss_make_matches &lt;- function(data_engsoc, country) {</span>
-<span id="cb8-11"><a></a>  result &lt;-</span>
-<span id="cb8-12"><a></a>    data_engsoc |&gt;</span>
-<span id="cb8-13"><a></a>    tibble::as_tibble() |&gt;</span>
-<span id="cb8-14"><a></a>    dplyr::transmute(</span>
-<span id="cb8-15"><a></a>      country = as.character(country),</span>
-<span id="cb8-16"><a></a>      tier = as.integer(tier),</span>
-<span id="cb8-17"><a></a>      season = as.integer(Season),</span>
-<span id="cb8-18"><a></a>      date = as.Date(Date),</span>
-<span id="cb8-19"><a></a>      home = as.character(home),</span>
-<span id="cb8-20"><a></a>      visitor = as.character(visitor),</span>
-<span id="cb8-21"><a></a>      goals_home = as.integer(hgoal),</span>
-<span id="cb8-22"><a></a>      goals_visitor = as.integer(vgoal)</span>
-<span id="cb8-23"><a></a>    )</span>
-<span id="cb8-24"><a></a>  result</span>
-<span id="cb8-25"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="roxygen-comments-and-tags" class="slide level2">
@@ -483,12 +516,12 @@ Amelia McNamara
 </ul></li>
 </ul>
 </section>
-<section id="document-your-function-1" class="slide level2">
+<section id="document-your-function" class="slide level2">
 <h2>Document your function</h2>
 <p>🎬 Give your function a title and a brief description</p>
 <p><br>
 </p>
-<p>🎬 Define the parameter</p>
+<p>🎬 Define the parameter(s)</p>
 <p><br>
 </p>
 <p>🎬 Describe what the function returns</p>
@@ -496,39 +529,38 @@ Amelia McNamara
 <section id="our-answer" class="slide level2">
 <h2>Our answer</h2>
 <div class="small">
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb9-1"><a></a>#' Make a standard league-play tibble</span>
-<span id="cb9-2"><a></a>#'</span>
-<span id="cb9-3"><a></a>#' Given a league-play data frame from {engsoccer}, returns a tibble with</span>
-<span id="cb9-4"><a></a>#' standardised column-names and types, e.g. `date` is a `Date`.</span>
-<span id="cb9-5"><a></a>#'</span>
-<span id="cb9-6"><a></a>#' @param data_engsoc  obtained from {engsoccerdata}.</span>
-<span id="cb9-7"><a></a>#' @param country `character` scalar, specifies the league.</span>
-<span id="cb9-8"><a></a>#'</span>
-<span id="cb9-9"><a></a>#' @return a tibble with columns `country`, `date`, `season`, `tier`, `home`,</span>
-<span id="cb9-10"><a></a>#'    `visitor`, `goals_home`, `goals_visitor`.</span>
-<span id="cb9-11"><a></a>#' @export</span>
-<span id="cb9-12"><a></a>#'</span>
-<span id="cb9-13"><a></a>#' @examples</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb10-1"><a></a>#' Convenience function to make first-order autoregressive model</span>
+<span id="cb10-2"><a></a>#'</span>
+<span id="cb10-3"><a></a>#' Wrapper around forecast::Arima</span>
+<span id="cb10-4"><a></a>#</span>
+<span id="cb10-5"><a></a>#' @param y a univariate time series of class `ts`</span>
+<span id="cb10-6"><a></a>#'</span>
+<span id="cb10-7"><a></a>#' @returns See the arima function in the stats package</span>
+<span id="cb10-8"><a></a>#' @export</span>
+<span id="cb10-9"><a></a>#'</span>
+<span id="cb10-10"><a></a>#' @examples</span>
+<span id="cb10-11"><a></a>#'  (AR1(LakeHuron))</span>
+<span id="cb10-12"><a></a>#'</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <p><br>
 </p>
-<p>🎬 Save <code>matches.R</code></p>
+<p>🎬 Save <code>AR1.R</code></p>
 </div>
 </section>
 <section id="build-documentation" class="slide level2">
 <h2>Build documentation</h2>
 <p>🎬 Run <code>devtools::document()</code> to turn roxygen comments to <code>.Rd</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>devtools<span class="sc">::</span><span class="fu">document</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>devtools<span class="sc">::</span><span class="fu">document</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
-<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb11-1"><a></a>ℹ Updating BLT documentation</span>
-<span id="cb11-2"><a></a>ℹ Loading BLT</span>
-<span id="cb11-3"><a></a>Writing NAMESPACE</span>
-<span id="cb11-4"><a></a>Writing uss_make_matches.Rd</span>
-<span id="cb11-5"><a></a>Warning message:</span>
-<span id="cb11-6"><a></a>[matches.R:13] @examples requires a value </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb12-1"><a></a>ℹ Updating BLT documentation</span>
+<span id="cb12-2"><a></a>ℹ Loading BLT</span>
+<span id="cb12-3"><a></a>Writing NAMESPACE</span>
+<span id="cb12-4"><a></a>Writing AR1.Rd</span>
+<span id="cb12-5"><a></a>Warning message:</span>
+<span id="cb12-6"><a></a>[matches.R:13] @examples requires a value </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <p>We will that fix later!</p>
@@ -536,15 +568,15 @@ Amelia McNamara
 </section>
 <section id="take-a-look-1" class="slide level2">
 <h2>Take a look 1</h2>
-<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb12-1"><a></a>├── DESCRIPTION</span>
-<span id="cb12-2"><a></a>├── LICENSE</span>
-<span id="cb12-3"><a></a>├── LICENSE.md</span>
-<span id="cb12-4"><a></a>├── man</span>
-<span id="cb12-5"><a></a>│   └── uss_make_matches.Rd </span>
-<span id="cb12-6"><a></a>├── NAMESPACE</span>
-<span id="cb12-7"><a></a>├── R</span>
-<span id="cb12-8"><a></a>│   └── matches.R</span>
-<span id="cb12-9"><a></a>└── BLT.Rproj</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb13-1"><a></a>├── DESCRIPTION</span>
+<span id="cb13-2"><a></a>├── LICENSE</span>
+<span id="cb13-3"><a></a>├── LICENSE.md</span>
+<span id="cb13-4"><a></a>├── man</span>
+<span id="cb13-5"><a></a>│   └── uss_make_matches.Rd </span>
+<span id="cb13-6"><a></a>├── NAMESPACE</span>
+<span id="cb13-7"><a></a>├── R</span>
+<span id="cb13-8"><a></a>│   └── matches.R</span>
+<span id="cb13-9"><a></a>└── BLT.Rproj</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li><p><code>NAMESPACE</code> now lists the exported function</p></li>
 <li><p><code>man/uss_make_matches.Rd</code> has been written</p></li>
@@ -557,7 +589,7 @@ Amelia McNamara
 </p>
 <p>🎬 Preview the documentation with:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>?uss_make_matches</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>?AR1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <p><br>
@@ -567,15 +599,15 @@ Amelia McNamara
 </section>
 <section id="fix-warning" class="slide level2">
 <h2>Fix warning</h2>
-<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb14-1"><a></a>Warning message:</span>
-<span id="cb14-2"><a></a>[matches.R:13] @examples requires a value </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb15-1"><a></a>Warning message:</span>
+<span id="cb15-2"><a></a>[matches.R:13] @examples requires a value </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="fragment">
 <p>We need to add a usage example!</p>
 <p>🎬 Under <code>@examples</code>, add one example for using your function</p>
 </div>
 <div class="fragment">
-<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb15-1"><a></a>#' @examples</span>
-<span id="cb15-2"><a></a>#' uss_make_matches(engsoccerdata::spain, "Spain")</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb16-1"><a></a>#' @examples</span>
+<span id="cb16-2"><a></a>#' uss_make_matches(engsoccerdata::spain, "Spain")</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="look-again" class="slide level2">
@@ -591,11 +623,11 @@ Amelia McNamara
 <h2>Package-level help page</h2>
 <p>🎬 What happens if you do:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>?BLT</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a>?BLT</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
-<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb17-1"><a></a>No documentation for 'BLT' in specified packages and libraries:</span>
-<span id="cb17-2"><a></a>you could try '??BLT'</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb18-1"><a></a>No documentation for 'BLT' in specified packages and libraries:</span>
+<span id="cb18-2"><a></a>you could try '??BLT'</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="package-level-help-page-1" class="slide level2">
@@ -605,14 +637,14 @@ Amelia McNamara
 <div class="fragment">
 <p>🎬 Add a package-level help page:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a>usethis<span class="sc">::</span><span class="fu">use_package_doc</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a>usethis<span class="sc">::</span><span class="fu">use_package_doc</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="fragment">
 <p><br>
 </p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb19-1"><a></a>✔ Writing 'R/BLT-package.R'</span>
-<span id="cb19-2"><a></a>• Modify 'R/BLT-package.R'</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb20-1"><a></a>✔ Writing 'R/BLT-package.R'</span>
+<span id="cb20-2"><a></a>• Modify 'R/BLT-package.R'</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <p><br>
@@ -633,35 +665,85 @@ Amelia McNamara
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>devtools<span class="sc">::</span><span class="fu">check</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a>devtools<span class="sc">::</span><span class="fu">check</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
-<section id="section-1" class="slide level2">
+<section id="documenting-data" class="slide level2">
+<h2>Documenting data</h2>
+<p>Data gets documented in the data.R file. How can we create and open this file for editing?</p>
+<div class="fragment">
+<div class="sourceCode" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a><span class="fu">use_r</span>(<span class="st">"data"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Unfortunately, the trick to insert Roxygen skeleton doesn’t work with data, so we have to do the documentation more manually.</p>
+</div>
+</section>
+<section id="documenting-data-1" class="slide level2">
+<h2>Documenting data</h2>
+<p>Here’s what the <code>who</code> documentation in <code>tidyr</code> looks like</p>
+<div class="small">
+<pre><code>#' World Health Organization TB data
+#'
+#' A subset of data from the World Health Organization Global Tuberculosis
+#' Report ...
+#'
+#' @format ## `who`
+#' A data frame with 7,240 rows and 60 columns:
+#' \describe{
+#'   \item{country}{Country name}
+#'   \item{iso2, iso3}{2 &amp; 3 letter ISO country codes}
+#'   \item{year}{Year}
+#'   ...
+#' }
+#' @source &lt;https://www.who.int/teams/global-tuberculosis-programme/data&gt;
+"who"</code></pre>
+</div>
+<p>Can you write some documentation for the <code>bacon</code> data?</p>
+</section>
+<section id="documenting-data-your-turn" class="slide level2">
+<h2>Documenting data (your turn)</h2>
+<div class="small">
+<pre><code>#' FRED bacon price data
+#'
+#' A subset of data on the average price of sliced bacon in the US.
+#' Data is from 2016 to 2026
+#'
+#' @format ## `bacon`
+#' A data frame with 119 rows and 5 columns:
+#' \describe{
+#'   \item{date}{Date of observation}
+#'   \item{series_id}{APU0000704111, the series ID for the series}
+#'   \item{value}{the average price of bacon at that date}
+#'   \item{real_timestart, realtime_end}{the date the data was downloaded}
+#' }
+#' @source &lt;https://fred.stlouisfed.org/series/APU0000704111&gt;
+"bacon"</code></pre>
+</div>
+</section>
+<section id="section" class="slide level2">
 <h2></h2>
 <div class="extrasmall">
-<div class="sourceCode" id="cb21"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb21-1"><a></a>── R CMD check results ─────────────────────────────────── BLT 0.0.0.9000 ────</span>
-<span id="cb21-2"><a></a>Duration: 40.4s</span>
-<span id="cb21-3"><a></a></span>
-<span id="cb21-4"><a></a>❯ checking dependencies in R code ... WARNING</span>
-<span id="cb21-5"><a></a>  '::' or ':::' imports not declared from:</span>
-<span id="cb21-6"><a></a>    'dplyr' 'tibble'</span>
-<span id="cb21-7"><a></a></span>
-<span id="cb21-8"><a></a>❯ checking for unstated dependencies in examples ... WARNING</span>
-<span id="cb21-9"><a></a>  '::' or ':::' import not declared from: 'engsoccerdata'</span>
-<span id="cb21-10"><a></a></span>
-<span id="cb21-11"><a></a>❯ checking R code for possible problems ... NOTE</span>
-<span id="cb21-12"><a></a>  uss_make_matches: no visible binding for global variable 'tier'</span>
-<span id="cb21-13"><a></a>  uss_make_matches: no visible binding for global variable 'Season'</span>
-<span id="cb21-14"><a></a>  uss_make_matches: no visible binding for global variable 'Date'</span>
-<span id="cb21-15"><a></a>  uss_make_matches: no visible binding for global variable 'home'</span>
-<span id="cb21-16"><a></a>  uss_make_matches: no visible binding for global variable 'visitor'</span>
-<span id="cb21-17"><a></a>  uss_make_matches: no visible binding for global variable 'hgoal'</span>
-<span id="cb21-18"><a></a>  uss_make_matches: no visible binding for global variable 'vgoal'</span>
-<span id="cb21-19"><a></a>  Undefined global functions or variables:</span>
-<span id="cb21-20"><a></a>    Date Season hgoal home tier vgoal visitor</span>
-<span id="cb21-21"><a></a></span>
-<span id="cb21-22"><a></a>0 errors ✔ | 2 warnings ✖ | 1 note ✖</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb25-1"><a></a>── R CMD check results ─────────────────────────────────── BLT 0.0.0.9000 ────</span>
+<span id="cb25-2"><a></a>Duration: 40.4s</span>
+<span id="cb25-3"><a></a></span>
+<span id="cb25-4"><a></a>❯ checking dependencies in R code ... WARNING</span>
+<span id="cb25-5"><a></a>  '::' or ':::' imports not declared from:</span>
+<span id="cb25-6"><a></a>    'dplyr' 'tibble'</span>
+<span id="cb25-7"><a></a></span>
+<span id="cb25-8"><a></a>❯ checking for unstated dependencies in examples ... WARNING</span>
+<span id="cb25-9"><a></a>  '::' or ':::' import not declared from: 'engsoccerdata'</span>
+<span id="cb25-10"><a></a></span>
+<span id="cb25-11"><a></a>❯ checking R code for possible problems ... NOTE</span>
+<span id="cb25-12"><a></a>  uss_make_matches: no visible binding for global variable 'tier'</span>
+<span id="cb25-13"><a></a>  uss_make_matches: no visible binding for global variable 'Season'</span>
+<span id="cb25-14"><a></a>  uss_make_matches: no visible binding for global variable 'Date'</span>
+<span id="cb25-15"><a></a>  uss_make_matches: no visible binding for global variable 'home'</span>
+<span id="cb25-16"><a></a>  uss_make_matches: no visible binding for global variable 'visitor'</span>
+<span id="cb25-17"><a></a>  uss_make_matches: no visible binding for global variable 'hgoal'</span>
+<span id="cb25-18"><a></a>  uss_make_matches: no visible binding for global variable 'vgoal'</span>
+<span id="cb25-19"><a></a>  Undefined global functions or variables:</span>
+<span id="cb25-20"><a></a>    Date Season hgoal home tier vgoal visitor</span>
+<span id="cb25-21"><a></a></span>
+<span id="cb25-22"><a></a>0 errors ✔ | 2 warnings ✖ | 1 note ✖</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br>
 </p>
@@ -704,14 +786,14 @@ Amelia McNamara
 </ul>
 </div>
 </section>
-<section id="section-2" class="slide level2">
+<section id="section-1" class="slide level2">
 <h2></h2>
-<div class="sourceCode" id="cb22"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb22-1"><a></a>❯ checking dependencies in R code ... WARNING</span>
-<span id="cb22-2"><a></a>  '::' or ':::' imports not declared from:</span>
-<span id="cb22-3"><a></a>    'dplyr' 'tibble'</span>
-<span id="cb22-4"><a></a></span>
-<span id="cb22-5"><a></a>❯ checking for unstated dependencies in examples ... WARNING</span>
-<span id="cb22-6"><a></a>  '::' or ':::' import not declared from: 'engsoccerdata'</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb26-1"><a></a>❯ checking dependencies in R code ... WARNING</span>
+<span id="cb26-2"><a></a>  '::' or ':::' imports not declared from:</span>
+<span id="cb26-3"><a></a>    'dplyr' 'tibble'</span>
+<span id="cb26-4"><a></a></span>
+<span id="cb26-5"><a></a>❯ checking for unstated dependencies in examples ... WARNING</span>
+<span id="cb26-6"><a></a>  '::' or ':::' import not declared from: 'engsoccerdata'</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="package-dependencies-3" class="slide level2">
 <h2>Package dependencies</h2>
@@ -733,14 +815,14 @@ Amelia McNamara
 <p>🎬 Use <code>usethis::use_package()</code> to add the <strong><code>dplyr</code></strong> package to <code>Imports</code></p>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a>usethis<span class="sc">::</span><span class="fu">use_package</span>(<span class="st">"dplyr"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a>usethis<span class="sc">::</span><span class="fu">use_package</span>(<span class="st">"dplyr"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br>
 </p>
 </div>
 <div class="fragment">
-<div class="sourceCode" id="cb24"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb24-1"><a></a>✔ Adding 'dplyr' to Imports field in DESCRIPTION</span>
-<span id="cb24-2"><a></a>• Refer to functions with `dplyr::fun()`</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb28-1"><a></a>✔ Adding 'dplyr' to Imports field in DESCRIPTION</span>
+<span id="cb28-2"><a></a>• Refer to functions with `dplyr::fun()`</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><br>
 </p>
 <p>Look how your <code>DESCRIPTION</code> file changed!</p>
@@ -758,29 +840,29 @@ Amelia McNamara
 <h2><code>devtools::check()</code></h2>
 <p>🎬 Run <code>devtools::check()</code> on your package again</p>
 </section>
-<section id="section-3" class="slide level2">
+<section id="section-2" class="slide level2">
 <h2></h2>
-<div class="sourceCode" id="cb25"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb25-1"><a></a>── R CMD check results ─────────── BLT 0.0.0.9000 ────</span>
-<span id="cb25-2"><a></a>Duration: 24s</span>
-<span id="cb25-3"><a></a></span>
-<span id="cb25-4"><a></a>❯ checking dependencies in R code ... WARNING</span>
-<span id="cb25-5"><a></a>  '::' or ':::' import not declared from: 'tibble'</span>
-<span id="cb25-6"><a></a></span>
-<span id="cb25-7"><a></a>❯ checking for unstated dependencies in examples ... WARNING</span>
-<span id="cb25-8"><a></a>  '::' or ':::' import not declared from: 'engsoccerdata'</span>
-<span id="cb25-9"><a></a></span>
-<span id="cb25-10"><a></a>❯ checking R code for possible problems ... NOTE</span>
-<span id="cb25-11"><a></a>  uss_make_matches: no visible binding for global variable 'tier'</span>
-<span id="cb25-12"><a></a>  uss_make_matches: no visible binding for global variable 'Season'</span>
-<span id="cb25-13"><a></a>  uss_make_matches: no visible binding for global variable 'Date'</span>
-<span id="cb25-14"><a></a>  uss_make_matches: no visible binding for global variable 'home'</span>
-<span id="cb25-15"><a></a>  uss_make_matches: no visible binding for global variable 'visitor'</span>
-<span id="cb25-16"><a></a>  uss_make_matches: no visible binding for global variable 'hgoal'</span>
-<span id="cb25-17"><a></a>  uss_make_matches: no visible binding for global variable 'vgoal'</span>
-<span id="cb25-18"><a></a>  Undefined global functions or variables:</span>
-<span id="cb25-19"><a></a>    Date Season hgoal home tier vgoal visitor</span>
-<span id="cb25-20"><a></a></span>
-<span id="cb25-21"><a></a>0 errors ✔ | 2 warnings ✖ | 1 note ✖</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb29-1"><a></a>── R CMD check results ─────────── BLT 0.0.0.9000 ────</span>
+<span id="cb29-2"><a></a>Duration: 24s</span>
+<span id="cb29-3"><a></a></span>
+<span id="cb29-4"><a></a>❯ checking dependencies in R code ... WARNING</span>
+<span id="cb29-5"><a></a>  '::' or ':::' import not declared from: 'tibble'</span>
+<span id="cb29-6"><a></a></span>
+<span id="cb29-7"><a></a>❯ checking for unstated dependencies in examples ... WARNING</span>
+<span id="cb29-8"><a></a>  '::' or ':::' import not declared from: 'engsoccerdata'</span>
+<span id="cb29-9"><a></a></span>
+<span id="cb29-10"><a></a>❯ checking R code for possible problems ... NOTE</span>
+<span id="cb29-11"><a></a>  uss_make_matches: no visible binding for global variable 'tier'</span>
+<span id="cb29-12"><a></a>  uss_make_matches: no visible binding for global variable 'Season'</span>
+<span id="cb29-13"><a></a>  uss_make_matches: no visible binding for global variable 'Date'</span>
+<span id="cb29-14"><a></a>  uss_make_matches: no visible binding for global variable 'home'</span>
+<span id="cb29-15"><a></a>  uss_make_matches: no visible binding for global variable 'visitor'</span>
+<span id="cb29-16"><a></a>  uss_make_matches: no visible binding for global variable 'hgoal'</span>
+<span id="cb29-17"><a></a>  uss_make_matches: no visible binding for global variable 'vgoal'</span>
+<span id="cb29-18"><a></a>  Undefined global functions or variables:</span>
+<span id="cb29-19"><a></a>    Date Season hgoal home tier vgoal visitor</span>
+<span id="cb29-20"><a></a></span>
+<span id="cb29-21"><a></a>0 errors ✔ | 2 warnings ✖ | 1 note ✖</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="imports" class="slide level2">
 <h2>Imports</h2>
@@ -808,13 +890,13 @@ Amelia McNamara
 <div class="fragment">
 <p>Instead of using:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a>usethis<span class="sc">::</span><span class="fu">use_package</span>(<span class="st">"tibble"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a>usethis<span class="sc">::</span><span class="fu">use_package</span>(<span class="st">"tibble"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="fragment">
 <p>we can use</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a>usethis<span class="sc">::</span><span class="fu">use_import_from</span>(<span class="st">"tibble"</span>, <span class="st">"tibble"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a>usethis<span class="sc">::</span><span class="fu">use_import_from</span>(<span class="st">"tibble"</span>, <span class="st">"tibble"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="fragment">
@@ -830,13 +912,13 @@ Amelia McNamara
 <h2><code>@importFrom pkg fun</code></h2>
 <p>🎬 Import <code>tibble()</code> from <strong><code>tibble</code></strong>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a>usethis<span class="sc">::</span><span class="fu">use_import_from</span>(<span class="st">"tibble"</span>, <span class="st">"tibble"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a>usethis<span class="sc">::</span><span class="fu">use_import_from</span>(<span class="st">"tibble"</span>, <span class="st">"tibble"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
-<div class="sourceCode" id="cb29"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb29-1"><a></a>✔ Adding 'tibble' to Imports field in DESCRIPTION</span>
-<span id="cb29-2"><a></a>✔ Adding '@importFrom tibble tibble' to 'R/BLT-package.R'</span>
-<span id="cb29-3"><a></a>✔ Writing 'NAMESPACE'</span>
-<span id="cb29-4"><a></a>✔ Loading BLT</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb33-1"><a></a>✔ Adding 'tibble' to Imports field in DESCRIPTION</span>
+<span id="cb33-2"><a></a>✔ Adding '@importFrom tibble tibble' to 'R/BLT-package.R'</span>
+<span id="cb33-3"><a></a>✔ Writing 'NAMESPACE'</span>
+<span id="cb33-4"><a></a>✔ Loading BLT</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="suggests" class="slide level2">
@@ -857,13 +939,13 @@ Amelia McNamara
 <p>🎬 Add <strong><code>engsoccerdata</code></strong></p>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a>usethis<span class="sc">::</span><span class="fu">use_package</span>(<span class="st">"engsoccerdata"</span>,</span>
-<span id="cb31-2"><a></a>                     <span class="at">type =</span> <span class="st">"Suggests"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a>usethis<span class="sc">::</span><span class="fu">use_package</span>(<span class="st">"engsoccerdata"</span>,</span>
+<span id="cb35-2"><a></a>                     <span class="at">type =</span> <span class="st">"Suggests"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>&nbsp;</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb32-1"><a></a>✔ Adding 'engsoccerdata' to Suggests field in DESCRIPTION</span>
-<span id="cb32-2"><a></a>• Use `requireNamespace("engsoccerdata", quietly = TRUE)` to test if package is installed</span>
-<span id="cb32-3"><a></a>• Then directly refer to functions with `engsoccerdata::fun()`</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb36-1"><a></a>✔ Adding 'engsoccerdata' to Suggests field in DESCRIPTION</span>
+<span id="cb36-2"><a></a>• Use `requireNamespace("engsoccerdata", quietly = TRUE)` to test if package is installed</span>
+<span id="cb36-3"><a></a>• Then directly refer to functions with `engsoccerdata::fun()`</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="suggests-2" class="slide level2">

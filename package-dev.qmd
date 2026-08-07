@@ -335,83 +335,6 @@ use_github()
 
 
 
-## Edit `DESCRIPTION` (your turn)
-
-::: {.teach-left}
-
-Open `DESCRIPTION` file to edit it:
-
-- `Authors@R` field uses `options("usethis.description")` 
-
-   - we set this in our `.Rprofile`, so go back to the intro slides if you missed this!
-   - (Another possible issue is you didn't restart R!)
-
-✏️ edit `Title` field. Should be one line, title case, with no period. Fewer than 65 characters.
-
-💾 save `DESCRIPTION` file
-
-:::
-
-::: {.teach-right} 
-```{r}
-#| ref.label: noun-create-package
-#| echo: false
-```
-:::
-
-## Edit `DESCRIPTION`
-
-::: small
-``` default
-Package: BLT
-Title: Work with data on bacon, lettuce, and tomatoes
-Version: 0.0.0.9000
-Authors@R: 
-    person("Amelia", "McNamara", , "amelia.mcnamara@stthomas.edu", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
-Encoding: UTF-8
-Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.3
-```
-:::
-
-
-## Commit
-
-Now would be a good time to commit your changes.
-
-\
-
-
-
-![Jason Long, CC BY 3.0 \<https://creativecommons.org/licenses/by/3.0\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg){fig-alt="Git icon" width="300"} 
-
-
-## Create framework (your turn)
-
-::: {.teach-left}
-
-```r
-use_roxygen_md()
-```
-
-- makes it **much** easier to create and maintain your function documentation
-
-  - lets you use a markdown-like syntax
-
-
-:::
-
-::: {.teach-right} 
-```{r}
-#| ref.label: noun-framework
-#| echo: false
-```
-:::
-
-
 
 
 ## Develop
@@ -440,11 +363,13 @@ There's a **`usethis`** helper for adding `.R` files!
 usethis::use_r("AR1")
 ```
 
-I like the idea of documenting, then writing **functions**:
+In real life, I like the idea of documenting, **then** writing functions:
 
 - claim what the function will do, then do it
 
 - if your explanation is getting heavy, split into more functions
+
+For today, we're going to push off documentation. 
 
 Start by writing a shell for the function:
 
@@ -454,9 +379,6 @@ AR1 <- function(y) {
 }
 ```
 
-- place the cursor on the blank line between the `{` ✏️ `}` 
-
-- RStudio IDE menu: **Code** > **Insert Roxygen Skeleton**
 
 :::
 
@@ -471,42 +393,6 @@ AR1 <- function(y) {
 
 
 
-## Develop (your turn)
-
-::: {.teach-left}
-
-Complete the documentation:
-
-::: small
-```r
-#' Convenience function to make first-order autoregressive model
-#'
-#' Wrapper around forecast::Arima 
-#
-#' @param y a univariate time series of class `ts`
-#'
-#' @returns See the arima function in the stats package
-#' @export
-#'
-#' @examples
-#'  (AR1(LakeHuron))
-#'
-AR1 <- function(y) {
-
-}
-```
-::: 
-
-:::
-
-::: {.teach-right} 
-```{r}
-#| ref.label: noun-develop
-#| echo: false
-```
-:::
-
-We're going to talk a lot more about documentation, but it's good to get in the habit early. 
 
 
 
@@ -514,12 +400,12 @@ We're going to talk a lot more about documentation, but it's good to get in the 
 
 ::: {.teach-left}
 
-Write the function body:
+Write the function body
+
+  
+
 
 ```r
-#' @examples
-#'  (AR1(LakeHuron))
-#'
 AR1 <- function(y) {
   forecast::Arima(y, order = c(1, 0, 0), include.constant = TRUE)
 }
@@ -634,7 +520,7 @@ check()
 
 \
 
-It is a programme that is executed in the shell.
+It is a program that is executed in the shell.
 
 \
 
@@ -713,15 +599,6 @@ check()
 
 ::: small
 ```default
-#' Percent missing
-#'
-#' @param ts a timeseries object
-#'
-#' @returns the percent of missing observations in the time series
-#' @export
-#'
-#' @examples
-#' perc_missing(LakeHuron)
 perc_missing <- function(ts){
   na_stats <- imputeTS::statsNA(ts, print_only = FALSE)
 
@@ -761,15 +638,6 @@ check()
 
 ::: small
 ```
-#' Percent missing, tidy version
-#'
-#' @param dataset is a dataset
-#' @param variable is a time series variable within the dataset
-#'
-#' @returns the percentage of missing values in that time series
-#' @export
-#'
-#' @examples
 perc_missing_tidy <- function(dataset, variable){
   var <- substitute(variable)
   var_eval <- eval(var, envir = dataset)
@@ -780,7 +648,56 @@ perc_missing_tidy <- function(dataset, variable){
 ```
 :::
 
-This one gets tricky because I can't find a good dataset to use in the example
+This one gets tricky for a couple of reasons. One is non-standard evaluation. 
+
+## Non-standard evaluation
+
+If you're [masking specific tidyverse functions](https://rlang.r-lib.org/reference/topic-data-mask-programming.html), you can get away with `{{ }}` and passing arguments along with `...`. 
+
+But if we're doing more general-purpose programming, we need to leverage non-standard evaluation in R.  
+
+purpose | base | rlang | rlang (quosure) |
+|-------|------|-----------|-------------|
+capture unevaluated expression | quote() | expr() |  quo() |
+substitute name for value | substitute() | enexpr() |  enquo() |
+evaluate a captured expression  | eval() | eval_tidy() | !! | 
+   
+There are *many* more NSE functions, but I find these three concepts usually get me pretty far. 
+
+I'm not a big AI fan, but NSE is a nice use case for asking an LLM questions. 
+
+## Develop (a third time)
+
+Could we change my tidy percent missing function so it uses rlang syntax rather than base R?
+
+::: small
+```r
+perc_missing_tidy <- function(dataset, variable){
+  var <- substitute(variable)
+  var_eval <- eval(var, envir = dataset)
+  na_stats <- imputeTS::statsNA(var_eval, print_only = FALSE)
+  tibble_perc <- tibble::tibble(perc = readr::parse_number(x = na_stats$percentage_NAs))
+  return(tibble_perc)
+}
+```
+:::
+
+
+## Develop (a third time)
+
+::: small
+```r
+perc_missing_tidy <- function(dataset, variable){
+  var <- rlang::enexpr(variable)
+  var_eval <- rlang::eval_tidy(var, data = dataset)
+  na_stats <- imputeTS::statsNA(var_eval, print_only = FALSE)
+  tibble_perc <- tibble::tibble(perc = readr::parse_number(x = na_stats$percentage_NAs))
+  return(tibble_perc)
+}
+```
+:::
+
+I believe `enquo()` would work in place of `enexpr()`, as well. 
 
 
 ## Commit
@@ -823,49 +740,17 @@ usethis::use_data(bacon)
 ☐ Document your data (see <https://r-pkgs.org/data.html>).
 ```
 
-## Documenting data
 
-Data gets documented in the data.R file. How can we create and open this file for editing?
 
-. . .
+## Commit
 
-```{r, eval=FALSE}
-devtools::use_r("data")
-```
+Now would be a good time to commit your changes.
 
-Unfortunately, the trick to insert Roxygen skeleton doesn't work with data, so we have to do the documentation more manually. 
-
-## Documenting data
-
-Here's what the `who` documentation in `tidyr` looks like
-
-```
-#' World Health Organization TB data
-#'
-#' A subset of data from the World Health Organization Global Tuberculosis
-#' Report ...
-#'
-#' @format ## `who`
-#' A data frame with 7,240 rows and 60 columns:
-#' \describe{
-#'   \item{country}{Country name}
-#'   \item{iso2, iso3}{2 & 3 letter ISO country codes}
-#'   \item{year}{Year}
-#'   ...
-#' }
-#' @source <https://www.who.int/teams/global-tuberculosis-programme/data>
-"who"
-```
-
-Can you write some documentation for the `bacon` data?
-
-## Data in packages
-
-There is a lot more detail specific to including data in packages. Sometimes you want to include raw data, sometimes you need data only available to the package and not the user, etc. There is much more detail in the [R packages](https://r-pkgs.org/data.html) book. 
+\
 
 
 
-
+![Jason Long, CC BY 3.0 \<https://creativecommons.org/licenses/by/3.0\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg){fig-alt="Git icon" width="300"} 
 
 
 
@@ -873,9 +758,10 @@ There is a lot more detail specific to including data in packages. Sometimes you
 ## Resources
 
 - [Happy git and GitHub for the useR](https://happygitwithr.com/), Jenny Bryan, the STAT 545 TAs, Jim Hester.
-- Object of type ‘closure’ is not subsettable, Jenny Bryan. rstudio::conf [video](https://posit.co/resources/videos/object-of-type-closure-is-not-subsettable), [slides](https://speakerdeck.com/jennybc/object-of-type-closure-is-not-subsettable)
-- [Code "smells" and feels](https://www.youtube.com/watch?v=7oyiPBjLAWY), Jenny Bryan
+- [What are quosures and when are they needed?](https://rlang.r-lib.org/reference/topic-quosure.html), rlang documentation. 
 - [R packages](https://r-pkgs.org/), Hadley Wickham and Jenny Bryan. 
 - [Evaluating the Design of the R Language](https://janvitek.org/pubs/ecoop12.pdf) This is for my computer scientists who want the nitty-gritty about R as a language
 - [Advanced R](https://adv-r.hadley.nz/)
 - [Package states](https://rstudio-conf-2022.github.io/build-tidy-tools/materials/day-1-session-1-introduction.html#/package-states)
+- Object of type 'closure' is not subsettable, Jenny Bryan. rstudio::conf [video](https://posit.co/resources/videos/object-of-type-closure-is-not-subsettable), [slides](https://speakerdeck.com/jennybc/object-of-type-closure-is-not-subsettable)
+- [Code "smells" and feels](https://www.youtube.com/watch?v=7oyiPBjLAWY), Jenny Bryan

@@ -21,6 +21,32 @@ Good enough practices for data analysis
 
 https://speakerdeck.com/jennybc/zen-and-the-art-of-workflow-maintenance?slide=59
 
+## Pass the dots
+
+This is the simplest possible solution. 
+
+. . .
+
+ - If the tidyverse function you're using takes `...` as an argument,
+
+. . .
+
+ - and that's what you want to pass along, 
+
+. . . 
+ 
+then you can **pass the dots**.
+
+```r
+my_select <- function(.data, ...) {
+  dplyr::select(.data, ...)
+}
+```
+
+## Data in packages
+
+There is a lot more detail specific to including data in packages. Sometimes you want to include raw data, sometimes you need data only available to the package and not the user, etc. There is much more detail in the [R packages](https://r-pkgs.org/data.html) book. 
+
 
 ## Naming functions
 

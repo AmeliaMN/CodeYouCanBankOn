@@ -536,78 +536,6 @@ Amelia McNamara
 </div>
 </div>
 </section>
-<section id="edit-description-your-turn" class="slide level2">
-<h2>Edit <code>DESCRIPTION</code> (your turn)</h2>
-<div class="teach-left">
-<p>Open <code>DESCRIPTION</code> file to edit it:</p>
-<ul>
-<li><p><code>Authors@R</code> field uses <code>options("usethis.description")</code></p>
-<ul>
-<li>we set this in our <code>.Rprofile</code>, so go back to the intro slides if you missed this!</li>
-<li>(Another possible issue is you didn’t restart R!)</li>
-</ul></li>
-</ul>
-<p>✏️ edit <code>Title</code> field. Should be one line, title case, with no period. Fewer than 65 characters.</p>
-<p>💾 save <code>DESCRIPTION</code> file</p>
-</div>
-<div class="teach-right">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="img/img-nouns/create-package.png" width="309"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="edit-description" class="slide level2">
-<h2>Edit <code>DESCRIPTION</code></h2>
-<div class="small">
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb6-1"><a></a>Package: BLT</span>
-<span id="cb6-2"><a></a>Title: Work with data on bacon, lettuce, and tomatoes</span>
-<span id="cb6-3"><a></a>Version: 0.0.0.9000</span>
-<span id="cb6-4"><a></a>Authors@R: </span>
-<span id="cb6-5"><a></a>    person("Amelia", "McNamara", , "amelia.mcnamara@stthomas.edu", role = c("aut", "cre"))</span>
-<span id="cb6-6"><a></a>Description: What the package does (one paragraph).</span>
-<span id="cb6-7"><a></a>License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a</span>
-<span id="cb6-8"><a></a>    license</span>
-<span id="cb6-9"><a></a>Encoding: UTF-8</span>
-<span id="cb6-10"><a></a>Roxygen: list(markdown = TRUE)</span>
-<span id="cb6-11"><a></a>RoxygenNote: 7.3.3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="commit" class="slide level2">
-<h2>Commit</h2>
-<p>Now would be a good time to commit your changes.</p>
-<p><br>
-</p>
-
-<img data-src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg" alt="Git icon" width="300" class="r-stretch quarto-figure-center"><p class="caption">Jason Long, CC BY 3.0 &lt;https://creativecommons.org/licenses/by/3.0&gt;, via Wikimedia Commons</p></section>
-<section id="create-framework-your-turn" class="slide level2">
-<h2>Create framework (your turn)</h2>
-<div class="teach-left">
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">use_roxygen_md</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul>
-<li><p>makes it <strong>much</strong> easier to create and maintain your function documentation</p>
-<ul>
-<li>lets you use a markdown-like syntax</li>
-</ul></li>
-</ul>
-</div>
-<div class="teach-right">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="img/img-nouns/create-package.png" width="309"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
 <section id="develop" class="slide level2">
 <h2>Develop</h2>
 <div class="teach-left">
@@ -637,20 +565,17 @@ Amelia McNamara
 <h2>Develop (your turn)</h2>
 <p>There’s a <strong><code>usethis</code></strong> helper for adding <code>.R</code> files!</p>
 <div class="teach-left">
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>usethis<span class="sc">::</span><span class="fu">use_r</span>(<span class="st">"AR1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>I like the idea of documenting, then writing <strong>functions</strong>:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>usethis<span class="sc">::</span><span class="fu">use_r</span>(<span class="st">"AR1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In real life, I like the idea of documenting, <strong>then</strong> writing functions:</p>
 <ul>
 <li><p>claim what the function will do, then do it</p></li>
 <li><p>if your explanation is getting heavy, split into more functions</p></li>
 </ul>
+<p>For today, we’re going to push off documentation.</p>
 <p>Start by writing a shell for the function:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>AR1 <span class="ot">&lt;-</span> <span class="cf">function</span>(y) {</span>
-<span id="cb9-2"><a></a>  </span>
-<span id="cb9-3"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul>
-<li><p>place the cursor on the blank line between the <code>{</code> ✏️ <code>}</code></p></li>
-<li><p>RStudio IDE menu: <strong>Code</strong> &gt; <strong>Insert Roxygen Skeleton</strong></p></li>
-</ul>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>AR1 <span class="ot">&lt;-</span> <span class="cf">function</span>(y) {</span>
+<span id="cb7-2"><a></a>  </span>
+<span id="cb7-3"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="teach-right">
 <div class="cell">
@@ -667,24 +592,10 @@ Amelia McNamara
 <section id="develop-your-turn-1" class="slide level2">
 <h2>Develop (your turn)</h2>
 <div class="teach-left">
-<p>Complete the documentation:</p>
-<div class="small">
-<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="co">#' Convenience function to make first-order autoregressive model</span></span>
-<span id="cb10-2"><a></a><span class="co">#'</span></span>
-<span id="cb10-3"><a></a><span class="co">#' Wrapper around forecast::Arima </span></span>
-<span id="cb10-4"><a></a><span class="co">#</span></span>
-<span id="cb10-5"><a></a><span class="co">#' @param y a univariate time series of class `ts`</span></span>
-<span id="cb10-6"><a></a><span class="co">#'</span></span>
-<span id="cb10-7"><a></a><span class="co">#' @returns See the arima function in the stats package</span></span>
-<span id="cb10-8"><a></a><span class="co">#' @export</span></span>
-<span id="cb10-9"><a></a><span class="co">#'</span></span>
-<span id="cb10-10"><a></a><span class="co">#' @examples</span></span>
-<span id="cb10-11"><a></a><span class="co">#'  (AR1(LakeHuron))</span></span>
-<span id="cb10-12"><a></a><span class="co">#'</span></span>
-<span id="cb10-13"><a></a>AR1 <span class="ot">&lt;-</span> <span class="cf">function</span>(y) {</span>
-<span id="cb10-14"><a></a></span>
-<span id="cb10-15"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<p>Write the function body</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>AR1 <span class="ot">&lt;-</span> <span class="cf">function</span>(y) {</span>
+<span id="cb8-2"><a></a>  forecast<span class="sc">::</span><span class="fu">Arima</span>(y, <span class="at">order =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>), <span class="at">include.constant =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb8-3"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="teach-right">
 <div class="cell">
@@ -697,41 +608,17 @@ Amelia McNamara
 </div>
 </div>
 </div>
-<p>We’re going to talk a lot more about documentation, but it’s good to get in the habit early.</p>
 </section>
 <section id="develop-your-turn-2" class="slide level2">
 <h2>Develop (your turn)</h2>
 <div class="teach-left">
-<p>Write the function body:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="co">#' @examples</span></span>
-<span id="cb11-2"><a></a><span class="co">#'  (AR1(LakeHuron))</span></span>
-<span id="cb11-3"><a></a><span class="co">#'</span></span>
-<span id="cb11-4"><a></a>AR1 <span class="ot">&lt;-</span> <span class="cf">function</span>(y) {</span>
-<span id="cb11-5"><a></a>  forecast<span class="sc">::</span><span class="fu">Arima</span>(y, <span class="at">order =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>), <span class="at">include.constant =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb11-6"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="teach-right">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="img/img-nouns/develop.png" width="309"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="develop-your-turn-3" class="slide level2">
-<h2>Develop (your turn)</h2>
-<div class="teach-left">
-<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>forecast<span class="sc">::</span><span class="fu">Arima</span>(y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>forecast<span class="sc">::</span><span class="fu">Arima</span>(y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>☝️ Use this notation to be explicit about where R looks for the function <code>Arima()</code>.</p>
 <hr>
 <p>💾 Save <code>AR1.R</code>.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="fu">document</span>()</span>
-<span id="cb13-2"><a></a><span class="fu">load_all</span>()</span>
-<span id="cb13-3"><a></a><span class="fu">check</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">document</span>()</span>
+<span id="cb10-2"><a></a><span class="fu">load_all</span>()</span>
+<span id="cb10-3"><a></a><span class="fu">check</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>🤔 What happened?</p>
 </div>
 <div class="teach-right">
@@ -746,27 +633,27 @@ Amelia McNamara
 </div>
 </div>
 </section>
-<section id="develop-your-turn-4" class="slide level2 smaller">
+<section id="develop-your-turn-3" class="slide level2 smaller">
 <h2>Develop (your turn)</h2>
 <div class="small">
-<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>❯ checking DESCRIPTION meta<span class="sc">-</span>information ... WARNING</span>
-<span id="cb14-2"><a></a>  Non<span class="sc">-</span>standard license specification<span class="sc">:</span></span>
-<span id="cb14-3"><a></a>    <span class="st">`</span><span class="at">use_mit_license()</span><span class="st">`</span>, <span class="st">`</span><span class="at">use_gpl3_license()</span><span class="st">`</span> or friends to pick a</span>
-<span id="cb14-4"><a></a>    license</span>
-<span id="cb14-5"><a></a>  Standardizable<span class="sc">:</span> <span class="cn">FALSE</span></span>
-<span id="cb14-6"><a></a></span>
-<span id="cb14-7"><a></a>❯ checking dependencies <span class="cf">in</span> R code ... WARNING</span>
-<span id="cb14-8"><a></a>  <span class="st">'::'</span> or <span class="st">':::'</span> import not declared from<span class="sc">:</span> ‘forecast’</span>
-<span id="cb14-9"><a></a></span>
-<span id="cb14-10"><a></a>❯ checking <span class="cf">for</span> future file timestamps ... NOTE</span>
-<span id="cb14-11"><a></a>  unable to verify current time</span>
-<span id="cb14-12"><a></a></span>
-<span id="cb14-13"><a></a><span class="dv">1</span> error ✖ <span class="sc">|</span> <span class="dv">2</span> warnings ✖ <span class="sc">|</span> <span class="dv">1</span> note ✖</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>❯ checking DESCRIPTION meta<span class="sc">-</span>information ... WARNING</span>
+<span id="cb11-2"><a></a>  Non<span class="sc">-</span>standard license specification<span class="sc">:</span></span>
+<span id="cb11-3"><a></a>    <span class="st">`</span><span class="at">use_mit_license()</span><span class="st">`</span>, <span class="st">`</span><span class="at">use_gpl3_license()</span><span class="st">`</span> or friends to pick a</span>
+<span id="cb11-4"><a></a>    license</span>
+<span id="cb11-5"><a></a>  Standardizable<span class="sc">:</span> <span class="cn">FALSE</span></span>
+<span id="cb11-6"><a></a></span>
+<span id="cb11-7"><a></a>❯ checking dependencies <span class="cf">in</span> R code ... WARNING</span>
+<span id="cb11-8"><a></a>  <span class="st">'::'</span> or <span class="st">':::'</span> import not declared from<span class="sc">:</span> ‘forecast’</span>
+<span id="cb11-9"><a></a></span>
+<span id="cb11-10"><a></a>❯ checking <span class="cf">for</span> future file timestamps ... NOTE</span>
+<span id="cb11-11"><a></a>  unable to verify current time</span>
+<span id="cb11-12"><a></a></span>
+<span id="cb11-13"><a></a><span class="dv">1</span> error ✖ <span class="sc">|</span> <span class="dv">2</span> warnings ✖ <span class="sc">|</span> <span class="dv">1</span> note ✖</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="develop-your-turn-5" class="slide level2">
+<section id="develop-your-turn-4" class="slide level2">
 <h2>Develop (your turn)</h2>
-<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="fu">use_package</span>(<span class="st">"forecast"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">use_package</span>(<span class="st">"forecast"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>We need to specify that <em>our</em> package will use the <strong>forecast</strong> package:</p>
 <ul>
 <li><p>indicate a stronger reliance using <code>Imports</code> (default)</p></li>
@@ -779,19 +666,19 @@ Amelia McNamara
 </section>
 <section id="develop-1" class="slide level2">
 <h2>Develop</h2>
-<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">use_package</span>(<span class="st">"forecast"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a>✔ Adding forecast to Imports field <span class="cf">in</span> DESCRIPTION.</span>
-<span id="cb17-2"><a></a>☐ Refer to functions with <span class="st">`</span><span class="at">forecast::fun()</span><span class="st">`</span>.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="fu">document</span>()</span>
-<span id="cb18-2"><a></a><span class="fu">load_all</span>()</span>
-<span id="cb18-3"><a></a><span class="fu">check</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="fu">use_package</span>(<span class="st">"forecast"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>✔ Adding forecast to Imports field <span class="cf">in</span> DESCRIPTION.</span>
+<span id="cb14-2"><a></a>☐ Refer to functions with <span class="st">`</span><span class="at">forecast::fun()</span><span class="st">`</span>.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="fu">document</span>()</span>
+<span id="cb15-2"><a></a><span class="fu">load_all</span>()</span>
+<span id="cb15-3"><a></a><span class="fu">check</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="check" class="slide level2">
 <h2>Check</h2>
 <p><code>R CMD check</code> is the gold standard for checking that an R package is in full working order.</p>
 <p><br>
 </p>
-<p>It is a programme that is executed in the shell.</p>
+<p>It is a program that is executed in the shell.</p>
 <p><br>
 </p>
 <p>However, <code>devtools</code> has the <code>check()</code> function to allow you to run this without leaving your R session.</p>
@@ -800,8 +687,8 @@ Amelia McNamara
 <section id="aside-in-case-of-error" class="slide level2">
 <h2>Aside: in case of error</h2>
 <p>On running <code>devtools::check()</code> you may get an error if you are using a networked drive.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb19-1"><a></a>Updating BLT documentation  </span>
-<span id="cb19-2"><a></a>Error: The specified file is not readable: path-to\BLT\NAMESPACE</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb16-1"><a></a>Updating BLT documentation  </span>
+<span id="cb16-2"><a></a>Error: The specified file is not readable: path-to\BLT\NAMESPACE</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><br>
 </p>
 <p>This is covered <a href="https://stackoverflow.com/questions/40530968/overwriting-namespace-and-rd-with-roxygen2">here</a> and can be fixed.</p>
@@ -815,7 +702,7 @@ Amelia McNamara
 <p>Run the whole file</p>
 <p>You should now find that <code>check()</code> proceeds normally</p>
 </section>
-<section id="commit-1" class="slide level2">
+<section id="commit" class="slide level2">
 <h2>Commit</h2>
 <p>Now would be a good time to commit your changes.</p>
 <p><br>
@@ -826,7 +713,7 @@ Amelia McNamara
 <h2>Experiment</h2>
 <p>Now that we’ve <code>document()</code>ed, <code>load_all()</code>ed and <code>check()</code>ed, we can try out our <code>AR1()</code> function in the console.</p>
 <div class="fragment">
-<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="fu">AR1</span>(tomatoes<span class="sc">$</span>value)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="fu">AR1</span>(tomatoes<span class="sc">$</span>value)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="develop-again" class="slide level2">
@@ -834,32 +721,23 @@ Amelia McNamara
 <p>Now that we’ve made one function in our package, let’s try making another. I’d like this function to find the percent of a time series that is missing.</p>
 <p>There are lots of approaches to this, I wrote a wrapper for <code>imputeTS::statsNA()</code>.</p>
 <p>Some functions you may find useful as you work:</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="fu">use_r</span>()</span>
-<span id="cb21-2"><a></a><span class="fu">use_package</span>()</span>
-<span id="cb21-3"><a></a><span class="fu">document</span>()</span>
-<span id="cb21-4"><a></a><span class="fu">load_all</span>()</span>
-<span id="cb21-5"><a></a><span class="fu">check</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="fu">use_r</span>()</span>
+<span id="cb18-2"><a></a><span class="fu">use_package</span>()</span>
+<span id="cb18-3"><a></a><span class="fu">document</span>()</span>
+<span id="cb18-4"><a></a><span class="fu">load_all</span>()</span>
+<span id="cb18-5"><a></a><span class="fu">check</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="develop-again-1" class="slide level2">
 <h2>Develop (again)</h2>
 <div class="small">
-<div class="sourceCode" id="cb22"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb22-1"><a></a>#' Percent missing</span>
-<span id="cb22-2"><a></a>#'</span>
-<span id="cb22-3"><a></a>#' @param ts a timeseries object</span>
-<span id="cb22-4"><a></a>#'</span>
-<span id="cb22-5"><a></a>#' @returns the percent of missing observations in the time series</span>
-<span id="cb22-6"><a></a>#' @export</span>
-<span id="cb22-7"><a></a>#'</span>
-<span id="cb22-8"><a></a>#' @examples</span>
-<span id="cb22-9"><a></a>#' perc_missing(LakeHuron)</span>
-<span id="cb22-10"><a></a>perc_missing &lt;- function(ts){</span>
-<span id="cb22-11"><a></a>  na_stats &lt;- imputeTS::statsNA(ts, print_only = FALSE)</span>
-<span id="cb22-12"><a></a></span>
-<span id="cb22-13"><a></a>  return(na_stats$percentage_NAs)</span>
-<span id="cb22-14"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb19-1"><a></a>perc_missing &lt;- function(ts){</span>
+<span id="cb19-2"><a></a>  na_stats &lt;- imputeTS::statsNA(ts, print_only = FALSE)</span>
+<span id="cb19-3"><a></a></span>
+<span id="cb19-4"><a></a>  return(na_stats$percentage_NAs)</span>
+<span id="cb19-5"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="commit-2" class="slide level2">
+<section id="commit-1" class="slide level2">
 <h2>Commit</h2>
 <p>Now would be a good time to commit your changes.</p>
 <p><br>
@@ -870,25 +748,16 @@ Amelia McNamara
 <h2>Develop (a third time)</h2>
 <p>Let’s take this up one more notch by making our function take the dataset and variable name as two separate arguments, so we could use it in a tidy pipeline.</p>
 <p>Some functions you may find useful as you work:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a><span class="fu">use_r</span>()</span>
-<span id="cb23-2"><a></a><span class="fu">use_package</span>()</span>
-<span id="cb23-3"><a></a><span class="fu">document</span>()</span>
-<span id="cb23-4"><a></a><span class="fu">load_all</span>()</span>
-<span id="cb23-5"><a></a><span class="fu">check</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="fu">use_r</span>()</span>
+<span id="cb20-2"><a></a><span class="fu">use_package</span>()</span>
+<span id="cb20-3"><a></a><span class="fu">document</span>()</span>
+<span id="cb20-4"><a></a><span class="fu">load_all</span>()</span>
+<span id="cb20-5"><a></a><span class="fu">check</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="develop-a-third-time-1" class="slide level2">
 <h2>Develop (a third time)</h2>
 <div class="small">
-<pre><code>#' Percent missing, tidy version
-#'
-#' @param dataset is a dataset
-#' @param variable is a time series variable within the dataset
-#'
-#' @returns the percentage of missing values in that time series
-#' @export
-#'
-#' @examples
-perc_missing_tidy &lt;- function(dataset, variable){
+<pre><code>perc_missing_tidy &lt;- function(dataset, variable){
   var &lt;- substitute(variable)
   var_eval &lt;- eval(var, envir = dataset)
   na_stats &lt;- imputeTS::statsNA(var_eval, print_only = FALSE)
@@ -896,9 +765,72 @@ perc_missing_tidy &lt;- function(dataset, variable){
   return(tibble_perc)
 }</code></pre>
 </div>
-<p>This one gets tricky because I can’t find a good dataset to use in the example</p>
+<p>This one gets tricky for a couple of reasons. One is non-standard evaluation.</p>
 </section>
-<section id="commit-3" class="slide level2">
+<section id="non-standard-evaluation" class="slide level2">
+<h2>Non-standard evaluation</h2>
+<p>If you’re <a href="https://rlang.r-lib.org/reference/topic-data-mask-programming.html">masking specific tidyverse functions</a>, you can get away with <code>{ }</code> and passing arguments along with <code>...</code>.</p>
+<p>But if we’re doing more general-purpose programming, we need to leverage non-standard evaluation in R.</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>purpose</th>
+<th>base</th>
+<th>rlang</th>
+<th>rlang (quosure)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>capture unevaluated expression</td>
+<td>quote()</td>
+<td>expr()</td>
+<td>quo()</td>
+</tr>
+<tr class="even">
+<td>substitute name for value</td>
+<td>substitute()</td>
+<td>enexpr()</td>
+<td>enquo()</td>
+</tr>
+<tr class="odd">
+<td>evaluate a captured expression</td>
+<td>eval()</td>
+<td>eval_tidy()</td>
+<td>!!</td>
+</tr>
+</tbody>
+</table>
+<p>There are <em>many</em> more NSE functions, but I find these three concepts usually get me pretty far.</p>
+<p>I’m not a big AI fan, but NSE is a nice use case for asking an LLM questions.</p>
+</section>
+<section id="develop-a-third-time-2" class="slide level2">
+<h2>Develop (a third time)</h2>
+<p>Could we change my tidy percent missing function so it uses rlang syntax rather than base R?</p>
+<div class="small">
+<div class="sourceCode" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>perc_missing_tidy <span class="ot">&lt;-</span> <span class="cf">function</span>(dataset, variable){</span>
+<span id="cb22-2"><a></a>  var <span class="ot">&lt;-</span> <span class="fu">substitute</span>(variable)</span>
+<span id="cb22-3"><a></a>  var_eval <span class="ot">&lt;-</span> <span class="fu">eval</span>(var, <span class="at">envir =</span> dataset)</span>
+<span id="cb22-4"><a></a>  na_stats <span class="ot">&lt;-</span> imputeTS<span class="sc">::</span><span class="fu">statsNA</span>(var_eval, <span class="at">print_only =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb22-5"><a></a>  tibble_perc <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(<span class="at">perc =</span> readr<span class="sc">::</span><span class="fu">parse_number</span>(<span class="at">x =</span> na_stats<span class="sc">$</span>percentage_NAs))</span>
+<span id="cb22-6"><a></a>  <span class="fu">return</span>(tibble_perc)</span>
+<span id="cb22-7"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="develop-a-third-time-3" class="slide level2">
+<h2>Develop (a third time)</h2>
+<div class="small">
+<div class="sourceCode" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a>perc_missing_tidy <span class="ot">&lt;-</span> <span class="cf">function</span>(dataset, variable){</span>
+<span id="cb23-2"><a></a>  var <span class="ot">&lt;-</span> rlang<span class="sc">::</span><span class="fu">enexpr</span>(variable)</span>
+<span id="cb23-3"><a></a>  var_eval <span class="ot">&lt;-</span> rlang<span class="sc">::</span><span class="fu">eval_tidy</span>(var, <span class="at">data =</span> dataset)</span>
+<span id="cb23-4"><a></a>  na_stats <span class="ot">&lt;-</span> imputeTS<span class="sc">::</span><span class="fu">statsNA</span>(var_eval, <span class="at">print_only =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb23-5"><a></a>  tibble_perc <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(<span class="at">perc =</span> readr<span class="sc">::</span><span class="fu">parse_number</span>(<span class="at">x =</span> na_stats<span class="sc">$</span>percentage_NAs))</span>
+<span id="cb23-6"><a></a>  <span class="fu">return</span>(tibble_perc)</span>
+<span id="cb23-7"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>I believe <code>enquo()</code> would work in place of <code>enexpr()</code>, as well.</p>
+</section>
+<section id="commit-2" class="slide level2">
 <h2>Commit</h2>
 <p>Now would be a good time to commit your changes.</p>
 <p><br>
@@ -924,47 +856,24 @@ perc_missing_tidy &lt;- function(dataset, variable){
 ✔ Saving "bacon" to "data/bacon.rda".
 ☐ Document your data (see &lt;https://r-pkgs.org/data.html&gt;).</code></pre>
 </section>
-<section id="documenting-data" class="slide level2">
-<h2>Documenting data</h2>
-<p>Data gets documented in the data.R file. How can we create and open this file for editing?</p>
-<div class="fragment">
-<p>Unfortunately, the trick to insert Roxygen skeleton doesn’t work with data, so we have to do the documentation more manually.</p>
-</div>
-</section>
-<section id="documenting-data-1" class="slide level2">
-<h2>Documenting data</h2>
-<p>Here’s what the <code>who</code> documentation in <code>tidyr</code> looks like</p>
-<pre><code>#' World Health Organization TB data
-#'
-#' A subset of data from the World Health Organization Global Tuberculosis
-#' Report ...
-#'
-#' @format ## `who`
-#' A data frame with 7,240 rows and 60 columns:
-#' \describe{
-#'   \item{country}{Country name}
-#'   \item{iso2, iso3}{2 &amp; 3 letter ISO country codes}
-#'   \item{year}{Year}
-#'   ...
-#' }
-#' @source &lt;https://www.who.int/teams/global-tuberculosis-programme/data&gt;
-"who"</code></pre>
-<p>Can you write some documentation for the <code>bacon</code> data?</p>
-</section>
-<section id="data-in-packages" class="slide level2">
-<h2>Data in packages</h2>
-<p>There is a lot more detail specific to including data in packages. Sometimes you want to include raw data, sometimes you need data only available to the package and not the user, etc. There is much more detail in the <a href="https://r-pkgs.org/data.html">R packages</a> book.</p>
-</section>
+<section id="commit-3" class="slide level2">
+<h2>Commit</h2>
+<p>Now would be a good time to commit your changes.</p>
+<p><br>
+</p>
+
+<img data-src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg" alt="Git icon" width="300" class="r-stretch quarto-figure-center"><p class="caption">Jason Long, CC BY 3.0 &lt;https://creativecommons.org/licenses/by/3.0&gt;, via Wikimedia Commons</p></section>
 <section id="resources" class="slide level2">
 <h2>Resources</h2>
 <ul>
 <li><a href="https://happygitwithr.com/">Happy git and GitHub for the useR</a>, Jenny Bryan, the STAT 545 TAs, Jim Hester.</li>
-<li>Object of type ‘closure’ is not subsettable, Jenny Bryan. rstudio::conf <a href="https://posit.co/resources/videos/object-of-type-closure-is-not-subsettable">video</a>, <a href="https://speakerdeck.com/jennybc/object-of-type-closure-is-not-subsettable">slides</a></li>
-<li><a href="https://www.youtube.com/watch?v=7oyiPBjLAWY">Code “smells” and feels</a>, Jenny Bryan</li>
+<li><a href="https://rlang.r-lib.org/reference/topic-quosure.html">What are quosures and when are they needed?</a>, rlang documentation.</li>
 <li><a href="https://r-pkgs.org/">R packages</a>, Hadley Wickham and Jenny Bryan.</li>
 <li><a href="https://janvitek.org/pubs/ecoop12.pdf">Evaluating the Design of the R Language</a> This is for my computer scientists who want the nitty-gritty about R as a language</li>
 <li><a href="https://adv-r.hadley.nz/">Advanced R</a></li>
 <li><a href="https://rstudio-conf-2022.github.io/build-tidy-tools/materials/day-1-session-1-introduction.html#/package-states">Package states</a></li>
+<li>Object of type ‘closure’ is not subsettable, Jenny Bryan. rstudio::conf <a href="https://posit.co/resources/videos/object-of-type-closure-is-not-subsettable">video</a>, <a href="https://speakerdeck.com/jennybc/object-of-type-closure-is-not-subsettable">slides</a></li>
+<li><a href="https://www.youtube.com/watch?v=7oyiPBjLAWY">Code “smells” and feels</a>, Jenny Bryan</li>
 </ul>
 
 
