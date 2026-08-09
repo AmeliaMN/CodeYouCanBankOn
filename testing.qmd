@@ -761,3 +761,9 @@ Now would be a good time to commit your changes.
   - on the active file with `devtools::test_coverage_active_file()`
   - on the whole package:`devtools::test_coverage()`
 :::
+
+
+## Resources
+
+- [Testing chapter](https://r-pkgs.org/testing-basics.html) in R Packages. 
+- **`testthat`** [documentation](https://testthat.r-lib.org/reference/index.html)

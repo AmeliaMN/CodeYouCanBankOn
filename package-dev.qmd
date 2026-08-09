@@ -83,26 +83,7 @@ knitr::include_graphics("img/img-verbs/base.png")
 
 ::: {.teach-right} 
 
-::: extrasmall
-<pre>
-BLT
-├── BLT.Rproj
-├── DESCRIPTION
-├── NAMESPACE
-├── R
-│   ├── AR1.R
-│   └── BLT-package.R
-├── data
-│   └── bacon.rda
-├── man
-│   ├── AR1.Rd
-│   └── bacon.Rd
-├── tests
-│   ├── testthat
-│   │   └── test-AR1.R
-│   └── testthat.R
-</pre>
-:::
+{{< include img/tree-diagrams/prelim.qmd >}}
 
 [(Does this remind you of anything?)]{style="font-size: 0.6em;"}
 :::
@@ -127,34 +108,7 @@ Figure adapted from [Packages](https://github.com/hfrick/presentations/blob/mast
 
 
 ::: {.teach-right} 
-::: extrasmall
-<pre>
-BLT
-├── BLT.Rproj
-├── <span style="color:#2CDDE0">DESCRIPTION</span>
-├── NAMESPACE
-├── R
-│   ├── <span style="color:#2CDDE0">AR1.R</span>
-│   └── BLT-package.R
-├── <span style="color:#2CDDE0">README.Rmd</span>
-├── README.md
-├── data
-│   └── bacon.rda
-├── man
-│   ├── AR1.Rd
-│   └── bacon.Rd
-├── tests
-│   ├── testthat
-│   │   └── <span style="color:#2CDDE0">test-AR1.R</span>
-│   └── testthat.R
-</pre>
-
-<span style="color:#5A5A5A">unchanged</span>
-\
-changed
-\
-<span style="color:#2CDDE0">changed by you</span>
-:::
+{{< include img/tree-diagrams/all.qmd >}}
 [(Does this remind you of anything?)]{style="font-size: 0.6em;"}
 :::
 
@@ -162,7 +116,6 @@ changed
 
 ## Create package
 
-<!-- Fix graffle -->
 
 ::: {.teach-left}
 ```{r verb-create-package, echo=FALSE, fig.align='left'}
@@ -171,21 +124,7 @@ knitr::include_graphics("img/img-verbs/create-package.png")
 :::
 
 ::: {.teach-right} 
-::: extrasmall
-<pre>
-BLT
-├── BLT.Rproj
-├── <span style="color:#2CDDE0">DESCRIPTION</span>
-├── NAMESPACE
-└── R
-</pre>
-
-<span style="color:#5A5A5A">unchanged</span>
-\
-changed
-\
-<span style="color:#2CDDE0">changed by you</span>
-:::
+{{< include img/tree-diagrams/create-package.qmd >}}
 
 :::
 
@@ -810,7 +749,7 @@ evaluate a captured expression  | eval() | eval_tidy() | !! |
    
 There are *many* more NSE functions, but I find these three concepts usually get me pretty far. 
 
-I'm not a big AI fan, but NSE is a nice use case for asking an LLM questions. 
+<!-- I'm not a big AI fan, but NSE is a nice use case for asking an LLM questions.  -->
 
 ## Develop (a third time)
 
@@ -904,8 +843,6 @@ Now would be a good time to commit your changes.
 - [Happy git and GitHub for the useR](https://happygitwithr.com/), Jenny Bryan, the STAT 545 TAs, Jim Hester.
 - [What are quosures and when are they needed?](https://rlang.r-lib.org/reference/topic-quosure.html), rlang documentation. 
 - [R packages](https://r-pkgs.org/), Hadley Wickham and Jenny Bryan. 
-- [Evaluating the Design of the R Language](https://janvitek.org/pubs/ecoop12.pdf) This is for my computer scientists who want the nitty-gritty about R as a language
+- [Evaluating the Design of the R Language](https://janvitek.org/pubs/ecoop12.pdf) This is for my computer scientists who want the nitty-gritty about R as a language.
 - [Advanced R](https://adv-r.hadley.nz/)
 - [Package states](https://rstudio-conf-2022.github.io/build-tidy-tools/materials/day-1-session-1-introduction.html#/package-states)
-- Object of type 'closure' is not subsettable, Jenny Bryan. rstudio::conf [video](https://posit.co/resources/videos/object-of-type-closure-is-not-subsettable), [slides](https://speakerdeck.com/jennybc/object-of-type-closure-is-not-subsettable)
-- [Code "smells" and feels](https://www.youtube.com/watch?v=7oyiPBjLAWY), Jenny Bryan

@@ -245,10 +245,8 @@ Keeping track of changes
 >
 > I will come into your office and SET YOUR COMPUTER ON FIRE 🔥.
 
-> - Jenny Bryan, [Project-oriented workflow](https://tidyverse.org/blog/2017/12/workflow-vs-script/)
+> -- Jenny Bryan, [Project-oriented workflow](https://tidyverse.org/blog/2017/12/workflow-vs-script/)
 
-
-Via [Zen And The aRt Of Workflow Maintenance](https://speakerdeck.com/jennybc/zen-and-the-art-of-workflow-maintenance?slide=37), 
 
 
 
@@ -283,7 +281,7 @@ There is a lot more detail specific to including data in packages. Sometimes you
 
 If writing a smaller package, consider prefixing your functions:
 
- - {BLT}: `BLT_make_matches()`
+ - {BLT}: `BLT_perc_missing()`
  
  - {btt22}: `btt_get()`
 
@@ -472,6 +470,53 @@ runif(1)
 - Side effects are not inherently bad (we *do* need to write to the file system),
   but they need extra care.
   
+  
+## Make a function with side effects
+
+So far, our functions have been pure. Let's make one that is not. For this function, I want to write a wrapper around `imputeTS::ggplot_na_distribution()`. This function has the name `ggplot` in the title, but it doesn't work like a normal `ggplot()` function (taking the data as the first argument, then `aes`thetics). 
+
+Let's start with adding a function skeleton,
+
+. . .
+
+```r
+BLT_ggplot_na_distribution <- function(data, mapping, ...){
+
+}
+```
+
+. . . 
+
+And then write some documentation **first**, as is better practice. 
+
+## Make a function with side effects
+
+::: extrasmall
+```r
+#' ggplot to visualization the distribution of missing values
+#'
+#' Wrapper around [imputeTS::ggplot_na_distribution]
+#'
+#' @param data Default dataset to use for a plot
+#' @param variable The variable to plot
+#' @param ... Other arguments passed on to methods
+#'
+#' @returns a ggplot object
+#' @export
+#'
+#' @examples
+#' tomatoes |>
+#' BLT_ggplot_na_distribution(value)
+BLT_ggplot_na_distribution <- function(data, variable, ...){
+  var <- rlang::enquo(variable)
+  var_eval <- rlang::eval_tidy(var, data = data)
+  imputeTS::ggplot_na_distribution(var_eval)
+}
+```
+:::
+
+
+  
 
 ## Practical advice
 
@@ -481,15 +526,7 @@ Try to separate tasks into pure functions and side effects:
 
 - use *these* functions in higher-level functions
 
-. . .
 
-For example:
-
-- `uss_make_matches()` is a pure function.
-
-- `get_soccer_data()` uses side effects.
-
-- `uss_get_matches()` calls each of these functions.
 
 ## Summary
 
@@ -536,6 +573,8 @@ For example:
 - You can write error messages that make things clearer for: 
   - developers who call your functions
   - end users
+  
+Object of type 'closure' is not subsettable, Jenny Bryan. rstudio::conf [video](https://posit.co/resources/videos/object-of-type-closure-is-not-subsettable), [slides](https://speakerdeck.com/jennybc/object-of-type-closure-is-not-subsettable)
 
 ## Creating an error condition 
 
@@ -810,6 +849,48 @@ not_runif <- function(n, min = 0, max = 1) {
 - We want stricter testing, so we need to set some options.
 
 
+## Test a function with side effects 
+
+It's much harder to write tests for functions that have side effects. But, there are some new helpers out there. `vdiffr` is what is being used to test `ggplot2`. It has the function `expect_doppleganger()` that can compare snapshots of figures. 
+
+. . . 
+
+```r
+test_that("plots have known output", {
+
+  tomato_NA_dist <- BLT_ggplot_na_distribution(tomatoes, value)
+  vdiffr::expect_doppelganger("tomato_NA_dist", tomato_NA_dist)
+})
+```
+
+. . .
+
+```r
+test()
+```
+
+does it pass?
+
+## Test a function with side effects 
+
+If you want to see it break, we can change the dataset in the test
+
+```r
+test_that("plots have known output", {
+
+  tomato_NA_dist <- BLT_ggplot_na_distribution(bacon, value)
+  vdiffr::expect_doppelganger("tomato_NA_dist", tomato_NA_dist)
+})
+```
+
+. . .
+
+```r
+test()
+```
+
+Should fail!
+
 ## Summary
 
 . . .
@@ -835,18 +916,8 @@ Use `withr::local_*()` functions to "leave no footprints".
 
 
 
-## Additional material
+## Resources
 
-Hadley's [keynote](https://www.rstudio.com/resources/rstudioconf-2017/data-science-in-the-tidyverse-hadley-wickham/) at rstudio::conf(2017):
+- Object of type 'closure' is not subsettable, Jenny Bryan. rstudio::conf [video](https://posit.co/resources/videos/object-of-type-closure-is-not-subsettable), [slides](https://speakerdeck.com/jennybc/object-of-type-closure-is-not-subsettable)
 
- - not available on YouTube 😢
- 
- - talks about tidyverse design
- 
- Joe Cheng's talks ([Part 1](https://www.rstudio.com/resources/shiny-dev-con/reactivity-pt-1-joe-cheng/), [Part 2](https://www.rstudio.com/resources/shiny-dev-con/reactivity-pt-2)) on reactivity at Shiny Developers Conference (2016), precursor to rstudio::conf():
- 
- 
- - pure functions vs. side effects
-
-
-
+- [Code "smells" and feels](https://www.youtube.com/watch?v=7oyiPBjLAWY), Jenny Bryan

@@ -1,0 +1,22 @@
+---
+title: "Resources"
+editor: source
+---
+
+An attempt to gather all the links and resources I recommended throughout. 
+
+
+- [What They Forgot to Teach You About R](https://rstats.wtf/),  Jennifer Bryan, Jim Hester, Shannon Pileggi, E. David Aja. 
+- [R for Data Science](https://r4ds.hadley.nz/), Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. 
+- [Tidyverse style guide](https://style.tidyverse.org/)
+- [Packages](https://github.com/hfrick/presentations/blob/master/2019-03-12_package_building/2019-03-12_package_building.pdf), by Hannah Frick
+- [Happy git and GitHub for the useR](https://happygitwithr.com/), Jenny Bryan, the STAT 545 TAs, Jim Hester.
+- [What are quosures and when are they needed?](https://rlang.r-lib.org/reference/topic-quosure.html), rlang documentation. 
+- [R packages](https://r-pkgs.org/), Hadley Wickham and Jenny Bryan. 
+- [Evaluating the Design of the R Language](https://janvitek.org/pubs/ecoop12.pdf) This is for my computer scientists who want the nitty-gritty about R as a language.
+- [Advanced R](https://adv-r.hadley.nz/)
+- [Package states](https://rstudio-conf-2022.github.io/build-tidy-tools/materials/day-1-session-1-introduction.html#/package-states)
+- [Testing chapter](https://r-pkgs.org/testing-basics.html) in R Packages. 
+- **`testthat`** [documentation](https://testthat.r-lib.org/reference/index.html)
+- Object of type 'closure' is not subsettable, Jenny Bryan. rstudio::conf [video](https://posit.co/resources/videos/object-of-type-closure-is-not-subsettable), [slides](https://speakerdeck.com/jennybc/object-of-type-closure-is-not-subsettable)
+- [Code "smells" and feels](https://www.youtube.com/watch?v=7oyiPBjLAWY), Jenny Bryan

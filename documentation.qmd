@@ -897,7 +897,7 @@ Now would be a good time to commit your changes.
 
 
 
-## [Add a badge to the `README.Rmd` (we're skipping this)]{style="color: #888888;"} {style="color: #888888;"}
+## Add a badge to the `README.Rmd` (we're skipping this){style="color: #888888;"}
 
 Badges give information to the user about the state of the package
 
@@ -909,7 +909,7 @@ A GitHub Action is "continuous integration" which allows you to automate package
 
 Actions we add are triggered when we push to GitHub.
 
-## [Adding a `R CMD check` action (we're skipping this)]{style="color: #888888;"} {style="color: #888888;"}
+## Adding a `R CMD check` action (we're skipping this){style="color: #888888;"} 
 
 Adding the `R CMD check` action along with an edit to the `README.Rmd` will:
 
@@ -920,7 +920,7 @@ Adding the `R CMD check` action along with an edit to the `README.Rmd` will:
 We can add with `usethis::use_github_action_check_standard()`
 
 
-## [`R-CMD-check.yaml` (we're skipping this)]{style="color: #888888;"} {style="color: #888888;"}
+## `R-CMD-check.yaml` (we're skipping this) {style="color: #888888;"}
 
 ::: extrasmall
     # Workflow derived from https://github.com/r-lib/actions/tree/v2/examples
@@ -1080,11 +1080,11 @@ Now would be a good time to commit your changes.
 
 
 
-# [**`pkgdown`** sites (we're skipping this)]{style="color: #888888;"} {style="color: #888888;"}
+# `pkgdown` sites (we're skipping this) {style="color: #888888;"} 
 
-## [**`pkgdown`** sites (we're skipping this)]{style="color: #888888;"} {style="color: #888888;"}
+## `pkgdown` sites (we're skipping this) {style="color: #888888;"} 
 
-**`pkgdown`** [@pkgdown] is designed to make it quick and easy to build a website for your package.
+`pkgdown` is designed to make it quick and easy to build a website for your package.
 
 
 Examples
@@ -1130,7 +1130,7 @@ Now would be a good time to commit your changes.
 
 
 
-## Summary continued
+## Summary 
 
 ::: small
 - Package dependencies need to be documented
@@ -1162,3 +1162,6 @@ Now would be a good time to commit your changes.
 -   **`usethis`** really rocks!
 :::
 
+## Resources
+
+- [R packages](https://r-pkgs.org/), Hadley Wickham and Jenny Bryan. 

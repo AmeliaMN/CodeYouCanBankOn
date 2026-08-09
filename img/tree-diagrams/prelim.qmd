@@ -1,0 +1,20 @@
+::: extrasmall
+<pre>
+BLT
+├── BLT.Rproj
+├── DESCRIPTION
+├── NAMESPACE
+├── R
+│   ├── AR1.R
+│   └── BLT-package.R
+├── data
+│   └── bacon.rda
+├── man
+│   ├── AR1.Rd
+│   └── bacon.Rd
+├── tests
+│   ├── testthat
+│   │   └── test-AR1.R
+│   └── testthat.R
+</pre>
+:::

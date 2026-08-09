@@ -1,0 +1,28 @@
+::: extrasmall
+<pre>
+BLT
+├── BLT.Rproj
+├── <span style="color:#2CDDE0">DESCRIPTION</span>
+├── NAMESPACE
+├── R
+│   ├── <span style="color:#2CDDE0">AR1.R</span>
+│   └── BLT-package.R
+├── <span style="color:#2CDDE0">README.Rmd</span>
+├── README.md
+├── data
+│   └── bacon.rda
+├── man
+│   ├── AR1.Rd
+│   └── bacon.Rd
+├── tests
+│   ├── testthat
+│   │   └── <span style="color:#2CDDE0">test-AR1.R</span>
+│   └── testthat.R
+</pre>
+
+<span style="color:#5A5A5A">unchanged</span>
+\
+changed
+\
+<span style="color:#2CDDE0">changed by you</span>
+:::

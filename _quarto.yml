@@ -11,21 +11,18 @@ website:
         text: Home
       - href: prereqs.qmd
         text: Prereqs
+      - href: resources.qmg
+        text: Resources
       - text: Materials
         menu:
-        - text: ---
-        - text: Building packages
-        - text: ---
         - text: "Introduction"
           href: intro.qmd
         - text: "Package devopment"
           href: package-dev.qmd
-        - text: ---
         - text: "Documentation"
           href: documentation.qmd
         - text: "Testing"
           href: testing.qmd
-        - text: ---
         - text: "Design"
           href: design.qmd
 

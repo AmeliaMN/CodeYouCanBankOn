@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Prereqs – Code You Can Bank On</title>
+<title>Resources – Code You Can Bank On</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -93,7 +93,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./prereqs.html" aria-current="page"> 
+    <a class="nav-link" href="./prereqs.html"> 
 <span class="menu-text">Prereqs</span></a>
   </li>  
   <li class="nav-item">
@@ -138,23 +138,15 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#to-do" id="toc-to-do" class="nav-link active" data-scroll-target="#to-do">To-do</a></li>
-  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background">Background</a></li>
-  <li><a href="#catch-up" id="toc-catch-up" class="nav-link" data-scroll-target="#catch-up">Catch up</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Prereqs</h1>
+<h1 class="title">Resources</h1>
 </div>
 
 
@@ -171,60 +163,25 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="to-do" class="level2">
-<h2 class="anchored" data-anchor-id="to-do">To-do</h2>
-<ol type="1">
-<li><p>Ensure you have R and RStudio installed. You don’t need the most recent version of either. I’m currently running R version 4.4.1 “Race for Your Life” and RStudio version 2026.07.</p></li>
-<li><p>Install (or update!) the packages we’re going to use. Even if you are certain you already have all these packages on your system, it’s worth running install.packages() again, just to make sure you have recent versions.</p></li>
-</ol>
-<pre><code>install.packages(c("fredr", "roxygen2", "testthat", "usethis"))</code></pre>
-<ol start="3" type="1">
-<li>[Optional, but recommended] Make sure your system is prepped to build more complex packages. We’re not going to get into C/C++ packages here, but it’s good to have the machinery to do more in-depth stuff. You can check your system’s status with the <code>devtools::has_devel()</code> function. If you don’t get a positive response from that function, Jenny Bryan has instructions for getting up to speed:</li>
-</ol>
+<p>An attempt to gather all the links and resources I recommended throughout.</p>
 <ul>
-<li><a href="https://stat545.com/system-prep.html#windows-system-prep">Windows</a></li>
-<li><a href="https://stat545.com/system-prep.html#macos-system-prep">Mac</a></li>
-<li><a href="https://stat545.com/system-prep.html#linux-system-prep">Linux?</a></li>
-</ul>
-</section>
-<section id="background" class="level2">
-<h2 class="anchored" data-anchor-id="background">Background</h2>
-<p>I am assuming you have a baseline familiarity with</p>
-<ul>
-<li>R as a language</li>
-<li>Writing functions</li>
-<li>Markdown (RMarkdown/Quarto/plain Markdown)</li>
-<li>git</li>
-</ul>
-</section>
-<section id="catch-up" class="level2">
-<h2 class="anchored" data-anchor-id="catch-up">Catch up</h2>
-<p>I’ll do a little bit of review of each of those topics, but if they are totally new to you, here is some background reading to help you get caught up.</p>
-<ul>
-<li>R as a language
-<ul>
-<li><a href="https://fg2re.sellorm.com/whatisr.html">What is R?</a></li>
-<li><a href="https://learn.r-journalism.com/en/how_to_use_r/">How to use R</a></li>
-<li><a href="https://rc2e.com/">R cookbook</a></li>
-</ul></li>
-<li>Writing functions
-<ul>
-<li><a href="https://www.geeksforgeeks.org/software-engineering/dont-repeat-yourselfdry-in-software-development/">DRY</a></li>
-<li><a href="https://r4ds.hadley.nz/functions.html">Functions</a> chapter of R for Data Science</li>
-<li><a href="https://www.youtube.com/watch?v=Qne86lxjgtg">What makes a good function?</a>, Hadley Wickham</li>
-<li>Nick Tierney’s <a href="https://github.com/njtierney/talk-funfun-slc">Practical Functions, Practically Magic</a></li>
-</ul></li>
-<li>Markdown
-<ul>
-<li><a href="https://r4ds.had.co.nz/r-markdown.html">RMarkdown</a> (mostly deprecated at this point)</li>
-<li><a href="https://r4ds.hadley.nz/quarto.html">Quarto</a></li>
-<li><a href="https://daringfireball.net/projects/markdown/syntax">Markdown</a></li>
-</ul></li>
-<li><a href="https://happygitwithr.com/big-picture">git</a></li>
+<li><a href="https://rstats.wtf/">What They Forgot to Teach You About R</a>, Jennifer Bryan, Jim Hester, Shannon Pileggi, E. David Aja.</li>
+<li><a href="https://r4ds.hadley.nz/">R for Data Science</a>, Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund.</li>
+<li><a href="https://style.tidyverse.org/">Tidyverse style guide</a></li>
+<li><a href="https://github.com/hfrick/presentations/blob/master/2019-03-12_package_building/2019-03-12_package_building.pdf">Packages</a>, by Hannah Frick</li>
+<li><a href="https://happygitwithr.com/">Happy git and GitHub for the useR</a>, Jenny Bryan, the STAT 545 TAs, Jim Hester.</li>
+<li><a href="https://rlang.r-lib.org/reference/topic-quosure.html">What are quosures and when are they needed?</a>, rlang documentation.</li>
+<li><a href="https://r-pkgs.org/">R packages</a>, Hadley Wickham and Jenny Bryan.</li>
+<li><a href="https://janvitek.org/pubs/ecoop12.pdf">Evaluating the Design of the R Language</a> This is for my computer scientists who want the nitty-gritty about R as a language.</li>
+<li><a href="https://adv-r.hadley.nz/">Advanced R</a></li>
+<li><a href="https://rstudio-conf-2022.github.io/build-tidy-tools/materials/day-1-session-1-introduction.html#/package-states">Package states</a></li>
+<li><a href="https://r-pkgs.org/testing-basics.html">Testing chapter</a> in R Packages.</li>
+<li><strong><code>testthat</code></strong> <a href="https://testthat.r-lib.org/reference/index.html">documentation</a></li>
+<li>Object of type ‘closure’ is not subsettable, Jenny Bryan. rstudio::conf <a href="https://posit.co/resources/videos/object-of-type-closure-is-not-subsettable">video</a>, <a href="https://speakerdeck.com/jennybc/object-of-type-closure-is-not-subsettable">slides</a></li>
+<li><a href="https://www.youtube.com/watch?v=7oyiPBjLAWY">Code “smells” and feels</a>, Jenny Bryan</li>
 </ul>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
