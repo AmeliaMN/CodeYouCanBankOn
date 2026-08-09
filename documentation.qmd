@@ -115,8 +115,8 @@ RoxygenNote: 7.3.3
 
 ``` default
 Description: This is a demo package for the "Code you can bank on" 
-workshop at the Federal Reserve. It allows you to work with time series 
-data, and example datasets on bacon, lettuce, and tomatoes. 
+    workshop at the Federal Reserve. It allows you to work with time series 
+    data, and example datasets on bacon, lettuce, and tomatoes. 
 ```
 
 . . .

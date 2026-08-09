@@ -82,9 +82,27 @@ knitr::include_graphics("img/img-verbs/base.png")
 :::
 
 ::: {.teach-right} 
-```{r noun-prelim, echo=FALSE, fig.align='right'}
-knitr::include_graphics("img/img-nouns/prelim.png")
-```
+
+::: extrasmall
+<pre>
+BLT
+├── BLT.Rproj
+├── DESCRIPTION
+├── NAMESPACE
+├── R
+│   ├── AR1.R
+│   └── BLT-package.R
+├── data
+│   └── bacon.rda
+├── man
+│   ├── AR1.Rd
+│   └── bacon.Rd
+├── tests
+│   ├── testthat
+│   │   └── test-AR1.R
+│   └── testthat.R
+</pre>
+:::
 
 [(Does this remind you of anything?)]{style="font-size: 0.6em;"}
 :::
@@ -109,9 +127,34 @@ Figure adapted from [Packages](https://github.com/hfrick/presentations/blob/mast
 
 
 ::: {.teach-right} 
-```{r noun-all, echo=FALSE, fig.align='right'}
-knitr::include_graphics("img/img-nouns/all.png")
-```
+::: extrasmall
+<pre>
+BLT
+├── BLT.Rproj
+├── <span style="color:#2CDDE0">DESCRIPTION</span>
+├── NAMESPACE
+├── R
+│   ├── <span style="color:#2CDDE0">AR1.R</span>
+│   └── BLT-package.R
+├── <span style="color:#2CDDE0">README.Rmd</span>
+├── README.md
+├── data
+│   └── bacon.rda
+├── man
+│   ├── AR1.Rd
+│   └── bacon.Rd
+├── tests
+│   ├── testthat
+│   │   └── <span style="color:#2CDDE0">test-AR1.R</span>
+│   └── testthat.R
+</pre>
+
+<span style="color:#5A5A5A">unchanged</span>
+\
+changed
+\
+<span style="color:#2CDDE0">changed by you</span>
+:::
 [(Does this remind you of anything?)]{style="font-size: 0.6em;"}
 :::
 
@@ -128,13 +171,22 @@ knitr::include_graphics("img/img-verbs/create-package.png")
 :::
 
 ::: {.teach-right} 
-```{r}
-#| label: noun-create-package
-#| echo: false
-#| eval: true
-#| fig-align: right
-knitr::include_graphics("img/img-nouns/create-package.png")
-```
+::: extrasmall
+<pre>
+BLT
+├── BLT.Rproj
+├── <span style="color:#2CDDE0">DESCRIPTION</span>
+├── NAMESPACE
+└── R
+</pre>
+
+<span style="color:#5A5A5A">unchanged</span>
+\
+changed
+\
+<span style="color:#2CDDE0">changed by you</span>
+:::
+
 :::
 
 
@@ -215,10 +267,22 @@ create_package("../BLT") # set the path to suit you
 :::
 
 ::: {.teach-right} 
-```{r}
-#| ref.label: noun-create-package
-#| echo: false
-```
+::: extrasmall
+<pre>
+BLT
+├── BLT.Rproj
+├── DESCRIPTION
+├── NAMESPACE
+└── R
+</pre>
+
+<span style="color:#5A5A5A">unchanged</span>
+\
+changed
+\
+<span style="color:#2CDDE0">changed by you</span>
+:::
+
 :::
 
 ## Create framework
@@ -231,9 +295,24 @@ knitr::include_graphics("img/img-verbs/framework.png")
 
 
 ::: {.teach-right} 
-```{r noun-framework, echo=FALSE, fig.align='right'}
-knitr::include_graphics("img/img-nouns/create-package.png")
-```
+::: extrasmall
+<pre>
+BLT
+├── .gitignore
+├── .Rbuildignore
+├── BLT.Rproj
+├── <span style="color:#5A5A5A">DESCRIPTION</span>
+├── <span style="color:#5A5A5A">NAMESPACE</span>
+└── R
+</pre>
+
+<span style="color:#5A5A5A">unchanged</span>
+\
+changed
+\
+<span style="color:#2CDDE0">changed by you</span>
+:::
+
 :::
 
 
@@ -252,19 +331,30 @@ use_git()
 
 :::
 
-<!-- Fix graffle -->
-
 ::: {.teach-right} 
-```{r}
-#| ref.label: noun-framework
-#| echo: false
-```
+::: extrasmall
+<pre>
+BLT
+├── .gitignore
+├── .Rbuildignore
+├── BLT.Rproj
+├── <span style="color:#5A5A5A">DESCRIPTION</span>
+├── <span style="color:#5A5A5A">NAMESPACE</span>
+└── R
+</pre>
+
+<span style="color:#5A5A5A">unchanged</span>
+\
+changed
+\
+<span style="color:#2CDDE0">changed by you</span>
+:::
+
 :::
 
 
 ## Make package a git repo (your turn)
 
-::: {.teach-left}
 you will get some messages sort of like this:
 
 
@@ -293,19 +383,6 @@ The specific language and order of items will change over time, to make it harde
 
 Choose the option that means yes!
 
-::: 
-
-<!-- Fix graffle -->
-::: {.teach-right} 
-
-```{r}
-#| ref.label: noun-framework
-#| echo: false
-```
-:::
-
-
-
 
 ## [Create framework (we're skipping this)]{style="color: #888888;"} {style="color: #888888;"}
 
@@ -329,12 +406,8 @@ use_github()
 
 :::
 
-<!-- Fix graffle -->
 ::: {.teach-right} 
-```{r}
-#| ref.label: noun-framework
-#| echo: false
-```
+
 :::
 
 
@@ -351,9 +424,27 @@ knitr::include_graphics("img/img-verbs/develop.png")
 
 
 ::: {.teach-right} 
-```{r noun-develop, echo=FALSE, fig.align='right'}
-knitr::include_graphics("img/img-nouns/develop.png")
-```
+::: extrasmall
+<pre>
+BLT
+├── .gitignore
+├── .Rbuildignore
+├── BLT.Rproj
+├── <span style="color:#5A5A5A">DESCRIPTION</span>
+├── <span style="color:#5A5A5A">NAMESPACE</span>
+├── R
+│   └── <span style="color:#2CDDE0">AR1.R</span>
+</pre>
+
+<span style="color:#5A5A5A">unchanged</span>
+\
+changed
+\
+<span style="color:#2CDDE0">changed by you</span>
+:::
+
+
+
 :::
 
 

@@ -32,20 +32,20 @@ execute:
 When we run:
 
 ```{r}
-italy <- uss_make_matches(engsoccerdata::italy,
-                          "Italy")
-spain <- uss_make_matches(engsoccerdata::spain,
-                          "Spain")
+tomatoes_miss <- tomatoes |>
+  perc_missing_tidy(value)
+bacon_miss <- bacon |>
+  perc_missing_tidy(value)
 ```
 
 \
 
 . . .
 
-The objects `italy` and `spain` should be:
+The objects `tomatoes_miss` and `bacon_miss` should be:
 
 - tibbles
-- have columns: "country", "tier", "season", "date", "home", "visitor", "goals_home" and "goals_visitor"
+- have a single column, "perc" 
 
 \
 
@@ -59,56 +59,42 @@ Try these:
 :::: {.column width="80%"}
 ::: extrasmall
 ```{r}
-class(italy)
+class(tomatoes_miss)
 ```
 
 ``` default
-"tbl_df"     "tbl"        "data.frame"
+[1] "tbl_df"     "tbl"        "data.frame"
 ```
 
 ```{r}
-class(spain)
+class(bacon_miss)
 ```
 
 ``` default
-"tbl_df"     "tbl"        "data.frame" 
+[1] "tbl_df"     "tbl"        "data.frame"
 ```
 
 ```{r}
-names(italy)
+names(tomatoes_miss)
 ```
 
 ``` default
-country"       "tier"          "season"        "date"         
-"home"          "visitor"       "goals_home"    "goals_visitor" 
+[1] "perc"
 ```
 
 ```{r}
-names(spain)
+names(bacon_miss)
 ```
 
 ``` default
-country"       "tier"          "season"        "date"         
-"home"          "visitor"       "goals_home"    "goals_visitor"
+[1] "perc"
 ```
+
+
 :::
 ::::
 
-::: {.column width="20%"}
-🎉
-
-\
-
-🥳
-
-\
-
-🎈
-
-\
-
-🎇
-:::
+🎉🎉🎉🎉
 ::::::
 
 ## Interactive testing ...
@@ -117,12 +103,12 @@ country"       "tier"          "season"        "date"
 
 . . .
 
-- wrote `uss_make_matches()`
+- wrote `perc_missing_tidy()`
 - loaded package with `devtools::load_all()`
-- ran `uss_make_matches()` interactively
-- edited `uss_make_matches()` if needed
+- ran `perc_missing_tidy()` interactively
+- edited `perc_missing_tidy()` if needed
 - loaded package with `devtools::load_all()`
-- ran `uss_make_matches()` interactively
+- ran `perc_missing_tidy()` interactively
 
 ## Informal test workflow
 
@@ -152,7 +138,7 @@ Solution: have a system to store and re-run the tests!
 
 . . .
 
-Read more about testing in the recently updated chapter in R Packages [@wickham2020a]
+Read more about testing in the [chapter](https://r-pkgs.org/testing-basics.html) in R Packages. 
 
 ## Automated test workflow
 
@@ -167,19 +153,27 @@ Read more about testing in the recently updated chapter in R Packages [@wickham2
 ::: small
 ``` default
 .
-├── CITATION.cff
 ├── DESCRIPTION
 ├── LICENSE
 ├── LICENSE.md
 ├── man
-│   └── matches.Rd
+│   ├── AR1.Rd
+│   ├── bacon.Rd
+│   ├── figures
+│   │   └── README-pressure-1.png
+│   ├── perc_missing.Rd
+│   └── perc_missing_tidy.Rd
 ├── NAMESPACE
 ├── R
-│   └── matches.R
+│   ├── AR1.R
+│   ├── BLT-package.R
+│   ├── data.R
+│   ├── perc_missing.R
+│   └── perc_missing_tidy.R
 ├── README.md
 ├── tests
 │   ├── testthat
-│   │   └── test-matches.R
+│   │   └── test-perc_missing_tidy.R
 │   └── testthat.R
 └── BLT.Rproj
 ```
@@ -299,7 +293,7 @@ Form: `expect_zzzz(actual_result, expectation)`
 # and request edition 3
 # but, you do *not* do that in a package.
 library(testthat)
-local_edition(3)
+testthat::local_edition(3)
 ```
 
 . . .
@@ -466,27 +460,31 @@ expect_named(x, c("b", "a", "c"))
 
 ## Make a test
 
-You can create and open (or just open) a test file for `blah.R` with `use_test("blah")`.
+You can create and open (or just open) a test file for `blah.R` with `use_test()`.
 
 . . .
 
-🎬 Create a test file for `matches.R`
+🎬 Create a test file for `perc_missing_tidy.R`
+
+\
+
+Open `perc_missing_tidy.R` in your editor
 
 . . .
 
 ```{r}
-usethis::use_test("matches")
+usethis::use_test()
 ```
 
 . . .
 
 ``` default
-✔ Writing 'tests/testthat/test-matches.R'
-• Modify 'tests/testthat/test-matches.R'
+✔ Writing tests/testthat/test-perc_missing_tidy.R.
+☐ Modify tests/testthat/test-perc_missing_tidy.R.
 ```
 
 ::: aside
-If matches.R is active in the editor, then `usethis::use_test()` is enough
+If perc_missing_tidy.R is not active in the editor, then `usethis::use_test("perc_missing_tidy")` will do the same thing. But, you need to be careful to match your filename!
 :::
 
 ## Test file structure
@@ -523,42 +521,39 @@ Ideally, 2 - 6 ish or consider breaking the function into simpler functions.
 
 ## Make a test
 
-We will add three expectations:
+We will add two expectations:
 
-- test that the output of `uss_make_matches()` is a tibble with `expect_true()`
-
-. . .
-
-- test that the output of `uss_make_matches()` has columns with the right names with `expect_named()`
+- test that the output of `perc_missing_tidy()` is a tibble with `expect_true()`
 
 . . .
 
-- test that the country column of the `uss_make_matches()` output is correct with `expect_identical()`
+- test that the output of `perc_missing_tidy()` has columns with the right names with `expect_named()`
 
 . . .
 
 We will do them one at a time so you can practice the workflow.
 
-## Edit `test-matches.R`
+## Edit `test-perc_missing_tidy.R`
 
-🎬 Add a test to check the output of `uss_make_matches()` is a tibble with `expect_true()`:
+🎬 Add a test to check the output of `perc_missing_tidy()` is a tibble with `expect_true()`:
 
 . . .
 
 ```{r}
-test_that("uss_make_matches works", {
+test_that("perc_missing_tidy works", {
 
   # use the function
-  italy <- uss_make_matches(engsoccerdata::italy, "Italy")
+  tomatoes_miss <- tomatoes |>
+    perc_missing_tidy(value)
 
-  expect_true(tibble::is_tibble(italy))
+  expect_true(tibble::is_tibble(tomatoes_miss))
 })
 
 ```
 
 . . .
 
-We use `uss_make_matches()` and examine the output with an expectation.
+We use `perc_missing_tidy()` and examine the output with an expectation.
 
 # Running a test
 
@@ -567,13 +562,13 @@ We use `uss_make_matches()` and examine the output with an expectation.
 🎬 Run the test with `testthat::test_file()`
 
 ```{r}
-testthat::test_file("tests/testthat/test-matches.R")
+testthat::test_file("tests/testthat/test-perc_missing_tidy.R")
 ```
 
 . . .
 
 ``` default
-══ Testing test-matches.R ══════════════════════
+══ Testing test-perc_missing_tidy.R ══════════════════════
 [ FAIL 0 | WARN 0 | SKIP 0 | PASS 1 ] Done!
 ```
 
@@ -613,36 +608,38 @@ Duration: 0.5 s
 
 ## Add an expectation
 
-Now you will test the output of `uss_make_matches()` to make sure it has columns with the right names `expect_named()`
+Now you will test the output of `perc_missing_tidy()` to make sure it has columns with the right names `expect_named()`
 
 . . .
 
-we expect the names to be:
+we expect the name(s) to be:
 
 ::: small
-"country", "tier", "season", "date", "home", "visitor", "goals_home", "goals_visitor"
+"perc"
 :::
 
 . . .
 
-🎬 Use `expect_named()` in `test-matches.R` to check the column names of `italy`
+🎬 Use `expect_named()` in `test-perc_missing_tidy.R` to check the column names of `tomatoes_miss`
 
 ## Answer
 
 ::: small
 ```{r}
-test_that("uss_make_matches works", {
+test_that("perc_missing_tidy works", {
 
   # use the function
-  italy <- uss_make_matches(engsoccerdata::italy, "Italy")
+  tomatoes_miss <- tomatoes |>
+    perc_missing_tidy(value)
 
-  expect_true(tibble::is_tibble(italy))
+  expect_true(tibble::is_tibble(tomatoes_miss))
+
   expect_named(
-    italy,
-    c("country", "tier", "season", "date", "home", "visitor",
-      "goals_home", "goals_visitor")
+    tomatoes_miss,
+    c("perc")
   )
 })
+
 ```
 :::
 
@@ -653,13 +650,13 @@ test_that("uss_make_matches works", {
 . . .
 
 ```{r}
-testthat::test_file("tests/testthat/test-matches.R")
+testthat::test_file("tests/testthat/test-perc_missing_tidy.R")
 ```
 
 Or the "Runs Tests" button
 
 ``` default
-══ Testing test-matches.R ═════════════════════════════════════════════════════
+══ Testing test-perc_missing_tidy.R ═════════════════════════════════════════════════════
 [ FAIL 0 | WARN 0 | SKIP 0 | PASS 2 ] Done!
 ```
 
@@ -685,63 +682,6 @@ Duration: 0.2 s
 
 🥳
 
-## Add the last expectation
-
-Now check that the country column of the `uss_make_matches()` output is correct with `expect_identical()`
-
-. . .
-
-🎬 Use `expect_identical()` in `test-matches.R` to compare the values in `italy$country` to "italy"
-
-. . .
-
-🎬 Run the tests
-
-## My answer
-
-::: small
-```{r}
-test_that("uss_make_matches works", {
-
-  # use the function
-  italy <- uss_make_matches(engsoccerdata::italy, "Italy")
-
-  expect_true(tibble::is_tibble(italy))
-  expect_named(
-    italy,
-    c("country", "tier", "season", "date", "home", "visitor",
-      "goals_home", "goals_visitor")
-  )
-  expect_identical(unique(italy$country), "Italy")
-})
-```
-:::
-
-## Extra: find a bug, add a test
-
-Running a practice session for this course, we found a bug:
-
-::: small
-```{r}
-test_that("uss_make_matches works", {
-
-  # use the function
-  italy <- uss_make_matches(engsoccerdata::italy, "Italy")
-
-  expect_true(tibble::is_tibble(italy))
-  expect_named(
-    italy,
-    c("country", "tier", "season", "date", "home", "visitor",
-      "goals_home", "goals_visitor")
-  )
-  expect_identical(unique(italy$country), "Italy")
-  
-  # when you find a bug, add a test: 👋 from Ian
-  expect_s3_class(italy$tier, "factor")
-})
-```
-:::
-
 # Test coverage
 
 ## Test coverage
@@ -762,7 +702,7 @@ There are two functions you might use interactively:
 
 ## Coverage in active file
 
-🎬 Make sure `matches.R` is active in the editor and do:
+🎬 Make sure `perc_missing_tidy.R` is active in the editor and do:
 
 ```{r}
 devtools::test_coverage_active_file()
@@ -770,7 +710,7 @@ devtools::test_coverage_active_file()
 
 . . .
 
-![](images/test-covr-active-file.png){width="500"}
+![](img/test-covr-active-file.png){width="1000"}
 
 ## Coverage in package
 
@@ -782,15 +722,19 @@ devtools::test_coverage()
 
 . . .
 
-![](images/test-covr-pkg.png){width="500"}
+![](img/test-covr-pkg.png){width="1000"}
 
 # ☑️ Woo hoo ☑️<BR> You wrote a unit test!
 
-## Commit and push
+## Commit
 
-Now would be a good time to commit your changes and push them to GitHub
+Now would be a good time to commit your changes.
 
-![Jason Long, CC BY 3.0 \<https://creativecommons.org/licenses/by/3.0\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg){fig-alt="Git icon" width="300"} ![GitHub, MIT \<http://opensource.org/licenses/mit-license.php\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg){fig-alt="GitHub icon" width="300"}
+\
+
+
+
+![Jason Long, CC BY 3.0 \<https://creativecommons.org/licenses/by/3.0\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg){fig-alt="Git icon" width="300"} 
 
 ## Summary
 

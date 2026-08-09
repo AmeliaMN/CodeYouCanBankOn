@@ -480,21 +480,21 @@
     "href": "testing.html#for-example",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "For example",
-    "text": "For example\nWhen we run:\n\nitaly &lt;- uss_make_matches(engsoccerdata::italy,\n                          \"Italy\")\nspain &lt;- uss_make_matches(engsoccerdata::spain,\n                          \"Spain\")\n\n\n\n\nThe objects italy and spain should be:\n\ntibbles\nhave columns: “country”, “tier”, “season”, “date”, “home”, “visitor”, “goals_home” and “goals_visitor”\n\n\n\nSo we might…"
+    "text": "For example\nWhen we run:\n\ntomatoes_miss &lt;- tomatoes |&gt;\n  perc_missing_tidy(value)\nbacon_miss &lt;- bacon |&gt;\n  perc_missing_tidy(value)\n\n\n\n\nThe objects tomatoes_miss and bacon_miss should be:\n\ntibbles\nhave a single column, “perc”\n\n\n\nSo we might…"
   },
   {
     "objectID": "testing.html#check-interactively",
     "href": "testing.html#check-interactively",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Check interactively",
-    "text": "Check interactively\nTry these:\n\n\n\n\nclass(italy)\n\n\"tbl_df\"     \"tbl\"        \"data.frame\"\n\nclass(spain)\n\n\"tbl_df\"     \"tbl\"        \"data.frame\" \n\nnames(italy)\n\ncountry\"       \"tier\"          \"season\"        \"date\"         \n\"home\"          \"visitor\"       \"goals_home\"    \"goals_visitor\" \n\nnames(spain)\n\ncountry\"       \"tier\"          \"season\"        \"date\"         \n\"home\"          \"visitor\"       \"goals_home\"    \"goals_visitor\"\n\n\n🎉\n\n\n🥳\n\n\n🎈\n\n\n🎇"
+    "text": "Check interactively\nTry these:\n\n\n\n\nclass(tomatoes_miss)\n\n[1] \"tbl_df\"     \"tbl\"        \"data.frame\"\n\nclass(bacon_miss)\n\n[1] \"tbl_df\"     \"tbl\"        \"data.frame\"\n\nnames(tomatoes_miss)\n\n[1] \"perc\"\n\nnames(bacon_miss)\n\n[1] \"perc\"\n\n🎉🎉🎉🎉"
   },
   {
     "objectID": "testing.html#interactive-testing",
     "href": "testing.html#interactive-testing",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Interactive testing …",
-    "text": "Interactive testing …\n…is informal testing. We:\n\n\nwrote uss_make_matches()\nloaded package with devtools::load_all()\nran uss_make_matches() interactively\nedited uss_make_matches() if needed\nloaded package with devtools::load_all()\nran uss_make_matches() interactively"
+    "text": "Interactive testing …\n…is informal testing. We:\n\n\nwrote perc_missing_tidy()\nloaded package with devtools::load_all()\nran perc_missing_tidy() interactively\nedited perc_missing_tidy() if needed\nloaded package with devtools::load_all()\nran perc_missing_tidy() interactively"
   },
   {
     "objectID": "testing.html#informal-test-workflow",
@@ -515,7 +515,7 @@
     "href": "testing.html#why-automate-testing-2",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Why automate testing?",
-    "text": "Why automate testing?\n\nFewer bugs: you are explicit about behaviour of functions.\nEncourages good code design. If it is hard to write unit tests your function may need refactoring\nOpportunity for test-driven development\nRobustness\n\n\nRead more about testing in the recently updated chapter in R Packages [@wickham2020a]"
+    "text": "Why automate testing?\n\nFewer bugs: you are explicit about behaviour of functions.\nEncourages good code design. If it is hard to write unit tests your function may need refactoring\nOpportunity for test-driven development\nRobustness\n\n\nRead more about testing in the chapter in R Packages."
   },
   {
     "objectID": "testing.html#automated-test-workflow",
@@ -529,7 +529,7 @@
     "href": "testing.html#organisation-files",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Organisation: files",
-    "text": "Organisation: files\n\n\n\n.\n├── CITATION.cff\n├── DESCRIPTION\n├── LICENSE\n├── LICENSE.md\n├── man\n│   └── matches.Rd\n├── NAMESPACE\n├── R\n│   └── matches.R\n├── README.md\n├── tests\n│   ├── testthat\n│   │   └── test-matches.R\n│   └── testthat.R\n└── BLT.Rproj\n\n\n\ntests files are in: tests/testthat/\ntest files are named test-xxxx.R\ntests/testthat.R: runs the tests when devtools::check() is called"
+    "text": "Organisation: files\n\n\n\n.\n├── DESCRIPTION\n├── LICENSE\n├── LICENSE.md\n├── man\n│   ├── AR1.Rd\n│   ├── bacon.Rd\n│   ├── figures\n│   │   └── README-pressure-1.png\n│   ├── perc_missing.Rd\n│   └── perc_missing_tidy.Rd\n├── NAMESPACE\n├── R\n│   ├── AR1.R\n│   ├── BLT-package.R\n│   ├── data.R\n│   ├── perc_missing.R\n│   └── perc_missing_tidy.R\n├── README.md\n├── tests\n│   ├── testthat\n│   │   └── test-perc_missing_tidy.R\n│   └── testthat.R\n└── BLT.Rproj\n\n\n\ntests files are in: tests/testthat/\ntest files are named test-xxxx.R\ntests/testthat.R: runs the tests when devtools::check() is called"
   },
   {
     "objectID": "testing.html#organisation-within-files",
@@ -585,7 +585,7 @@
     "href": "testing.html#for-example-1",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "For example",
-    "text": "For example\n\n# to try out testhtat interactively we load \n# and request edition 3\n# but, you do *not* do that in a package.\nlibrary(testthat)\nlocal_edition(3)\n\n\n\n# when the actual result is 42\nresult &lt;- 42\n\n# and we expect the result to be 42: no error\nexpect_identical(result, 42)"
+    "text": "For example\n\n# to try out testhtat interactively we load \n# and request edition 3\n# but, you do *not* do that in a package.\nlibrary(testthat)\ntestthat::local_edition(3)\n\n\n\n# when the actual result is 42\nresult &lt;- 42\n\n# and we expect the result to be 42: no error\nexpect_identical(result, 42)"
   },
   {
     "objectID": "testing.html#and",
@@ -655,7 +655,7 @@
     "href": "testing.html#make-a-test",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Make a test",
-    "text": "Make a test\nYou can create and open (or just open) a test file for blah.R with use_test(\"blah\").\n\n🎬 Create a test file for matches.R\n\n\n\nusethis::use_test(\"matches\")\n\n\n\n✔ Writing 'tests/testthat/test-matches.R'\n• Modify 'tests/testthat/test-matches.R'\n\n\n\nIf matches.R is active in the editor, then usethis::use_test() is enough"
+    "text": "Make a test\nYou can create and open (or just open) a test file for blah.R with use_test().\n\n🎬 Create a test file for perc_missing_tidy.R\n\n\nOpen perc_missing_tidy.R in your editor\n\n\n\nusethis::use_test()\n\n\n\n✔ Writing tests/testthat/test-perc_missing_tidy.R.\n☐ Modify tests/testthat/test-perc_missing_tidy.R.\n\n\n\nIf perc_missing_tidy.R is not active in the editor, then usethis::use_test(\"perc_missing_tidy\") will do the same thing. But, you need to be careful to match your filename!"
   },
   {
     "objectID": "testing.html#test-file-structure",
@@ -669,21 +669,21 @@
     "href": "testing.html#make-a-test-1",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Make a test",
-    "text": "Make a test\nWe will add three expectations:\n\ntest that the output of uss_make_matches() is a tibble with expect_true()\n\n\n\ntest that the output of uss_make_matches() has columns with the right names with expect_named()\n\n\n\n\ntest that the country column of the uss_make_matches() output is correct with expect_identical()\n\n\n\nWe will do them one at a time so you can practice the workflow."
+    "text": "Make a test\nWe will add two expectations:\n\ntest that the output of perc_missing_tidy() is a tibble with expect_true()\n\n\n\ntest that the output of perc_missing_tidy() has columns with the right names with expect_named()\n\n\n\nWe will do them one at a time so you can practice the workflow."
   },
   {
-    "objectID": "testing.html#edit-test-matches.r",
-    "href": "testing.html#edit-test-matches.r",
+    "objectID": "testing.html#edit-test-perc_missing_tidy.r",
+    "href": "testing.html#edit-test-perc_missing_tidy.r",
     "title": "💻 🏦 Code You Can Bank On",
-    "section": "Edit test-matches.R",
-    "text": "Edit test-matches.R\n🎬 Add a test to check the output of uss_make_matches() is a tibble with expect_true():\n\n\ntest_that(\"uss_make_matches works\", {\n\n  # use the function\n  italy &lt;- uss_make_matches(engsoccerdata::italy, \"Italy\")\n\n  expect_true(tibble::is_tibble(italy))\n})\n\n\n\nWe use uss_make_matches() and examine the output with an expectation."
+    "section": "Edit test-perc_missing_tidy.R",
+    "text": "Edit test-perc_missing_tidy.R\n🎬 Add a test to check the output of perc_missing_tidy() is a tibble with expect_true():\n\n\ntest_that(\"perc_missing_tidy works\", {\n\n  # use the function\n  tomatoes_miss &lt;- tomatoes |&gt;\n    perc_missing_tidy(value)\n\n  expect_true(tibble::is_tibble(tomatoes_miss))\n})\n\n\n\nWe use perc_missing_tidy() and examine the output with an expectation."
   },
   {
     "objectID": "testing.html#running-a-test-1",
     "href": "testing.html#running-a-test-1",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Running a test",
-    "text": "Running a test\n🎬 Run the test with testthat::test_file()\n\ntestthat::test_file(\"tests/testthat/test-matches.R\")\n\n\n══ Testing test-matches.R ══════════════════════\n[ FAIL 0 | WARN 0 | SKIP 0 | PASS 1 ] Done!\n🥳\n\n\n\n\nYou can also use the “Runs Tests” button"
+    "text": "Running a test\n🎬 Run the test with testthat::test_file()\n\ntestthat::test_file(\"tests/testthat/test-perc_missing_tidy.R\")\n\n\n══ Testing test-perc_missing_tidy.R ══════════════════════\n[ FAIL 0 | WARN 0 | SKIP 0 | PASS 1 ] Done!\n🥳\n\n\n\n\nYou can also use the “Runs Tests” button"
   },
   {
     "objectID": "testing.html#devtoolstest",
@@ -697,21 +697,21 @@
     "href": "testing.html#add-an-expectation",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Add an expectation",
-    "text": "Add an expectation\nNow you will test the output of uss_make_matches() to make sure it has columns with the right names expect_named()\n\nwe expect the names to be:\n\n“country”, “tier”, “season”, “date”, “home”, “visitor”, “goals_home”, “goals_visitor”\n\n\n\n🎬 Use expect_named() in test-matches.R to check the column names of italy"
+    "text": "Add an expectation\nNow you will test the output of perc_missing_tidy() to make sure it has columns with the right names expect_named()\n\nwe expect the name(s) to be:\n\n“perc”\n\n\n\n🎬 Use expect_named() in test-perc_missing_tidy.R to check the column names of tomatoes_miss"
   },
   {
     "objectID": "testing.html#answer",
     "href": "testing.html#answer",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Answer",
-    "text": "Answer\n\n\ntest_that(\"uss_make_matches works\", {\n\n  # use the function\n  italy &lt;- uss_make_matches(engsoccerdata::italy, \"Italy\")\n\n  expect_true(tibble::is_tibble(italy))\n  expect_named(\n    italy,\n    c(\"country\", \"tier\", \"season\", \"date\", \"home\", \"visitor\",\n      \"goals_home\", \"goals_visitor\")\n  )\n})"
+    "text": "Answer\n\n\ntest_that(\"perc_missing_tidy works\", {\n\n  # use the function\n  tomatoes_miss &lt;- tomatoes |&gt;\n    perc_missing_tidy(value)\n\n  expect_true(tibble::is_tibble(tomatoes_miss))\n\n  expect_named(\n    tomatoes_miss,\n    c(\"perc\")\n  )\n})"
   },
   {
     "objectID": "testing.html#run-the-edited-test",
     "href": "testing.html#run-the-edited-test",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Run the edited test",
-    "text": "Run the edited test\n🎬 Run the edited test file\n\n\ntestthat::test_file(\"tests/testthat/test-matches.R\")\n\nOr the “Runs Tests” button\n══ Testing test-matches.R ═════════════════════════════════════════════════════\n[ FAIL 0 | WARN 0 | SKIP 0 | PASS 2 ] Done!"
+    "text": "Run the edited test\n🎬 Run the edited test file\n\n\ntestthat::test_file(\"tests/testthat/test-perc_missing_tidy.R\")\n\nOr the “Runs Tests” button\n══ Testing test-perc_missing_tidy.R ═════════════════════════════════════════════════════\n[ FAIL 0 | WARN 0 | SKIP 0 | PASS 2 ] Done!"
   },
   {
     "objectID": "testing.html#section-1",
@@ -719,27 +719,6 @@
     "title": "💻 🏦 Code You Can Bank On",
     "section": "",
     "text": "devtools::test()\n\n\nℹ Loading BLT\nℹ Testing BLT\n✔ | F W S  OK | Context\n✔ |         2 | matches [0.2s]                                                 \n\n══ Results ════════════════════════════════════════════════════════════════════\nDuration: 0.2 s\n\n[ FAIL 0 | WARN 0 | SKIP 0 | PASS 2 ]   \n\n🥳"
-  },
-  {
-    "objectID": "testing.html#add-the-last-expectation",
-    "href": "testing.html#add-the-last-expectation",
-    "title": "💻 🏦 Code You Can Bank On",
-    "section": "Add the last expectation",
-    "text": "Add the last expectation\nNow check that the country column of the uss_make_matches() output is correct with expect_identical()\n\n🎬 Use expect_identical() in test-matches.R to compare the values in italy$country to “italy”\n\n\n🎬 Run the tests"
-  },
-  {
-    "objectID": "testing.html#my-answer",
-    "href": "testing.html#my-answer",
-    "title": "💻 🏦 Code You Can Bank On",
-    "section": "My answer",
-    "text": "My answer\n\n\ntest_that(\"uss_make_matches works\", {\n\n  # use the function\n  italy &lt;- uss_make_matches(engsoccerdata::italy, \"Italy\")\n\n  expect_true(tibble::is_tibble(italy))\n  expect_named(\n    italy,\n    c(\"country\", \"tier\", \"season\", \"date\", \"home\", \"visitor\",\n      \"goals_home\", \"goals_visitor\")\n  )\n  expect_identical(unique(italy$country), \"Italy\")\n})"
-  },
-  {
-    "objectID": "testing.html#extra-find-a-bug-add-a-test",
-    "href": "testing.html#extra-find-a-bug-add-a-test",
-    "title": "💻 🏦 Code You Can Bank On",
-    "section": "Extra: find a bug, add a test",
-    "text": "Extra: find a bug, add a test\nRunning a practice session for this course, we found a bug:\n\n\ntest_that(\"uss_make_matches works\", {\n\n  # use the function\n  italy &lt;- uss_make_matches(engsoccerdata::italy, \"Italy\")\n\n  expect_true(tibble::is_tibble(italy))\n  expect_named(\n    italy,\n    c(\"country\", \"tier\", \"season\", \"date\", \"home\", \"visitor\",\n      \"goals_home\", \"goals_visitor\")\n  )\n  expect_identical(unique(italy$country), \"Italy\")\n  \n  # when you find a bug, add a test: 👋 from Ian\n  expect_s3_class(italy$tier, \"factor\")\n})"
   },
   {
     "objectID": "testing.html#test-coverage-1",
@@ -760,7 +739,7 @@
     "href": "testing.html#coverage-in-active-file",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Coverage in active file",
-    "text": "Coverage in active file\n🎬 Make sure matches.R is active in the editor and do:\n\ndevtools::test_coverage_active_file()"
+    "text": "Coverage in active file\n🎬 Make sure perc_missing_tidy.R is active in the editor and do:\n\ndevtools::test_coverage_active_file()"
   },
   {
     "objectID": "testing.html#coverage-in-package",
@@ -770,11 +749,11 @@
     "text": "Coverage in package\n🎬 Check the coverage over the whole package:\n\ndevtools::test_coverage()"
   },
   {
-    "objectID": "testing.html#commit-and-push",
-    "href": "testing.html#commit-and-push",
+    "objectID": "testing.html#commit",
+    "href": "testing.html#commit",
     "title": "💻 🏦 Code You Can Bank On",
-    "section": "Commit and push",
-    "text": "Commit and push\nNow would be a good time to commit your changes and push them to GitHub"
+    "section": "Commit",
+    "text": "Commit\nNow would be a good time to commit your changes.\n\n\n\nJason Long, CC BY 3.0 &lt;https://creativecommons.org/licenses/by/3.0&gt;, via Wikimedia Commons"
   },
   {
     "objectID": "testing.html#summary",
@@ -830,7 +809,7 @@
     "href": "documentation.html#edit-description-1",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Edit DESCRIPTION",
-    "text": "Edit DESCRIPTION\n🎬 Edit the description\n\nDescription: This is a demo package for the \"Code you can bank on\" \nworkshop at the Federal Reserve. It allows you to work with time series \ndata, and example datasets on bacon, lettuce, and tomatoes. \n\n\n👀 The full stop matters!"
+    "text": "Edit DESCRIPTION\n🎬 Edit the description\n\nDescription: This is a demo package for the \"Code you can bank on\" \n    workshop at the Federal Reserve. It allows you to work with time series \n    data, and example datasets on bacon, lettuce, and tomatoes. \n\n\n👀 The full stop matters!"
   },
   {
     "objectID": "documentation.html#add-a-license",
@@ -1278,21 +1257,21 @@
     "href": "package-dev.html#overview",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Overview",
-    "text": "Overview\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n(Does this remind you of anything?)\n\n\nFigure adapted from Packages, by Hannah Frick"
+    "text": "Overview\n\n\n\n\n\n\n\n\n\n\n\n\n\nBLT\n├── BLT.Rproj\n├── DESCRIPTION\n├── NAMESPACE\n├── R\n│   ├── AR1.R\n│   └── BLT-package.R\n├── data\n│   └── bacon.rda\n├── man\n│   ├── AR1.Rd\n│   └── bacon.Rd\n├── tests\n│   ├── testthat\n│   │   └── test-AR1.R\n│   └── testthat.R\n\n\n(Does this remind you of anything?)\n\n\nFigure adapted from Packages, by Hannah Frick"
   },
   {
     "objectID": "package-dev.html#overview-1",
     "href": "package-dev.html#overview-1",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Overview",
-    "text": "Overview\n\n\n\n\n\n\n\n\n\n\n\n\nFigure adapted from Packages, by Hannah Frick\n\n\n\n\n\n\n\n\n\n\n\n(Does this remind you of anything?)"
+    "text": "Overview\n\n\n\n\n\n\n\n\n\n\n\n\nFigure adapted from Packages, by Hannah Frick\n\n\n\nBLT\n├── BLT.Rproj\n├── DESCRIPTION\n├── NAMESPACE\n├── R\n│   ├── AR1.R\n│   └── BLT-package.R\n├── README.Rmd\n├── README.md\n├── data\n│   └── bacon.rda\n├── man\n│   ├── AR1.Rd\n│   └── bacon.Rd\n├── tests\n│   ├── testthat\n│   │   └── test-AR1.R\n│   └── testthat.R\n\nunchanged\nchanged\nchanged by you\n\n(Does this remind you of anything?)"
   },
   {
     "objectID": "package-dev.html#create-package",
     "href": "package-dev.html#create-package",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Create package",
-    "text": "Create package"
+    "text": "Create package\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nBLT\n├── BLT.Rproj\n├── DESCRIPTION\n├── NAMESPACE\n└── R\n\nunchanged\nchanged\nchanged by you"
   },
   {
     "objectID": "package-dev.html#create-package-your-turn",
@@ -1327,28 +1306,28 @@
     "href": "package-dev.html#create-package-your-turn-1",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Create package (your turn)",
-    "text": "Create package (your turn)\n\ncreate_package(\"../BLT\") # set the path to suit you\n# getwd() will remind you where you currently are\n\ncreates a minimal set of files for an installable package\nopens a new RStudio project"
+    "text": "Create package (your turn)\n\ncreate_package(\"../BLT\") # set the path to suit you\n# getwd() will remind you where you currently are\n\ncreates a minimal set of files for an installable package\nopens a new RStudio project\n\n\n\n\nBLT\n├── BLT.Rproj\n├── DESCRIPTION\n├── NAMESPACE\n└── R\n\nunchanged\nchanged\nchanged by you"
   },
   {
     "objectID": "package-dev.html#create-framework",
     "href": "package-dev.html#create-framework",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Create framework",
-    "text": "Create framework"
+    "text": "Create framework\n\n\n\n\n\n\n\n\n\n\n\n\n\nBLT\n├── .gitignore\n├── .Rbuildignore\n├── BLT.Rproj\n├── DESCRIPTION\n├── NAMESPACE\n└── R\n\nunchanged\nchanged\nchanged by you"
   },
   {
     "objectID": "package-dev.html#make-package-a-git-repo-your-turn",
     "href": "package-dev.html#make-package-a-git-repo-your-turn",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Make package a git repo (your turn)",
-    "text": "Make package a git repo (your turn)\n\nuse_git()\n\ncreates a git repository in your (package) project\nmakes a first commit on your behalf\nrestarts RStudio"
+    "text": "Make package a git repo (your turn)\n\nuse_git()\n\ncreates a git repository in your (package) project\nmakes a first commit on your behalf\nrestarts RStudio\n\n\n\n\nBLT\n├── .gitignore\n├── .Rbuildignore\n├── BLT.Rproj\n├── DESCRIPTION\n├── NAMESPACE\n└── R\n\nunchanged\nchanged\nchanged by you"
   },
   {
     "objectID": "package-dev.html#make-package-a-git-repo-your-turn-1",
     "href": "package-dev.html#make-package-a-git-repo-your-turn-1",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Make package a git repo (your turn)",
-    "text": "Make package a git repo (your turn)\n\nyou will get some messages sort of like this:\nuse_git()\n✔ Setting active project to \"/Users/amcnamara2/BLT\".\n✔ Initialising Git repo.\n✔ Adding \".Rhistory\", \".RData\", \".httr-oauth\", \".DS_Store\", and \".quarto\" to .gitignore.\nℹ There are 5 uncommitted files:\n• .gitignore\n• .Rbuildignore\n• BLT.Rproj\n• DESCRIPTION\n• NAMESPACE\n! Is it ok to commit them?\n\n1: No\n2: Absolutely not\n3: Yup\nThe specific language and order of items will change over time, to make it harder to make mistakes!\nChoose the option that means yes!"
+    "text": "Make package a git repo (your turn)\nyou will get some messages sort of like this:\nuse_git()\n✔ Setting active project to \"/Users/amcnamara2/BLT\".\n✔ Initialising Git repo.\n✔ Adding \".Rhistory\", \".RData\", \".httr-oauth\", \".DS_Store\", and \".quarto\" to .gitignore.\nℹ There are 5 uncommitted files:\n• .gitignore\n• .Rbuildignore\n• BLT.Rproj\n• DESCRIPTION\n• NAMESPACE\n! Is it ok to commit them?\n\n1: No\n2: Absolutely not\n3: Yup\nThe specific language and order of items will change over time, to make it harder to make mistakes!\nChoose the option that means yes!"
   },
   {
     "objectID": "package-dev.html#create-framework-were-skipping-this",
@@ -1362,7 +1341,7 @@
     "href": "package-dev.html#develop",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Develop",
-    "text": "Develop"
+    "text": "Develop\n\n\n\n\n\n\n\n\n\n\n\n\n\nBLT\n├── .gitignore\n├── .Rbuildignore\n├── BLT.Rproj\n├── DESCRIPTION\n├── NAMESPACE\n├── R\n│   └── AR1.R\n\nunchanged\nchanged\nchanged by you"
   },
   {
     "objectID": "package-dev.html#develop-your-turn",
