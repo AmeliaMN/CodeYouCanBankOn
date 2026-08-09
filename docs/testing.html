@@ -519,7 +519,8 @@ Amelia McNamara
 <span id="cb16-4"><a></a><span class="co"># and we expect the result to be 42: Error</span></span>
 <span id="cb16-5"><a></a><span class="fu">expect_identical</span>(result, <span class="dv">42</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
-<pre><code>Error: Expected `result` to be identical to 42.
+<pre><code>Error:
+! Expected `result` to be identical to 42.
 Differences:
   `actual`: 45.0
 `expected`: 42.0</code></pre>
@@ -535,7 +536,8 @@ Differences:
 <span id="cb18-4"><a></a><span class="co"># and we expect the result to be "a": Error</span></span>
 <span id="cb18-5"><a></a><span class="fu">expect_identical</span>(result, <span class="st">"A"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
-<pre><code>Error: Expected `result` to be identical to "A".
+<pre><code>Error:
+! Expected `result` to be identical to "A".
 Differences:
 `actual`:   "bob"
 `expected`: "A"  </code></pre>
@@ -585,7 +587,8 @@ Differences:
 <span id="cb22-5"><a></a><span class="co"># 0.1 is bigger than the default tolerance</span></span>
 <span id="cb22-6"><a></a><span class="fu">expect_equal</span>(result, <span class="dv">42</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
-<pre><code>Error: Expected `result` to equal 42.
+<pre><code>Error:
+! Expected `result` to equal 42.
 Differences:
   `actual`: 42.10
 `expected`: 42.00</code></pre>
@@ -624,7 +627,8 @@ Differences:
 <span id="cb26-4"><a></a><span class="co"># and we expect the result not to be "bob": error</span></span>
 <span id="cb26-5"><a></a><span class="fu">expect_true</span>(a <span class="sc">!=</span> <span class="st">"bob"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
-<pre><code>Error: Expected `a != "bob"` to be TRUE.
+<pre><code>Error:
+! Expected `a != "bob"` to be TRUE.
 Differences:
 `actual`:   FALSE
 `expected`: TRUE </code></pre>
@@ -647,7 +651,8 @@ Differences:
 <span id="cb28-10"><a></a><span class="co"># test if the names are "b", "a", "c":  error</span></span>
 <span id="cb28-11"><a></a><span class="fu">expect_named</span>(x, <span class="fu">c</span>(<span class="st">"b"</span>, <span class="st">"a"</span>, <span class="st">"c"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
-<pre><code>Error: Expected `x` to have names `c("b", "a", "c")`.
+<pre><code>Error:
+! Expected `x` to have names `c("b", "a", "c")`.
 Differences:
 `actual`:   "a" "b" "c"
 `expected`: "b" "a" "c"</code></pre>

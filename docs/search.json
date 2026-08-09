@@ -599,14 +599,14 @@
     "href": "testing.html#but",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "But",
-    "text": "But\n\n# when the actual result is 45\nresult &lt;- 45\n\n# and we expect the result to be 42: Error\nexpect_identical(result, 42)\n\nError: Expected `result` to be identical to 42.\nDifferences:\n  `actual`: 45.0\n`expected`: 42.0"
+    "text": "But\n\n# when the actual result is 45\nresult &lt;- 45\n\n# and we expect the result to be 42: Error\nexpect_identical(result, 42)\n\nError:\n! Expected `result` to be identical to 42.\nDifferences:\n  `actual`: 45.0\n`expected`: 42.0"
   },
   {
     "objectID": "testing.html#and-1",
     "href": "testing.html#and-1",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "and",
-    "text": "and\n\n# when the actual result is \"bob\"\nresult &lt;- \"bob\"\n\n# and we expect the result to be \"a\": Error\nexpect_identical(result, \"A\")\n\nError: Expected `result` to be identical to \"A\".\nDifferences:\n`actual`:   \"bob\"\n`expected`: \"A\""
+    "text": "and\n\n# when the actual result is \"bob\"\nresult &lt;- \"bob\"\n\n# and we expect the result to be \"a\": Error\nexpect_identical(result, \"A\")\n\nError:\n! Expected `result` to be identical to \"A\".\nDifferences:\n`actual`:   \"bob\"\n`expected`: \"A\""
   },
   {
     "objectID": "testing.html#some-common-expectations",
@@ -627,7 +627,7 @@
     "href": "testing.html#equality-with-wiggle-room-1",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Equality with wiggle room",
-    "text": "Equality with wiggle room\n\n# but when the actual result is 42.1\nresult &lt;- 42.1\n\n# and we expect the result to be 42: error because\n# 0.1 is bigger than the default tolerance\nexpect_equal(result, 42)\n\nError: Expected `result` to equal 42.\nDifferences:\n  `actual`: 42.10\n`expected`: 42.00\n\n\n\n\nDefault tolerance is relative to the values calculated by waldo::compare() using the algorithm in all.equal()"
+    "text": "Equality with wiggle room\n\n# but when the actual result is 42.1\nresult &lt;- 42.1\n\n# and we expect the result to be 42: error because\n# 0.1 is bigger than the default tolerance\nexpect_equal(result, 42)\n\nError:\n! Expected `result` to equal 42.\nDifferences:\n  `actual`: 42.10\n`expected`: 42.00\n\n\n\n\nDefault tolerance is relative to the values calculated by waldo::compare() using the algorithm in all.equal()"
   },
   {
     "objectID": "testing.html#equality-with-wiggle-room-2",
@@ -641,14 +641,14 @@
     "href": "testing.html#testing-something-is-true",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Testing something is TRUE",
-    "text": "Testing something is TRUE\n\n# when the result is \"bill\"\na &lt;- \"bill\"\n\n# and we expect the result not to be \"bob\": no error\nexpect_true(a != \"bob\")\n\n\n\n# when the result is \"bill\"\na &lt;- \"bob\"\n\n# and we expect the result not to be \"bob\": error\nexpect_true(a != \"bob\")\n\nError: Expected `a != \"bob\"` to be TRUE.\nDifferences:\n`actual`:   FALSE\n`expected`: TRUE"
+    "text": "Testing something is TRUE\n\n# when the result is \"bill\"\na &lt;- \"bill\"\n\n# and we expect the result not to be \"bob\": no error\nexpect_true(a != \"bob\")\n\n\n\n# when the result is \"bill\"\na &lt;- \"bob\"\n\n# and we expect the result not to be \"bob\": error\nexpect_true(a != \"bob\")\n\nError:\n! Expected `a != \"bob\"` to be TRUE.\nDifferences:\n`actual`:   FALSE\n`expected`: TRUE"
   },
   {
     "objectID": "testing.html#testing-whether-objects-have-names",
     "href": "testing.html#testing-whether-objects-have-names",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Testing whether objects have names",
-    "text": "Testing whether objects have names\n\n# vector of named values\nx &lt;- c(a = 1, b = 2, c = 3)\n\n# test whether x has names: no error\nexpect_named(x)\n# test if the names are \"a\", \"b\", \"c\": no error\n\nexpect_named(x, c(\"a\", \"b\", \"c\"))\n\n# test if the names are \"b\", \"a\", \"c\":  error\nexpect_named(x, c(\"b\", \"a\", \"c\"))\n\nError: Expected `x` to have names `c(\"b\", \"a\", \"c\")`.\nDifferences:\n`actual`:   \"a\" \"b\" \"c\"\n`expected`: \"b\" \"a\" \"c\""
+    "text": "Testing whether objects have names\n\n# vector of named values\nx &lt;- c(a = 1, b = 2, c = 3)\n\n# test whether x has names: no error\nexpect_named(x)\n# test if the names are \"a\", \"b\", \"c\": no error\n\nexpect_named(x, c(\"a\", \"b\", \"c\"))\n\n# test if the names are \"b\", \"a\", \"c\":  error\nexpect_named(x, c(\"b\", \"a\", \"c\"))\n\nError:\n! Expected `x` to have names `c(\"b\", \"a\", \"c\")`.\nDifferences:\n`actual`:   \"a\" \"b\" \"c\"\n`expected`: \"b\" \"a\" \"c\""
   },
   {
     "objectID": "testing.html#make-a-test",
@@ -802,21 +802,14 @@
     "href": "documentation.html#metadata-in-description",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Metadata in DESCRIPTION",
-    "text": "Metadata in DESCRIPTION\n\nTitle: One line, title case, with no period. Fewer than 65 characters.\nVersion\nfor release: MAJOR.MINOR.PATCH version.\nfor development version: MAJOR.MINOR.PATCH.9000\nAuthors@R:\n“aut” means author, “cre” means creator, “ctb” means contributor."
-  },
-  {
-    "objectID": "documentation.html#metadata-in-description-1",
-    "href": "documentation.html#metadata-in-description-1",
-    "title": "💻 🏦 Code You Can Bank On",
-    "section": "Metadata in DESCRIPTION",
-    "text": "Metadata in DESCRIPTION\n\nDescription: One paragraph describing what the package does. Keep the width of the paragraph to 80 characters; indent subsequent lines with 4 spaces.\nLicense\nEncoding: How to encode text, use UTF-8 encoding.\nLazyData: Use true to lazy-load data sets in the package."
+    "text": "Metadata in DESCRIPTION\n\nTitle: One line, title case, with no period. Fewer than 65 characters.\nVersion\nfor release: MAJOR.MINOR.PATCH version.\nfor development version: MAJOR.MINOR.PATCH.9000\nAuthors@R:\n“aut” means author, “cre” means creator, “ctb” means contributor.\n\n\n\nto be continued….."
   },
   {
     "objectID": "documentation.html#edit-description-your-turn",
     "href": "documentation.html#edit-description-your-turn",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Edit DESCRIPTION (your turn)",
-    "text": "Edit DESCRIPTION (your turn)\n\nOpen DESCRIPTION file to edit it:\n\nAuthors@R field uses options(\"usethis.description\")\n\nwe set this in our .Rprofile, so go back to the intro slides if you missed this!\n(Another possible issue is you didn’t restart R!)\n\n\n✏️ edit Title field. Should be one line, title case, with no period. Fewer than 65 characters.\n💾 save DESCRIPTION file"
+    "text": "Edit DESCRIPTION (your turn)\n\nOpen DESCRIPTION file to edit it:\n\nAuthors@R field uses options(\"usethis.description\")\n\nwe set this in our .Rprofile, so go back to the intro slides if you missed this!\n\n\n✏️ edit Title field. Should be one line, title case, with no period. Fewer than 65 characters.\n💾 save DESCRIPTION file"
   },
   {
     "objectID": "documentation.html#edit-description",
@@ -826,25 +819,18 @@
     "text": "Edit DESCRIPTION\n\nPackage: BLT\nTitle: Work with data on bacon, lettuce, and tomatoes\nVersion: 0.0.0.9000\nAuthors@R: \n    person(\"Amelia\", \"McNamara\", , \"amelia.mcnamara@stthomas.edu\", role = c(\"aut\", \"cre\"))\nDescription: What the package does (one paragraph).\nLicense: `use_mit_license()`, `use_gpl3_license()` or friends to pick a\n    license\nEncoding: UTF-8\nRoxygen: list(markdown = TRUE)\nRoxygenNote: 7.3.3"
   },
   {
-    "objectID": "documentation.html#commit",
-    "href": "documentation.html#commit",
+    "objectID": "documentation.html#metadata-in-description-1",
+    "href": "documentation.html#metadata-in-description-1",
     "title": "💻 🏦 Code You Can Bank On",
-    "section": "Commit",
-    "text": "Commit\nNow would be a good time to commit your changes.\n\n\n\nJason Long, CC BY 3.0 &lt;https://creativecommons.org/licenses/by/3.0&gt;, via Wikimedia Commons"
+    "section": "Metadata in DESCRIPTION",
+    "text": "Metadata in DESCRIPTION\n\nDescription: One paragraph describing what the package does. Keep the width of the paragraph to 80 characters; indent subsequent lines with 4 spaces.\nLicense\nEncoding: How to encode text, use UTF-8 encoding.\nLazyData: Use true to lazy-load data sets in the package."
   },
   {
-    "objectID": "documentation.html#create-framework-your-turn",
-    "href": "documentation.html#create-framework-your-turn",
+    "objectID": "documentation.html#edit-description-1",
+    "href": "documentation.html#edit-description-1",
     "title": "💻 🏦 Code You Can Bank On",
-    "section": "Create framework (your turn)",
-    "text": "Create framework (your turn)\n\nuse_roxygen_md()\n\nmakes it much easier to create and maintain your function documentation\n\nlets you use a markdown-like syntax"
-  },
-  {
-    "objectID": "documentation.html#update-description",
-    "href": "documentation.html#update-description",
-    "title": "💻 🏦 Code You Can Bank On",
-    "section": "Update DESCRIPTION",
-    "text": "Update DESCRIPTION\n🎬 Edit the description\n\nDescription: This is a demo package for the \"Code you can bank on\" workshop at the Federal Reserve. It allows you to work with time series data, and example datasets on bacon, lettuce, and tomatoes. \n\n\n👀 The full stop matters!"
+    "section": "Edit DESCRIPTION",
+    "text": "Edit DESCRIPTION\n🎬 Edit the description\n\nDescription: This is a demo package for the \"Code you can bank on\" \nworkshop at the Federal Reserve. It allows you to work with time series \ndata, and example datasets on bacon, lettuce, and tomatoes. \n\n\n👀 The full stop matters!"
   },
   {
     "objectID": "documentation.html#add-a-license",
@@ -854,60 +840,39 @@
     "text": "Add a license\n\nuse_mit_license()\n\nlets the world know how it can use the stuff you create\n\nCRAN requires you to specify a (valid) license\nMay be less relevant in your usecase!\n\nother choices include\n\nuse_apl2_license(): Apache 2.0\nuse_gpl3_license(): GPL3\n\nuses option(\"usethis.full_name\") or option(\"devtools.name\")\n\nwe set this in .Rprofile"
   },
   {
-    "objectID": "documentation.html#commit-and-push",
-    "href": "documentation.html#commit-and-push",
+    "objectID": "documentation.html#commit",
+    "href": "documentation.html#commit",
     "title": "💻 🏦 Code You Can Bank On",
-    "section": "Commit and push",
-    "text": "Commit and push\nNow would be a good time to commit your changes.\n\n\n\nJason Long, CC BY 3.0 &lt;https://creativecommons.org/licenses/by/3.0&gt;, via Wikimedia Commons"
-  },
-  {
-    "objectID": "documentation.html#develop-your-turn",
-    "href": "documentation.html#develop-your-turn",
-    "title": "💻 🏦 Code You Can Bank On",
-    "section": "Develop (your turn)",
-    "text": "Develop (your turn)\n\nComplete the documentation:\n\n#' Convenience function to make first-order autoregressive model\n#'\n#' Wrapper around forecast::Arima \n#\n#' @param y a univariate time series of class `ts`\n#'\n#' @returns See the arima function in the stats package\n#' @export\n#'\n#' @examples\n#'  (AR1(LakeHuron))\n#'\nAR1 &lt;- function(y) {\n\n}\n\n\n\n\n\nWe’re going to talk a lot more about documentation, but it’s good to get in the habit early."
+    "section": "Commit",
+    "text": "Commit\nNow would be a good time to commit your changes.\n\n\n\nJason Long, CC BY 3.0 &lt;https://creativecommons.org/licenses/by/3.0&gt;, via Wikimedia Commons"
   },
   {
     "objectID": "documentation.html#object-documentation-1",
     "href": "documentation.html#object-documentation-1",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Object documentation",
-    "text": "Object documentation\n\nObject documentation is what you see when you use ? or help()\n\n\n🎬 Try this now:\n\n?AR1\n\n\n\n\nFiles are written in a special “R documentation” format: .Rd\n.Rd resembles LaTeX,"
+    "text": "Object documentation\n\nObject documentation is what you see when you use ? or help()\n\n\n🎬 Try this now:\n\n?AR1\n\n🎬 Contrast with this:\n\n?parse_number\n# or ?readr::parse_number\n\n\n\n\nFiles are written in a special “R documentation” format: .Rd\n.Rd resembles LaTeX"
   },
   {
-    "objectID": "documentation.html#manar1.rd",
-    "href": "documentation.html#manar1.rd",
+    "objectID": "documentation.html#rd-example",
+    "href": "documentation.html#rd-example",
     "title": "💻 🏦 Code You Can Bank On",
-    "section": "man/AR1.Rd",
-    "text": "man/AR1.Rd\n\n\n\n% Generated by roxygen2: do not edit by hand\n% Please edit documentation in R/AR1.R\n\\name{AR1}\n\\alias{AR1}\n\\title{Convenience function to make first-order autoregressive model}\n\\usage{\nAR1(y)\n}\n\\arguments{\n\\item{y}{a univariate time series of class \\code{ts}}\n}\n\\value{\nSee the arima function in the stats package\n}\n\\description{\nWrapper around forecast::Arima\n}\n\\examples{\n (AR1(LakeHuron))\n\n}"
+    "section": ".Rd example",
+    "text": ".Rd example\nHere’s parse_number.Rd from the readr package\n\n% Generated by roxygen2: do not edit by hand\n% Please edit documentation in R/collectors.R\n\\name{parse_number}\n\\alias{parse_number}\n\\alias{col_number}\n\\title{Parse numbers, flexibly}\n\\usage{\nparse_number(x, na = c(\"\", \"NA\"), locale = default_locale(), trim_ws = TRUE)\n\ncol_number()\n}\n\\arguments{\n\\item{x}{Character vector of values to parse.}\n\n\\item{na}{Character vector of strings to interpret as missing values. Set this\noption to \\code{character()} to indicate no missing values.}\n\n\\item{locale}{The locale controls defaults that vary from place to place.\nThe default locale is US-centric (like R), but you can use\n\\code{\\link[=locale]{locale()}} to create your own locale that controls things like\nthe default time zone, encoding, decimal mark, big mark, and day/month\nnames.}"
   },
   {
     "objectID": "documentation.html#object-documentation-2",
     "href": "documentation.html#object-documentation-2",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Object documentation",
-    "text": "Object documentation\n🥳 We don’t have to write it!!\n\n\nWe write “roxygen comments” in the .R files\nThese get turned into .Rd format\n\n\n\n\nFunctions from roxygen2 [@roxygen2] do the work but we can use devtools functions to call them."
-  },
-  {
-    "objectID": "documentation.html#roxygen-comments",
-    "href": "documentation.html#roxygen-comments",
-    "title": "💻 🏦 Code You Can Bank On",
-    "section": "Roxygen comments",
-    "text": "Roxygen comments\n\n% Generated by roxygen2: do not edit by hand\n% Please edit documentation in R/AR1.R\n\\name{AR1}\n\\alias{AR1}\n\\title{Convenience function to make first-order autoregressive model}\n\\usage{\nAR1(y)\n}\n\\arguments{\n\\item{y}{a univariate time series of class \\code{ts}}\n}\n\\value{\nSee the arima function in the stats package\n}\n\\description{\nWrapper around forecast::Arima\n}\n\\examples{\n (AR1(LakeHuron))\n\n}\n\n\nthe #' indicates it is a roxygen comment"
+    "text": "Object documentation\n\n🥳 We don’t have to write it!!\n\nWe write “roxygen comments” in the .R files\nThese get turned into .Rd format\nFunctions from roxygen2 do the work but we can use devtools functions to call them.\n\nuse_roxygen_md()\n\nmakes it much easier to create and maintain your function documentation\nlets you use a markdown-like syntax"
   },
   {
     "objectID": "documentation.html#object-documentation-workflow",
     "href": "documentation.html#object-documentation-workflow",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Object documentation workflow",
-    "text": "Object documentation workflow\n\nAdd roxygen comments to your .R files.\n\n\n\nRun devtools::document() to convert roxygen comments to .Rd files.\n\n\n\n\nLoad the package with devtools::load_all()\n\n\n\n\nPreview documentation with ?\n\n\n\n\nRepeat until the documentation looks the way you want."
-  },
-  {
-    "objectID": "documentation.html#edit-function-documentation",
-    "href": "documentation.html#edit-function-documentation",
-    "title": "💻 🏦 Code You Can Bank On",
-    "section": "Edit function documentation",
-    "text": "Edit function documentation\n🎬 Open AR1.R\n\n\nusethis::use_r(\"AR1\")"
+    "text": "Object documentation workflow\n\nInsert roxygen skeleton to .R files\nAdd roxygen comments\nthe #' indicates it is a roxygen comment\n\n\n\nRun devtools::document() to convert roxygen comments to .Rd files.\n\n\n\n\nLoad the package with devtools::load_all()\n\n\n\n\nPreview documentation with ?\n\n\n\n\nRepeat until the documentation looks the way you want."
   },
   {
     "objectID": "documentation.html#roxygen-comments-and-tags",
@@ -921,28 +886,28 @@
     "href": "documentation.html#document-your-function",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Document your function",
-    "text": "Document your function\n🎬 Give your function a title and a brief description\n\n\n🎬 Define the parameter(s)\n\n\n🎬 Describe what the function returns"
+    "text": "Document your function\nOpen AR1.R (use_r() will do it if you don’t want to click)\nPlace your cursor on a blank line between the { ✏️ }\nRStudio IDE menu: Code &gt; Insert Roxygen Skeleton\n\n\n🎬 Give your function a title and a brief description\n\n\n🎬 Define the parameter(s)\n\n\n🎬 Describe what the function returns"
   },
   {
     "objectID": "documentation.html#our-answer",
     "href": "documentation.html#our-answer",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Our answer",
-    "text": "Our answer\n\n#' Convenience function to make first-order autoregressive model\n#'\n#' Wrapper around forecast::Arima\n#\n#' @param y a univariate time series of class `ts`\n#'\n#' @returns See the arima function in the stats package\n#' @export\n#'\n#' @examples\n#'  (AR1(LakeHuron))\n#'\n\n\n\n\n🎬 Save AR1.R"
+    "text": "Our answer\n\n#' Convenience function to make first-order autoregressive model\n#'\n#' Wrapper around forecast::Arima\n#\n#' @param y a univariate time series of class `ts`\n#'\n#' @returns See the Arima function in the forecast package\n#' @export\n#'\n#' @examples\n#'\n\n\n\n\n🎬 Save AR1.R"
   },
   {
     "objectID": "documentation.html#build-documentation",
     "href": "documentation.html#build-documentation",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Build documentation",
-    "text": "Build documentation\n🎬 Run devtools::document() to turn roxygen comments to .Rd\n\ndevtools::document()\n\n\nℹ Updating BLT documentation\nℹ Loading BLT\nWriting NAMESPACE\nWriting AR1.Rd\nWarning message:\n[matches.R:13] @examples requires a value \n\n\nWe will that fix later!"
+    "text": "Build documentation\n🎬 Run devtools::document() to turn roxygen comments to .Rd\n\ndevtools::document()\n\n\nℹ Updating BLT documentation\nℹ Loading BLT\nWriting NAMESPACE\nWriting AR1.Rd\nWarning message:\n[AR1.R:13] @examples requires a value \n\n\nWe will that fix later!"
   },
   {
     "objectID": "documentation.html#take-a-look-1",
     "href": "documentation.html#take-a-look-1",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Take a look 1",
-    "text": "Take a look 1\n├── DESCRIPTION\n├── LICENSE\n├── LICENSE.md\n├── man\n│   └── uss_make_matches.Rd \n├── NAMESPACE\n├── R\n│   └── matches.R\n└── BLT.Rproj\n\nNAMESPACE now lists the exported function\nman/uss_make_matches.Rd has been written"
+    "text": "Take a look 1\n├── DESCRIPTION\n├── LICENSE\n├── LICENSE.md\n├── man\n│   └── AR1.Rd \n├── NAMESPACE\n├── R\n│   └── AR1.R\n└── BLT.Rproj\n\nNAMESPACE now lists the exported function\nman/AR1.Rd has been written"
   },
   {
     "objectID": "documentation.html#take-a-look-2",
@@ -956,35 +921,49 @@
     "href": "documentation.html#fix-warning",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Fix warning",
-    "text": "Fix warning\nWarning message:\n[matches.R:13] @examples requires a value \n\nWe need to add a usage example!\n🎬 Under @examples, add one example for using your function\n\n\n#' @examples\n#' uss_make_matches(engsoccerdata::spain, \"Spain\")"
+    "text": "Fix warning\nWarning message:\n[matches.R:13] @examples requires a value \n\nWe need to add a usage example!\n🎬 Under @examples, add one example for using your function\n\n\n#' @examples\n#' (AR1(LakeHuron))"
   },
   {
     "objectID": "documentation.html#look-again",
     "href": "documentation.html#look-again",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Look again",
-    "text": "Look again\n🎬 Save matches.R, run devtools::document() followed by devtools::load_all()\n\n\n\n🎬 Preview the documentation with ?uss_make_matches and edit if needed"
+    "text": "Look again\n🎬 Save AR1.R, run devtools::document() followed by devtools::load_all()\n\n\n\n🎬 Preview the documentation with ?AR1 and edit if needed"
   },
   {
-    "objectID": "documentation.html#package-level-help-page",
-    "href": "documentation.html#package-level-help-page",
+    "objectID": "documentation.html#getting-fancier",
+    "href": "documentation.html#getting-fancier",
     "title": "💻 🏦 Code You Can Bank On",
-    "section": "Package-level help page",
-    "text": "Package-level help page\n🎬 What happens if you do:\n\n?BLT\n\n\nNo documentation for 'BLT' in specified packages and libraries:\nyou could try '??BLT'"
+    "section": "Getting fancier",
+    "text": "Getting fancier\nSo far, we’ve just written plain text in our documentation. But if you have spent time exploring R help pages, you will remember that there are often links. We can add those to our documentation, as well.\n\n#' Convenience function to make first-order autoregressive model\n#'\n#' Wrapper around [forecast::Arima]\n#\n#' @param y a univariate time series of class `ts`\n#'\n#' @returns See the [`Arima`][forecast::Arima] function in the `forecast` package\n#' @export\n#'\n#' @examples\n#' (AR1(LakeHuron))\n\nfunction links\ndocument()\nload_all()\ncheck()"
+  },
+  {
+    "objectID": "documentation.html#more-documentation",
+    "href": "documentation.html#more-documentation",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "More documentation",
+    "text": "More documentation\nTake a few minutes and document your other functions. Recall:\nRStudio IDE menu: Code &gt; Insert Roxygen Skeleton\ndocument()\nload_all()\ncheck()\nBonus: add examples for each"
+  },
+  {
+    "objectID": "documentation.html#commit-1",
+    "href": "documentation.html#commit-1",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Commit",
+    "text": "Commit\nNow would be a good time to commit your changes\n\nJason Long, CC BY 3.0 &lt;https://creativecommons.org/licenses/by/3.0&gt;, via Wikimedia Commons"
   },
   {
     "objectID": "documentation.html#package-level-help-page-1",
     "href": "documentation.html#package-level-help-page-1",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Package-level help page",
-    "text": "Package-level help page\nWe can fix this with use_package_doc()\n\n\n🎬 Add a package-level help page:\n\nusethis::use_package_doc()\n\n\n\n\n\n✔ Writing 'R/BLT-package.R'\n• Modify 'R/BLT-package.R'\n\n\n\n\n🎬 Run devtools::document() then devtools::load_all() followed by ?BLT"
+    "text": "Package-level help page\n🎬 What happens if you do:\n\n?BLT\n\n\nNo documentation for 'BLT' in specified packages and libraries:\nyou could try '??BLT'\n\n\nContrast that with\n\n?ImputeTS"
   },
   {
-    "objectID": "documentation.html#commit-and-push-1",
-    "href": "documentation.html#commit-and-push-1",
+    "objectID": "documentation.html#package-level-help-page-2",
+    "href": "documentation.html#package-level-help-page-2",
     "title": "💻 🏦 Code You Can Bank On",
-    "section": "Commit and push",
-    "text": "Commit and push\nNow would be a good time to commit your changes\n\nJason Long, CC BY 3.0 &lt;https://creativecommons.org/licenses/by/3.0&gt;, via Wikimedia Commons"
+    "section": "Package-level help page",
+    "text": "Package-level help page\nWe can fix this with use_package_doc()\n\n\n🎬 Add a package-level help page:\n\nusethis::use_package_doc()\n\n\n\n\n\n✔ Writing 'R/BLT-package.R'\n• Modify 'R/BLT-package.R'\n\n\n\n\n🎬 Run devtools::document() then devtools::load_all() followed by ?BLT"
   },
   {
     "objectID": "documentation.html#devtoolscheck",
@@ -994,15 +973,22 @@
     "text": "devtools::check()\nThis is a good time to run R CMD check to ensure our package is in full working order.\n\n🎬 Use devtools to run R CMD check\n\n\n\ndevtools::check()"
   },
   {
-    "objectID": "documentation.html#documenting-data",
-    "href": "documentation.html#documenting-data",
+    "objectID": "documentation.html#commit-2",
+    "href": "documentation.html#commit-2",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Commit",
+    "text": "Commit\nNow would be a good time to commit your changes\n\nJason Long, CC BY 3.0 &lt;https://creativecommons.org/licenses/by/3.0&gt;, via Wikimedia Commons"
+  },
+  {
+    "objectID": "documentation.html#documenting-data-1",
+    "href": "documentation.html#documenting-data-1",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Documenting data",
     "text": "Documenting data\nData gets documented in the data.R file. How can we create and open this file for editing?\n\nuse_r(\"data\")\nUnfortunately, the trick to insert Roxygen skeleton doesn’t work with data, so we have to do the documentation more manually."
   },
   {
-    "objectID": "documentation.html#documenting-data-1",
-    "href": "documentation.html#documenting-data-1",
+    "objectID": "documentation.html#documenting-data-2",
+    "href": "documentation.html#documenting-data-2",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Documenting data",
     "text": "Documenting data\nHere’s what the who documentation in tidyr looks like\n\n#' World Health Organization TB data\n#'\n#' A subset of data from the World Health Organization Global Tuberculosis\n#' Report ...\n#'\n#' @format ## `who`\n#' A data frame with 7,240 rows and 60 columns:\n#' \\describe{\n#'   \\item{country}{Country name}\n#'   \\item{iso2, iso3}{2 & 3 letter ISO country codes}\n#'   \\item{year}{Year}\n#'   ...\n#' }\n#' @source &lt;https://www.who.int/teams/global-tuberculosis-programme/data&gt;\n\"who\"\n\nCan you write some documentation for the bacon data?"
@@ -1015,120 +1001,218 @@
     "text": "Documenting data (your turn)\n\n#' FRED bacon price data\n#'\n#' A subset of data on the average price of sliced bacon in the US.\n#' Data is from 2016 to 2026\n#'\n#' @format ## `bacon`\n#' A data frame with 119 rows and 5 columns:\n#' \\describe{\n#'   \\item{date}{Date of observation}\n#'   \\item{series_id}{APU0000704111, the series ID for the series}\n#'   \\item{value}{the average price of bacon at that date}\n#'   \\item{real_timestart, realtime_end}{the date the data was downloaded}\n#' }\n#' @source &lt;https://fred.stlouisfed.org/series/APU0000704111&gt;\n\"bacon\""
   },
   {
-    "objectID": "documentation.html#section",
-    "href": "documentation.html#section",
+    "objectID": "documentation.html#commit-3",
+    "href": "documentation.html#commit-3",
     "title": "💻 🏦 Code You Can Bank On",
-    "section": "",
-    "text": "── R CMD check results ─────────────────────────────────── BLT 0.0.0.9000 ────\nDuration: 40.4s\n\n❯ checking dependencies in R code ... WARNING\n  '::' or ':::' imports not declared from:\n    'dplyr' 'tibble'\n\n❯ checking for unstated dependencies in examples ... WARNING\n  '::' or ':::' import not declared from: 'engsoccerdata'\n\n❯ checking R code for possible problems ... NOTE\n  uss_make_matches: no visible binding for global variable 'tier'\n  uss_make_matches: no visible binding for global variable 'Season'\n  uss_make_matches: no visible binding for global variable 'Date'\n  uss_make_matches: no visible binding for global variable 'home'\n  uss_make_matches: no visible binding for global variable 'visitor'\n  uss_make_matches: no visible binding for global variable 'hgoal'\n  uss_make_matches: no visible binding for global variable 'vgoal'\n  Undefined global functions or variables:\n    Date Season hgoal home tier vgoal visitor\n\n0 errors ✔ | 2 warnings ✖ | 1 note ✖\n\n\n\nWe’ve gained a warning!\n\n\nOur warnings are about Package dependencies"
+    "section": "Commit",
+    "text": "Commit\ndocument()\nload_all()\ncheck()\nNow would be a good time to commit your changes\n\nJason Long, CC BY 3.0 &lt;https://creativecommons.org/licenses/by/3.0&gt;, via Wikimedia Commons"
   },
   {
     "objectID": "documentation.html#package-dependencies-1",
     "href": "documentation.html#package-dependencies-1",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Package dependencies",
-    "text": "Package dependencies\nOur warnings are because we have used packages that we have not declared officially.\n\n\nWe need to document our package dependencies\n\n\n\nOur users, and the package installation machinery, need to know what our package depends on before installing"
+    "text": "Package dependencies\nSo far, we have just used use_package() to add Imports to our package. But, there are multiple levels of dependency possible.\n\nImports: must be installed for your package to work. If they’re not, they will get installed.\nSuggests: used by your package, but not required. Might provide data for examples, to run tests, build vignettes.\nDepends: Avoid where possible. When your package requires a specific version of R, e.g. Depends: R (&gt;= 3.4.0). Think critically: downstream effects on packages that depend on your package."
   },
   {
-    "objectID": "documentation.html#package-dependencies-2",
-    "href": "documentation.html#package-dependencies-2",
+    "objectID": "documentation.html#importing-functions",
+    "href": "documentation.html#importing-functions",
     "title": "💻 🏦 Code You Can Bank On",
-    "section": "Package dependencies",
-    "text": "Package dependencies\nLevels of dependency\n\nImports: must be installed for your package to work. If they’re not, they will get installed.\n\n\n\nSuggests: used by your package, but not required. Might provide data for examples, to run tests, build vignettes.\n\n\n\n\nDepends: Avoid where possible. When your package requires a specific version of R, e.g. Depends: R (&gt;= 3.4.0). Think critically: downstream effects on packages that depend on your package."
-  },
-  {
-    "objectID": "documentation.html#section-1",
-    "href": "documentation.html#section-1",
-    "title": "💻 🏦 Code You Can Bank On",
-    "section": "",
-    "text": "❯ checking dependencies in R code ... WARNING\n  '::' or ':::' imports not declared from:\n    'dplyr' 'tibble'\n\n❯ checking for unstated dependencies in examples ... WARNING\n  '::' or ':::' import not declared from: 'engsoccerdata'"
-  },
-  {
-    "objectID": "documentation.html#package-dependencies-3",
-    "href": "documentation.html#package-dependencies-3",
-    "title": "💻 🏦 Code You Can Bank On",
-    "section": "Package dependencies",
-    "text": "Package dependencies\nusethis again!\n\nuse_package(package, type = \"Imports\")\n\nType – one of “Imports”, “Depends”, “Suggests”, “Enhances”, or “LinkingTo”\n\n\n\n\nThe default is “Imports”"
-  },
-  {
-    "objectID": "documentation.html#usethisuse_package",
-    "href": "documentation.html#usethisuse_package",
-    "title": "💻 🏦 Code You Can Bank On",
-    "section": "usethis::use_package()",
-    "text": "usethis::use_package()\n🎬 Use usethis::use_package() to add the dplyr package to Imports\n\n\nusethis::use_package(\"dplyr\")\n\n\n\n\n\n✔ Adding 'dplyr' to Imports field in DESCRIPTION\n• Refer to functions with `dplyr::fun()`\n\n\nLook how your DESCRIPTION file changed!"
-  },
-  {
-    "objectID": "documentation.html#usethisuse_package-1",
-    "href": "documentation.html#usethisuse_package-1",
-    "title": "💻 🏦 Code You Can Bank On",
-    "section": "usethis::use_package()",
-    "text": "usethis::use_package()\nNote: we get reminded to “Refer to functions with dplyr::fun()”\n \n\nThat is, we do NOT use library(dplyr) to make functions available to our package."
-  },
-  {
-    "objectID": "documentation.html#devtoolscheck-1",
-    "href": "documentation.html#devtoolscheck-1",
-    "title": "💻 🏦 Code You Can Bank On",
-    "section": "devtools::check()",
-    "text": "devtools::check()\n🎬 Run devtools::check() on your package again"
-  },
-  {
-    "objectID": "documentation.html#section-2",
-    "href": "documentation.html#section-2",
-    "title": "💻 🏦 Code You Can Bank On",
-    "section": "",
-    "text": "── R CMD check results ─────────── BLT 0.0.0.9000 ────\nDuration: 24s\n\n❯ checking dependencies in R code ... WARNING\n  '::' or ':::' import not declared from: 'tibble'\n\n❯ checking for unstated dependencies in examples ... WARNING\n  '::' or ':::' import not declared from: 'engsoccerdata'\n\n❯ checking R code for possible problems ... NOTE\n  uss_make_matches: no visible binding for global variable 'tier'\n  uss_make_matches: no visible binding for global variable 'Season'\n  uss_make_matches: no visible binding for global variable 'Date'\n  uss_make_matches: no visible binding for global variable 'home'\n  uss_make_matches: no visible binding for global variable 'visitor'\n  uss_make_matches: no visible binding for global variable 'hgoal'\n  uss_make_matches: no visible binding for global variable 'vgoal'\n  Undefined global functions or variables:\n    Date Season hgoal home tier vgoal visitor\n\n0 errors ✔ | 2 warnings ✖ | 1 note ✖"
-  },
-  {
-    "objectID": "documentation.html#imports",
-    "href": "documentation.html#imports",
-    "title": "💻 🏦 Code You Can Bank On",
-    "section": "Imports",
-    "text": "Imports\nThree types, according to how much your are using the imported package.\n\nIf you are using….\n\na few functions from another package: put package name in the Imports: field of the DESCRIPTION file and call the function(s) explicitly using ::, e.g., pkg::fun().\n\n\n\n\na function repeatedly, uses you can avoid :: by importing the function with @importFrom pkg fun in BLT-package.R.\n\n\n\n\nmany functions from another package repeatedly: @import package. But beware, less transparent, higher likelihood of conflicting function names."
-  },
-  {
-    "objectID": "documentation.html#imports-1",
-    "href": "documentation.html#imports-1",
-    "title": "💻 🏦 Code You Can Bank On",
-    "section": "Imports",
-    "text": "Imports\nWe will use tibble::tible() multiple times.\n\nInstead of using:\n\nusethis::use_package(\"tibble\")\n\n\n\nwe can use\n\nusethis::use_import_from(\"tibble\", \"tibble\")\n\n\n\nwhich will:\n\nto add the package to the DESCRIPTION imports\nadd @importFrom tibble tibble to BLT-package.R and NAMESPACE\nmean we can avoid ::"
+    "section": "Importing functions",
+    "text": "Importing functions\nWe used imputeTS::statsNA() multiple times in our package.\n\nInstead of using:\n\nusethis::use_package(\"imputeTS\")\n\n\n\nwe can use\n\nusethis::use_import_from(\"imputeTS\", \"statsNA\")\n\n\n\nwhich will:\n\nto add the package to the DESCRIPTION imports\nadd @importFrom imputeTS statsNA to BLT-package.R and NAMESPACE\nmean we can avoid ::"
   },
   {
     "objectID": "documentation.html#importfrom-pkg-fun",
     "href": "documentation.html#importfrom-pkg-fun",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "@importFrom pkg fun",
-    "text": "@importFrom pkg fun\n🎬 Import tibble() from tibble:\n\nusethis::use_import_from(\"tibble\", \"tibble\")\n\n\n✔ Adding 'tibble' to Imports field in DESCRIPTION\n✔ Adding '@importFrom tibble tibble' to 'R/BLT-package.R'\n✔ Writing 'NAMESPACE'\n✔ Loading BLT"
+    "text": "@importFrom pkg fun\n🎬 Import tibble() from tibble:\n\nusethis::use_import_from(\"imputeTS\", \"statsNA\")\n\n\n✔ Adding 'imputeTS' to Imports field in DESCRIPTION\n✔ Adding '@importFrom imputeTS statsNA' to 'R/BLT-package.R'\n✔ Writing 'NAMESPACE'\n✔ Loading BLT"
+  },
+  {
+    "objectID": "documentation.html#importing-functions-1",
+    "href": "documentation.html#importing-functions-1",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Importing functions",
+    "text": "Importing functions\nNow, we could go back and remove the imputeTS:: piece of our code."
   },
   {
     "objectID": "documentation.html#suggests",
     "href": "documentation.html#suggests",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Suggests",
-    "text": "Suggests\n\nAre used by your package, but not required for it to work\nMight provide data for examples\n\n\nIn our case:\nmatches.R\n#' @examples\n#' uss_make_matches(engsoccerdata::spain, \"Spain\")"
+    "text": "Suggests\n\nAre used by your package, but not required for it to work\nMight provide data for examples\n\n\nusethis::use_package(\"package-name\",\n                     type = \"Suggests\")\n\n\nPackages listed in Suggests are not automatically installed along with your package.\nThis means that you can’t assume the package is available"
   },
   {
-    "objectID": "documentation.html#suggests-1",
-    "href": "documentation.html#suggests-1",
+    "objectID": "documentation.html#commit-4",
+    "href": "documentation.html#commit-4",
     "title": "💻 🏦 Code You Can Bank On",
-    "section": "Suggests",
-    "text": "Suggests\n🎬 Add engsoccerdata\n\n\nusethis::use_package(\"engsoccerdata\",\n                     type = \"Suggests\")\n\n \n✔ Adding 'engsoccerdata' to Suggests field in DESCRIPTION\n• Use `requireNamespace(\"engsoccerdata\", quietly = TRUE)` to test if package is installed\n• Then directly refer to functions with `engsoccerdata::fun()`"
+    "section": "Commit",
+    "text": "Commit\nNow would be a good time to commit your changes\n\nJason Long, CC BY 3.0 &lt;https://creativecommons.org/licenses/by/3.0&gt;, via Wikimedia Commons"
   },
   {
-    "objectID": "documentation.html#suggests-2",
-    "href": "documentation.html#suggests-2",
+    "objectID": "documentation.html#additional-documentation-for-packages-1",
+    "href": "documentation.html#additional-documentation-for-packages-1",
     "title": "💻 🏦 Code You Can Bank On",
-    "section": "Suggests",
-    "text": "Suggests\n\nPackages listed in Suggests are not automatically installed along with your package.\nThis means that you can’t assume the package is available"
+    "section": "Additional documentation for packages",
+    "text": "Additional documentation for packages\n\nREADME.md: Really useful when sharing things on GitHub or GitLab. Can be the first file read by the user.\nVignette: A long-form guide to your package. Can describe the problem that your package is designed to solve, and then show the reader how to solve it.\nPackage website"
   },
   {
-    "objectID": "documentation.html#commit-and-push-2",
-    "href": "documentation.html#commit-and-push-2",
+    "objectID": "documentation.html#readme.md",
+    "href": "documentation.html#readme.md",
     "title": "💻 🏦 Code You Can Bank On",
-    "section": "Commit and push",
-    "text": "Commit and push\nNow would be a good time to commit your changes\n\nJason Long, CC BY 3.0 &lt;https://creativecommons.org/licenses/by/3.0&gt;, via Wikimedia Commons"
+    "section": "README.md",
+    "text": "README.md\nBig picture goes in the README:\n\nHigh-level purpose of the package\nSimple example\nInstallation instructions\nDescription of main features with links to vignettes"
   },
   {
-    "objectID": "documentation.html#summary",
-    "href": "documentation.html#summary",
+    "objectID": "documentation.html#readme.rmd",
+    "href": "documentation.html#readme.rmd",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "README.rmd",
+    "text": "README.rmd\nYou are likely to have code in the README.md\n\nGenerating it with RMarkdown or Quarto is helpful\n\n\nusethis helps out again!\n\n\nusethis::use_readme_rmd() will:\n\ngenerate a template README.Rmd which\n\noutputs a GitHub markdown doc\ncontains reminders of things to include\nhas tips\n\nadds the README.Rmd to the .Rbuildignore\nadds a “pre-commit” hook to ensure you knit to md before committing\n\nIf you would prefer to work in Quarto, you can! But you’ll have to make the file yourself."
+  },
+  {
+    "objectID": "documentation.html#add-a-readme.rmd",
+    "href": "documentation.html#add-a-readme.rmd",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Add a README.Rmd",
+    "text": "Add a README.Rmd\n🎬 Add a README.Rmd with:\n\nusethis::use_readme_rmd()\n\n\n✔ Writing 'README.Rmd'\n✔ Adding '^README\\\\.Rmd$' to '.Rbuildignore'\n• Modify 'README.Rmd'\n✔ Writing '.git/hooks/pre-commit'"
+  },
+  {
+    "objectID": "documentation.html#template",
+    "href": "documentation.html#template",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Template",
+    "text": "Template\n🎬 Examine your README.Rmd\n\n\nGitHub markdown\nreminder to edit README.Rmd rather than README.md\nSets up some recommended knitr options"
+  },
+  {
+    "objectID": "documentation.html#section",
+    "href": "documentation.html#section",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "",
+    "text": "```{r}\nknitr::opts_chunk$set(\n  collapse = TRUE,\n  comment = \"#&gt;\",\n  fig.path = \"man/figures/README-\",\n  out.width = \"100%\"\n)\n```"
+  },
+  {
+    "objectID": "documentation.html#render",
+    "href": "documentation.html#render",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Render",
+    "text": "Render\nYou need to render README.Rmd regularly, to keep README.md up-to-date.\ndevtools::build_readme() is handy for this.\n\n🎬 Render with README.md:\n\ndevtools::build_readme()\n\n\n\nℹ Installing BLT in temporary library\nℹ Building /Users/amcnamara2/BLT/README.Rmd"
+  },
+  {
+    "objectID": "documentation.html#devtoolsbuild_readme",
+    "href": "documentation.html#devtoolsbuild_readme",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "devtools::build_readme()",
+    "text": "devtools::build_readme()\n\ncreates README.md\ncreates man/figures/README-pressure-1.png"
+  },
+  {
+    "objectID": "documentation.html#edit-readme.rmd",
+    "href": "documentation.html#edit-readme.rmd",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Edit README.Rmd",
+    "text": "Edit README.Rmd\n🎬 Complete: “The goal of BLT is to …”\n\n\n🎬 Add: an example with AR1()\n🎬 Remove: non-relevant sections"
+  },
+  {
+    "objectID": "documentation.html#an-answer",
+    "href": "documentation.html#an-answer",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "An answer",
+    "text": "An answer\nComplete: “The goal of BLT is to …”\nThe goal of BLT is to provide helper functions for time series analysis, to work on data about bacon, lettuce, and tomatoes. \n\nAdd: an example with AR1()\n\n```{r example}\nlibrary(BLT)\nAR1(tomatoes$value)\n```\n\n\n\nRemove: non-relevant sections\nEverything after “What is special about using……”"
+  },
+  {
+    "objectID": "documentation.html#commit-5",
+    "href": "documentation.html#commit-5",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Commit",
+    "text": "Commit\nNow would be a good time to commit your changes.\n\n\n\nJason Long, CC BY 3.0 &lt;https://creativecommons.org/licenses/by/3.0&gt;, via Wikimedia Commons"
+  },
+  {
+    "objectID": "documentation.html#add-a-badge-to-the-readme.rmd-were-skipping-this",
+    "href": "documentation.html#add-a-badge-to-the-readme.rmd-were-skipping-this",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Add a badge to the README.Rmd (we’re skipping this)",
+    "text": "Add a badge to the README.Rmd (we’re skipping this)\nBadges give information to the user about the state of the package\nFor example: \nTo add this badge, we set up a “GitHub Action”\nA GitHub Action is “continuous integration” which allows you to automate package building, testing and deployment on github\nActions we add are triggered when we push to GitHub."
+  },
+  {
+    "objectID": "documentation.html#adding-a-r-cmd-check-action-were-skipping-this",
+    "href": "documentation.html#adding-a-r-cmd-check-action-were-skipping-this",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Adding a R CMD check action (we’re skipping this)",
+    "text": "Adding a R CMD check action (we’re skipping this)\nAdding the R CMD check action along with an edit to the README.Rmd will:\n\nrun R CMD check on multiple OS on GitHub and\nadd badge with the result to the README.Rmd\n\nWe can add with usethis::use_github_action_check_standard()"
+  },
+  {
+    "objectID": "documentation.html#r-cmd-check.yaml-were-skipping-this",
+    "href": "documentation.html#r-cmd-check.yaml-were-skipping-this",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "R-CMD-check.yaml (we’re skipping this)",
+    "text": "R-CMD-check.yaml (we’re skipping this)\n\n# Workflow derived from https://github.com/r-lib/actions/tree/v2/examples\n# Need help debugging build failures? Start at https://github.com/r-lib/actions#where-to-find-help\non:\n  push:\n    branches: [main, master]\n  pull_request:\n    branches: [main, master]\n\nname: R-CMD-check\n\njobs:\n  R-CMD-check:\n    runs-on: ${{ matrix.config.os }}\n\n    name: ${{ matrix.config.os }} (${{ matrix.config.r }})\n\n    strategy:\n      fail-fast: false\n      matrix:\n        config:\n          - {os: macOS-latest,   r: 'release'}\n          - {os: windows-latest, r: 'release'}\n          - {os: ubuntu-latest,   r: 'devel', http-user-agent: 'release'}\n          - {os: ubuntu-latest,   r: 'release'}\n          - {os: ubuntu-latest,   r: 'oldrel-1'}\n\n    env:\n      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}\n      R_KEEP_PKG_SOURCE: yes\n\n    steps:\n      - uses: actions/checkout@v2\n\n      - uses: r-lib/actions/setup-pandoc@v2\n\n      - uses: r-lib/actions/setup-r@v2\n        with:\n          r-version: ${{ matrix.config.r }}\n          http-user-agent: ${{ matrix.config.http-user-agent }}\n          use-public-rspm: true\n\n      - uses: r-lib/actions/setup-r-dependencies@v2\n        with:\n          extra-packages: any::rcmdcheck\n          needs: check\n\n      - uses: r-lib/actions/check-r-package@v2\n        with:\n          upload-snapshots: true"
+  },
+  {
+    "objectID": "documentation.html#vignettes-1",
+    "href": "documentation.html#vignettes-1",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Vignettes",
+    "text": "Vignettes\n\nA long-form guide to your package.\nFunction documentation is useful if you know the function name\nA vignette explains how to use your package\nCan describe the problem that your package is designed to solve, and then show the reader how to solve it."
+  },
+  {
+    "objectID": "documentation.html#add-a-vignette",
+    "href": "documentation.html#add-a-vignette",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Add a vignette",
+    "text": "Add a vignette\n🎬 Add a vignette called “BLT” with\n\nusethis::use_vignette(\"BLT\")"
+  },
+  {
+    "objectID": "documentation.html#whats-happened",
+    "href": "documentation.html#whats-happened",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "What’s happened?",
+    "text": "What’s happened?\n\n✔ Setting active project to \"/Users/amcnamara2/BLT\".\n✔ Adding knitr to Suggests field in DESCRIPTION.\n✔ Adding \"inst/doc\" to .gitignore.\n✔ Adding rmarkdown to Suggests field in DESCRIPTION.\n✔ Adding \"knitr\" to VignetteBuilder.\n✔ Creating vignettes/.\n✔ Adding \"*.html\" and \"*.R\" to vignettes/.gitignore.\n✔ Writing vignettes/BLT.Rmd.\n☐ Modify vignettes/BLT.Rmd."
+  },
+  {
+    "objectID": "documentation.html#edit-vignettesblt.rmd",
+    "href": "documentation.html#edit-vignettesblt.rmd",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Edit vignettes/BLT.Rmd",
+    "text": "Edit vignettes/BLT.Rmd\n🎬 Add info to vignettes/BLT.Rmd"
+  },
+  {
+    "objectID": "documentation.html#an-answer-1",
+    "href": "documentation.html#an-answer-1",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "An answer",
+    "text": "An answer\n\n\nlibrary(BLT)\n\nThe goal of BLT is to provide some time series helper functions, which allow you to work with data on bacon, lettuce, and tomatoes.\nThe package contains three sample datasets from FRED\n\ndata(bacon)\ndata(lettuce)\ndata(tomatoes)\n\nThe function AR1 is a convenience function to make a first-order autoregressive model. We can use this to model the bacon data\n\nAR1(bacon$value)\n\nThe function perc_missing allows you to compute the percent of a time series that is missing\n\nperc_missing(bacon$value)\n\nOr, you can use the tidy version, perc_missing_tidy()\n\nperc_missing_tidy(bacon, value)\n\nbacon |&gt;\n  perc_missing_tidy(value)"
+  },
+  {
+    "objectID": "documentation.html#preview-the-vignette",
+    "href": "documentation.html#preview-the-vignette",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Preview the Vignette",
+    "text": "Preview the Vignette\n🎬 Build the vignette with:\n\ndevtools::build_rmd(\"vignettes/BLT.Rmd\")\n\nℹ Installing BLT in temporary library\nℹ Building /Users/amcnamara2/BLT/vignettes/BLT.Rmd\n[WARNING] Deprecated: --highlight-style. Use --syntax-highlighting instead.\n(I’m choosing to ignore this warning– it sounds like something for the devtools developers, not me.)"
+  },
+  {
+    "objectID": "documentation.html#commit-6",
+    "href": "documentation.html#commit-6",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Commit",
+    "text": "Commit\nNow would be a good time to commit your changes.\n\n\n\nJason Long, CC BY 3.0 &lt;https://creativecommons.org/licenses/by/3.0&gt;, via Wikimedia Commons"
+  },
+  {
+    "objectID": "documentation.html#pkgdown-sites-were-skipping-this-1",
+    "href": "documentation.html#pkgdown-sites-were-skipping-this-1",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "pkgdown sites (we’re skipping this)",
+    "text": "pkgdown sites (we’re skipping this)\npkgdown [@pkgdown] is designed to make it quick and easy to build a website for your package.\nExamples\n\npalmerpenguins\nggplot2\n\nVery widely used\nUses your existing documentation\n\nHome page - from README.md\nGet started - from overall pkg vignette\nFunction Reference - from documentation in man/\nArticles - from other vignettes"
+  },
+  {
+    "objectID": "documentation.html#commit-7",
+    "href": "documentation.html#commit-7",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Commit",
+    "text": "Commit\nNow would be a good time to commit your changes.\n\n\n\nJason Long, CC BY 3.0 &lt;https://creativecommons.org/licenses/by/3.0&gt;, via Wikimedia Commons"
+  },
+  {
+    "objectID": "documentation.html#summary-1",
+    "href": "documentation.html#summary-1",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Summary",
     "text": "Summary\n\n\nA package has metadata and object documentation (essential), vignettes and pkgdown sites (optional)\nMetadata is in the DESCRIPTION\n\nsome fields need manual editing\nsome fields are appropriately edited by devtools workflow functions\n\nObjects like functions and data are documented with roxygen comments then turned into documentation with devtools::document()\n\nroxygen comments are indicated with #'\nroxygen tags start with @"
@@ -1138,7 +1222,21 @@
     "href": "documentation.html#summary-continued",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Summary continued",
-    "text": "Summary continued\n\n\nPackage dependencies need to be documented\n\npackage dependencies are added with use_package()\nfunctions from dependencies are called with pkg::function()\nwe don’t use library()\n\ncffr::cff_write() will write a citation file from the description file."
+    "text": "Summary continued\n\n\nPackage dependencies need to be documented\n\npackage dependencies are added with use_package()\nfunctions from dependencies are called with pkg::function()\nwe don’t use library()"
+  },
+  {
+    "objectID": "documentation.html#summary-2",
+    "href": "documentation.html#summary-2",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Summary",
+    "text": "Summary\n\n\nAlways include a README.md with the purpose of the package, installation instructions and a simple example\nusethis::use_readme_rmd() will generate a template README.Rmd and do other useful things\ndevtools::build_readme() will build README.md from README.Rmd\nA GitHub Actions is a “continuous integration” tool which allows you to automate package building, testing and deployment on GitHub\nusethis::use_github_action_check_standard() will add the R CMD check action and a badge"
+  },
+  {
+    "objectID": "documentation.html#summary-3",
+    "href": "documentation.html#summary-3",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Summary",
+    "text": "Summary\n\n\nA vignette gives a more detailed explanation of how your package can be used\nYou can add a vignette with usethis::use_vignette(name_of_vignette)\npkgdown makes it quick and easy to build a website for your package from the existing documentation\nusethis::use_pkgdown() configures your package to use a pkgdown website\npkgdown::build_site() will build the website so you can examine it locally\nusethis::use_pkgdown_github_pages() sets up a GitHub action to automatically build and publish your site on pushing.\nusethis really rocks!"
   },
   {
     "objectID": "package-dev.html#motivation",
@@ -1295,18 +1393,53 @@
     "text": "Develop (your turn)\n\n❯ checking DESCRIPTION meta-information ... WARNING\n  Non-standard license specification:\n    `use_mit_license()`, `use_gpl3_license()` or friends to pick a\n    license\n  Standardizable: FALSE\n\n❯ checking dependencies in R code ... WARNING\n  '::' or ':::' import not declared from: ‘forecast’\n\n❯ checking for future file timestamps ... NOTE\n  unable to verify current time\n\n1 error ✖ | 2 warnings ✖ | 1 note ✖"
   },
   {
-    "objectID": "package-dev.html#develop-your-turn-4",
-    "href": "package-dev.html#develop-your-turn-4",
+    "objectID": "package-dev.html#package-dependencies",
+    "href": "package-dev.html#package-dependencies",
     "title": "💻 🏦 Code You Can Bank On",
-    "section": "Develop (your turn)",
-    "text": "Develop (your turn)\nuse_package(\"forecast\")\nWe need to specify that our package will use the forecast package:\n\nindicate a stronger reliance using Imports (default)\nindicate a weaker reliance using Suggests (test for package in functions)\n\nDependency management is a long-debated topic in the R community:\n\nfor now, if you need to rely on a package, do it"
+    "section": "Package dependencies",
+    "text": "Package dependencies\nOur warnings are because we have used packages that we have not declared officially.\n\n\nWe need to document our package dependencies\n\n\n\nOur users, and the package installation machinery, need to know what our package depends on before installing"
   },
   {
-    "objectID": "package-dev.html#develop-1",
-    "href": "package-dev.html#develop-1",
+    "objectID": "package-dev.html#package-dependencies-1",
+    "href": "package-dev.html#package-dependencies-1",
     "title": "💻 🏦 Code You Can Bank On",
-    "section": "Develop",
-    "text": "Develop\nuse_package(\"forecast\")\n✔ Adding forecast to Imports field in DESCRIPTION.\n☐ Refer to functions with `forecast::fun()`.\ndocument()\nload_all()\ncheck()"
+    "section": "Package dependencies",
+    "text": "Package dependencies\nLevels of dependency\n\nImports: must be installed for your package to work. If they’re not, they will get installed.\n\n\n\nSuggests: used by your package, but not required. Might provide data for examples, to run tests, build vignettes.\n\n\n\n\nDepends: Avoid where possible. When your package requires a specific version of R, e.g. Depends: R (&gt;= 3.4.0). Think critically: downstream effects on packages that depend on your package."
+  },
+  {
+    "objectID": "package-dev.html#section",
+    "href": "package-dev.html#section",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "",
+    "text": "❯ checking dependencies in R code ... WARNING\n  '::' or ':::' imports not declared from:\n    'forecast' 'Arima'"
+  },
+  {
+    "objectID": "package-dev.html#package-dependencies-2",
+    "href": "package-dev.html#package-dependencies-2",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Package dependencies",
+    "text": "Package dependencies\nusethis again!\n\nuse_package(package, type = \"Imports\")\n\nType – one of “Imports”, “Depends”, “Suggests”, “Enhances”, or “LinkingTo”\n\n\n\n\nThe default is “Imports”"
+  },
+  {
+    "objectID": "package-dev.html#usethisuse_package",
+    "href": "package-dev.html#usethisuse_package",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "usethis::use_package()",
+    "text": "usethis::use_package()\n🎬 Use usethis::use_package() to add the forecast package to Imports\n\nusethis::use_package(\"forecast\")\n\n\n\n\n✔ Adding forecast to Imports field in DESCRIPTION\n• Refer to functions with `forecast::fun()`\n\n\nLook how your DESCRIPTION file changed!"
+  },
+  {
+    "objectID": "package-dev.html#usethisuse_package-1",
+    "href": "package-dev.html#usethisuse_package-1",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "usethis::use_package()",
+    "text": "usethis::use_package()\nNote: we get reminded to “Refer to functions with forecast::fun()”\n\nThat is, we do NOT use library(forecast) to make functions available to our package."
+  },
+  {
+    "objectID": "package-dev.html#devtoolscheck",
+    "href": "package-dev.html#devtoolscheck",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "devtools::check()",
+    "text": "devtools::check()\n🎬 Run devtools::check() on your package again"
   },
   {
     "objectID": "package-dev.html#check",
