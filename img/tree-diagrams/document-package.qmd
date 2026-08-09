@@ -1,0 +1,24 @@
+---
+editor: source
+---
+
+::: extrasmall
+<pre style="color:#5A5A5A">
+BLT
+├── BLT.Rproj
+├── DESCRIPTION
+├── NAMESPACE
+├── R
+│   ├── AR1.R
+│   ├── <span style="color:#F8F8F2">BLT-package.R</span>
+│   ├── perc_missing.R
+│   └── perc_missing_tidy.R
+├── man
+│   ├──  AR1.Rd
+│   └── <span style="color:#F8F8F2">BLT-package.Rd</span>
+</pre>
+
+[unchanged]{style="color:#5A5A5A"}\
+changed\
+[changed by you]{style="color:#2CDDE0"}
+:::

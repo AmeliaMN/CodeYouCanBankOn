@@ -1,3 +1,7 @@
+---
+editor: source
+---
+
 ::: extrasmall
 <pre>
 BLT
@@ -6,23 +10,17 @@ BLT
 ├── NAMESPACE
 ├── R
 │   ├── <span style="color:#2CDDE0">AR1.R</span>
-│   └── BLT-package.R
-├── <span style="color:#2CDDE0">README.Rmd</span>
-├── README.md
+│   ├── BLT-package.R
+│   ├── data.R
+│   ├── <span style="color:#2CDDE0">perc_missing.R</span>
+│   └── <span style="color:#2CDDE0">perc_missing_tidy.R</span>
 ├── data
-│   └── bacon.rda
-├── man
-│   ├── AR1.Rd
-│   └── bacon.Rd
-├── tests
-│   ├── testthat
-│   │   └── <span style="color:#2CDDE0">test-AR1.R</span>
-│   └── testthat.R
+│   ├── bacon.rda
+│   ├── lettuce.rda
+│   └── tomatoes.rda
 </pre>
 
-<span style="color:#5A5A5A">unchanged</span>
-\
-changed
-\
-<span style="color:#2CDDE0">changed by you</span>
+[unchanged]{style="color:#5A5A5A"}\
+changed\
+[changed by you]{style="color:#2CDDE0"}
 :::

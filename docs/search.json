@@ -46,14 +46,14 @@
     "href": "package-dev.html#overview",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Overview",
-    "text": "Overview\n\n\n\n\n\n\n\n\n\n\n\n\n\nBLT\n├── BLT.Rproj\n├── DESCRIPTION\n├── NAMESPACE\n├── R\n│   ├── AR1.R\n│   └── BLT-package.R\n├── data\n│   └── bacon.rda\n├── man\n│   ├── AR1.Rd\n│   └── bacon.Rd\n├── tests\n│   ├── testthat\n│   │   └── test-AR1.R\n│   └── testthat.R\n\n\n(Does this remind you of anything?)\n\n\nFigure adapted from Packages, by Hannah Frick"
+    "text": "Overview\n\n\n\n\n\n\n\n\n\n\n\n\n\nBLT\n├── BLT.Rproj\n├── DESCRIPTION\n├── NAMESPACE\n├── R\n│   ├── AR1.R\n│   ├── BLT-package.R\n│   ├── data.R\n│   ├── perc_missing.R\n│   └── perc_missing_tidy.R\n├── data\n│   ├── bacon.rda\n│   ├── lettuce.rda\n│   └── tomatoes.rda\n\n\n(Does this remind you of anything?)\n\n\nFigure adapted from Packages, by Hannah Frick"
   },
   {
     "objectID": "package-dev.html#overview-1",
     "href": "package-dev.html#overview-1",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Overview",
-    "text": "Overview\n\n\n\n\n\n\n\n\n\n\n\n\nFigure adapted from Packages, by Hannah Frick\n\n\n\nBLT\n├── BLT.Rproj\n├── DESCRIPTION\n├── NAMESPACE\n├── R\n│   ├── AR1.R\n│   └── BLT-package.R\n├── README.Rmd\n├── README.md\n├── data\n│   └── bacon.rda\n├── man\n│   ├── AR1.Rd\n│   └── bacon.Rd\n├── tests\n│   ├── testthat\n│   │   └── test-AR1.R\n│   └── testthat.R\n\nunchanged\nchanged\nchanged by you\n\n(Does this remind you of anything?)"
+    "text": "Overview\n\n\n\n\n\n\n\n\n\n\n\n\nFigure adapted from Packages, by Hannah Frick\n\n\n\nBLT\n├── BLT.Rproj\n├── DESCRIPTION\n├── NAMESPACE\n├── R\n│   ├── AR1.R\n│   ├── BLT-package.R\n│   ├── data.R\n│   ├── perc_missing.R\n│   └── perc_missing_tidy.R\n├── data\n│   ├── bacon.rda\n│   ├── lettuce.rda\n│   └── tomatoes.rda\n\nunchanged\nchanged\nchanged by you\n\n(Does this remind you of anything?)"
   },
   {
     "objectID": "package-dev.html#create-package",
@@ -95,7 +95,7 @@
     "href": "package-dev.html#create-package-your-turn-1",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Create package (your turn)",
-    "text": "Create package (your turn)\n\ncreate_package(\"../BLT\") # set the path to suit you\n# getwd() will remind you where you currently are\n\ncreates a minimal set of files for an installable package\nopens a new RStudio project\n\n\n\n\nBLT\n├── BLT.Rproj\n├── DESCRIPTION\n├── NAMESPACE\n└── R\n\nunchanged\nchanged\nchanged by you"
+    "text": "Create package (your turn)\n\ncreate_package(\"../BLT\") # set the path to suit you\n# getwd() will remind you where you currently are\n\ncreates a minimal set of files for an installable package\nopens a new RStudio project\n\n\n\n\nBLT\n├── .gitignore\n├── .Rbuildignore\n├── BLT.Rproj\n├── DESCRIPTION\n├── NAMESPACE\n└── R\n\nunchanged\nchanged\nchanged by you"
   },
   {
     "objectID": "package-dev.html#create-framework",
@@ -137,21 +137,21 @@
     "href": "package-dev.html#develop-your-turn",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Develop (your turn)",
-    "text": "Develop (your turn)\nThere’s a usethis helper for adding .R files!\n\nusethis::use_r(\"AR1\")\nIn real life, I like the idea of documenting, then writing functions:\n\nclaim what the function will do, then do it\nif your explanation is getting heavy, split into more functions\n\nFor today, we’re going to push off documentation.\nStart by writing a shell for the function:\nAR1 &lt;- function(y) {\n  \n}"
+    "text": "Develop (your turn)\nThere’s a usethis helper for adding .R files!\n\nusethis::use_r(\"AR1\")\nIn real life, I like the idea of documenting, then writing functions:\n\nclaim what the function will do, then do it\nif your explanation is getting heavy, split into more functions\n\nFor today, we’re going to push off documentation.\nStart by writing a shell for the function:\nAR1 &lt;- function(y) {\n  \n}\n\n\n\nBLT\n├── .gitignore\n├── .Rbuildignore\n├── BLT.Rproj\n├── DESCRIPTION\n├── NAMESPACE\n├── R\n│   └── AR1.R\n\nunchanged\nchanged\nchanged by you"
   },
   {
     "objectID": "package-dev.html#develop-your-turn-1",
     "href": "package-dev.html#develop-your-turn-1",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Develop (your turn)",
-    "text": "Develop (your turn)\n\nWrite the function body\nAR1 &lt;- function(y) {\n  forecast::Arima(y, order = c(1, 0, 0), include.constant = TRUE)\n}"
+    "text": "Develop (your turn)\n\nWrite the function body\nAR1 &lt;- function(y) {\n  forecast::Arima(y, order = c(1, 0, 0), include.constant = TRUE)\n}\n\n\n\nBLT\n├── .gitignore\n├── .Rbuildignore\n├── BLT.Rproj\n├── DESCRIPTION\n├── NAMESPACE\n├── R\n│   └── AR1.R\n\nunchanged\nchanged\nchanged by you"
   },
   {
     "objectID": "package-dev.html#develop-your-turn-2",
     "href": "package-dev.html#develop-your-turn-2",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Develop (your turn)",
-    "text": "Develop (your turn)\n\nforecast::Arima(y)\n☝️ Use this notation to be explicit about where R looks for the function Arima().\n\n💾 Save AR1.R.\ndocument()\nload_all()\ncheck()\n🤔 What happened?"
+    "text": "Develop (your turn)\n\nforecast::Arima(y)\n☝️ Use this notation to be explicit about where R looks for the function Arima().\n\n💾 Save AR1.R.\ndocument()\nload_all()\ncheck()\n🤔 What happened?\n\n\n\nBLT\n├── .gitignore\n├── .Rbuildignore\n├── BLT.Rproj\n├── DESCRIPTION\n├── NAMESPACE\n├── R\n│   └── AR1.R\n\nunchanged\nchanged\nchanged by you"
   },
   {
     "objectID": "package-dev.html#develop-your-turn-3",
@@ -193,7 +193,7 @@
     "href": "package-dev.html#usethisuse_package",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "usethis::use_package()",
-    "text": "usethis::use_package()\n🎬 Use usethis::use_package() to add the forecast package to Imports\n\nusethis::use_package(\"forecast\")\n\n\n\n\n✔ Adding forecast to Imports field in DESCRIPTION\n• Refer to functions with `forecast::fun()`\n\n\nLook how your DESCRIPTION file changed!"
+    "text": "usethis::use_package()\n\n🎬 Use usethis::use_package() to add the forecast package to Imports\nusethis::use_package(\"forecast\")\n\n\n✔ Adding forecast to Imports field in DESCRIPTION\n• Refer to functions with `forecast::fun()`\n\n\nLook how your DESCRIPTION file changed!\n\n\n\nBLT\n├── .gitignore\n├── .Rbuildignore\n├── BLT.Rproj\n├── DESCRIPTION\n├── NAMESPACE\n├── R\n│   └── AR1.R\n\nunchanged\nchanged\nchanged by you"
   },
   {
     "objectID": "package-dev.html#usethisuse_package-1",
@@ -319,7 +319,14 @@
     "href": "package-dev.html#adding-data-to-packages-your-turn",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Adding data to packages (your turn)",
-    "text": "Adding data to packages (your turn)\nAdd the bacon data to the package,\n✔ Adding R to Depends field in DESCRIPTION.\n✔ Creating data/.\n✔ Setting LazyData to \"true\" in DESCRIPTION.\n✔ Saving \"bacon\" to \"data/bacon.rda\".\n☐ Document your data (see &lt;https://r-pkgs.org/data.html&gt;)."
+    "text": "Adding data to packages (your turn)\n\nAdd the bacon data to the package,\nusethis::use_data(bacon)\n✔ Adding R to Depends field in DESCRIPTION.\n✔ Creating data/.\n✔ Setting LazyData to \"true\" in DESCRIPTION.\n✔ Saving \"bacon\" to \"data/bacon.rda\".\n☐ Document your data (see &lt;https://r-pkgs.org/data.html&gt;).\n\n\n\nBLT\n├── BLT.Rproj\n├── DESCRIPTION\n├── NAMESPACE\n├── R\n│   ├── AR1.R\n│   └── BLT-package.R\n├── data\n│   └── bacon.rda\n\nunchanged\nchanged\nchanged by you"
+  },
+  {
+    "objectID": "package-dev.html#adding-data-to-packages-your-turn-1",
+    "href": "package-dev.html#adding-data-to-packages-your-turn-1",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Adding data to packages (your turn)",
+    "text": "Adding data to packages (your turn)\nLet’s also add lettuce and tomato data, for completeness."
   },
   {
     "objectID": "package-dev.html#commit-3",
@@ -329,6 +336,13 @@
     "text": "Commit\nNow would be a good time to commit your changes.\n\n\n\nJason Long, CC BY 3.0 &lt;https://creativecommons.org/licenses/by/3.0&gt;, via Wikimedia Commons"
   },
   {
+    "objectID": "package-dev.html#playing-the-whole-game",
+    "href": "package-dev.html#playing-the-whole-game",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Playing the whole game",
+    "text": "Playing the whole game\n\n\n\n\n\n\n\n\n\n\n\n\nFigure adapted from Packages, by Hannah Frick\n\n\n\nBLT\n├── BLT.Rproj\n├── DESCRIPTION\n├── NAMESPACE\n├── R\n│   ├── AR1.R\n│   ├── BLT-package.R\n│   ├── data.R\n│   ├── perc_missing.R\n│   └── perc_missing_tidy.R\n├── data\n│   ├── bacon.rda\n│   ├── lettuce.rda\n│   └── tomatoes.rda\n\nunchanged\nchanged\nchanged by you"
+  },
+  {
     "objectID": "package-dev.html#resources",
     "href": "package-dev.html#resources",
     "title": "💻 🏦 Code You Can Bank On",
@@ -336,11 +350,46 @@
     "text": "Resources\n\nHappy git and GitHub for the useR, Jenny Bryan, the STAT 545 TAs, Jim Hester.\nWhat are quosures and when are they needed?, rlang documentation.\nR packages, Hadley Wickham and Jenny Bryan.\nEvaluating the Design of the R Language This is for my computer scientists who want the nitty-gritty about R as a language.\nAdvanced R\nPackage states"
   },
   {
-    "objectID": "img/tree-diagrams/prelim.html",
-    "href": "img/tree-diagrams/prelim.html",
+    "objectID": "img/tree-diagrams/description.html",
+    "href": "img/tree-diagrams/description.html",
     "title": "Code You Can Bank On",
     "section": "",
-    "text": "BLT\n├── BLT.Rproj\n├── DESCRIPTION\n├── NAMESPACE\n├── R\n│   ├── AR1.R\n│   └── BLT-package.R\n├── data\n│   └── bacon.rda\n├── man\n│   ├── AR1.Rd\n│   └── bacon.Rd\n├── tests\n│   ├── testthat\n│   │   └── test-AR1.R\n│   └── testthat.R"
+    "text": "BLT\n├── BLT.Rproj\n├── DESCRIPTION\n├── NAMESPACE\n├── R\n│   ├── AR1.R\n│   ├── BLT-package.R\n│   ├── data.R\n│   ├── perc_missing.R\n│   └── perc_missing_tidy.R\n├── data\n│   ├── bacon.rda\n│   ├── lettuce.rda\n│   └── tomatoes.rda\n\nunchanged\nchanged\nchanged by you"
+  },
+  {
+    "objectID": "img/tree-diagrams/create-package.html",
+    "href": "img/tree-diagrams/create-package.html",
+    "title": "Code You Can Bank On",
+    "section": "",
+    "text": "BLT\n├── BLT.Rproj\n├── DESCRIPTION\n├── NAMESPACE\n└── R\n\nunchanged\nchanged\nchanged by you"
+  },
+  {
+    "objectID": "img/tree-diagrams/document1.html",
+    "href": "img/tree-diagrams/document1.html",
+    "title": "Code You Can Bank On",
+    "section": "",
+    "text": "BLT\n├── BLT.Rproj\n├── DESCRIPTION\n├── NAMESPACE\n├── R\n│   ├── AR1.R\n│   ├── BLT-package.R\n│   ├── perc_missing.R\n│   └── perc_missing_tidy.R\n├── man\n│   └── AR1.Rd\n\nunchanged\nchanged\nchanged by you"
+  },
+  {
+    "objectID": "img/tree-diagrams/document-package.html",
+    "href": "img/tree-diagrams/document-package.html",
+    "title": "Code You Can Bank On",
+    "section": "",
+    "text": "BLT\n├── BLT.Rproj\n├── DESCRIPTION\n├── NAMESPACE\n├── R\n│   ├── AR1.R\n│   ├── BLT-package.R\n│   ├── perc_missing.R\n│   └── perc_missing_tidy.R\n├── man\n│   ├──  AR1.Rd\n│   └── BLT-package.Rd\n\nunchanged\nchanged\nchanged by you"
+  },
+  {
+    "objectID": "img/tree-diagrams/use-package.html",
+    "href": "img/tree-diagrams/use-package.html",
+    "title": "Code You Can Bank On",
+    "section": "",
+    "text": "BLT\n├── .gitignore\n├── .Rbuildignore\n├── BLT.Rproj\n├── DESCRIPTION\n├── NAMESPACE\n├── R\n│   └── AR1.R\n\nunchanged\nchanged\nchanged by you"
+  },
+  {
+    "objectID": "img/tree-diagrams/document-all.html",
+    "href": "img/tree-diagrams/document-all.html",
+    "title": "Code You Can Bank On",
+    "section": "",
+    "text": "BLT\n├── BLT.Rproj\n├── DESCRIPTION\n├── NAMESPACE\n├── R\n│   ├── AR1.R\n│   ├── BLT-package.R\n│   ├── data.R\n│   ├── perc_missing.R\n│   └── perc_missing_tidy.R\n├── README.Rmd\n├── README.md\n├── data\n│   ├── bacon.rda\n│   ├── lettuce.rda\n│   └── tomatoes.rda\n├── man\n│   ├── AR1.Rd\n│   ├── BLT-package.Rd\n│   ├── bacon.Rd\n│   ├── figures\n│   │   └── README-pressure-1.png\n│   ├── perc_missing.Rd\n│   └── perc_missing_tidy.Rd\n└── vignettes\n    ├── BLT.Rmd\n    └── BLT.html\n\nunchanged\nchanged\nchanged by you"
   },
   {
     "objectID": "index.html",
@@ -1162,6 +1211,20 @@
     "text": "Resources\n\nTesting chapter in R Packages.\ntestthat documentation"
   },
   {
+    "objectID": "documentation.html#where-we-left-off",
+    "href": "documentation.html#where-we-left-off",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Where we left off",
+    "text": "Where we left off\n\n\n\n\n\n\n\n\n\n\n\n\nFigure adapted from Packages, by Hannah Frick\n\n\n\nBLT\n├── BLT.Rproj\n├── DESCRIPTION\n├── NAMESPACE\n├── R\n│   ├── AR1.R\n│   ├── BLT-package.R\n│   ├── data.R\n│   ├── perc_missing.R\n│   └── perc_missing_tidy.R\n├── data\n│   ├── bacon.rda\n│   ├── lettuce.rda\n│   └── tomatoes.rda\n\nunchanged\nchanged\nchanged by you"
+  },
+  {
+    "objectID": "documentation.html#where-were-heading",
+    "href": "documentation.html#where-were-heading",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Where we’re heading",
+    "text": "Where we’re heading\n\n\n\n\n\n\n\n\n\n\n\n\nFigure adapted from Packages, by Hannah Frick\n\n\n\nBLT\n├── BLT.Rproj\n├── DESCRIPTION\n├── NAMESPACE\n├── R\n│   ├── AR1.R\n│   ├── BLT-package.R\n│   ├── data.R\n│   ├── perc_missing.R\n│   └── perc_missing_tidy.R\n├── README.Rmd\n├── README.md\n├── data\n│   ├── bacon.rda\n│   ├── lettuce.rda\n│   └── tomatoes.rda\n├── man\n│   ├── AR1.Rd\n│   ├── BLT-package.Rd\n│   ├── bacon.Rd\n│   ├── figures\n│   │   └── README-pressure-1.png\n│   ├── perc_missing.Rd\n│   └── perc_missing_tidy.Rd\n└── vignettes\n    ├── BLT.Rmd\n    └── BLT.html\n\nunchanged\nchanged\nchanged by you"
+  },
+  {
     "objectID": "documentation.html#levels-of-package-documentation",
     "href": "documentation.html#levels-of-package-documentation",
     "title": "💻 🏦 Code You Can Bank On",
@@ -1180,7 +1243,7 @@
     "href": "documentation.html#edit-description-your-turn",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Edit DESCRIPTION (your turn)",
-    "text": "Edit DESCRIPTION (your turn)\n\nOpen DESCRIPTION file to edit it:\n\nAuthors@R field uses options(\"usethis.description\")\n\nwe set this in our .Rprofile, so go back to the intro slides if you missed this!\n\n\n✏️ edit Title field. Should be one line, title case, with no period. Fewer than 65 characters.\n💾 save DESCRIPTION file"
+    "text": "Edit DESCRIPTION (your turn)\n\nOpen DESCRIPTION file to edit it:\n\nAuthors@R field uses options(\"usethis.description\")\n\nwe set this in our .Rprofile, so go back to the intro slides if you missed this!\n\n\n✏️ edit Title field. Should be one line, title case, with no period. Fewer than 65 characters.\n💾 save DESCRIPTION file\n\n\n\nBLT\n├── BLT.Rproj\n├── DESCRIPTION\n├── NAMESPACE\n├── R\n│   ├── AR1.R\n│   ├── BLT-package.R\n│   ├── data.R\n│   ├── perc_missing.R\n│   └── perc_missing_tidy.R\n├── data\n│   ├── bacon.rda\n│   ├── lettuce.rda\n│   └── tomatoes.rda\n\nunchanged\nchanged\nchanged by you"
   },
   {
     "objectID": "documentation.html#edit-description",
@@ -1208,7 +1271,7 @@
     "href": "documentation.html#add-a-license",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Add a license",
-    "text": "Add a license\n\nuse_mit_license()\n\nlets the world know how it can use the stuff you create\n\nCRAN requires you to specify a (valid) license\nMay be less relevant in your usecase!\n\nother choices include\n\nuse_apl2_license(): Apache 2.0\nuse_gpl3_license(): GPL3\n\nuses option(\"usethis.full_name\") or option(\"devtools.name\")\n\nwe set this in .Rprofile"
+    "text": "Add a license\n\nuse_mit_license()\n\nlets the world know how it can use the stuff you create\n\nCRAN requires you to specify a (valid) license\nMay be less relevant in your usecase!\n\nother choices include\n\nuse_apl2_license(): Apache 2.0\nuse_gpl3_license(): GPL3\n\nuses option(\"usethis.full_name\") or option(\"devtools.name\")\n\nwe set this in .Rprofile\n\n\n\n\n\nBLT\n├── BLT.Rproj\n├── DESCRIPTION\n├── NAMESPACE\n├── R\n│   ├── AR1.R\n│   ├── BLT-package.R\n│   ├── data.R\n│   ├── perc_missing.R\n│   └── perc_missing_tidy.R\n├── data\n│   ├── bacon.rda\n│   ├── lettuce.rda\n│   └── tomatoes.rda\n\nunchanged\nchanged\nchanged by you"
   },
   {
     "objectID": "documentation.html#commit",
@@ -1271,21 +1334,14 @@
     "href": "documentation.html#build-documentation",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Build documentation",
-    "text": "Build documentation\n🎬 Run devtools::document() to turn roxygen comments to .Rd\n\ndevtools::document()\n\n\nℹ Updating BLT documentation\nℹ Loading BLT\nWriting NAMESPACE\nWriting AR1.Rd\nWarning message:\n[AR1.R:13] @examples requires a value \n\n\nWe will that fix later!"
+    "text": "Build documentation\n\n🎬 Run devtools::document() to turn roxygen comments to .Rd\n\ndevtools::document()\n\nℹ Updating BLT documentation\nℹ Loading BLT\nWriting NAMESPACE\nWriting AR1.Rd\nWarning message:\n[AR1.R:13] @examples requires a value \nWe will that fix later!\n\n\n\nBLT\n├── BLT.Rproj\n├── DESCRIPTION\n├── NAMESPACE\n├── R\n│   ├── AR1.R\n│   ├── BLT-package.R\n│   ├── perc_missing.R\n│   └── perc_missing_tidy.R\n├── man\n│   └── AR1.Rd\n\nunchanged\nchanged\nchanged by you\n\n\n\nNAMESPACE now lists the exported function\nman/AR1.Rd has been written"
   },
   {
-    "objectID": "documentation.html#take-a-look-1",
-    "href": "documentation.html#take-a-look-1",
+    "objectID": "documentation.html#take-a-look",
+    "href": "documentation.html#take-a-look",
     "title": "💻 🏦 Code You Can Bank On",
-    "section": "Take a look 1",
-    "text": "Take a look 1\n├── DESCRIPTION\n├── LICENSE\n├── LICENSE.md\n├── man\n│   └── AR1.Rd \n├── NAMESPACE\n├── R\n│   └── AR1.R\n└── BLT.Rproj\n\nNAMESPACE now lists the exported function\nman/AR1.Rd has been written"
-  },
-  {
-    "objectID": "documentation.html#take-a-look-2",
-    "href": "documentation.html#take-a-look-2",
-    "title": "💻 🏦 Code You Can Bank On",
-    "section": "Take a look 2",
-    "text": "Take a look 2\n🎬 Load the package : devtools::load_all()\n\n\n🎬 Preview the documentation with:\n\n?AR1\n\n\n\n\n😮 🥳"
+    "section": "Take a look",
+    "text": "Take a look\n🎬 Load the package : devtools::load_all()\n\n\n🎬 Preview the documentation with:\n\n?AR1\n\n\n\n\n😮 🥳"
   },
   {
     "objectID": "documentation.html#fix-warning",
@@ -1334,7 +1390,7 @@
     "href": "documentation.html#package-level-help-page-2",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Package-level help page",
-    "text": "Package-level help page\nWe can fix this with use_package_doc()\n\n\n🎬 Add a package-level help page:\n\nusethis::use_package_doc()\n\n\n\n\n\n✔ Writing 'R/BLT-package.R'\n• Modify 'R/BLT-package.R'\n\n\n\n\n🎬 Run devtools::document() then devtools::load_all() followed by ?BLT"
+    "text": "Package-level help page\n\nWe can fix this with use_package_doc()\n\n🎬 Add a package-level help page:\n\nusethis::use_package_doc()\n\n\n\n✔ Writing 'R/BLT-package.R'\n• Modify 'R/BLT-package.R'\n\n\n🎬 Run devtools::document() then devtools::load_all() followed by ?BLT\n\n\n\nBLT\n├── BLT.Rproj\n├── DESCRIPTION\n├── NAMESPACE\n├── R\n│   ├── AR1.R\n│   ├── BLT-package.R\n│   ├── perc_missing.R\n│   └── perc_missing_tidy.R\n├── man\n│   ├──  AR1.Rd\n│   └── BLT-package.Rd\n\nunchanged\nchanged\nchanged by you"
   },
   {
     "objectID": "documentation.html#devtoolscheck",
@@ -1369,7 +1425,7 @@
     "href": "documentation.html#documenting-data-your-turn",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Documenting data (your turn)",
-    "text": "Documenting data (your turn)\n\n#' FRED bacon price data\n#'\n#' A subset of data on the average price of sliced bacon in the US.\n#' Data is from 2016 to 2026\n#'\n#' @format ## `bacon`\n#' A data frame with 119 rows and 5 columns:\n#' \\describe{\n#'   \\item{date}{Date of observation}\n#'   \\item{series_id}{APU0000704111, the series ID for the series}\n#'   \\item{value}{the average price of bacon at that date}\n#'   \\item{real_timestart, realtime_end}{the date the data was downloaded}\n#' }\n#' @source &lt;https://fred.stlouisfed.org/series/APU0000704111&gt;\n\"bacon\""
+    "text": "Documenting data (your turn)\n\n\n#' FRED bacon price data\n#'\n#' A subset of data on the average price of sliced bacon in the US.\n#' Data is from 2016 to 2026\n#'\n#' @format ## `bacon`\n#' A data frame with 119 rows and 5 columns:\n#' \\describe{\n#'   \\item{date}{Date of observation}\n#'   \\item{series_id}{APU0000704111, the series ID for the series}\n#'   \\item{value}{the average price of bacon at that date}\n#'   \\item{real_timestart, realtime_end}{the date the data was downloaded}\n#' }\n#' @source &lt;https://fred.stlouisfed.org/series/APU0000704111&gt;\n\"bacon\"\n\n\n\n\nBLT\n├── BLT.Rproj\n├── DESCRIPTION\n├── NAMESPACE\n├── R\n│   ├── AR1.R\n│   ├── BLT-package.R\n│   ├── data.R\n│   ├── perc_missing.R\n│   └── perc_missing_tidy.R\n├── man\n│   ├──  AR1.Rd\n│   ├──  BLT-package.Rd\n│   └── bacon.Rd\n\nunchanged\nchanged\nchanged by you"
   },
   {
     "objectID": "documentation.html#commit-3",
@@ -1621,14 +1677,49 @@
     "href": "img/tree-diagrams/all.html",
     "title": "Code You Can Bank On",
     "section": "",
-    "text": "BLT\n├── BLT.Rproj\n├── DESCRIPTION\n├── NAMESPACE\n├── R\n│   ├── AR1.R\n│   └── BLT-package.R\n├── README.Rmd\n├── README.md\n├── data\n│   └── bacon.rda\n├── man\n│   ├── AR1.Rd\n│   └── bacon.Rd\n├── tests\n│   ├── testthat\n│   │   └── test-AR1.R\n│   └── testthat.R\n\nunchanged\nchanged\nchanged by you"
+    "text": "BLT\n├── BLT.Rproj\n├── DESCRIPTION\n├── NAMESPACE\n├── R\n│   ├── AR1.R\n│   ├── BLT-package.R\n│   ├── data.R\n│   ├── perc_missing.R\n│   └── perc_missing_tidy.R\n├── data\n│   ├── bacon.rda\n│   ├── lettuce.rda\n│   └── tomatoes.rda\n\nunchanged\nchanged\nchanged by you"
   },
   {
-    "objectID": "img/tree-diagrams/create-package.html",
-    "href": "img/tree-diagrams/create-package.html",
+    "objectID": "img/tree-diagrams/create-framework.html",
+    "href": "img/tree-diagrams/create-framework.html",
     "title": "Code You Can Bank On",
     "section": "",
-    "text": "BLT\n├── BLT.Rproj\n├── DESCRIPTION\n├── NAMESPACE\n└── R\n\nunchanged\nchanged\nchanged by you"
+    "text": "BLT\n├── .gitignore\n├── .Rbuildignore\n├── BLT.Rproj\n├── DESCRIPTION\n├── NAMESPACE\n└── R\n\nunchanged\nchanged\nchanged by you"
+  },
+  {
+    "objectID": "img/tree-diagrams/prelim.html",
+    "href": "img/tree-diagrams/prelim.html",
+    "title": "Code You Can Bank On",
+    "section": "",
+    "text": "BLT\n├── BLT.Rproj\n├── DESCRIPTION\n├── NAMESPACE\n├── R\n│   ├── AR1.R\n│   ├── BLT-package.R\n│   ├── data.R\n│   ├── perc_missing.R\n│   └── perc_missing_tidy.R\n├── data\n│   ├── bacon.rda\n│   ├── lettuce.rda\n│   └── tomatoes.rda"
+  },
+  {
+    "objectID": "img/tree-diagrams/license.html",
+    "href": "img/tree-diagrams/license.html",
+    "title": "Code You Can Bank On",
+    "section": "",
+    "text": "BLT\n├── BLT.Rproj\n├── DESCRIPTION\n├── NAMESPACE\n├── R\n│   ├── AR1.R\n│   ├── BLT-package.R\n│   ├── data.R\n│   ├── perc_missing.R\n│   └── perc_missing_tidy.R\n├── data\n│   ├── bacon.rda\n│   ├── lettuce.rda\n│   └── tomatoes.rda\n\nunchanged\nchanged\nchanged by you"
+  },
+  {
+    "objectID": "img/tree-diagrams/use-data.html",
+    "href": "img/tree-diagrams/use-data.html",
+    "title": "Code You Can Bank On",
+    "section": "",
+    "text": "BLT\n├── BLT.Rproj\n├── DESCRIPTION\n├── NAMESPACE\n├── R\n│   ├── AR1.R\n│   └── BLT-package.R\n├── data\n│   └── bacon.rda\n\nunchanged\nchanged\nchanged by you"
+  },
+  {
+    "objectID": "img/tree-diagrams/document-data.html",
+    "href": "img/tree-diagrams/document-data.html",
+    "title": "Code You Can Bank On",
+    "section": "",
+    "text": "BLT\n├── BLT.Rproj\n├── DESCRIPTION\n├── NAMESPACE\n├── R\n│   ├── AR1.R\n│   ├── BLT-package.R\n│   ├── data.R\n│   ├── perc_missing.R\n│   └── perc_missing_tidy.R\n├── man\n│   ├──  AR1.Rd\n│   ├──  BLT-package.Rd\n│   └── bacon.Rd\n\nunchanged\nchanged\nchanged by you"
+  },
+  {
+    "objectID": "img/tree-diagrams/develop.html",
+    "href": "img/tree-diagrams/develop.html",
+    "title": "Code You Can Bank On",
+    "section": "",
+    "text": "BLT\n├── .gitignore\n├── .Rbuildignore\n├── BLT.Rproj\n├── DESCRIPTION\n├── NAMESPACE\n├── R\n│   └── AR1.R\n\nunchanged\nchanged\nchanged by you"
   },
   {
     "objectID": "prereqs.html",

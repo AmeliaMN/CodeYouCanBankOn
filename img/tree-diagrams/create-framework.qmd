@@ -6,9 +6,11 @@ editor: source
 
 <pre>
 BLT
+├── .gitignore
+├── .Rbuildignore
 ├── BLT.Rproj
-├── <span style="color:#2CDDE0">DESCRIPTION</span>
-├── NAMESPACE
+├── <span style="color:#5A5A5A">DESCRIPTION</span>
+├── <span style="color:#5A5A5A">NAMESPACE</span>
 └── R
 </pre>
 

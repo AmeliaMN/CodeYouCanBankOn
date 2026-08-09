@@ -290,16 +290,14 @@ Amelia McNamara
 ├── NAMESPACE
 ├── R
 │   ├── AR1.R
-│   └── BLT-package.R
+│   ├── BLT-package.R
+│   ├── data.R
+│   ├── perc_missing.R
+│   └── perc_missing_tidy.R
 ├── data
-│   └── bacon.rda
-├── man
-│   ├── AR1.Rd
-│   └── bacon.Rd
-├── tests
-│   ├── testthat
-│   │   └── test-AR1.R
-│   └── testthat.R
+│   ├── bacon.rda
+│   ├── lettuce.rda
+│   └── tomatoes.rda
 </pre>
 </div>
 <p><span style="font-size: 0.6em;">(Does this remind you of anything?)</span></p>
@@ -311,11 +309,11 @@ Amelia McNamara
 <section id="overview-1" class="slide level2">
 <h2>Overview</h2>
 <div class="teach-left">
-<div class="cell" data-layout-align="left">
+<div class="cell">
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-left">
+<div>
 <figure>
-<p><img data-src="img/img-verbs/base.png" class="quarto-figure quarto-figure-left" width="1237"></p>
+<p><img data-src="img/img-verbs/base.png" width="1237"></p>
 </figure>
 </div>
 </div>
@@ -332,18 +330,14 @@ Amelia McNamara
 ├── NAMESPACE
 ├── R
 │   ├── <span style="color:#2CDDE0">AR1.R</span>
-│   └── BLT-package.R
-├── <span style="color:#2CDDE0">README.Rmd</span>
-├── README.md
+│   ├── BLT-package.R
+│   ├── data.R
+│   ├── <span style="color:#2CDDE0">perc_missing.R</span>
+│   └── <span style="color:#2CDDE0">perc_missing_tidy.R</span>
 ├── data
-│   └── bacon.rda
-├── man
-│   ├── AR1.Rd
-│   └── bacon.Rd
-├── tests
-│   ├── testthat
-│   │   └── <span style="color:#2CDDE0">test-AR1.R</span>
-│   └── testthat.R
+│   ├── bacon.rda
+│   ├── lettuce.rda
+│   └── tomatoes.rda
 </pre>
 <p><span style="color:#5A5A5A">unchanged</span><br>
 changed<br>
@@ -442,9 +436,11 @@ changed<br>
 <div class="teach-right">
 <div class="extrasmall">
 <pre>BLT
+├── .gitignore
+├── .Rbuildignore
 ├── BLT.Rproj
-├── DESCRIPTION
-├── NAMESPACE
+├── <span style="color:#5A5A5A">DESCRIPTION</span>
+├── <span style="color:#5A5A5A">NAMESPACE</span>
 └── R
 </pre>
 <p><span style="color:#5A5A5A">unchanged</span><br>
@@ -564,12 +560,12 @@ changed<br>
 <div class="teach-right">
 <div class="extrasmall">
 <pre>BLT
-├── .gitignore
-├── .Rbuildignore
-├── BLT.Rproj
+├── <span style="color:#5A5A5A">.gitignore</span>
+├── <span style="color:#5A5A5A">.Rbuildignore</span>
+├── <span style="color:#5A5A5A">BLT.Rproj</span>
 ├── <span style="color:#5A5A5A">DESCRIPTION</span>
 ├── <span style="color:#5A5A5A">NAMESPACE</span>
-├── R
+├── <span style="color:#5A5A5A">R</span>
 │   └── <span style="color:#2CDDE0">AR1.R</span>
 </pre>
 <p><span style="color:#5A5A5A">unchanged</span><br>
@@ -578,7 +574,7 @@ changed<br>
 </div>
 </div>
 </section>
-<section id="develop-your-turn" class="slide level2 smaller">
+<section id="develop-your-turn" class="slide level2">
 <h2>Develop (your turn)</h2>
 <p>There’s a <strong><code>usethis</code></strong> helper for adding <code>.R</code> files!</p>
 <div class="teach-left">
@@ -595,7 +591,20 @@ changed<br>
 <span id="cb7-3"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="teach-right">
-
+<div class="extrasmall">
+<pre>BLT
+├── <span style="color:#5A5A5A">.gitignore</span>
+├── <span style="color:#5A5A5A">.Rbuildignore</span>
+├── <span style="color:#5A5A5A">BLT.Rproj</span>
+├── <span style="color:#5A5A5A">DESCRIPTION</span>
+├── <span style="color:#5A5A5A">NAMESPACE</span>
+├── <span style="color:#5A5A5A">R</span>
+│   └── <span style="color:#2CDDE0">AR1.R</span>
+</pre>
+<p><span style="color:#5A5A5A">unchanged</span><br>
+changed<br>
+<span style="color:#2CDDE0">changed by you</span></p>
+</div>
 </div>
 </section>
 <section id="develop-your-turn-1" class="slide level2">
@@ -607,7 +616,20 @@ changed<br>
 <span id="cb8-3"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="teach-right">
-
+<div class="extrasmall">
+<pre>BLT
+├── <span style="color:#5A5A5A">.gitignore</span>
+├── <span style="color:#5A5A5A">.Rbuildignore</span>
+├── <span style="color:#5A5A5A">BLT.Rproj</span>
+├── <span style="color:#5A5A5A">DESCRIPTION</span>
+├── <span style="color:#5A5A5A">NAMESPACE</span>
+├── <span style="color:#5A5A5A">R</span>
+│   └── <span style="color:#2CDDE0">AR1.R</span>
+</pre>
+<p><span style="color:#5A5A5A">unchanged</span><br>
+changed<br>
+<span style="color:#2CDDE0">changed by you</span></p>
+</div>
 </div>
 </section>
 <section id="develop-your-turn-2" class="slide level2">
@@ -623,7 +645,20 @@ changed<br>
 <p>🤔 What happened?</p>
 </div>
 <div class="teach-right">
-
+<div class="extrasmall">
+<pre>BLT
+├── <span style="color:#5A5A5A">.gitignore</span>
+├── <span style="color:#5A5A5A">.Rbuildignore</span>
+├── <span style="color:#5A5A5A">BLT.Rproj</span>
+├── <span style="color:#5A5A5A">DESCRIPTION</span>
+├── <span style="color:#5A5A5A">NAMESPACE</span>
+├── <span style="color:#5A5A5A">R</span>
+│   └── <span style="color:#2CDDE0">AR1.R</span>
+</pre>
+<p><span style="color:#5A5A5A">unchanged</span><br>
+changed<br>
+<span style="color:#2CDDE0">changed by you</span></p>
+</div>
 </div>
 </section>
 <section id="develop-your-turn-3" class="slide level2 smaller">
@@ -696,18 +731,32 @@ changed<br>
 </section>
 <section id="usethisuse_package" class="slide level2">
 <h2><code>usethis::use_package()</code></h2>
+<div class="teach-left">
 <p>🎬 Use <code>usethis::use_package()</code> to add the <strong><code>forecast</code></strong> package to <code>Imports</code></p>
-<div class="fragment">
 <div class="sourceCode" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>usethis<span class="sc">::</span><span class="fu">use_package</span>(<span class="st">"forecast"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><br>
 </p>
-</div>
-<div class="fragment">
 <div class="sourceCode" id="cb14"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb14-1"><a></a>✔ Adding forecast to Imports field in DESCRIPTION</span>
 <span id="cb14-2"><a></a>• Refer to functions with `forecast::fun()`</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><br>
 </p>
 <p>Look how your <code>DESCRIPTION</code> file changed!</p>
+</div>
+<div class="teach-right">
+<div class="extrasmall">
+<pre>BLT
+├── <span style="color:#5A5A5A">.gitignore</span>
+├── <span style="color:#5A5A5A">.Rbuildignore</span>
+├── <span style="color:#5A5A5A">BLT.Rproj</span>
+├── DESCRIPTION
+├── <span style="color:#5A5A5A">NAMESPACE</span>
+├── <span style="color:#5A5A5A">R</span>
+│   └── <span style="color:#5A5A5A">AR1.R</span>
+</pre>
+<p><span style="color:#5A5A5A">unchanged</span><br>
+changed<br>
+<span style="color:#2CDDE0">changed by you</span></p>
+</div>
 </div>
 </section>
 <section id="usethisuse_package-1" class="slide level2">
@@ -897,12 +946,36 @@ changed<br>
 </section>
 <section id="adding-data-to-packages-your-turn" class="slide level2">
 <h2>Adding data to packages (your turn)</h2>
+<div class="teach-left">
 <p>Add the bacon data to the package,</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a>usethis<span class="sc">::</span><span class="fu">use_data</span>(bacon)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <pre><code>✔ Adding R to Depends field in DESCRIPTION.
 ✔ Creating data/.
 ✔ Setting LazyData to "true" in DESCRIPTION.
 ✔ Saving "bacon" to "data/bacon.rda".
 ☐ Document your data (see &lt;https://r-pkgs.org/data.html&gt;).</code></pre>
+</div>
+<div class="teach-right">
+<div class="extrasmall">
+<pre>BLT
+├── <span style="color:#5A5A5A">BLT.Rproj</span>
+├── DESCRIPTION
+├── <span style="color:#5A5A5A">NAMESPACE</span>
+├── <span style="color:#5A5A5A">R</span>
+│   ├── <span style="color:#5A5A5A">AR1.R</span>
+│   └── <span style="color:#5A5A5A">BLT-package.R</span>
+├── data
+│   └── bacon.rda
+</pre>
+<p><span style="color:#5A5A5A">unchanged</span><br>
+changed<br>
+<span style="color:#2CDDE0">changed by you</span></p>
+</div>
+</div>
+</section>
+<section id="adding-data-to-packages-your-turn-1" class="slide level2">
+<h2>Adding data to packages (your turn)</h2>
+<p>Let’s also add lettuce and tomato data, for completeness.</p>
 </section>
 <section id="commit-3" class="slide level2">
 <h2>Commit</h2>
@@ -911,6 +984,45 @@ changed<br>
 </p>
 
 <img data-src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg" alt="Git icon" width="300" class="r-stretch quarto-figure-center"><p class="caption">Jason Long, CC BY 3.0 &lt;https://creativecommons.org/licenses/by/3.0&gt;, via Wikimedia Commons</p></section>
+<section id="playing-the-whole-game" class="slide level2">
+<h2>Playing the whole game</h2>
+<div class="teach-left">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="img/img-verbs/base.png" width="1237"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="footer">
+<p>Figure adapted from <a href="https://github.com/hfrick/presentations/blob/master/2019-03-12_package_building/2019-03-12_package_building.pdf">Packages</a>, by Hannah Frick</p>
+</div>
+<div class="teach-right">
+<div class="extrasmall">
+<pre>BLT
+├── BLT.Rproj
+├── <span style="color:#2CDDE0">DESCRIPTION</span>
+├── NAMESPACE
+├── R
+│   ├── <span style="color:#2CDDE0">AR1.R</span>
+│   ├── BLT-package.R
+│   ├── data.R
+│   ├── <span style="color:#2CDDE0">perc_missing.R</span>
+│   └── <span style="color:#2CDDE0">perc_missing_tidy.R</span>
+├── data
+│   ├── bacon.rda
+│   ├── lettuce.rda
+│   └── tomatoes.rda
+</pre>
+<p><span style="color:#5A5A5A">unchanged</span><br>
+changed<br>
+<span style="color:#2CDDE0">changed by you</span></p>
+</div>
+</div>
+</section>
 <section id="resources" class="slide level2">
 <h2>Resources</h2>
 <ul>

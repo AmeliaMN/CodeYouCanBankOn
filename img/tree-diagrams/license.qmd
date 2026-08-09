@@ -4,10 +4,10 @@ editor: source
 
 
 ::: extrasmall
-<pre>
+<pre style="color:#5A5A5A">
 BLT
 ├── BLT.Rproj
-├── DESCRIPTION
+├── <span style="color:#F8F8F2">DESCRIPTION</span>
 ├── NAMESPACE
 ├── R
 │   ├── AR1.R
@@ -20,4 +20,9 @@ BLT
 │   ├── lettuce.rda
 │   └── tomatoes.rda
 </pre>
+
+
+[unchanged]{style="color:#5A5A5A"}\
+changed\
+[changed by you]{style="color:#2CDDE0"}
 :::

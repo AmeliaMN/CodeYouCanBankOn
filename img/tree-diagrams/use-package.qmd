@@ -1,0 +1,22 @@
+---
+editor: source
+---
+
+::: extrasmall
+
+<pre>
+BLT
+├── <span style="color:#5A5A5A">.gitignore</span>
+├── <span style="color:#5A5A5A">.Rbuildignore</span>
+├── <span style="color:#5A5A5A">BLT.Rproj</span>
+├── DESCRIPTION
+├── <span style="color:#5A5A5A">NAMESPACE</span>
+├── <span style="color:#5A5A5A">R</span>
+│   └── <span style="color:#5A5A5A">AR1.R</span>
+</pre>
+
+
+[unchanged]{style="color:#5A5A5A"}\
+changed\
+[changed by you]{style="color:#2CDDE0"}
+:::

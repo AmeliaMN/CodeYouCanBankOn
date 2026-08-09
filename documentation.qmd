@@ -13,6 +13,45 @@ execute:
   eval: false
 ---
 
+## Where we left off
+
+::: {.teach-left}
+```{r verb-base, echo=FALSE, eval=TRUE, fig.align='left'}
+knitr::include_graphics("img/img-verbs/base.png")
+```
+
+:::
+
+::: footer 
+Figure adapted from [Packages](https://github.com/hfrick/presentations/blob/master/2019-03-12_package_building/2019-03-12_package_building.pdf), by Hannah Frick
+::: 
+
+
+
+::: {.teach-right} 
+{{< include img/tree-diagrams/all.qmd >}}
+:::
+
+## Where we're heading
+
+::: {.teach-left}
+```{r verb-document, echo=FALSE, eval=TRUE, fig.align='left'}
+knitr::include_graphics("img/img-verbs/document.png")
+```
+
+:::
+
+::: footer 
+Figure adapted from [Packages](https://github.com/hfrick/presentations/blob/master/2019-03-12_package_building/2019-03-12_package_building.pdf), by Hannah Frick
+::: 
+
+
+
+::: {.teach-right} 
+{{< include img/tree-diagrams/document-all.qmd >}}
+:::
+
+
 # 🏷️ Document your package
 
 
@@ -67,14 +106,11 @@ Open `DESCRIPTION` file to edit it:
 :::
 
 ::: {.teach-right} 
-```{r}
-#| label: noun-create-package
-#| echo: false
-#| eval: true
-#| fig-align: right
-knitr::include_graphics("img/img-nouns/create-package.png")
-```
+
+{{< include img/tree-diagrams/description.qmd >}}
+
 :::
+
 
 ## Edit `DESCRIPTION`
 
@@ -149,13 +185,9 @@ use_mit_license()
 
 
 ::: {.teach-right} 
-```{r}
-#| label: noun-framework
-#| echo: false
-#| eval: true
-#| fig-align: 'right'
-knitr::include_graphics("img/img-nouns/create-package.png")
-```
+
+{{< include img/tree-diagrams/license.qmd >}}
+
 :::
 
 
@@ -351,13 +383,15 @@ RStudio IDE menu: **Code** > **Insert Roxygen Skeleton**
 
 ## Build documentation
 
+::: {.teach-left}
+
 🎬 Run `devtools::document()` to turn roxygen comments to `.Rd`
 
 ```{r}
 devtools::document()
 ```
 
-. . .
+
 
 ``` default
 ℹ Updating BLT documentation
@@ -368,29 +402,23 @@ Warning message:
 [AR1.R:13] @examples requires a value 
 ```
 
-. . .
-
 We will that fix later!
 
-## Take a look 1
+:::
 
-``` default
-├── DESCRIPTION
-├── LICENSE
-├── LICENSE.md
-├── man
-│   └── AR1.Rd 
-├── NAMESPACE
-├── R
-│   └── AR1.R
-└── BLT.Rproj
-```
+::: {.teach-right}
+
+{{< include img/tree-diagrams/document1.qmd >}}
+
+:::
+
+
 
 - `NAMESPACE` now lists the exported function
 
 - `man/AR1.Rd` has been written
 
-## Take a look 2
+## Take a look
 
 🎬 Load the package : `devtools::load_all()`
 
@@ -519,9 +547,11 @@ Contrast that with
 
 ## Package-level help page
 
+::: {.teach-left}
+
 We can fix this with `use_package_doc()`\
 
-. . .
+
 
 🎬 Add a package-level help page:
 
@@ -529,7 +559,7 @@ We can fix this with `use_package_doc()`\
 usethis::use_package_doc()
 ```
 
-. . .
+
 
 \
 
@@ -538,12 +568,18 @@ usethis::use_package_doc()
 • Modify 'R/BLT-package.R'
 ```
 
-. . .
 
 \
 
 🎬 Run `devtools::document()` then `devtools::load_all()` followed by `?BLT`
 
+:::
+
+::: {.teach-right}
+
+{{< include img/tree-diagrams/document-package.qmd >}}
+
+:::
 
 
 ## `devtools::check()`
@@ -610,6 +646,8 @@ Can you write some documentation for the `bacon` data?
 ## Documenting data (your turn)
 
 
+::: {.teach-left}
+
 ::: small
 ```
 #' FRED bacon price data
@@ -629,6 +667,13 @@ Can you write some documentation for the `bacon` data?
 "bacon"
 ```
 
+:::
+
+:::
+
+::: {.teach-right}
+
+{{< include img/tree-diagrams/document-data.qmd >}}
 :::
 
 

@@ -204,6 +204,97 @@ Amelia McNamara
 </div>
 
 </section>
+<section id="where-we-left-off" class="slide level2">
+<h2>Where we left off</h2>
+<div class="teach-left">
+<div class="cell" data-layout-align="left">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-left">
+<figure>
+<p><img data-src="img/img-verbs/base.png" class="quarto-figure quarto-figure-left" width="1237"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="footer">
+<p>Figure adapted from <a href="https://github.com/hfrick/presentations/blob/master/2019-03-12_package_building/2019-03-12_package_building.pdf">Packages</a>, by Hannah Frick</p>
+</div>
+<div class="teach-right">
+<div class="extrasmall">
+<pre>BLT
+├── BLT.Rproj
+├── <span style="color:#2CDDE0">DESCRIPTION</span>
+├── NAMESPACE
+├── R
+│   ├── <span style="color:#2CDDE0">AR1.R</span>
+│   ├── BLT-package.R
+│   ├── data.R
+│   ├── <span style="color:#2CDDE0">perc_missing.R</span>
+│   └── <span style="color:#2CDDE0">perc_missing_tidy.R</span>
+├── data
+│   ├── bacon.rda
+│   ├── lettuce.rda
+│   └── tomatoes.rda
+</pre>
+<p><span style="color:#5A5A5A">unchanged</span><br>
+changed<br>
+<span style="color:#2CDDE0">changed by you</span></p>
+</div>
+</div>
+</section>
+<section id="where-were-heading" class="slide level2">
+<h2>Where we’re heading</h2>
+<div class="teach-left">
+<div class="cell" data-layout-align="left">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-left">
+<figure>
+<p><img data-src="img/img-verbs/document.png" class="quarto-figure quarto-figure-left" width="1237"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="footer">
+<p>Figure adapted from <a href="https://github.com/hfrick/presentations/blob/master/2019-03-12_package_building/2019-03-12_package_building.pdf">Packages</a>, by Hannah Frick</p>
+</div>
+<div class="teach-right">
+<div class="extrasmall">
+<pre>BLT
+├── <span style="color:#5A5A5A">BLT.Rproj</span>
+├── <span style="color:#2CDDE0">DESCRIPTION</span>
+├── NAMESPACE
+├── R
+│   ├── <span style="color:#2CDDE0">AR1.R</span>
+│   ├── BLT-package.R
+│   ├── <span style="color:#2CDDE0">data.R</span>
+│   ├── <span style="color:#2CDDE0">perc_missing.R</span>
+│   └── <span style="color:#2CDDE0">perc_missing_tidy.R</span>
+├── <span style="color:#2CDDE0">README.Rmd</span>
+├── README.md
+├── <span style="color:#5A5A5A">data</span>
+│   ├── <span style="color:#5A5A5A">bacon.rda</span>
+│   ├── <span style="color:#5A5A5A">lettuce.rda</span>
+│   └── <span style="color:#5A5A5A">tomatoes.rda</span>
+├── man
+│   ├── AR1.Rd
+│   ├── BLT-package.Rd
+│   ├── bacon.Rd
+│   ├── figures
+│   │   └── README-pressure-1.png
+│   ├── perc_missing.Rd
+│   └── perc_missing_tidy.Rd
+└── vignettes
+    ├── <span style="color:#2CDDE0">BLT.Rmd</span>
+    └── BLT.html
+</pre>
+<p><span style="color:#5A5A5A">unchanged</span><br>
+changed<br>
+<span style="color:#2CDDE0">changed by you</span></p>
+</div>
+</div>
+</section>
 <section>
 <section id="document-your-package" class="title-slide slide level1 center">
 <h1>🏷️ Document your package</h1>
@@ -255,14 +346,25 @@ Amelia McNamara
 <p>💾 save <code>DESCRIPTION</code> file</p>
 </div>
 <div class="teach-right">
-<div class="cell" data-layout-align="right">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-right">
-<figure>
-<p><img data-src="img/img-nouns/create-package.png" class="quarto-figure quarto-figure-right" width="309"></p>
-</figure>
-</div>
-</div>
+<div class="extrasmall">
+<pre style="color:#5A5A5A">BLT
+├── BLT.Rproj
+├── <span style="color:#2CDDE0">DESCRIPTION</span>
+├── NAMESPACE
+├── R
+│   ├── AR1.R
+│   ├── BLT-package.R
+│   ├── data.R
+│   ├── perc_missing.R
+│   └── perc_missing_tidy.R
+├── data
+│   ├── bacon.rda
+│   ├── lettuce.rda
+│   └── tomatoes.rda
+</pre>
+<p><span style="color:#5A5A5A">unchanged</span><br>
+changed<br>
+<span style="color:#2CDDE0">changed by you</span></p>
 </div>
 </div>
 </section>
@@ -325,14 +427,25 @@ Amelia McNamara
 </ul>
 </div>
 <div class="teach-right">
-<div class="cell" data-layout-align="right">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-right">
-<figure>
-<p><img data-src="img/img-nouns/create-package.png" class="quarto-figure quarto-figure-right" width="309"></p>
-</figure>
-</div>
-</div>
+<div class="extrasmall">
+<pre style="color:#5A5A5A">BLT
+├── BLT.Rproj
+├── <span style="color:#F8F8F2">DESCRIPTION</span>
+├── NAMESPACE
+├── R
+│   ├── AR1.R
+│   ├── BLT-package.R
+│   ├── data.R
+│   ├── perc_missing.R
+│   └── perc_missing_tidy.R
+├── data
+│   ├── bacon.rda
+│   ├── lettuce.rda
+│   └── tomatoes.rda
+</pre>
+<p><span style="color:#5A5A5A">unchanged</span><br>
+changed<br>
+<span style="color:#2CDDE0">changed by you</span></p>
 </div>
 </div>
 </section>
@@ -416,15 +529,6 @@ names.}</code></pre>
 </div>
 <div class="teach-right">
 <!-- Fix image -->
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="img/img-nouns/create-package.png" width="309"></p>
-</figure>
-</div>
-</div>
-</div>
 </div>
 </section>
 <section id="object-documentation-workflow" class="slide level2">
@@ -507,46 +611,51 @@ names.}</code></pre>
 </section>
 <section id="build-documentation" class="slide level2">
 <h2>Build documentation</h2>
+<div class="teach-left">
 <p>🎬 Run <code>devtools::document()</code> to turn roxygen comments to <code>.Rd</code></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>devtools<span class="sc">::</span><span class="fu">document</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="fragment">
 <div class="sourceCode" id="cb10"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb10-1"><a></a>ℹ Updating BLT documentation</span>
 <span id="cb10-2"><a></a>ℹ Loading BLT</span>
 <span id="cb10-3"><a></a>Writing NAMESPACE</span>
 <span id="cb10-4"><a></a>Writing AR1.Rd</span>
 <span id="cb10-5"><a></a>Warning message:</span>
 <span id="cb10-6"><a></a>[AR1.R:13] @examples requires a value </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="fragment">
 <p>We will that fix later!</p>
 </div>
-</section>
-<section id="take-a-look-1" class="slide level2">
-<h2>Take a look 1</h2>
-<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb11-1"><a></a>├── DESCRIPTION</span>
-<span id="cb11-2"><a></a>├── LICENSE</span>
-<span id="cb11-3"><a></a>├── LICENSE.md</span>
-<span id="cb11-4"><a></a>├── man</span>
-<span id="cb11-5"><a></a>│   └── AR1.Rd </span>
-<span id="cb11-6"><a></a>├── NAMESPACE</span>
-<span id="cb11-7"><a></a>├── R</span>
-<span id="cb11-8"><a></a>│   └── AR1.R</span>
-<span id="cb11-9"><a></a>└── BLT.Rproj</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="teach-right">
+<div class="extrasmall">
+<pre style="color:#5A5A5A">BLT
+├── BLT.Rproj
+├── DESCRIPTION
+├── <span style="color:#F8F8F2">NAMESPACE</span>
+├── R
+│   ├── <span style="color:#2CDDE0">AR1.R</span>
+│   ├── BLT-package.R
+│   ├── perc_missing.R
+│   └── perc_missing_tidy.R
+├── man
+│   └── <span style="color:#F8F8F2">AR1.Rd</span>
+</pre>
+<p><span style="color:#5A5A5A">unchanged</span><br>
+changed<br>
+<span style="color:#2CDDE0">changed by you</span></p>
+</div>
+</div>
 <ul>
 <li><p><code>NAMESPACE</code> now lists the exported function</p></li>
 <li><p><code>man/AR1.Rd</code> has been written</p></li>
 </ul>
 </section>
-<section id="take-a-look-2" class="slide level2">
-<h2>Take a look 2</h2>
+<section id="take-a-look" class="slide level2">
+<h2>Take a look</h2>
 <p>🎬 Load the package : <code>devtools::load_all()</code></p>
 <p><br>
 </p>
 <p>🎬 Preview the documentation with:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>?AR1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>?AR1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <p><br>
@@ -556,15 +665,15 @@ names.}</code></pre>
 </section>
 <section id="fix-warning" class="slide level2">
 <h2>Fix warning</h2>
-<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb13-1"><a></a>Warning message:</span>
-<span id="cb13-2"><a></a>[matches.R:13] @examples requires a value </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb12-1"><a></a>Warning message:</span>
+<span id="cb12-2"><a></a>[matches.R:13] @examples requires a value </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="fragment">
 <p>We need to add a usage example!</p>
 <p>🎬 Under <code>@examples</code>, add one example for using your function</p>
 </div>
 <div class="fragment">
-<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb14-1"><a></a>#' @examples</span>
-<span id="cb14-2"><a></a>#' (AR1(LakeHuron))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb13-1"><a></a>#' @examples</span>
+<span id="cb13-2"><a></a>#' (AR1(LakeHuron))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="look-again" class="slide level2">
@@ -580,22 +689,22 @@ names.}</code></pre>
 <h2>Getting fancier</h2>
 <p>So far, we’ve just written plain text in our documentation. But if you have spent time exploring R help pages, you will remember that there are often links. We can add those to our documentation, as well.</p>
 <div class="small">
-<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb15-1"><a></a>#' Convenience function to make first-order autoregressive model</span>
-<span id="cb15-2"><a></a>#'</span>
-<span id="cb15-3"><a></a>#' Wrapper around [forecast::Arima]</span>
-<span id="cb15-4"><a></a>#</span>
-<span id="cb15-5"><a></a>#' @param y a univariate time series of class `ts`</span>
-<span id="cb15-6"><a></a>#'</span>
-<span id="cb15-7"><a></a>#' @returns See the [`Arima`][forecast::Arima] function in the `forecast` package</span>
-<span id="cb15-8"><a></a>#' @export</span>
-<span id="cb15-9"><a></a>#'</span>
-<span id="cb15-10"><a></a>#' @examples</span>
-<span id="cb15-11"><a></a>#' (AR1(LakeHuron))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb14-1"><a></a>#' Convenience function to make first-order autoregressive model</span>
+<span id="cb14-2"><a></a>#'</span>
+<span id="cb14-3"><a></a>#' Wrapper around [forecast::Arima]</span>
+<span id="cb14-4"><a></a>#</span>
+<span id="cb14-5"><a></a>#' @param y a univariate time series of class `ts`</span>
+<span id="cb14-6"><a></a>#'</span>
+<span id="cb14-7"><a></a>#' @returns See the [`Arima`][forecast::Arima] function in the `forecast` package</span>
+<span id="cb14-8"><a></a>#' @export</span>
+<span id="cb14-9"><a></a>#'</span>
+<span id="cb14-10"><a></a>#' @examples</span>
+<span id="cb14-11"><a></a>#' (AR1(LakeHuron))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><a href="https://roxygen2.r-lib.org/articles/rd-formatting.html?q=link#function-links">function links</a></p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">document</span>()</span>
-<span id="cb16-2"><a></a><span class="fu">load_all</span>()</span>
-<span id="cb16-3"><a></a><span class="fu">check</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="fu">document</span>()</span>
+<span id="cb15-2"><a></a><span class="fu">load_all</span>()</span>
+<span id="cb15-3"><a></a><span class="fu">check</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="more-documentation" class="slide level2">
 <h2>More documentation</h2>
@@ -620,39 +729,55 @@ check()</code></pre>
 <h2>Package-level help page</h2>
 <p>🎬 What happens if you do:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a>?BLT</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a>?BLT</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
-<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb19-1"><a></a>No documentation for 'BLT' in specified packages and libraries:</span>
-<span id="cb19-2"><a></a>you could try '??BLT'</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb18-1"><a></a>No documentation for 'BLT' in specified packages and libraries:</span>
+<span id="cb18-2"><a></a>you could try '??BLT'</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <p>Contrast that with</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>?ImputeTS</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a>?ImputeTS</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
 <section id="package-level-help-page-2" class="slide level2">
 <h2>Package-level help page</h2>
+<div class="teach-left">
 <p>We can fix this with <code>use_package_doc()</code><br>
 </p>
-<div class="fragment">
 <p>🎬 Add a package-level help page:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a>usethis<span class="sc">::</span><span class="fu">use_package_doc</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>usethis<span class="sc">::</span><span class="fu">use_package_doc</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-<div class="fragment">
 <p><br>
 </p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb22-1"><a></a>✔ Writing 'R/BLT-package.R'</span>
-<span id="cb22-2"><a></a>• Modify 'R/BLT-package.R'</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="fragment">
+<div class="sourceCode" id="cb21"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb21-1"><a></a>✔ Writing 'R/BLT-package.R'</span>
+<span id="cb21-2"><a></a>• Modify 'R/BLT-package.R'</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><br>
 </p>
 <p>🎬 Run <code>devtools::document()</code> then <code>devtools::load_all()</code> followed by <code>?BLT</code></p>
+</div>
+<div class="teach-right">
+<div class="extrasmall">
+<pre style="color:#5A5A5A">BLT
+├── BLT.Rproj
+├── DESCRIPTION
+├── NAMESPACE
+├── R
+│   ├── AR1.R
+│   ├── <span style="color:#F8F8F2">BLT-package.R</span>
+│   ├── perc_missing.R
+│   └── perc_missing_tidy.R
+├── man
+│   ├──  AR1.Rd
+│   └── <span style="color:#F8F8F2">BLT-package.Rd</span>
+</pre>
+<p><span style="color:#5A5A5A">unchanged</span><br>
+changed<br>
+<span style="color:#2CDDE0">changed by you</span></p>
+</div>
 </div>
 </section>
 <section id="devtoolscheck" class="slide level2">
@@ -663,7 +788,7 @@ check()</code></pre>
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a>devtools<span class="sc">::</span><span class="fu">check</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>devtools<span class="sc">::</span><span class="fu">check</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
@@ -681,7 +806,7 @@ check()</code></pre>
 <h2>Documenting data</h2>
 <p>Data gets documented in the <code>data.R</code> file. How can we create and open this file for editing?</p>
 <div class="fragment">
-<div class="sourceCode" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a><span class="fu">use_r</span>(<span class="st">"data"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a><span class="fu">use_r</span>(<span class="st">"data"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Unfortunately, the trick to insert Roxygen skeleton doesn’t work with data, so we have to do the documentation more manually.</p>
 </div>
 </section>
@@ -709,6 +834,7 @@ check()</code></pre>
 </section>
 <section id="documenting-data-your-turn" class="slide level2">
 <h2>Documenting data (your turn)</h2>
+<div class="teach-left">
 <div class="small">
 <pre><code>#' FRED bacon price data
 #'
@@ -725,6 +851,29 @@ check()</code></pre>
 #' }
 #' @source &lt;https://fred.stlouisfed.org/series/APU0000704111&gt;
 "bacon"</code></pre>
+</div>
+</div>
+<div class="teach-right">
+<div class="extrasmall">
+<pre style="color:#5A5A5A">BLT
+├── BLT.Rproj
+├── DESCRIPTION
+├── NAMESPACE
+├── R
+│   ├── AR1.R
+│   ├── BLT-package.R
+│   ├── <span style="color:#2CDDE0">data.R</span>
+│   ├── perc_missing.R
+│   └── perc_missing_tidy.R
+├── man
+│   ├──  AR1.Rd
+│   ├──  BLT-package.Rd
+│   └── <span style="color:#F8F8F2">bacon.Rd</span>
+</pre>
+<p><span style="color:#5A5A5A">unchanged</span><br>
+changed<br>
+<span style="color:#2CDDE0">changed by you</span></p>
+</div>
 </div>
 </section>
 <section id="commit-3" class="slide level2">
@@ -755,13 +904,13 @@ check()</code></pre>
 <div class="fragment">
 <p>Instead of using:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a>usethis<span class="sc">::</span><span class="fu">use_package</span>(<span class="st">"imputeTS"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a>usethis<span class="sc">::</span><span class="fu">use_package</span>(<span class="st">"imputeTS"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="fragment">
 <p>we can use</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a>usethis<span class="sc">::</span><span class="fu">use_import_from</span>(<span class="st">"imputeTS"</span>, <span class="st">"statsNA"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a>usethis<span class="sc">::</span><span class="fu">use_import_from</span>(<span class="st">"imputeTS"</span>, <span class="st">"statsNA"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="fragment">
@@ -777,13 +926,13 @@ check()</code></pre>
 <h2><code>@importFrom pkg fun</code></h2>
 <p>🎬 Import <code>tibble()</code> from <strong><code>tibble</code></strong>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a>usethis<span class="sc">::</span><span class="fu">use_import_from</span>(<span class="st">"imputeTS"</span>, <span class="st">"statsNA"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a>usethis<span class="sc">::</span><span class="fu">use_import_from</span>(<span class="st">"imputeTS"</span>, <span class="st">"statsNA"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
-<div class="sourceCode" id="cb31"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb31-1"><a></a>✔ Adding 'imputeTS' to Imports field in DESCRIPTION</span>
-<span id="cb31-2"><a></a>✔ Adding '@importFrom imputeTS statsNA' to 'R/BLT-package.R'</span>
-<span id="cb31-3"><a></a>✔ Writing 'NAMESPACE'</span>
-<span id="cb31-4"><a></a>✔ Loading BLT</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb30-1"><a></a>✔ Adding 'imputeTS' to Imports field in DESCRIPTION</span>
+<span id="cb30-2"><a></a>✔ Adding '@importFrom imputeTS statsNA' to 'R/BLT-package.R'</span>
+<span id="cb30-3"><a></a>✔ Writing 'NAMESPACE'</span>
+<span id="cb30-4"><a></a>✔ Loading BLT</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="importing-functions-1" class="slide level2">
@@ -797,8 +946,8 @@ check()</code></pre>
 <li><p>Might provide data for examples</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a>usethis<span class="sc">::</span><span class="fu">use_package</span>(<span class="st">"package-name"</span>,</span>
-<span id="cb32-2"><a></a>                     <span class="at">type =</span> <span class="st">"Suggests"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a>usethis<span class="sc">::</span><span class="fu">use_package</span>(<span class="st">"package-name"</span>,</span>
+<span id="cb31-2"><a></a>                     <span class="at">type =</span> <span class="st">"Suggests"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li><p>Packages listed in Suggests are not automatically installed along with your package.</p></li>
@@ -866,13 +1015,13 @@ check()</code></pre>
 <h2>Add a <code>README.Rmd</code></h2>
 <p>🎬 Add a <code>README.Rmd</code> with:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a>usethis<span class="sc">::</span><span class="fu">use_readme_rmd</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a>usethis<span class="sc">::</span><span class="fu">use_readme_rmd</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
-<div class="sourceCode" id="cb34"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb34-1"><a></a>✔ Writing 'README.Rmd'</span>
-<span id="cb34-2"><a></a>✔ Adding '^README\\.Rmd$' to '.Rbuildignore'</span>
-<span id="cb34-3"><a></a>• Modify 'README.Rmd'</span>
-<span id="cb34-4"><a></a>✔ Writing '.git/hooks/pre-commit'</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb33-1"><a></a>✔ Writing 'README.Rmd'</span>
+<span id="cb33-2"><a></a>✔ Adding '^README\\.Rmd$' to '.Rbuildignore'</span>
+<span id="cb33-3"><a></a>• Modify 'README.Rmd'</span>
+<span id="cb33-4"><a></a>✔ Writing '.git/hooks/pre-commit'</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="template" class="slide level2">
@@ -889,14 +1038,14 @@ check()</code></pre>
 <section id="section" class="slide level2">
 <h2></h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb35-1"><a></a><span class="in">```{r}</span></span>
-<span id="cb35-2"><a></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(</span>
-<span id="cb35-3"><a></a>  <span class="at">collapse =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb35-4"><a></a>  <span class="at">comment =</span> <span class="st">"#&gt;"</span>,</span>
-<span id="cb35-5"><a></a>  <span class="at">fig.path =</span> <span class="st">"man/figures/README-"</span>,</span>
-<span id="cb35-6"><a></a>  <span class="at">out.width =</span> <span class="st">"100%"</span></span>
-<span id="cb35-7"><a></a>)</span>
-<span id="cb35-8"><a></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb34-1"><a></a><span class="in">```{r}</span></span>
+<span id="cb34-2"><a></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(</span>
+<span id="cb34-3"><a></a>  <span class="at">collapse =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb34-4"><a></a>  <span class="at">comment =</span> <span class="st">"#&gt;"</span>,</span>
+<span id="cb34-5"><a></a>  <span class="at">fig.path =</span> <span class="st">"man/figures/README-"</span>,</span>
+<span id="cb34-6"><a></a>  <span class="at">out.width =</span> <span class="st">"100%"</span></span>
+<span id="cb34-7"><a></a>)</span>
+<span id="cb34-8"><a></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="render" class="slide level2">
@@ -906,12 +1055,12 @@ check()</code></pre>
 <div class="fragment">
 <p>🎬 Render with <code>README.md</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a></a>devtools<span class="sc">::</span><span class="fu">build_readme</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a>devtools<span class="sc">::</span><span class="fu">build_readme</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="fragment">
-<div class="sourceCode" id="cb37"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb37-1"><a></a>ℹ Installing BLT in temporary library</span>
-<span id="cb37-2"><a></a>ℹ Building /Users/amcnamara2/BLT/README.Rmd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb36-1"><a></a>ℹ Installing BLT in temporary library</span>
+<span id="cb36-2"><a></a>ℹ Building /Users/amcnamara2/BLT/README.Rmd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="devtoolsbuild_readme" class="slide level2">
@@ -932,14 +1081,14 @@ check()</code></pre>
 <section id="an-answer" class="slide level2">
 <h2>An answer</h2>
 <p>Complete: “The goal of BLT is to …”</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb38-1"><a></a>The goal of BLT is to provide helper functions for time series analysis, to work on data about bacon, lettuce, and tomatoes. </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb37-1"><a></a>The goal of BLT is to provide helper functions for time series analysis, to work on data about bacon, lettuce, and tomatoes. </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="fragment">
 <p>Add: an example with <code>AR1()</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb39-1"><a></a><span class="in">```{r example}</span></span>
-<span id="cb39-2"><a></a><span class="fu">library</span>(BLT)</span>
-<span id="cb39-3"><a></a><span class="fu">AR1</span>(tomatoes<span class="sc">$</span>value)</span>
-<span id="cb39-4"><a></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb38-1"><a></a><span class="in">```{r example}</span></span>
+<span id="cb38-2"><a></a><span class="fu">library</span>(BLT)</span>
+<span id="cb38-3"><a></a><span class="fu">AR1</span>(tomatoes<span class="sc">$</span>value)</span>
+<span id="cb38-4"><a></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="fragment">
@@ -1043,21 +1192,21 @@ jobs:
 <h2>Add a vignette</h2>
 <p>🎬 Add a vignette called “BLT” with</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a></a>usethis<span class="sc">::</span><span class="fu">use_vignette</span>(<span class="st">"BLT"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a></a>usethis<span class="sc">::</span><span class="fu">use_vignette</span>(<span class="st">"BLT"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="whats-happened" class="slide level2">
 <h2>What’s happened?</h2>
 <div class="small">
-<div class="sourceCode" id="cb42"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb42-1"><a></a>✔ Setting active project to "/Users/amcnamara2/BLT".</span>
-<span id="cb42-2"><a></a>✔ Adding knitr to Suggests field in DESCRIPTION.</span>
-<span id="cb42-3"><a></a>✔ Adding "inst/doc" to .gitignore.</span>
-<span id="cb42-4"><a></a>✔ Adding rmarkdown to Suggests field in DESCRIPTION.</span>
-<span id="cb42-5"><a></a>✔ Adding "knitr" to VignetteBuilder.</span>
-<span id="cb42-6"><a></a>✔ Creating vignettes/.</span>
-<span id="cb42-7"><a></a>✔ Adding "*.html" and "*.R" to vignettes/.gitignore.</span>
-<span id="cb42-8"><a></a>✔ Writing vignettes/BLT.Rmd.</span>
-<span id="cb42-9"><a></a>☐ Modify vignettes/BLT.Rmd.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb41-1"><a></a>✔ Setting active project to "/Users/amcnamara2/BLT".</span>
+<span id="cb41-2"><a></a>✔ Adding knitr to Suggests field in DESCRIPTION.</span>
+<span id="cb41-3"><a></a>✔ Adding "inst/doc" to .gitignore.</span>
+<span id="cb41-4"><a></a>✔ Adding rmarkdown to Suggests field in DESCRIPTION.</span>
+<span id="cb41-5"><a></a>✔ Adding "knitr" to VignetteBuilder.</span>
+<span id="cb41-6"><a></a>✔ Creating vignettes/.</span>
+<span id="cb41-7"><a></a>✔ Adding "*.html" and "*.R" to vignettes/.gitignore.</span>
+<span id="cb41-8"><a></a>✔ Writing vignettes/BLT.Rmd.</span>
+<span id="cb41-9"><a></a>☐ Modify vignettes/BLT.Rmd.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="edit-vignettesblt.rmd" class="slide level2">
@@ -1068,29 +1217,29 @@ jobs:
 <h2>An answer</h2>
 <div class="extrasmall">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a></a><span class="fu">library</span>(BLT)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a></a><span class="fu">library</span>(BLT)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The goal of BLT is to provide some time series helper functions, which allow you to work with data on bacon, lettuce, and tomatoes.</p>
 <p>The package contains three sample datasets from FRED</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a></a><span class="fu">data</span>(bacon)</span>
-<span id="cb44-2"><a></a><span class="fu">data</span>(lettuce)</span>
-<span id="cb44-3"><a></a><span class="fu">data</span>(tomatoes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a></a><span class="fu">data</span>(bacon)</span>
+<span id="cb43-2"><a></a><span class="fu">data</span>(lettuce)</span>
+<span id="cb43-3"><a></a><span class="fu">data</span>(tomatoes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The function <code>AR1</code> is a convenience function to make a first-order autoregressive model. We can use this to model the bacon data</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a></a><span class="fu">AR1</span>(bacon<span class="sc">$</span>value)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a></a><span class="fu">AR1</span>(bacon<span class="sc">$</span>value)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The function perc_missing allows you to compute the percent of a time series that is missing</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a></a><span class="fu">perc_missing</span>(bacon<span class="sc">$</span>value)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a></a><span class="fu">perc_missing</span>(bacon<span class="sc">$</span>value)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Or, you can use the tidy version, <code>perc_missing_tidy()</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a></a><span class="fu">perc_missing_tidy</span>(bacon, value)</span>
-<span id="cb47-2"><a></a></span>
-<span id="cb47-3"><a></a>bacon <span class="sc">|&gt;</span></span>
-<span id="cb47-4"><a></a>  <span class="fu">perc_missing_tidy</span>(value)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a></a><span class="fu">perc_missing_tidy</span>(bacon, value)</span>
+<span id="cb46-2"><a></a></span>
+<span id="cb46-3"><a></a>bacon <span class="sc">|&gt;</span></span>
+<span id="cb46-4"><a></a>  <span class="fu">perc_missing_tidy</span>(value)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
@@ -1098,11 +1247,11 @@ jobs:
 <h2>Preview the Vignette</h2>
 <p>🎬 Build the vignette with:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a></a>devtools<span class="sc">::</span><span class="fu">build_rmd</span>(<span class="st">"vignettes/BLT.Rmd"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a></a>devtools<span class="sc">::</span><span class="fu">build_rmd</span>(<span class="st">"vignettes/BLT.Rmd"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="sourceCode" id="cb49"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb49-1"><a></a>ℹ Installing BLT in temporary library</span>
-<span id="cb49-2"><a></a>ℹ Building /Users/amcnamara2/BLT/vignettes/BLT.Rmd</span>
-<span id="cb49-3"><a></a>[WARNING] Deprecated: --highlight-style. Use --syntax-highlighting instead.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb48-1"><a></a>ℹ Installing BLT in temporary library</span>
+<span id="cb48-2"><a></a>ℹ Building /Users/amcnamara2/BLT/vignettes/BLT.Rmd</span>
+<span id="cb48-3"><a></a>[WARNING] Deprecated: --highlight-style. Use --syntax-highlighting instead.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>(I’m choosing to ignore this warning– it sounds like something for the <code>devtools</code> developers, not me.)</p>
 </section>
 <section id="commit-6" class="slide level2">

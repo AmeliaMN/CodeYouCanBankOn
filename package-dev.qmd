@@ -96,8 +96,9 @@ Figure adapted from [Packages](https://github.com/hfrick/presentations/blob/mast
 ## Overview
 
 ::: {.teach-left}
-```{r verb-base-2, echo=FALSE, fig.align='left'}
-knitr::include_graphics("img/img-verbs/base.png")
+```{r}
+#| ref.label: verb-base
+#| echo: false
 ```
 :::
 
@@ -206,22 +207,7 @@ create_package("../BLT") # set the path to suit you
 :::
 
 ::: {.teach-right} 
-::: extrasmall
-<pre>
-BLT
-├── BLT.Rproj
-├── DESCRIPTION
-├── NAMESPACE
-└── R
-</pre>
-
-<span style="color:#5A5A5A">unchanged</span>
-\
-changed
-\
-<span style="color:#2CDDE0">changed by you</span>
-:::
-
+{{< include img/tree-diagrams/create-framework.qmd >}}
 :::
 
 ## Create framework
@@ -234,23 +220,7 @@ knitr::include_graphics("img/img-verbs/framework.png")
 
 
 ::: {.teach-right} 
-::: extrasmall
-<pre>
-BLT
-├── .gitignore
-├── .Rbuildignore
-├── BLT.Rproj
-├── <span style="color:#5A5A5A">DESCRIPTION</span>
-├── <span style="color:#5A5A5A">NAMESPACE</span>
-└── R
-</pre>
-
-<span style="color:#5A5A5A">unchanged</span>
-\
-changed
-\
-<span style="color:#2CDDE0">changed by you</span>
-:::
+{{< include img/tree-diagrams/create-framework.qmd >}}
 
 :::
 
@@ -271,23 +241,7 @@ use_git()
 :::
 
 ::: {.teach-right} 
-::: extrasmall
-<pre>
-BLT
-├── .gitignore
-├── .Rbuildignore
-├── BLT.Rproj
-├── <span style="color:#5A5A5A">DESCRIPTION</span>
-├── <span style="color:#5A5A5A">NAMESPACE</span>
-└── R
-</pre>
-
-<span style="color:#5A5A5A">unchanged</span>
-\
-changed
-\
-<span style="color:#2CDDE0">changed by you</span>
-:::
+{{< include img/tree-diagrams/create-framework.qmd >}}
 
 :::
 
@@ -363,32 +317,13 @@ knitr::include_graphics("img/img-verbs/develop.png")
 
 
 ::: {.teach-right} 
-::: extrasmall
-<pre>
-BLT
-├── .gitignore
-├── .Rbuildignore
-├── BLT.Rproj
-├── <span style="color:#5A5A5A">DESCRIPTION</span>
-├── <span style="color:#5A5A5A">NAMESPACE</span>
-├── R
-│   └── <span style="color:#2CDDE0">AR1.R</span>
-</pre>
-
-<span style="color:#5A5A5A">unchanged</span>
-\
-changed
-\
-<span style="color:#2CDDE0">changed by you</span>
-:::
-
-
+{{< include img/tree-diagrams/develop.qmd >}}
 
 :::
 
 
 
-## Develop (your turn) {.smaller}
+## Develop (your turn) 
 
 There's a **`usethis`** helper for adding `.R` files!
 
@@ -418,10 +353,7 @@ AR1 <- function(y) {
 
 ::: {.teach-right} 
 
-```{r}
-#| ref.label: noun-develop
-#| echo: false
-```
+{{< include img/tree-diagrams/develop.qmd >}}
 :::
 
 
@@ -447,10 +379,7 @@ AR1 <- function(y) {
 :::
 
 ::: {.teach-right} 
-```{r}
-#| ref.label: noun-develop
-#| echo: false
-```
+{{< include img/tree-diagrams/develop.qmd >}}
 :::
 
 
@@ -482,10 +411,7 @@ check()
 :::
 
 ::: {.teach-right} 
-```{r}
-#| ref.label: noun-develop
-#| echo: false
-```
+{{< include img/tree-diagrams/develop.qmd >}}
 :::
 
 ## Develop (your turn) {.smaller}
@@ -563,9 +489,11 @@ Levels of dependency
 
 ## `usethis::use_package()`
 
+
+::: {.teach-left}
 🎬 Use `usethis::use_package()` to add the **`forecast`** package to `Imports`
 
-. . .
+
 
 ```r
 usethis::use_package("forecast")
@@ -573,7 +501,7 @@ usethis::use_package("forecast")
 
 \
 
-. . .
+
 
 ``` default
 ✔ Adding forecast to Imports field in DESCRIPTION
@@ -583,6 +511,14 @@ usethis::use_package("forecast")
 \
 
 Look how your `DESCRIPTION` file changed!
+
+::: 
+
+::: {.teach-right}
+
+{{< include img/tree-diagrams/use-package.qmd >}}
+
+:::
 
 ## `usethis::use_package()`
 
@@ -811,9 +747,10 @@ Of course, `usethis` has a helper function for this, `usethis::use_data()`.
 
 ## Adding data to packages (your turn)
 
+::: {.teach-left}
 Add the bacon data to the package,
 
-```{r, eval=FALSE}
+```r
 usethis::use_data(bacon)
 ```
 
@@ -824,8 +761,17 @@ usethis::use_data(bacon)
 ✔ Saving "bacon" to "data/bacon.rda".
 ☐ Document your data (see <https://r-pkgs.org/data.html>).
 ```
+:::
 
+::: {.teach-right}
 
+{{< include img/tree-diagrams/use-data.qmd >}}
+
+:::
+
+## Adding data to packages (your turn)
+
+Let's also add lettuce and tomato data, for completeness. 
 
 ## Commit
 
@@ -836,6 +782,28 @@ Now would be a good time to commit your changes.
 
 
 ![Jason Long, CC BY 3.0 \<https://creativecommons.org/licenses/by/3.0\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg){fig-alt="Git icon" width="300"} 
+
+## Playing the whole game
+
+::: {.teach-left}
+```{r}
+#| ref.label: verb-base
+#| echo: false
+```
+
+:::
+
+::: footer 
+Figure adapted from [Packages](https://github.com/hfrick/presentations/blob/master/2019-03-12_package_building/2019-03-12_package_building.pdf), by Hannah Frick
+::: 
+
+
+
+::: {.teach-right} 
+{{< include img/tree-diagrams/all.qmd >}}
+:::
+
+
 
 
 ## Resources
