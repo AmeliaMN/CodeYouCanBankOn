@@ -128,7 +128,11 @@ knitr::include_graphics("img/img-verbs/create-package.png")
 :::
 
 ::: {.teach-right} 
-```{r noun-create-package, echo=FALSE, fig.align='right'}
+```{r}
+#| label: noun-create-package
+#| echo: false
+#| eval: true
+#| fig-align: right
 knitr::include_graphics("img/img-nouns/create-package.png")
 ```
 :::
@@ -477,41 +481,92 @@ check()
 :::
 
 
-## Develop (your turn)
+## Package dependencies
 
+Our warnings are because we have used packages that we have not declared officially.
 
-```r
-use_package("forecast")
+\
+
+We need to document our package dependencies
+
+\
+
+. . .
+
+Our users, and the package installation machinery, need to know what our package depends on before installing
+
+## Package dependencies
+
+Levels of dependency
+
+- **Imports:** must be installed for your package to work. If they're not, they will get installed.
+
+. . .
+
+- **Suggests:** used by your package, but not required. Might provide data for examples, to run tests, build vignettes.
+
+. . .
+
+- **Depends:** Avoid where possible. When your package requires a specific version of R, e.g. `Depends: R (>= 3.4.0)`. Think critically: downstream effects on packages that depend on your package.
+
+## 
+
+``` default
+❯ checking dependencies in R code ... WARNING
+  '::' or ':::' imports not declared from:
+    'forecast' 'Arima'
 ```
 
-We need to specify that *our* package will use the **forecast** package:
+## Package dependencies
 
-- indicate a stronger reliance using `Imports` (default)
+**`usethis`** again!
 
-- indicate a weaker reliance using `Suggests` (test for package in functions)
+. . .
 
-Dependency management is a long-debated topic in the R community:
+`use_package(package, type = "Imports")`
 
-- for now, if you need to rely on a package, do it
+- Type -- one of "Imports", "Depends", "Suggests", "Enhances", or "LinkingTo"
 
+. . .
 
+- The default is "Imports"
 
-## Develop 
+## `usethis::use_package()`
 
-```r
-use_package("forecast")
-```
+🎬 Use `usethis::use_package()` to add the **`forecast`** package to `Imports`
 
-```r
-✔ Adding forecast to Imports field in DESCRIPTION.
-☐ Refer to functions with `forecast::fun()`.
-```
+. . .
 
 ```r
-document()
-load_all()
-check()
+usethis::use_package("forecast")
 ```
+
+\
+
+. . .
+
+``` default
+✔ Adding forecast to Imports field in DESCRIPTION
+• Refer to functions with `forecast::fun()`
+```
+
+\
+
+Look how your `DESCRIPTION` file changed!
+
+## `usethis::use_package()`
+
+Note: we get reminded to "Refer to functions with `forecast::fun()`"
+
+
+. . .
+
+That is, we do NOT use `library(forecast)` to make functions available to our package.
+
+## `devtools::check()`
+
+🎬 Run `devtools::check()` on your package again
+
 
 
 ## Check
@@ -751,8 +806,6 @@ Now would be a good time to commit your changes.
 
 
 ![Jason Long, CC BY 3.0 \<https://creativecommons.org/licenses/by/3.0\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg){fig-alt="Git icon" width="300"} 
-
-
 
 
 ## Resources
