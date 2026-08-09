@@ -35,6 +35,48 @@
     "text": "Materials for the Federal Reserve training August 10, 11, and 17 Topics: Package building, automated testing, designing code\nTentative schedule\n\nAugust 10th\n\n9-10 am intro, review\n10 am - 12 pm package dev\n12-1 pm lunch break\n1-4 pm more package dev\n\nAugust 11th\n\n9 am - 12 pm documentation\n\nAugust 17th\n\n9 am - 12 pm testing\n12-1 pm lunch break\n1-4 pm design"
   },
   {
+    "objectID": "design.html#best-practices-for-scientific-computing",
+    "href": "design.html#best-practices-for-scientific-computing",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Best practices for scientific computing",
+    "text": "Best practices for scientific computing\n\n\n\nWrite programs for people, not computers.\n\nA program should not require its readers to hold more than a handful of facts in memory at once.\nMake names consistent, distinctive, and meaningful.\nMake code style and formatting consistent.\n\nLet the computer do the work.\n\nMake the computer repeat tasks.\nSave recent commands in a file for re-use.\nUse a build tool to automate workflows.\n\n\n\n\nMake incremental changes.\n\nWork in small steps with frequent feedback and course correction.\nUse a version control system.\nPut everything that has been created manually in version control.\n\nDon’t repeat yourself (or others).\n\nEvery piece of data must have a single authoritative representation in the system.\nModularize code rather than copying and pasting.\nRe-use code instead of rewriting it.\n\n\n\nBest Practices for Scientific Computing\nGood enough practices in scientific computing\nhttps://speakerdeck.com/jennybc/zen-and-the-art-of-workflow-maintenance?slide=59"
+  },
+  {
+    "objectID": "design.html#best-practices-for-scientific-computing-1",
+    "href": "design.html#best-practices-for-scientific-computing-1",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Best practices for scientific computing",
+    "text": "Best practices for scientific computing\n\n\n\nPlan for mistakes.\n\nAdd assertions to programs to check their operation.\nUse an off-the-shelf unit testing library.\nTurn bugs into test cases.\nUse a symbolic debugger.\n\nOptimize software only after it works correctly.\n\nUse a profiler to identify bottlenecks.\nWrite code in the highest-level language possible.\n\n\n\n\nDocument design and purpose, not mechanics.\n\nDocument interfaces and reasons, not implementations.\nRefactor code in preference to explaining how it works.\nEmbed the documentation for a piece of software in that software.\n\nCollaborate.\n\nUse pre-merge code reviews.\nUse pair programming when bringing someone new up to speed and when tackling particularly tricky problems.\nUse an issue tracking tool.\n\n\n\nBest Practices for Scientific Computing"
+  },
+  {
+    "objectID": "design.html#good-enough-practices-for-scientific-computing",
+    "href": "design.html#good-enough-practices-for-scientific-computing",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Good enough practices for scientific computing",
+    "text": "Good enough practices for scientific computing\n\n\n\nData management\n\nSave the raw data.\nEnsure that raw data are backed up in more than one location.\nCreate the data you wish to see in the world.\nCreate analysis-friendly data.\nRecord all the steps used to process data.\nAnticipate the need to use multiple tables, and use a unique identifier for every record.\nSubmit data to a reputable DOI-issuing repository so that others can access and cite it.\n\nManuscripts\n\nWrite manuscripts using online tools with rich formatting, change tracking, and reference management.\nWrite the manuscript in a plain text format that permits version control.\n\n\n\n\nSoftware\n\nPlace a brief explanatory comment at the start of every program.\nDecompose programs into functions.\nBe ruthless about eliminating duplication.\nAlways search for well-maintained software libraries that do what you need.\nTest libraries before relying on them.\nGive functions and variables meaningful names.\nMake dependencies and requirements explicit.\nDo not comment and uncomment sections of code to control a program’s behavior.\nProvide a simple example or test data set.\nSubmit code to a reputable DOI-issuing repository.\n\n\n\nGood enough practices in scientific computing"
+  },
+  {
+    "objectID": "design.html#good-enough-practices-for-scientific-computing-1",
+    "href": "design.html#good-enough-practices-for-scientific-computing-1",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Good enough practices for scientific computing",
+    "text": "Good enough practices for scientific computing\n\n\n\nCollaboration\n\nCreate an overview of your project.\nCreate a shared “to-do” list for the project.\nDecide on communication strategies.\nMake the license explicit.\nMake the project citable.\n\nProject organization\n\nPut each project in its own directory, which is named after the project.\nPut text documents associated with the project in the doc directory.\nPut raw data and metadata in a data directory and files generated during cleanup and analysis in a results directory.\nPut project source code in the src directory.\n\n\n\n\n\nPut external scripts or compiled programs in the bin directory.\nName all files to reflect their content or function.\n\nKeeping track of changes\n\nBack up (almost) everything created by a human being as soon as it is created.\nKeep changes small.\nShare changes frequently.\nCreate, maintain, and use a checklist for saving and sharing changes to the project.\nStore each project in a folder that is mirrored off the researcher’s working machine.\nAdd a file called CHANGELOG.txt to the project’s docs subfolder.\nCopy the entire project whenever a significant change has been made.\nUse a version control system.\n\n\n\nGood enough practices in scientific computing"
+  },
+  {
+    "objectID": "design.html#everything-i-know-is-from-jenny-bryan",
+    "href": "design.html#everything-i-know-is-from-jenny-bryan",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "“Everything I know is from Jenny Bryan”",
+    "text": "“Everything I know is from Jenny Bryan”\n\n\n\nmytwitterarchive\n\n\nEIKSFJB hex sticker"
+  },
+  {
+    "objectID": "design.html#rmlist-ls---computer-on-fire",
+    "href": "design.html#rmlist-ls---computer-on-fire",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "rm(list = ls()) -> computer on fire",
+    "text": "rm(list = ls()) -&gt; computer on fire\n\nIf the first line of your R script is\nsetwd(\"C:\\Users\\jenny\\path\\that\\only\\I\\have\")\nI will come into your office and SET YOUR COMPUTER ON FIRE 🔥.\nIf the first line of your R script is\nrm(list = ls())\nI will come into your office and SET YOUR COMPUTER ON FIRE 🔥.\n\n\n\n\nJenny Bryan, Project-oriented workflow\n\n\n\nVia Zen And The aRt Of Workflow Maintenance,"
+  },
+  {
     "objectID": "design.html#pass-the-dots",
     "href": "design.html#pass-the-dots",
     "title": "💻 🏦 Code You Can Bank On",

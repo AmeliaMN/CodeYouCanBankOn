@@ -204,11 +204,196 @@ Amelia McNamara
 </div>
 
 </section>
-<section class="slide level2">
+<section>
+<section id="best-and-good-enough" class="title-slide slide level1 center">
+<h1>Best and good enough</h1>
 
+</section>
+<section id="best-practices-for-scientific-computing" class="slide level2">
+<h2>Best practices for scientific computing</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="small">
+<p>Write programs for people, not computers.</p>
+<ul>
+<li>A program should not require its readers to hold more than a handful of facts in memory at once.</li>
+<li>Make names consistent, distinctive, and meaningful.</li>
+<li>Make code style and formatting consistent.</li>
+</ul>
+<p>Let the computer do the work.</p>
+<ul>
+<li>Make the computer repeat tasks.</li>
+<li>Save recent commands in a file for re-use.</li>
+<li>Use a build tool to automate workflows.</li>
+</ul>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="small">
+<p>Make incremental changes.</p>
+<ul>
+<li>Work in small steps with frequent feedback and course correction.</li>
+<li>Use a version control system.</li>
+<li>Put everything that has been created manually in version control.</li>
+</ul>
+<p>Don’t repeat yourself (or others).</p>
+<ul>
+<li>Every piece of data must have a single authoritative representation in the system.</li>
+<li>Modularize code rather than copying and pasting.</li>
+<li>Re-use code instead of rewriting it.</li>
+</ul>
+</div>
+</div></div>
 <p><a href="https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745">Best Practices for Scientific Computing</a></p>
 <p><a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510">Good enough practices in scientific computing</a></p>
 <p>https://speakerdeck.com/jennybc/zen-and-the-art-of-workflow-maintenance?slide=59</p>
+</section>
+<section id="best-practices-for-scientific-computing-1" class="slide level2">
+<h2>Best practices for scientific computing</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="small">
+<p>Plan for mistakes.</p>
+<ul>
+<li>Add assertions to programs to check their operation.</li>
+<li>Use an off-the-shelf unit testing library.</li>
+<li>Turn bugs into test cases.</li>
+<li>Use a symbolic debugger.</li>
+</ul>
+<p>Optimize software only after it works correctly.</p>
+<ul>
+<li>Use a profiler to identify bottlenecks.</li>
+<li>Write code in the highest-level language possible.</li>
+</ul>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="small">
+<p>Document design and purpose, not mechanics.</p>
+<ul>
+<li>Document interfaces and reasons, not implementations.</li>
+<li>Refactor code in preference to explaining how it works.</li>
+<li>Embed the documentation for a piece of software in that software.</li>
+</ul>
+<p>Collaborate.</p>
+<ul>
+<li>Use pre-merge code reviews.</li>
+<li>Use pair programming when bringing someone new up to speed and when tackling particularly tricky problems.</li>
+<li>Use an issue tracking tool.</li>
+</ul>
+</div>
+</div></div>
+<p><a href="https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745">Best Practices for Scientific Computing</a></p>
+</section>
+<section id="good-enough-practices-for-scientific-computing" class="slide level2">
+<h2>Good enough practices for scientific computing</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="small">
+<p>Data management</p>
+<ul>
+<li>Save the raw data.</li>
+<li>Ensure that raw data are backed up in more than one location.</li>
+<li>Create the data you wish to see in the world.</li>
+<li>Create analysis-friendly data.</li>
+<li>Record all the steps used to process data.</li>
+<li>Anticipate the need to use multiple tables, and use a unique identifier for every record.</li>
+<li>Submit data to a reputable DOI-issuing repository so that others can access and cite it.</li>
+</ul>
+<p>Manuscripts</p>
+<ul>
+<li>Write manuscripts using online tools with rich formatting, change tracking, and reference management.</li>
+<li>Write the manuscript in a plain text format that permits version control.</li>
+</ul>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="small">
+<p>Software</p>
+<ul>
+<li>Place a brief explanatory comment at the start of every program.</li>
+<li>Decompose programs into functions.</li>
+<li>Be ruthless about eliminating duplication.</li>
+<li>Always search for well-maintained software libraries that do what you need.</li>
+<li>Test libraries before relying on them.</li>
+<li>Give functions and variables meaningful names.</li>
+<li>Make dependencies and requirements explicit.</li>
+<li>Do not comment and uncomment sections of code to control a program’s behavior.</li>
+<li>Provide a simple example or test data set.</li>
+<li>Submit code to a reputable DOI-issuing repository.</li>
+</ul>
+</div>
+</div></div>
+<p><a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510">Good enough practices in scientific computing</a></p>
+</section>
+<section id="good-enough-practices-for-scientific-computing-1" class="slide level2">
+<h2>Good enough practices for scientific computing</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="small">
+<p>Collaboration</p>
+<ul>
+<li>Create an overview of your project.</li>
+<li>Create a shared “to-do” list for the project.</li>
+<li>Decide on communication strategies.</li>
+<li>Make the license explicit.</li>
+<li>Make the project citable.</li>
+</ul>
+<p>Project organization</p>
+<ul>
+<li>Put each project in its own directory, which is named after the project.</li>
+<li>Put text documents associated with the project in the doc directory.</li>
+<li>Put raw data and metadata in a data directory and files generated during cleanup and analysis in a results directory.</li>
+<li>Put project source code in the src directory.</li>
+</ul>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="small">
+<ul>
+<li>Put external scripts or compiled programs in the bin directory.</li>
+<li>Name all files to reflect their content or function.</li>
+</ul>
+<p>Keeping track of changes</p>
+<ul>
+<li>Back up (almost) everything created by a human being as soon as it is created.</li>
+<li>Keep changes small.</li>
+<li>Share changes frequently.</li>
+<li>Create, maintain, and use a checklist for saving and sharing changes to the project.</li>
+<li>Store each project in a folder that is mirrored off the researcher’s working machine.</li>
+<li>Add a file called CHANGELOG.txt to the project’s docs subfolder.</li>
+<li>Copy the entire project whenever a significant change has been made.</li>
+<li>Use a version control system.</li>
+</ul>
+</div>
+</div></div>
+<p><a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510">Good enough practices in scientific computing</a></p>
+</section>
+<section id="everything-i-know-is-from-jenny-bryan" class="slide level2">
+<h2>“Everything I know is from Jenny Bryan”</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="img/JennyDataAngel.jpg"></p>
+<p><a href="https://www.amelia.mn/mytwitterarchive/AmeliaMN/status/805832755372261377/">mytwitterarchive</a></p>
+</div><div class="column" style="width:40%;">
+<p><img data-src="img/EIKIFJB_sigmar_hex.png"></p>
+<p><a href="https://github.com/MonkmanMH/EIKIFJB">EIKSFJB hex sticker</a></p>
+</div></div>
+</section>
+<section id="rmlist-ls---computer-on-fire" class="slide level2">
+<h2><code>rm(list = ls())</code> -&gt; computer on fire</h2>
+<blockquote>
+<p>If the first line of your R script is</p>
+<p><code>setwd("C:\Users\jenny\path\that\only\I\have")</code></p>
+<p>I will come into your office and SET YOUR COMPUTER ON FIRE 🔥.</p>
+<p>If the first line of your R script is</p>
+<p><code>rm(list = ls())</code></p>
+<p>I will come into your office and SET YOUR COMPUTER ON FIRE 🔥.</p>
+</blockquote>
+<blockquote>
+
+<ul>
+<li>Jenny Bryan, <a href="https://tidyverse.org/blog/2017/12/workflow-vs-script/">Project-oriented workflow</a></li>
+</ul>
+
+</blockquote>
+<p>Via <a href="https://speakerdeck.com/jennybc/zen-and-the-art-of-workflow-maintenance?slide=37">Zen And The aRt Of Workflow Maintenance</a>,</p>
 </section>
 <section id="pass-the-dots" class="slide level2">
 <h2>Pass the dots</h2>
@@ -772,7 +957,7 @@ Amelia McNamara
 </ul>
 
 
-</section>
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
