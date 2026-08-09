@@ -11,7 +11,7 @@ website:
         text: Home
       - href: prereqs.qmd
         text: Prereqs
-      - href: resources.qmg
+      - href: resources.qmd
         text: Resources
       - text: Materials
         menu:
