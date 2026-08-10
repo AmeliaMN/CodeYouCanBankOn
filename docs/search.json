@@ -4,7 +4,7 @@
     "href": "resources.html",
     "title": "Resources",
     "section": "",
-    "text": "An attempt to gather all the links and resources I recommended throughout.\n\nWhat They Forgot to Teach You About R, Jennifer Bryan, Jim Hester, Shannon Pileggi, E. David Aja.\nR for Data Science, Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund.\nTidyverse style guide\nPackages, by Hannah Frick\nHappy git and GitHub for the useR, Jenny Bryan, the STAT 545 TAs, Jim Hester.\nWhat are quosures and when are they needed?, rlang documentation.\nR packages, Hadley Wickham and Jenny Bryan.\nDocumenting datasets\nEvaluating the Design of the R Language This is for my computer scientists who want the nitty-gritty about R as a language.\nAdvanced R\nPackage states\nTesting chapter in R Packages.\ntestthat documentation\nObject of type ‘closure’ is not subsettable, Jenny Bryan. rstudio::conf video, slides\nCode “smells” and feels, Jenny Bryan\nBest Practices for Scientific Computing\nGood enough practices in scientific computing"
+    "text": "An attempt to gather all the links and resources I recommended throughout.\n\nWhat They Forgot to Teach You About R, Jennifer Bryan, Jim Hester, Shannon Pileggi, E. David Aja.\nR for Data Science, Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund.\nTidyverse style guide\nPackages, by Hannah Frick\nHappy git and GitHub for the useR, Jenny Bryan, the STAT 545 TAs, Jim Hester.\nWhat are quosures and when are they needed?, rlang documentation.\nR packages, Hadley Wickham and Jenny Bryan.\nDocumenting datasets\nMasking tidyverse functions\nEvaluating the Design of the R Language This is for my computer scientists who want the nitty-gritty about R as a language.\nAdvanced R\nPackage states\nTesting chapter in R Packages.\ntestthat documentation\nObject of type ‘closure’ is not subsettable, Jenny Bryan. rstudio::conf video, slides\nCode “smells” and feels, Jenny Bryan\nBest Practices for Scientific Computing\nGood enough practices in scientific computing"
   },
   {
     "objectID": "package-dev.html#motivation",
@@ -1320,7 +1320,7 @@
     "href": "documentation.html#edit-description",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Edit DESCRIPTION",
-    "text": "Edit DESCRIPTION\n\nPackage: BLT\nTitle: Work with data on bacon, lettuce, and tomatoes\nVersion: 0.0.0.9000\nAuthors@R: \n    person(\"Amelia\", \"McNamara\", , \"amelia.mcnamara@stthomas.edu\", role = c(\"aut\", \"cre\"))\nDescription: What the package does (one paragraph).\nLicense: `use_mit_license()`, `use_gpl3_license()` or friends to pick a\n    license\nEncoding: UTF-8\nRoxygen: list(markdown = TRUE)\nRoxygenNote: 7.3.3"
+    "text": "Edit DESCRIPTION\n\nPackage: BLT\nTitle: Work with Data on Bacon, Lettuce, and Tomatoes\nVersion: 0.0.0.9000\nAuthors@R: \n    person(\"Amelia\", \"McNamara\", , \"amelia.mcnamara@stthomas.edu\", role = c(\"aut\", \"cre\"))\nDescription: What the package does (one paragraph).\nLicense: `use_mit_license()`, `use_gpl3_license()` or friends to pick a\n    license\nEncoding: UTF-8\nRoxygen: list(markdown = TRUE)\nRoxygenNote: 7.3.3"
   },
   {
     "objectID": "documentation.html#metadata-in-description-1",
@@ -1523,7 +1523,7 @@
     "href": "documentation.html#importfrom-pkg-fun",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "@importFrom pkg fun",
-    "text": "@importFrom pkg fun\n🎬 Import tibble() from tibble:\n\nusethis::use_import_from(\"imputeTS\", \"statsNA\")\n\n\n✔ Adding 'imputeTS' to Imports field in DESCRIPTION\n✔ Adding '@importFrom imputeTS statsNA' to 'R/BLT-package.R'\n✔ Writing 'NAMESPACE'\n✔ Loading BLT"
+    "text": "@importFrom pkg fun\n🎬 Import statsNA() from imputeTS:\n\nusethis::use_import_from(\"imputeTS\", \"statsNA\")\n\n\n✔ Adding 'imputeTS' to Imports field in DESCRIPTION\n✔ Adding '@importFrom imputeTS statsNA' to 'R/BLT-package.R'\n✔ Writing 'NAMESPACE'\n✔ Loading BLT"
   },
   {
     "objectID": "documentation.html#importing-functions-1",
@@ -1607,7 +1607,7 @@
     "href": "documentation.html#edit-readme.rmd",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Edit README.Rmd",
-    "text": "Edit README.Rmd\n\n🎬 Complete: “The goal of BLT is to …”\n🎬 Add: an example with AR1()\n🎬 Remove: non-relevant sections\n🎬 devtools::build_readme()\n\n\n\nBLT\n├── BLT.Rproj\n├── DESCRIPTION\n├── NAMESPACE\n├── R\n│   ├── AR1.R\n│   ├── BLT-package.R\n│   ├── data.R\n│   ├── perc_missing.R\n│   └── perc_missing_tidy.R\n├── README.Rmd\n├── README.md\n├── data\n│   ├── bacon.rda\n│   ├── lettuce.rda\n│   └── tomatoes.rda\n├── man\n│   ├──  AR1.Rd\n│   ├──  BLT-package.Rd\n│   ├── bacon.Rd\n│   ├── figures\n│   │   └── README-pressure-1.png\n\nunchanged\nchanged\nchanged by you"
+    "text": "Edit README.Rmd\n\n🎬 Complete: “The goal of BLT is to …”\n🎬 Add: an example with AR1()\n🎬 Remove: non-relevant sections\n🎬 devtools::build_readme()\nOR if it doesn’t work to install a temporary version of your package,\ninstall() and then knit manually.\n\n\n\nBLT\n├── BLT.Rproj\n├── DESCRIPTION\n├── NAMESPACE\n├── R\n│   ├── AR1.R\n│   ├── BLT-package.R\n│   ├── data.R\n│   ├── perc_missing.R\n│   └── perc_missing_tidy.R\n├── README.Rmd\n├── README.md\n├── data\n│   ├── bacon.rda\n│   ├── lettuce.rda\n│   └── tomatoes.rda\n├── man\n│   ├──  AR1.Rd\n│   ├──  BLT-package.Rd\n│   ├── bacon.Rd\n│   ├── figures\n│   │   └── README-pressure-1.png\n\nunchanged\nchanged\nchanged by you"
   },
   {
     "objectID": "documentation.html#an-answer",

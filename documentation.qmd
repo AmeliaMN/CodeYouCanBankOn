@@ -119,7 +119,7 @@ Open `DESCRIPTION` file to edit it:
 ::: small
 ``` default
 Package: BLT
-Title: Work with data on bacon, lettuce, and tomatoes
+Title: Work with Data on Bacon, Lettuce, and Tomatoes
 Version: 0.0.0.9000
 Authors@R: 
     person("Amelia", "McNamara", , "amelia.mcnamara@stthomas.edu", role = c("aut", "cre"))
@@ -741,7 +741,7 @@ which will:
 
 ## `@importFrom pkg fun`
 
-🎬 Import `tibble()` from **`tibble`**:
+🎬 Import `statsNA()` from **`imputeTS`**:
 
 ```{r}
 usethis::use_import_from("imputeTS", "statsNA")
@@ -910,6 +910,10 @@ devtools::build_readme()
 
 
 🎬 `devtools::build_readme()`
+
+OR if it doesn't work to install a temporary version of your package,
+
+`install()` and then knit manually. 
 
 :::
 

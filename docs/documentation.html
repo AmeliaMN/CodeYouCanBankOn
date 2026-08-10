@@ -398,7 +398,7 @@ changed<br>
 <h2>Edit <code>DESCRIPTION</code></h2>
 <div class="small">
 <div class="sourceCode" id="cb1"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a></a>Package: BLT</span>
-<span id="cb1-2"><a></a>Title: Work with data on bacon, lettuce, and tomatoes</span>
+<span id="cb1-2"><a></a>Title: Work with Data on Bacon, Lettuce, and Tomatoes</span>
 <span id="cb1-3"><a></a>Version: 0.0.0.9000</span>
 <span id="cb1-4"><a></a>Authors@R: </span>
 <span id="cb1-5"><a></a>    person("Amelia", "McNamara", , "amelia.mcnamara@stthomas.edu", role = c("aut", "cre"))</span>
@@ -982,7 +982,7 @@ check()</code></pre>
 </section>
 <section id="importfrom-pkg-fun" class="slide level2">
 <h2><code>@importFrom pkg fun</code></h2>
-<p>🎬 Import <code>tibble()</code> from <strong><code>tibble</code></strong>:</p>
+<p>🎬 Import <code>statsNA()</code> from <strong><code>imputeTS</code></strong>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a>usethis<span class="sc">::</span><span class="fu">use_import_from</span>(<span class="st">"imputeTS"</span>, <span class="st">"statsNA"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -1135,6 +1135,8 @@ check()</code></pre>
 <p>🎬 Add: an example with <code>AR1()</code></p>
 <p>🎬 Remove: non-relevant sections</p>
 <p>🎬 <code>devtools::build_readme()</code></p>
+<p>OR if it doesn’t work to install a temporary version of your package,</p>
+<p><code>install()</code> and then knit manually.</p>
 </div>
 <div class="teach-right">
 <div class="extrasmall">
