@@ -11,9 +11,11 @@ BLT
 ├── R
 │   ├── AR1.R
 │   ├── BLT-package.R
-│   ├── <span style="color:#2CDDE0">data.R</span>
+│   ├── data.R
 │   ├── perc_missing.R
 │   └── perc_missing_tidy.R
+├── <span style="color:#2CDDE0">README.Rmd</span>
+├── <span style="color:#F8F8F2">README.md</span>
 ├── data
 │   ├── bacon.rda
 │   ├── lettuce.rda
@@ -21,7 +23,9 @@ BLT
 ├── man
 │   ├──  AR1.Rd
 │   ├──  BLT-package.Rd
-│   └── <span style="color:#F8F8F2">bacon.Rd</span>
+│   ├── bacon.Rd
+│   ├── <span style="color:#F8F8F2">figures</span>
+│   │   └── <span style="color:#F8F8F2">README-pressure-1.png</span>
 </pre>
 
 [unchanged]{style="color:#5A5A5A"}\

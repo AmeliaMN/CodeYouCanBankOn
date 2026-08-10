@@ -27,7 +27,7 @@ Onsite at the Minneapolis Federal Reserve August 10, 11, and 17, and online.
 2.  Install (or update!) the packages we're going to use. Even if you are certain you already have all these packages on your system, it's worth running install.packages() again, just to make sure you have recent versions.
 
 ```         
-install.packages(c("forecast", "fredr", "imputeTS", "rlang", "roxygen2", "testthat", "tidyverse", "usethis", "vdiffr"))
+install.packages(c("forecast", "fredr", "imputeTS", "rlang", "roxygen2", "styler", "testthat", "tidyverse", "usethis", "vdiffr"))
 ```
 
 3.  \[Optional, but recommended\] Make sure your system is prepped to build more complex packages. We're not going to get into C/C++ packages here, but it's good to have the machinery to do more in-depth stuff. You can check your system's status with the `devtools::has_devel()` function. If you don't get a positive response from that function, Jenny Bryan has instructions for getting up to speed:

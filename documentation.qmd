@@ -288,13 +288,9 @@ use_roxygen_md()
 ::: {.teach-right} 
 
 
-<!-- Fix image -->
 
-```{r}
-#| ref.label: noun-framework
-#| echo: false
-#| eval: true
-```
+
+{{< include img/tree-diagrams/license.qmd >}}
 :::
 
 
@@ -436,11 +432,13 @@ We will that fix later!
 
 😮 🥳
 
+
+
 ## Fix warning
 
 ``` default
 Warning message:
-[matches.R:13] @examples requires a value 
+[AR1.R:13] @examples requires a value 
 ```
 
 . . .
@@ -896,9 +894,9 @@ devtools::build_readme()
 
 ## Edit `README.Rmd`
 
+::: {.teach-left}
 🎬 Complete: "The goal of BLT is to ..."
 
-\
 
 🎬 Add: an example with `AR1()`
 
@@ -906,15 +904,27 @@ devtools::build_readme()
 
 🎬 Remove: non-relevant sections
 
+
+🎬 `devtools::build_readme()`
+
+:::
+
+::: {.teach-right}
+
+{{< include img/tree-diagrams/document-readme.qmd >}}
+
+:::
+
 ## An answer
 
 Complete: "The goal of BLT is to ..."
 
 ``` default
-The goal of BLT is to provide helper functions for time series analysis, to work on data about bacon, lettuce, and tomatoes. 
+The goal of BLT is to provide helper functions for time
+series analysis, to work on data about bacon, lettuce, and
+tomatoes. 
 ```
-
-. . .
+. . . 
 
 Add: an example with `AR1()`
 
@@ -946,7 +956,7 @@ Now would be a good time to commit your changes.
 
 Badges give information to the user about the state of the package
 
-For example: [![](images/r-cmd-check-badge.svg){width="200" height="26"}](R%20cmd%20check%20badge)
+For example: [![](img/r-cmd-check-badge.svg){width="200" height="26"}](R%20cmd%20check%20badge)
 
 To add this badge, we set up a "GitHub Action"
 
@@ -1039,6 +1049,8 @@ usethis::use_vignette("BLT")
 
 ## What's happened?
 
+
+
 ::: small
 ``` default
 ✔ Setting active project to "/Users/amcnamara2/BLT".
@@ -1053,9 +1065,15 @@ usethis::use_vignette("BLT")
 ```
 :::
 
+
+
 ## Edit `vignettes/BLT.Rmd`
 
+
+
 🎬 Add info to `vignettes/BLT.Rmd`
+
+
 
 ## An answer
 
@@ -1098,6 +1116,8 @@ bacon |>
 
 ## Preview the Vignette
 
+::: {.teach-left}
+
 🎬 Build the vignette with:
 
 ```{r}
@@ -1112,6 +1132,13 @@ devtools::build_rmd("vignettes/BLT.Rmd")
 
 (I'm choosing to ignore this warning-- it sounds like something for the `devtools` developers, not me.)
 
+:::
+
+::: {.teach-right}
+
+{{< include img/tree-diagrams/document-vignette.qmd >}}
+
+:::
 
 ## Commit
 
@@ -1160,6 +1187,29 @@ Now would be a good time to commit your changes.
 
 
 # Summary
+
+## Summary
+
+::: {.teach-left}
+
+```{r}
+#| ref.label: verb-document
+#| echo: false
+#| eval: true
+```
+
+:::
+
+::: footer 
+Figure adapted from [Packages](https://github.com/hfrick/presentations/blob/master/2019-03-12_package_building/2019-03-12_package_building.pdf), by Hannah Frick
+::: 
+
+
+
+::: {.teach-right} 
+{{< include img/tree-diagrams/document-all.qmd >}}
+:::
+
 
 ## Summary
 

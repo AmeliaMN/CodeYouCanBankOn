@@ -3,7 +3,7 @@ editor: source
 ---
 
 ::: extrasmall
-<pre>
+<pre style="color:#F8F8F2">
 BLT
 ├── BLT.Rproj
 ├── <span style="color:#2CDDE0">DESCRIPTION</span>
@@ -11,13 +11,39 @@ BLT
 ├── R
 │   ├── <span style="color:#2CDDE0">AR1.R</span>
 │   ├── BLT-package.R
-│   ├── data.R
+│   ├── <span style="color:#2CDDE0">BLT_ggplot_na_distribution.R</span>
+│   ├── <span style="color:#2CDDE0">data.R</span>
 │   ├── <span style="color:#2CDDE0">perc_missing.R</span>
 │   └── <span style="color:#2CDDE0">perc_missing_tidy.R</span>
+├── <span style="color:#2CDDE0">README.Rmd</span>
+├── README.md
+├── data
 ├── data
 │   ├── bacon.rda
 │   ├── lettuce.rda
 │   └── tomatoes.rda
+├── man
+│   ├── AR1.Rd
+│   ├── BLT-package.Rd
+│   ├── BLT_ggplot_na_distribution.Rd
+│   ├── bacon.Rd
+│   ├── figures
+│   │   └── README-pressure-1.png
+│   ├── perc_missing.Rd
+│   └── perc_missing_tidy.Rd
+├── tests
+│   ├── testthat
+│   ├── testthat
+│   │   ├── _snaps
+│   │   │   └── BLT_ggplot_na_distribution
+│   │   │       ├── tomato-na-dist.new.svg
+│   │   │       └── tomato-na-dist.svg
+│   │   ├── <span style="color:#2CDDE0">test-BLT_ggplot_na_distribution.R</span>
+│   │   └── <span style="color:#2CDDE0">test-perc_missing_tidy.R</span>
+│   └── testthat.R
+└── vignettes
+    ├── <span style="color:#2CDDE0">BLT.Rmd</span>
+    └── BLT.html
 </pre>
 
 [unchanged]{style="color:#5A5A5A"}\

@@ -177,7 +177,7 @@ ul.task-list li input[type="checkbox"] {
 <li><p>Ensure you have R and RStudio installed. You don’t need the most recent version of either. I’m currently running R version 4.4.1 “Race for Your Life” and RStudio version 2026.07.</p></li>
 <li><p>Install (or update!) the packages we’re going to use. Even if you are certain you already have all these packages on your system, it’s worth running install.packages() again, just to make sure you have recent versions.</p></li>
 </ol>
-<pre><code>install.packages(c("fredr", "roxygen2", "testthat", "usethis"))</code></pre>
+<pre><code>install.packages(c("forecast", "fredr", "imputeTS", "rlang", "roxygen2", "styler", "testthat", "tidyverse", "usethis", "vdiffr"))</code></pre>
 <ol start="3" type="1">
 <li>[Optional, but recommended] Make sure your system is prepped to build more complex packages. We’re not going to get into C/C++ packages here, but it’s good to have the machinery to do more in-depth stuff. You can check your system’s status with the <code>devtools::has_devel()</code> function. If you don’t get a positive response from that function, Jenny Bryan has instructions for getting up to speed:</li>
 </ol>

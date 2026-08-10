@@ -6,14 +6,16 @@ editor: source
 <pre style="color:#5A5A5A">
 BLT
 ├── BLT.Rproj
-├── DESCRIPTION
+├── <span style="color:#F8F8F2">DESCRIPTION</span>
 ├── NAMESPACE
 ├── R
 │   ├── AR1.R
 │   ├── BLT-package.R
-│   ├── <span style="color:#2CDDE0">data.R</span>
+│   ├── data.R
 │   ├── perc_missing.R
 │   └── perc_missing_tidy.R
+├── README.Rmd
+├── README.md
 ├── data
 │   ├── bacon.rda
 │   ├── lettuce.rda
@@ -21,7 +23,12 @@ BLT
 ├── man
 │   ├──  AR1.Rd
 │   ├──  BLT-package.Rd
-│   └── <span style="color:#F8F8F2">bacon.Rd</span>
+│   ├── bacon.Rd
+│   ├── figures
+│   │   └── README-pressure-1.png
+└── <span style="color:#F8F8F2">vignettes</span>
+    ├── <span style="color:#2CDDE0">BLT.Rmd</span>
+    └── <span style="color:#F8F8F2">BLT.html</span>
 </pre>
 
 [unchanged]{style="color:#5A5A5A"}\

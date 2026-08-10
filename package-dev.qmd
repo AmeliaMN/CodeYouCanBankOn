@@ -109,7 +109,7 @@ Figure adapted from [Packages](https://github.com/hfrick/presentations/blob/mast
 
 
 ::: {.teach-right} 
-{{< include img/tree-diagrams/all.qmd >}}
+{{< include img/tree-diagrams/base.qmd >}}
 [(Does this remind you of anything?)]{style="font-size: 0.6em;"}
 :::
 
@@ -783,7 +783,7 @@ Now would be a good time to commit your changes.
 
 ![Jason Long, CC BY 3.0 \<https://creativecommons.org/licenses/by/3.0\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg){fig-alt="Git icon" width="300"} 
 
-## Playing the whole game
+## Summary
 
 ::: {.teach-left}
 ```{r}
@@ -800,9 +800,23 @@ Figure adapted from [Packages](https://github.com/hfrick/presentations/blob/mast
 
 
 ::: {.teach-right} 
-{{< include img/tree-diagrams/all.qmd >}}
+{{< include img/tree-diagrams/base.qmd >}}
 :::
 
+## Summary
+
+::: small
+- It is useful to make a package
+  - it is fairly easy with `devtools`
+  - it will help you work more reproducibly
+- A minimal package comprises
+  - a folder which is a package and a RProj
+  - `DESCRIPTION`, `NAMESPACE`, `.Rbuildignore` `.gitignore`
+  - `R/` directory for functions
+- We add functions with `usethis:use_r()`
+- We use the package interactively with `devtools::load_all()`
+- We use `devtools::check()` to execute `R CMD` check
+:::
 
 
 

@@ -984,8 +984,8 @@ changed<br>
 </p>
 
 <img data-src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg" alt="Git icon" width="300" class="r-stretch quarto-figure-center"><p class="caption">Jason Long, CC BY 3.0 &lt;https://creativecommons.org/licenses/by/3.0&gt;, via Wikimedia Commons</p></section>
-<section id="playing-the-whole-game" class="slide level2">
-<h2>Playing the whole game</h2>
+<section id="summary" class="slide level2">
+<h2>Summary</h2>
 <div class="teach-left">
 <div class="cell">
 <div class="cell-output-display">
@@ -1021,6 +1021,27 @@ changed<br>
 changed<br>
 <span style="color:#2CDDE0">changed by you</span></p>
 </div>
+</div>
+</section>
+<section id="summary-1" class="slide level2">
+<h2>Summary</h2>
+<div class="small">
+<ul>
+<li>It is useful to make a package
+<ul>
+<li>it is fairly easy with <code>devtools</code></li>
+<li>it will help you work more reproducibly</li>
+</ul></li>
+<li>A minimal package comprises
+<ul>
+<li>a folder which is a package and a RProj</li>
+<li><code>DESCRIPTION</code>, <code>NAMESPACE</code>, <code>.Rbuildignore</code> <code>.gitignore</code></li>
+<li><code>R/</code> directory for functions</li>
+</ul></li>
+<li>We add functions with <code>usethis:use_r()</code></li>
+<li>We use the package interactively with <code>devtools::load_all()</code></li>
+<li>We use <code>devtools::check()</code> to execute <code>R CMD</code> check</li>
+</ul>
 </div>
 </section>
 <section id="resources" class="slide level2">

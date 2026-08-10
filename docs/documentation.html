@@ -222,20 +222,46 @@ Amelia McNamara
 </div>
 <div class="teach-right">
 <div class="extrasmall">
-<pre>BLT
+<pre style="color:#F8F8F2">BLT
 ├── BLT.Rproj
 ├── <span style="color:#2CDDE0">DESCRIPTION</span>
 ├── NAMESPACE
 ├── R
 │   ├── <span style="color:#2CDDE0">AR1.R</span>
 │   ├── BLT-package.R
-│   ├── data.R
+│   ├── <span style="color:#2CDDE0">BLT_ggplot_na_distribution.R</span>
+│   ├── <span style="color:#2CDDE0">data.R</span>
 │   ├── <span style="color:#2CDDE0">perc_missing.R</span>
 │   └── <span style="color:#2CDDE0">perc_missing_tidy.R</span>
+├── <span style="color:#2CDDE0">README.Rmd</span>
+├── README.md
+├── data
 ├── data
 │   ├── bacon.rda
 │   ├── lettuce.rda
 │   └── tomatoes.rda
+├── man
+│   ├── AR1.Rd
+│   ├── BLT-package.Rd
+│   ├── BLT_ggplot_na_distribution.Rd
+│   ├── bacon.Rd
+│   ├── figures
+│   │   └── README-pressure-1.png
+│   ├── perc_missing.Rd
+│   └── perc_missing_tidy.Rd
+├── tests
+│   ├── testthat
+│   ├── testthat
+│   │   ├── _snaps
+│   │   │   └── BLT_ggplot_na_distribution
+│   │   │       ├── tomato-na-dist.new.svg
+│   │   │       └── tomato-na-dist.svg
+│   │   ├── <span style="color:#2CDDE0">test-BLT_ggplot_na_distribution.R</span>
+│   │   └── <span style="color:#2CDDE0">test-perc_missing_tidy.R</span>
+│   └── testthat.R
+└── vignettes
+    ├── <span style="color:#2CDDE0">BLT.Rmd</span>
+    └── BLT.html
 </pre>
 <p><span style="color:#5A5A5A">unchanged</span><br>
 changed<br>
@@ -528,7 +554,26 @@ names.}</code></pre>
 </ul>
 </div>
 <div class="teach-right">
-<!-- Fix image -->
+<div class="extrasmall">
+<pre style="color:#5A5A5A">BLT
+├── BLT.Rproj
+├── <span style="color:#F8F8F2">DESCRIPTION</span>
+├── NAMESPACE
+├── R
+│   ├── AR1.R
+│   ├── BLT-package.R
+│   ├── data.R
+│   ├── perc_missing.R
+│   └── perc_missing_tidy.R
+├── data
+│   ├── bacon.rda
+│   ├── lettuce.rda
+│   └── tomatoes.rda
+</pre>
+<p><span style="color:#5A5A5A">unchanged</span><br>
+changed<br>
+<span style="color:#2CDDE0">changed by you</span></p>
+</div>
 </div>
 </section>
 <section id="object-documentation-workflow" class="slide level2">
@@ -635,6 +680,10 @@ names.}</code></pre>
 │   ├── BLT-package.R
 │   ├── perc_missing.R
 │   └── perc_missing_tidy.R
+├── data
+│   ├── bacon.rda
+│   ├── lettuce.rda
+│   └── tomatoes.rda
 ├── man
 │   └── <span style="color:#F8F8F2">AR1.Rd</span>
 </pre>
@@ -666,7 +715,7 @@ changed<br>
 <section id="fix-warning" class="slide level2">
 <h2>Fix warning</h2>
 <div class="sourceCode" id="cb12"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb12-1"><a></a>Warning message:</span>
-<span id="cb12-2"><a></a>[matches.R:13] @examples requires a value </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-2"><a></a>[AR1.R:13] @examples requires a value </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="fragment">
 <p>We need to add a usage example!</p>
 <p>🎬 Under <code>@examples</code>, add one example for using your function</p>
@@ -769,7 +818,11 @@ check()</code></pre>
 │   ├── AR1.R
 │   ├── <span style="color:#F8F8F2">BLT-package.R</span>
 │   ├── perc_missing.R
-│   └── perc_missing_tidy.R
+│   └── perc_missing_tidy.
+├── data
+│   ├── bacon.rda
+│   ├── lettuce.rda
+│   └── tomatoes.rda
 ├── man
 │   ├──  AR1.Rd
 │   └── <span style="color:#F8F8F2">BLT-package.Rd</span>
@@ -865,6 +918,10 @@ changed<br>
 │   ├── <span style="color:#2CDDE0">data.R</span>
 │   ├── perc_missing.R
 │   └── perc_missing_tidy.R
+├── data
+│   ├── bacon.rda
+│   ├── lettuce.rda
+│   └── tomatoes.rda
 ├── man
 │   ├──  AR1.Rd
 │   ├──  BLT-package.Rd
@@ -1072,16 +1129,49 @@ check()</code></pre>
 </section>
 <section id="edit-readme.rmd" class="slide level2">
 <h2>Edit <code>README.Rmd</code></h2>
+<div class="teach-left">
 <p>🎬 Complete: “The goal of BLT is to …”</p>
-<p><br>
-</p>
 <p>🎬 Add: an example with <code>AR1()</code></p>
 <p>🎬 Remove: non-relevant sections</p>
+<p>🎬 <code>devtools::build_readme()</code></p>
+</div>
+<div class="teach-right">
+<div class="extrasmall">
+<pre style="color:#5A5A5A">BLT
+├── BLT.Rproj
+├── DESCRIPTION
+├── NAMESPACE
+├── R
+│   ├── AR1.R
+│   ├── BLT-package.R
+│   ├── data.R
+│   ├── perc_missing.R
+│   └── perc_missing_tidy.R
+├── <span style="color:#2CDDE0">README.Rmd</span>
+├── <span style="color:#F8F8F2">README.md</span>
+├── data
+│   ├── bacon.rda
+│   ├── lettuce.rda
+│   └── tomatoes.rda
+├── man
+│   ├──  AR1.Rd
+│   ├──  BLT-package.Rd
+│   ├── bacon.Rd
+│   ├── <span style="color:#F8F8F2">figures</span>
+│   │   └── <span style="color:#F8F8F2">README-pressure-1.png</span>
+</pre>
+<p><span style="color:#5A5A5A">unchanged</span><br>
+changed<br>
+<span style="color:#2CDDE0">changed by you</span></p>
+</div>
+</div>
 </section>
 <section id="an-answer" class="slide level2">
 <h2>An answer</h2>
 <p>Complete: “The goal of BLT is to …”</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb37-1"><a></a>The goal of BLT is to provide helper functions for time series analysis, to work on data about bacon, lettuce, and tomatoes. </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb37-1"><a></a>The goal of BLT is to provide helper functions for time</span>
+<span id="cb37-2"><a></a>series analysis, to work on data about bacon, lettuce, and</span>
+<span id="cb37-3"><a></a>tomatoes. </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="fragment">
 <p>Add: an example with <code>AR1()</code></p>
 <div class="cell">
@@ -1106,7 +1196,7 @@ check()</code></pre>
 <section id="add-a-badge-to-the-readme.rmd-were-skipping-this" class="slide level2" style="color: #888888;">
 <h2>Add a badge to the <code>README.Rmd</code> (we’re skipping this)</h2>
 <p>Badges give information to the user about the state of the package</p>
-<p>For example: <a href="R cmd check badge"><img data-src="images/r-cmd-check-badge.svg" width="200" height="26"></a></p>
+<p>For example: <a href="R cmd check badge"><img data-src="img/r-cmd-check-badge.svg" width="200" height="26"></a></p>
 <p>To add this badge, we set up a “GitHub Action”</p>
 <p>A GitHub Action is “continuous integration” which allows you to automate package building, testing and deployment on github</p>
 <p>Actions we add are triggered when we push to GitHub.</p>
@@ -1245,6 +1335,7 @@ jobs:
 </section>
 <section id="preview-the-vignette" class="slide level2">
 <h2>Preview the Vignette</h2>
+<div class="teach-left">
 <p>🎬 Build the vignette with:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a></a>devtools<span class="sc">::</span><span class="fu">build_rmd</span>(<span class="st">"vignettes/BLT.Rmd"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1253,6 +1344,40 @@ jobs:
 <span id="cb48-2"><a></a>ℹ Building /Users/amcnamara2/BLT/vignettes/BLT.Rmd</span>
 <span id="cb48-3"><a></a>[WARNING] Deprecated: --highlight-style. Use --syntax-highlighting instead.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>(I’m choosing to ignore this warning– it sounds like something for the <code>devtools</code> developers, not me.)</p>
+</div>
+<div class="teach-right">
+<div class="extrasmall">
+<pre style="color:#5A5A5A">BLT
+├── BLT.Rproj
+├── <span style="color:#F8F8F2">DESCRIPTION</span>
+├── NAMESPACE
+├── R
+│   ├── AR1.R
+│   ├── BLT-package.R
+│   ├── data.R
+│   ├── perc_missing.R
+│   └── perc_missing_tidy.R
+├── README.Rmd
+├── README.md
+├── data
+│   ├── bacon.rda
+│   ├── lettuce.rda
+│   └── tomatoes.rda
+├── man
+│   ├──  AR1.Rd
+│   ├──  BLT-package.Rd
+│   ├── bacon.Rd
+│   ├── figures
+│   │   └── README-pressure-1.png
+└── <span style="color:#F8F8F2">vignettes</span>
+    ├── <span style="color:#2CDDE0">BLT.Rmd</span>
+    └── <span style="color:#F8F8F2">BLT.html</span>
+</pre>
+<p><span style="color:#5A5A5A">unchanged</span><br>
+changed<br>
+<span style="color:#2CDDE0">changed by you</span></p>
+</div>
+</div>
 </section>
 <section id="commit-6" class="slide level2">
 <h2>Commit</h2>
@@ -1297,6 +1422,58 @@ jobs:
 </section>
 <section id="summary-1" class="slide level2">
 <h2>Summary</h2>
+<div class="teach-left">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="img/img-verbs/document.png" width="1237"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="footer">
+<p>Figure adapted from <a href="https://github.com/hfrick/presentations/blob/master/2019-03-12_package_building/2019-03-12_package_building.pdf">Packages</a>, by Hannah Frick</p>
+</div>
+<div class="teach-right">
+<div class="extrasmall">
+<pre>BLT
+├── <span style="color:#5A5A5A">BLT.Rproj</span>
+├── <span style="color:#2CDDE0">DESCRIPTION</span>
+├── NAMESPACE
+├── R
+│   ├── <span style="color:#2CDDE0">AR1.R</span>
+│   ├── BLT-package.R
+│   ├── <span style="color:#2CDDE0">data.R</span>
+│   ├── <span style="color:#2CDDE0">perc_missing.R</span>
+│   └── <span style="color:#2CDDE0">perc_missing_tidy.R</span>
+├── <span style="color:#2CDDE0">README.Rmd</span>
+├── README.md
+├── <span style="color:#5A5A5A">data</span>
+│   ├── <span style="color:#5A5A5A">bacon.rda</span>
+│   ├── <span style="color:#5A5A5A">lettuce.rda</span>
+│   └── <span style="color:#5A5A5A">tomatoes.rda</span>
+├── man
+│   ├── AR1.Rd
+│   ├── BLT-package.Rd
+│   ├── bacon.Rd
+│   ├── figures
+│   │   └── README-pressure-1.png
+│   ├── perc_missing.Rd
+│   └── perc_missing_tidy.Rd
+└── vignettes
+    ├── <span style="color:#2CDDE0">BLT.Rmd</span>
+    └── BLT.html
+</pre>
+<p><span style="color:#5A5A5A">unchanged</span><br>
+changed<br>
+<span style="color:#2CDDE0">changed by you</span></p>
+</div>
+</div>
+</section>
+<section id="summary-2" class="slide level2">
+<h2>Summary</h2>
 <div class="small">
 <ul>
 <li>A package has metadata and object documentation (essential), vignettes and <strong><code>pkgdown</code></strong> sites (optional)</li>
@@ -1313,7 +1490,7 @@ jobs:
 </ul>
 </div>
 </section>
-<section id="summary-2" class="slide level2">
+<section id="summary-3" class="slide level2">
 <h2>Summary</h2>
 <div class="small">
 <ul>
@@ -1326,7 +1503,7 @@ jobs:
 </ul>
 </div>
 </section>
-<section id="summary-3" class="slide level2">
+<section id="summary-4" class="slide level2">
 <h2>Summary</h2>
 <div class="small">
 <ul>
@@ -1338,7 +1515,7 @@ jobs:
 </ul>
 </div>
 </section>
-<section id="summary-4" class="slide level2">
+<section id="summary-5" class="slide level2">
 <h2>Summary</h2>
 <div class="small">
 <ul>

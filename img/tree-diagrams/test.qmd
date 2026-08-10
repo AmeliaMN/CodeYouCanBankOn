@@ -1,0 +1,41 @@
+---
+editor: source
+---
+
+::: extrasmall
+<pre style="color:#5A5A5A">
+BLT
+├── BLT.Rproj
+├── <span style="color:#F8F8F2">DESCRIPTION</span>
+├── NAMESPACE
+├── R
+│   ├── AR1.R
+│   ├── BLT-package.R
+│   ├── data.R
+│   ├── perc_missing.R
+│   └── perc_missing_tidy.R
+├── README.Rmd
+├── README.md
+├── data
+│   ├── bacon.rda
+│   ├── lettuce.rda
+│   └── tomatoes.rda
+├── man
+│   ├──  AR1.Rd
+│   ├──  BLT-package.Rd
+│   ├── bacon.Rd
+│   ├── figures
+│   │   └── README-pressure-1.png
+├── <span style="color:#F8F8F2">tests</span>
+│   ├── <span style="color:#F8F8F2">testthat</span>
+│   │   └── <span style="color:#2CDDE0">test-perc_missing_tidy.R</span>
+│   └── <span style="color:#F8F8F2">testthat.R</span>
+└── vignettes
+    ├── BLT.Rmd
+    └── BLT.html
+</pre>
+
+[unchanged]{style="color:#5A5A5A"}\
+changed\
+[changed by you]{style="color:#2CDDE0"}
+:::

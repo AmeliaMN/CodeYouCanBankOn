@@ -3,22 +3,21 @@ editor: source
 ---
 
 ::: extrasmall
-<pre style="color:#5A5A5A">
+<pre>
 BLT
 ├── BLT.Rproj
-├── DESCRIPTION
-├── <span style="color:#F8F8F2">NAMESPACE</span>
+├── <span style="color:#2CDDE0">DESCRIPTION</span>
+├── NAMESPACE
 ├── R
 │   ├── <span style="color:#2CDDE0">AR1.R</span>
 │   ├── BLT-package.R
-│   ├── perc_missing.R
-│   └── perc_missing_tidy.R
+│   ├── data.R
+│   ├── <span style="color:#2CDDE0">perc_missing.R</span>
+│   └── <span style="color:#2CDDE0">perc_missing_tidy.R</span>
 ├── data
 │   ├── bacon.rda
 │   ├── lettuce.rda
 │   └── tomatoes.rda
-├── man
-│   └── <span style="color:#F8F8F2">AR1.Rd</span>
 </pre>
 
 [unchanged]{style="color:#5A5A5A"}\

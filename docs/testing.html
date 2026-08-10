@@ -204,6 +204,112 @@ Amelia McNamara
 </div>
 
 </section>
+<section id="where-we-left-off" class="slide level2">
+<h2>Where we left off</h2>
+<div class="teach-left">
+<div class="cell" data-layout-align="left">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-left">
+<figure>
+<p><img data-src="img/img-verbs/document.png" class="quarto-figure quarto-figure-left" width="1237"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="footer">
+<p>Figure adapted from <a href="https://github.com/hfrick/presentations/blob/master/2019-03-12_package_building/2019-03-12_package_building.pdf">Packages</a>, by Hannah Frick</p>
+</div>
+<div class="teach-right">
+<div class="extrasmall">
+<pre>BLT
+├── <span style="color:#5A5A5A">BLT.Rproj</span>
+├── <span style="color:#2CDDE0">DESCRIPTION</span>
+├── NAMESPACE
+├── R
+│   ├── <span style="color:#2CDDE0">AR1.R</span>
+│   ├── BLT-package.R
+│   ├── <span style="color:#2CDDE0">data.R</span>
+│   ├── <span style="color:#2CDDE0">perc_missing.R</span>
+│   └── <span style="color:#2CDDE0">perc_missing_tidy.R</span>
+├── <span style="color:#2CDDE0">README.Rmd</span>
+├── README.md
+├── <span style="color:#5A5A5A">data</span>
+│   ├── <span style="color:#5A5A5A">bacon.rda</span>
+│   ├── <span style="color:#5A5A5A">lettuce.rda</span>
+│   └── <span style="color:#5A5A5A">tomatoes.rda</span>
+├── man
+│   ├── AR1.Rd
+│   ├── BLT-package.Rd
+│   ├── bacon.Rd
+│   ├── figures
+│   │   └── README-pressure-1.png
+│   ├── perc_missing.Rd
+│   └── perc_missing_tidy.Rd
+└── vignettes
+    ├── <span style="color:#2CDDE0">BLT.Rmd</span>
+    └── BLT.html
+</pre>
+<p><span style="color:#5A5A5A">unchanged</span><br>
+changed<br>
+<span style="color:#2CDDE0">changed by you</span></p>
+</div>
+</div>
+</section>
+<section id="where-were-heading" class="slide level2">
+<h2>Where we’re heading</h2>
+<div class="teach-left">
+<div class="cell" data-layout-align="left">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-left">
+<figure>
+<p><img data-src="img/img-verbs/test.png" class="quarto-figure quarto-figure-left" width="1237"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="footer">
+<p>Figure adapted from <a href="https://github.com/hfrick/presentations/blob/master/2019-03-12_package_building/2019-03-12_package_building.pdf">Packages</a>, by Hannah Frick</p>
+</div>
+<div class="teach-right">
+<div class="extrasmall">
+<pre style="color:#5A5A5A">BLT
+├── BLT.Rproj
+├── <span style="color:#F8F8F2">DESCRIPTION</span>
+├── NAMESPACE
+├── R
+│   ├── AR1.R
+│   ├── BLT-package.R
+│   ├── data.R
+│   ├── perc_missing.R
+│   └── perc_missing_tidy.R
+├── README.Rmd
+├── README.md
+├── data
+│   ├── bacon.rda
+│   ├── lettuce.rda
+│   └── tomatoes.rda
+├── man
+│   ├──  AR1.Rd
+│   ├──  BLT-package.Rd
+│   ├── bacon.Rd
+│   ├── figures
+│   │   └── README-pressure-1.png
+├── <span style="color:#F8F8F2">tests</span>
+│   ├── <span style="color:#F8F8F2">testthat</span>
+│   │   └── <span style="color:#2CDDE0">test-perc_missing_tidy.R</span>
+│   └── <span style="color:#F8F8F2">testthat.R</span>
+└── vignettes
+    ├── BLT.Rmd
+    └── BLT.html
+</pre>
+<p><span style="color:#5A5A5A">unchanged</span><br>
+changed<br>
+<span style="color:#2CDDE0">changed by you</span></p>
+</div>
+</div>
+</section>
 <section>
 <section id="unit-testing" class="title-slide slide level1 center">
 <h1>☑️ Unit Testing</h1>
@@ -724,7 +830,7 @@ Differences:
 <p>🎬 Add a test to check the output of <code>perc_missing_tidy()</code> is a tibble with <code>expect_true()</code>:</p>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a></a><span class="fu">test_that</span>(<span class="st">"perc_missing_tidy works"</span>, {</span>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a></a><span class="fu">test_that</span>(<span class="st">"perc_missing_tidy creates tibble"</span>, {</span>
 <span id="cb34-2"><a></a></span>
 <span id="cb34-3"><a></a>  <span class="co"># use the function</span></span>
 <span id="cb34-4"><a></a>  tomatoes_miss <span class="ot">&lt;-</span> tomatoes <span class="sc">|&gt;</span></span>
@@ -797,21 +903,88 @@ Differences:
 </section>
 <section id="answer" class="slide level2">
 <h2>Answer</h2>
+<div class="teach-left">
 <div class="small">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a></a><span class="fu">test_that</span>(<span class="st">"perc_missing_tidy works"</span>, {</span>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a></a><span class="fu">test_that</span>(<span class="st">"perc_missing_tidy creates tibble"</span>, {</span>
 <span id="cb39-2"><a></a></span>
 <span id="cb39-3"><a></a>  <span class="co"># use the function</span></span>
 <span id="cb39-4"><a></a>  tomatoes_miss <span class="ot">&lt;-</span> tomatoes <span class="sc">|&gt;</span></span>
 <span id="cb39-5"><a></a>    <span class="fu">perc_missing_tidy</span>(value)</span>
 <span id="cb39-6"><a></a></span>
 <span id="cb39-7"><a></a>  <span class="fu">expect_true</span>(tibble<span class="sc">::</span><span class="fu">is_tibble</span>(tomatoes_miss))</span>
-<span id="cb39-8"><a></a></span>
-<span id="cb39-9"><a></a>  <span class="fu">expect_named</span>(</span>
-<span id="cb39-10"><a></a>    tomatoes_miss,</span>
-<span id="cb39-11"><a></a>    <span class="fu">c</span>(<span class="st">"perc"</span>)</span>
-<span id="cb39-12"><a></a>  )</span>
-<span id="cb39-13"><a></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb39-8"><a></a>})</span>
+<span id="cb39-9"><a></a></span>
+<span id="cb39-10"><a></a><span class="fu">test_that</span>(<span class="st">"perc_missing_tidy has correct names"</span>, {</span>
+<span id="cb39-11"><a></a></span>
+<span id="cb39-12"><a></a>  <span class="co"># use the function</span></span>
+<span id="cb39-13"><a></a>  tomatoes_miss <span class="ot">&lt;-</span> tomatoes <span class="sc">|&gt;</span></span>
+<span id="cb39-14"><a></a>    <span class="fu">perc_missing_tidy</span>(value)</span>
+<span id="cb39-15"><a></a></span>
+<span id="cb39-16"><a></a>  <span class="fu">expect_named</span>(</span>
+<span id="cb39-17"><a></a>    tomatoes_miss,</span>
+<span id="cb39-18"><a></a>    <span class="fu">c</span>(<span class="st">"perc"</span>)</span>
+<span id="cb39-19"><a></a>  )</span>
+<span id="cb39-20"><a></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>These can also be combined into one test so you don’t need to repeat yourself!</p>
+</div>
+</div>
+<div class="teach-right">
+<div class="extrasmall">
+<pre style="color:#5A5A5A">BLT
+├── BLT.Rproj
+├── <span style="color:#F8F8F2">DESCRIPTION</span>
+├── NAMESPACE
+├── R
+│   ├── AR1.R
+│   ├── BLT-package.R
+│   ├── data.R
+│   ├── perc_missing.R
+│   └── perc_missing_tidy.R
+├── README.Rmd
+├── README.md
+├── data
+│   ├── bacon.rda
+│   ├── lettuce.rda
+│   └── tomatoes.rda
+├── man
+│   ├──  AR1.Rd
+│   ├──  BLT-package.Rd
+│   ├── bacon.Rd
+│   ├── figures
+│   │   └── README-pressure-1.png
+├── <span style="color:#F8F8F2">tests</span>
+│   ├── <span style="color:#F8F8F2">testthat</span>
+│   │   └── <span style="color:#2CDDE0">test-perc_missing_tidy.R</span>
+│   └── <span style="color:#F8F8F2">testthat.R</span>
+└── vignettes
+    ├── BLT.Rmd
+    └── BLT.html
+</pre>
+<p><span style="color:#5A5A5A">unchanged</span><br>
+changed<br>
+<span style="color:#2CDDE0">changed by you</span></p>
+</div>
+</div>
+</section>
+<section id="another-answer" class="slide level2">
+<h2>Another answer</h2>
+<div class="small">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a></a><span class="fu">test_that</span>(<span class="st">"perc_missing_tidy works"</span>, {</span>
+<span id="cb40-2"><a></a></span>
+<span id="cb40-3"><a></a>  <span class="co"># use the function</span></span>
+<span id="cb40-4"><a></a>  tomatoes_miss <span class="ot">&lt;-</span> tomatoes <span class="sc">|&gt;</span></span>
+<span id="cb40-5"><a></a>    <span class="fu">perc_missing_tidy</span>(value)</span>
+<span id="cb40-6"><a></a></span>
+<span id="cb40-7"><a></a>  <span class="fu">expect_true</span>(tibble<span class="sc">::</span><span class="fu">is_tibble</span>(tomatoes_miss))</span>
+<span id="cb40-8"><a></a></span>
+<span id="cb40-9"><a></a>  <span class="fu">expect_named</span>(</span>
+<span id="cb40-10"><a></a>    tomatoes_miss,</span>
+<span id="cb40-11"><a></a>    <span class="fu">c</span>(<span class="st">"perc"</span>)</span>
+<span id="cb40-12"><a></a>  )</span>
+<span id="cb40-13"><a></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
@@ -820,28 +993,28 @@ Differences:
 <p>🎬 Run the edited test file</p>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a></a>testthat<span class="sc">::</span><span class="fu">test_file</span>(<span class="st">"tests/testthat/test-perc_missing_tidy.R"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a></a>testthat<span class="sc">::</span><span class="fu">test_file</span>(<span class="st">"tests/testthat/test-perc_missing_tidy.R"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Or the “Runs Tests” button</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb41-1"><a></a>══ Testing test-perc_missing_tidy.R ═════════════════════════════════════════════════════</span>
-<span id="cb41-2"><a></a>[ FAIL 0 | WARN 0 | SKIP 0 | PASS 2 ] Done!</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb42-1"><a></a>══ Testing test-perc_missing_tidy.R ═════════════════════════════════════════════════════</span>
+<span id="cb42-2"><a></a>[ FAIL 0 | WARN 0 | SKIP 0 | PASS 2 ] Done!</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="section-1" class="slide level2">
 <h2></h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a></a>devtools<span class="sc">::</span><span class="fu">test</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a></a>devtools<span class="sc">::</span><span class="fu">test</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="small">
-<div class="sourceCode" id="cb43"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb43-1"><a></a>ℹ Loading BLT</span>
-<span id="cb43-2"><a></a>ℹ Testing BLT</span>
-<span id="cb43-3"><a></a>✔ | F W S  OK | Context</span>
-<span id="cb43-4"><a></a>✔ |         2 | matches [0.2s]                                                 </span>
-<span id="cb43-5"><a></a></span>
-<span id="cb43-6"><a></a>══ Results ════════════════════════════════════════════════════════════════════</span>
-<span id="cb43-7"><a></a>Duration: 0.2 s</span>
-<span id="cb43-8"><a></a></span>
-<span id="cb43-9"><a></a>[ FAIL 0 | WARN 0 | SKIP 0 | PASS 2 ]   </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb44-1"><a></a>ℹ Loading BLT</span>
+<span id="cb44-2"><a></a>ℹ Testing BLT</span>
+<span id="cb44-3"><a></a>✔ | F W S  OK | Context</span>
+<span id="cb44-4"><a></a>✔ |         2 | matches [0.2s]                                                 </span>
+<span id="cb44-5"><a></a></span>
+<span id="cb44-6"><a></a>══ Results ════════════════════════════════════════════════════════════════════</span>
+<span id="cb44-7"><a></a>Duration: 0.2 s</span>
+<span id="cb44-8"><a></a></span>
+<span id="cb44-9"><a></a>[ FAIL 0 | WARN 0 | SKIP 0 | PASS 2 ]   </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>🥳</p>
 </section></section>
@@ -854,7 +1027,7 @@ Differences:
 <h2>Test coverage</h2>
 <p>Test coverage is the percentage of package code run when the test suite is run.</p>
 <ul>
-<li>provided by <strong><code>covr</code></strong> <span class="citation" data-cites="covr">[@covr]</span> package</li>
+<li>provided by <strong><code>covr</code></strong> package</li>
 <li>higher is better</li>
 <li>100% is notional goal but rarely achieved</li>
 </ul>
@@ -871,7 +1044,7 @@ Differences:
 <h2>Coverage in active file</h2>
 <p>🎬 Make sure <code>perc_missing_tidy.R</code> is active in the editor and do:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a></a>devtools<span class="sc">::</span><span class="fu">test_coverage_active_file</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a></a>devtools<span class="sc">::</span><span class="fu">test_coverage_active_file</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <p><img data-src="img/test-covr-active-file.png" width="1000"></p>
@@ -881,7 +1054,7 @@ Differences:
 <h2>Coverage in package</h2>
 <p>🎬 Check the coverage over the whole package:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a></a>devtools<span class="sc">::</span><span class="fu">test_coverage</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a></a>devtools<span class="sc">::</span><span class="fu">test_coverage</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <p><img data-src="img/test-covr-pkg.png" width="1000"></p>
@@ -901,6 +1074,60 @@ Differences:
 <img data-src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg" alt="Git icon" width="300" class="r-stretch quarto-figure-center"><p class="caption">Jason Long, CC BY 3.0 &lt;https://creativecommons.org/licenses/by/3.0&gt;, via Wikimedia Commons</p></section>
 <section id="summary" class="slide level2">
 <h2>Summary</h2>
+<div class="teach-left">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="img/img-verbs/test.png" width="1237"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="footer">
+<p>Figure adapted from <a href="https://github.com/hfrick/presentations/blob/master/2019-03-12_package_building/2019-03-12_package_building.pdf">Packages</a>, by Hannah Frick</p>
+</div>
+<div class="teach-right">
+<div class="extrasmall">
+<pre style="color:#5A5A5A">BLT
+├── BLT.Rproj
+├── <span style="color:#F8F8F2">DESCRIPTION</span>
+├── NAMESPACE
+├── R
+│   ├── AR1.R
+│   ├── BLT-package.R
+│   ├── data.R
+│   ├── perc_missing.R
+│   └── perc_missing_tidy.R
+├── README.Rmd
+├── README.md
+├── data
+│   ├── bacon.rda
+│   ├── lettuce.rda
+│   └── tomatoes.rda
+├── man
+│   ├──  AR1.Rd
+│   ├──  BLT-package.Rd
+│   ├── bacon.Rd
+│   ├── figures
+│   │   └── README-pressure-1.png
+├── <span style="color:#F8F8F2">tests</span>
+│   ├── <span style="color:#F8F8F2">testthat</span>
+│   │   └── <span style="color:#2CDDE0">test-perc_missing_tidy.R</span>
+│   └── <span style="color:#F8F8F2">testthat.R</span>
+└── vignettes
+    ├── BLT.Rmd
+    └── BLT.html
+</pre>
+<p><span style="color:#5A5A5A">unchanged</span><br>
+changed<br>
+<span style="color:#2CDDE0">changed by you</span></p>
+</div>
+</div>
+</section>
+<section id="summary-1" class="slide level2">
+<h2>Summary</h2>
 <div class="small">
 <ul>
 <li>Automated testing means you can systematically check your code still works when adding features</li>
@@ -915,7 +1142,7 @@ Differences:
 </ul>
 </div>
 </section>
-<section id="summary-1" class="slide level2">
+<section id="summary-2" class="slide level2">
 <h2>Summary</h2>
 <div class="small">
 <ul>

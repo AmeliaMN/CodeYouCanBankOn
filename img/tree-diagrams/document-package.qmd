@@ -12,7 +12,11 @@ BLT
 │   ├── AR1.R
 │   ├── <span style="color:#F8F8F2">BLT-package.R</span>
 │   ├── perc_missing.R
-│   └── perc_missing_tidy.R
+│   └── perc_missing_tidy.
+├── data
+│   ├── bacon.rda
+│   ├── lettuce.rda
+│   └── tomatoes.rda
 ├── man
 │   ├──  AR1.Rd
 │   └── <span style="color:#F8F8F2">BLT-package.Rd</span>

@@ -14,9 +14,30 @@ execute:
   eval: false
 ---
 
+## Playing the whole game
+
+::: {.teach-left}
+```{r verb-all, echo=FALSE, eval=TRUE, fig.align='left'}
+knitr::include_graphics("img/img-verbs/all.png")
+```
+
+:::
+
+::: footer 
+Figure adapted from [Packages](https://github.com/hfrick/presentations/blob/master/2019-03-12_package_building/2019-03-12_package_building.pdf), by Hannah Frick
+::: 
+
+
+
+::: {.teach-right} 
+{{< include img/tree-diagrams/all.qmd >}}
+
+
+:::
+
 # Best and good enough
 
-## Best practices for scientific computing
+## Best practices for scientific computing 
 
 :::::: columns
 :::: {.column width="50%"}
@@ -60,11 +81,8 @@ Don't repeat yourself (or others).
 
 [Best Practices for Scientific Computing](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745)
 
-[Good enough practices in scientific computing](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510)
 
-https://speakerdeck.com/jennybc/zen-and-the-art-of-workflow-maintenance?slide=59
-
-## Best practices for scientific computing
+## Best practices for scientific computing 
 
 :::::: columns
 :::: {.column width="50%"}
@@ -107,7 +125,7 @@ Collaborate.
 
 [Best Practices for Scientific Computing](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745)
 
-## Good enough practices for scientific computing
+## Good enough practices for scientific computing {.smaller}
 
 :::::: columns
 :::: {.column width="50%"}
@@ -157,7 +175,7 @@ Software
 [Good enough practices in scientific computing](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510)
 
 
-## Good enough practices for scientific computing
+## Good enough practices for scientific computing {.smaller}
 
 :::::: columns
 :::: {.column width="50%"}
@@ -276,6 +294,26 @@ my_select <- function(.data, ...) {
 
 There is a lot more detail specific to including data in packages. Sometimes you want to include raw data, sometimes you need data only available to the package and not the user, etc. There is much more detail in the [R packages](https://r-pkgs.org/data.html) book. 
 
+## Code styling
+
+Many (most?) people have coalesced around the [tidyverse style guide](https://style.tidyverse.org/). 
+
+You can use the {styler} package to automatically style your code. Once it is installed, you get additional Addins in RStudio.
+
+Style Active File
+
+Style Package (!!)
+
+. . .
+
+Let's try styling our package, and then look at the diff
+
+## Commit
+
+Now would be a good time to commit your changes 
+
+![Jason Long, CC BY 3.0 \<https://creativecommons.org/licenses/by/3.0\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg){fig-alt="Git icon" width="300"} 
+
 
 ## Naming functions
 
@@ -283,7 +321,6 @@ If writing a smaller package, consider prefixing your functions:
 
  - {BLT}: `BLT_perc_missing()`
  
- - {btt22}: `btt_get()`
 
 . . .
 
@@ -475,6 +512,17 @@ runif(1)
 
 So far, our functions have been pure. Let's make one that is not. For this function, I want to write a wrapper around `imputeTS::ggplot_na_distribution()`. This function has the name `ggplot` in the title, but it doesn't work like a normal `ggplot()` function (taking the data as the first argument, then `aes`thetics). 
 
+. . .
+
+Do you remember the `usethis` function that will open up a .R file for us to write `BLT_ggplot_na_distribution.R`?
+
+. . . 
+
+```{r}
+usethis::use_r()
+```
+
+
 Let's start with adding a function skeleton,
 
 . . .
@@ -508,6 +556,31 @@ And then write some documentation **first**, as is better practice.
 #' tomatoes |>
 #' BLT_ggplot_na_distribution(value)
 BLT_ggplot_na_distribution <- function(data, variable, ...){
+
+}
+```
+:::
+
+
+## Make a function with side effects
+
+::: extrasmall
+```r
+#' ggplot to visualization the distribution of missing values
+#'
+#' Wrapper around [imputeTS::ggplot_na_distribution]
+#'
+#' @param data Default dataset to use for a plot
+#' @param variable The variable to plot
+#' @param ... Other arguments passed on to methods
+#'
+#' @returns a ggplot object
+#' @export
+#'
+#' @examples
+#' tomatoes |>
+#' BLT_ggplot_na_distribution(value)
+BLT_ggplot_na_distribution <- function(data, variable, ...){
   var <- rlang::enquo(variable)
   var_eval <- rlang::eval_tidy(var, data = data)
   imputeTS::ggplot_na_distribution(var_eval)
@@ -515,8 +588,6 @@ BLT_ggplot_na_distribution <- function(data, variable, ...){
 ```
 :::
 
-
-  
 
 ## Practical advice
 
@@ -587,7 +658,7 @@ An effective error condition has:
 
 ## Using `cli::cli_abort()`
 
-{cli} package [@cli]
+{cli} package 
 
 ```r
 # predicate
@@ -708,44 +779,24 @@ We will go through, using examples.
    
 
 
-## Use `rlang::arg_match()` {.smaller}
 
-👉 `devtools::load_all()`, then:
+<!-- ## Build error constructor {.smaller} -->
 
-- 👉 `uss_get_matches("italy")` 🎉
-- 👉 `uss_get_matches("tatooine")` 🎉 
-- 👉 `uss_get_matches("ita")` 🤔
+<!-- - `usethis::use_package("cli")` -->
 
-. . .
+<!-- - review `validate_data_frame()` (`call` argument) -->
 
-<hr>
+<!-- - build constructor for `validate_cols()`: -->
+<!--   - something like `{.field {cols}}` may be useful -->
+<!--   - activate `2.2.1` tests in `test-validate.R`, as you go -->
 
+<!-- - hold off on snapshot test (we'll do together) -->
 
-`get-matches.R`: 
+<!-- . . . -->
 
- - replace `match.arg()` with `rlang::arg_match()`
- 
-`test-get-matches.R`: 
-
- - uncomment test for `2.2.1`, then repeat 👉
-
-## Build error constructor {.smaller}
-
-- `usethis::use_package("cli")`
-
-- review `validate_data_frame()` (`call` argument)
-
-- build constructor for `validate_cols()`:
-  - something like `{.field {cols}}` may be useful
-  - activate `2.2.1` tests in `test-validate.R`, as you go
-
-- hold off on snapshot test (we'll do together)
-
-. . .
-
-- add validator-functions to `uss_make_matches()`:
-  - `matches.R`
-  - `cols_engsoc()` may be useful
+<!-- - add validator-functions to `uss_make_matches()`: -->
+<!--   - `matches.R` -->
+<!--   - `cols_engsoc()` may be useful -->
 
 ## Managing global state
 
@@ -769,7 +820,7 @@ When we hit the "Knit" button, or the Quarto "Render" button:
   
 ## Using "self-removing footprints"
 
-The {withr} package [@withr] gives us tools to:
+The {withr} package gives us tools to:
 
  - modify global state
  - specify when to reverse the modification
@@ -853,6 +904,15 @@ not_runif <- function(n, min = 0, max = 1) {
 
 It's much harder to write tests for functions that have side effects. But, there are some new helpers out there. `vdiffr` is what is being used to test `ggplot2`. It has the function `expect_doppleganger()` that can compare snapshots of figures. 
 
+
+Do you remember the `usethis` function that will make a test file for us?
+
+. . . 
+
+```r
+ usethis::use_test()
+```
+
 . . . 
 
 ```r
@@ -890,6 +950,12 @@ test()
 ```
 
 Should fail!
+
+## Commit
+
+Now would be a good time to commit your changes 
+
+![Jason Long, CC BY 3.0 \<https://creativecommons.org/licenses/by/3.0\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg){fig-alt="Git icon" width="300"} 
 
 ## Summary
 

@@ -14,6 +14,45 @@ execute:
   eval: false
 ---
 
+## Where we left off
+
+::: {.teach-left}
+```{r verb-document, echo=FALSE, eval=TRUE, fig.align='left'}
+knitr::include_graphics("img/img-verbs/document.png")
+```
+
+:::
+
+::: footer 
+Figure adapted from [Packages](https://github.com/hfrick/presentations/blob/master/2019-03-12_package_building/2019-03-12_package_building.pdf), by Hannah Frick
+::: 
+
+
+
+::: {.teach-right} 
+{{< include img/tree-diagrams/document-all.qmd >}}
+:::
+
+## Where we're heading
+
+::: {.teach-left}
+```{r verb-test, echo=FALSE, eval=TRUE, fig.align='left'}
+knitr::include_graphics("img/img-verbs/test.png")
+```
+
+:::
+
+::: footer 
+Figure adapted from [Packages](https://github.com/hfrick/presentations/blob/master/2019-03-12_package_building/2019-03-12_package_building.pdf), by Hannah Frick
+::: 
+
+
+
+::: {.teach-right} 
+{{< include img/tree-diagrams/test.qmd >}}
+:::
+
+
 # ☑️ Unit Testing
 
 
@@ -540,7 +579,7 @@ We will do them one at a time so you can practice the workflow.
 . . .
 
 ```{r}
-test_that("perc_missing_tidy works", {
+test_that("perc_missing_tidy creates tibble", {
 
   # use the function
   tomatoes_miss <- tomatoes |>
@@ -624,6 +663,45 @@ we expect the name(s) to be:
 
 ## Answer
 
+::: {.teach-left}
+
+::: small
+```{r}
+test_that("perc_missing_tidy creates tibble", {
+
+  # use the function
+  tomatoes_miss <- tomatoes |>
+    perc_missing_tidy(value)
+
+  expect_true(tibble::is_tibble(tomatoes_miss))
+})
+
+test_that("perc_missing_tidy has correct names", {
+
+  # use the function
+  tomatoes_miss <- tomatoes |>
+    perc_missing_tidy(value)
+
+  expect_named(
+    tomatoes_miss,
+    c("perc")
+  )
+})
+
+```
+
+These can also be combined into one test so you don't need to repeat yourself!
+:::
+
+:::
+
+::: {.teach-right}
+
+{{< include img/tree-diagrams/test.qmd >}}
+:::
+
+## Another answer
+
 ::: small
 ```{r}
 test_that("perc_missing_tidy works", {
@@ -641,7 +719,9 @@ test_that("perc_missing_tidy works", {
 })
 
 ```
+
 :::
+
 
 ## Run the edited test
 
@@ -688,7 +768,7 @@ Duration: 0.2 s
 
 Test coverage is the percentage of package code run when the test suite is run.
 
-- provided by **`covr`** [@covr] package
+- provided by **`covr`**  package
 - higher is better
 - 100% is notional goal but rarely achieved
 
@@ -735,6 +815,27 @@ Now would be a good time to commit your changes.
 
 
 ![Jason Long, CC BY 3.0 \<https://creativecommons.org/licenses/by/3.0\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg){fig-alt="Git icon" width="300"} 
+
+## Summary
+
+::: {.teach-left}
+
+```{r}
+#| ref.label: verb-test
+#| echo: false
+#| eval: true
+```
+:::
+
+::: footer 
+Figure adapted from [Packages](https://github.com/hfrick/presentations/blob/master/2019-03-12_package_building/2019-03-12_package_building.pdf), by Hannah Frick
+::: 
+
+
+
+::: {.teach-right} 
+{{< include img/tree-diagrams/test.qmd >}}
+:::
 
 ## Summary
 
