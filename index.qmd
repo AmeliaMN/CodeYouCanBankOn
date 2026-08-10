@@ -5,6 +5,9 @@ editor: source
 ---
 
 Materials for the Federal Reserve training August 10, 11, and 17
+
+Led by Amelia McNamara, University of St Thomas
+
 Topics: Package building, automated testing, designing code
 
 Tentative schedule
@@ -20,3 +23,8 @@ Tentative schedule
     - 9 am - 12 pm [testing](testing.qmd)
     - 12-1 pm lunch break
     - 1-4 pm [design](design.qmd)
+    
+    
+All material is covered by a CC-BY-SA-4.0 license and source documents are [available on GitHub](https://github.com/AmeliaMN/CodeYouCanBankOn). 
+
+The material here is in turn based on other CC-BY products, primarily [Building tidy tools workshop](https://github.com/rstudio-conf-2022/build-tidy-tools),  [uncoast::unconf day zero workshop](https://github.com/uncoast-unconf/uu-2019-day-zero), and [R packages book](https://r-pkgs.org/). 

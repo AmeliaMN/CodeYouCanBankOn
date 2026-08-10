@@ -125,7 +125,9 @@ I'll do a little bit of review of each of those topics, but if they are totally 
 We're going to be using the following packages, so make sure they are installed!
 
 ```{r, eval=FALSE, echo=TRUE}
-install.packages(c("forecast", "fredr", "imputeTS", "rlang", "roxygen2", "styler", "testthat", "tidyverse", "usethis", "vdiffr"))
+install.packages(c("forecast", "fredr", "imputeTS", 
+                   "rlang", "roxygen2", "styler", "testthat", 
+                   "tidyverse", "usethis", "vdiffr"))
 ```
 
 

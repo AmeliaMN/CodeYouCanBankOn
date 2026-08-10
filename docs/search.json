@@ -417,7 +417,7 @@
     "href": "index.html",
     "title": "Code You Can Bank On",
     "section": "",
-    "text": "Materials for the Federal Reserve training August 10, 11, and 17 Topics: Package building, automated testing, designing code\nTentative schedule\n\nAugust 10th\n\n9-10 am intro, review\n10 am - 12 pm package dev\n12-1 pm lunch break\n1-4 pm more package dev\n\nAugust 11th\n\n9 am - 12 pm documentation\n\nAugust 17th\n\n9 am - 12 pm testing\n12-1 pm lunch break\n1-4 pm design"
+    "text": "Materials for the Federal Reserve training August 10, 11, and 17\nLed by Amelia McNamara, University of St Thomas\nTopics: Package building, automated testing, designing code\nTentative schedule\n\nAugust 10th\n\n9-10 am intro, review\n10 am - 12 pm package dev\n12-1 pm lunch break\n1-4 pm more package dev\n\nAugust 11th\n\n9 am - 12 pm documentation\n\nAugust 17th\n\n9 am - 12 pm testing\n12-1 pm lunch break\n1-4 pm design\n\n\nAll material is covered by a CC-BY-SA-4.0 license and source documents are available on GitHub.\nThe material here is in turn based on other CC-BY products, primarily Building tidy tools workshop, uncoast::unconf day zero workshop, and R packages book."
   },
   {
     "objectID": "design.html#playing-the-whole-game",
@@ -788,7 +788,7 @@
     "href": "intro.html#packages",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Packages",
-    "text": "Packages\nWe’re going to be using the following packages, so make sure they are installed!\n\ninstall.packages(c(\"forecast\", \"fredr\", \"imputeTS\", \"rlang\", \"roxygen2\", \"styler\", \"testthat\", \"tidyverse\", \"usethis\", \"vdiffr\"))"
+    "text": "Packages\nWe’re going to be using the following packages, so make sure they are installed!\n\ninstall.packages(c(\"forecast\", \"fredr\", \"imputeTS\", \n                   \"rlang\", \"roxygen2\", \"styler\", \"testthat\", \n                   \"tidyverse\", \"usethis\", \"vdiffr\"))"
   },
   {
     "objectID": "intro.html#workflow",
@@ -1817,14 +1817,14 @@
     "href": "prereqs.html",
     "title": "Prereqs",
     "section": "",
-    "text": "Ensure you have R and RStudio installed. You don’t need the most recent version of either. I’m currently running R version 4.4.1 “Race for Your Life” and RStudio version 2026.07.\nInstall (or update!) the packages we’re going to use. Even if you are certain you already have all these packages on your system, it’s worth running install.packages() again, just to make sure you have recent versions.\n\ninstall.packages(c(\"forecast\", \"fredr\", \"imputeTS\", \"rlang\", \"roxygen2\", \"styler\", \"testthat\", \"tidyverse\", \"usethis\", \"vdiffr\"))\n\n[Optional, but recommended] Make sure your system is prepped to build more complex packages. We’re not going to get into C/C++ packages here, but it’s good to have the machinery to do more in-depth stuff. You can check your system’s status with the devtools::has_devel() function. If you don’t get a positive response from that function, Jenny Bryan has instructions for getting up to speed:\n\n\nWindows\nMac\nLinux?"
+    "text": "Ensure you have R and RStudio installed. You don’t need the most recent version of either. I’m currently running R version 4.4.1 “Race for Your Life” and RStudio version 2026.07.\nInstall (or update!) the packages we’re going to use. Even if you are certain you already have all these packages on your system, it’s worth running install.packages() again, just to make sure you have recent versions.\n\ninstall.packages(c(\"forecast\", \"fredr\", \"imputeTS\", \n                   \"rlang\", \"roxygen2\", \"styler\", \"testthat\", \n                   \"tidyverse\", \"usethis\", \"vdiffr\"))\n\n[Optional, but recommended] Make sure your system is prepped to build more complex packages. We’re not going to get into C/C++ packages here, but it’s good to have the machinery to do more in-depth stuff. You can check your system’s status with the devtools::has_devel() function. If you don’t get a positive response from that function, Jenny Bryan has instructions for getting up to speed:\n\n\nWindows\nMac\nLinux?"
   },
   {
     "objectID": "prereqs.html#to-do",
     "href": "prereqs.html#to-do",
     "title": "Prereqs",
     "section": "",
-    "text": "Ensure you have R and RStudio installed. You don’t need the most recent version of either. I’m currently running R version 4.4.1 “Race for Your Life” and RStudio version 2026.07.\nInstall (or update!) the packages we’re going to use. Even if you are certain you already have all these packages on your system, it’s worth running install.packages() again, just to make sure you have recent versions.\n\ninstall.packages(c(\"forecast\", \"fredr\", \"imputeTS\", \"rlang\", \"roxygen2\", \"styler\", \"testthat\", \"tidyverse\", \"usethis\", \"vdiffr\"))\n\n[Optional, but recommended] Make sure your system is prepped to build more complex packages. We’re not going to get into C/C++ packages here, but it’s good to have the machinery to do more in-depth stuff. You can check your system’s status with the devtools::has_devel() function. If you don’t get a positive response from that function, Jenny Bryan has instructions for getting up to speed:\n\n\nWindows\nMac\nLinux?"
+    "text": "Ensure you have R and RStudio installed. You don’t need the most recent version of either. I’m currently running R version 4.4.1 “Race for Your Life” and RStudio version 2026.07.\nInstall (or update!) the packages we’re going to use. Even if you are certain you already have all these packages on your system, it’s worth running install.packages() again, just to make sure you have recent versions.\n\ninstall.packages(c(\"forecast\", \"fredr\", \"imputeTS\", \n                   \"rlang\", \"roxygen2\", \"styler\", \"testthat\", \n                   \"tidyverse\", \"usethis\", \"vdiffr\"))\n\n[Optional, but recommended] Make sure your system is prepped to build more complex packages. We’re not going to get into C/C++ packages here, but it’s good to have the machinery to do more in-depth stuff. You can check your system’s status with the devtools::has_devel() function. If you don’t get a positive response from that function, Jenny Bryan has instructions for getting up to speed:\n\n\nWindows\nMac\nLinux?"
   },
   {
     "objectID": "prereqs.html#background",
