@@ -6,6 +6,8 @@ Amelia McNamara, University of St Thomas
 
 Onsite at the Minneapolis Federal Reserve August 10, 11, and 17, and online.
 
+Hosted materials available at <https://ameliamn.github.io/CodeYouCanBankOn/>
+
 ## Tentative schedule:
 
 - August 10th
@@ -66,7 +68,6 @@ I'll do a little bit of review of each of those topics, but if they are totally 
   - [Markdown](https://daringfireball.net/projects/markdown/syntax)
 - [git](https://happygitwithr.com/big-picture)
 
+All material is covered by a CC-BY-SA-4.0 license.
 
-All material is covered by a CC-BY-SA-4.0 license. 
-
-The material here is in turn based on other CC-BY products, primarily [Building tidy tools workshop](https://github.com/rstudio-conf-2022/build-tidy-tools),  [uncoast::unconf day zero workshop](https://github.com/uncoast-unconf/uu-2019-day-zero), and [R packages book](https://r-pkgs.org/). 
+The material here is in turn based on other CC-BY products, primarily [Building tidy tools workshop](https://github.com/rstudio-conf-2022/build-tidy-tools), [uncoast::unconf day zero workshop](https://github.com/uncoast-unconf/uu-2019-day-zero), and [R packages book](https://r-pkgs.org/).
