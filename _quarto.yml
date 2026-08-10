@@ -17,7 +17,7 @@ website:
         menu:
         - text: "Introduction"
           href: intro.qmd
-        - text: "Package devopment"
+        - text: "Package development"
           href: package-dev.qmd
         - text: "Documentation"
           href: documentation.qmd
