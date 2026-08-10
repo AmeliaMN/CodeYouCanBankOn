@@ -197,7 +197,7 @@ continued.....
 ::: {.teach-left}
 
 ```r
-create_package("../BLT") # set the path to suit you
+usethis::create_package("../BLT") # set the path to suit you
 # getwd() will remind you where you currently are
 ```
 
@@ -230,7 +230,7 @@ knitr::include_graphics("img/img-verbs/framework.png")
 
 ::: {.teach-left}
 ```r
-use_git()
+usethis::use_git()
 ```
 
 - creates a git repository in your (package) project
@@ -253,7 +253,7 @@ you will get some messages sort of like this:
 
 
 ```r
-use_git()
+usethis::use_git()
 ```
 
 ```{.r style="font-size: 0.6em;"}
@@ -283,7 +283,7 @@ Choose the option that means yes!
 ::: {.teach-left}
 
 ```r
-use_github()
+usethis::use_github()
 ```
 
 - this is the closest you may see to **actual** magic:

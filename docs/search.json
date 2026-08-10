@@ -95,7 +95,7 @@
     "href": "package-dev.html#create-package-your-turn-1",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Create package (your turn)",
-    "text": "Create package (your turn)\n\ncreate_package(\"../BLT\") # set the path to suit you\n# getwd() will remind you where you currently are\n\ncreates a minimal set of files for an installable package\nopens a new RStudio project\n\n\n\n\nBLT\n├── .gitignore\n├── .Rbuildignore\n├── BLT.Rproj\n├── DESCRIPTION\n├── NAMESPACE\n└── R\n\nunchanged\nchanged\nchanged by you"
+    "text": "Create package (your turn)\n\nusethis::create_package(\"../BLT\") # set the path to suit you\n# getwd() will remind you where you currently are\n\ncreates a minimal set of files for an installable package\nopens a new RStudio project\n\n\n\n\nBLT\n├── .gitignore\n├── .Rbuildignore\n├── BLT.Rproj\n├── DESCRIPTION\n├── NAMESPACE\n└── R\n\nunchanged\nchanged\nchanged by you"
   },
   {
     "objectID": "package-dev.html#create-framework",
@@ -109,21 +109,21 @@
     "href": "package-dev.html#make-package-a-git-repo-your-turn",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Make package a git repo (your turn)",
-    "text": "Make package a git repo (your turn)\n\nuse_git()\n\ncreates a git repository in your (package) project\nmakes a first commit on your behalf\nrestarts RStudio\n\n\n\n\nBLT\n├── .gitignore\n├── .Rbuildignore\n├── BLT.Rproj\n├── DESCRIPTION\n├── NAMESPACE\n└── R\n\nunchanged\nchanged\nchanged by you"
+    "text": "Make package a git repo (your turn)\n\nusethis::use_git()\n\ncreates a git repository in your (package) project\nmakes a first commit on your behalf\nrestarts RStudio\n\n\n\n\nBLT\n├── .gitignore\n├── .Rbuildignore\n├── BLT.Rproj\n├── DESCRIPTION\n├── NAMESPACE\n└── R\n\nunchanged\nchanged\nchanged by you"
   },
   {
     "objectID": "package-dev.html#make-package-a-git-repo-your-turn-1",
     "href": "package-dev.html#make-package-a-git-repo-your-turn-1",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Make package a git repo (your turn)",
-    "text": "Make package a git repo (your turn)\nyou will get some messages sort of like this:\nuse_git()\n✔ Setting active project to \"/Users/amcnamara2/BLT\".\n✔ Initialising Git repo.\n✔ Adding \".Rhistory\", \".RData\", \".httr-oauth\", \".DS_Store\", and \".quarto\" to .gitignore.\nℹ There are 5 uncommitted files:\n• .gitignore\n• .Rbuildignore\n• BLT.Rproj\n• DESCRIPTION\n• NAMESPACE\n! Is it ok to commit them?\n\n1: No\n2: Absolutely not\n3: Yup\nThe specific language and order of items will change over time, to make it harder to make mistakes!\nChoose the option that means yes!"
+    "text": "Make package a git repo (your turn)\nyou will get some messages sort of like this:\nusethis::use_git()\n✔ Setting active project to \"/Users/amcnamara2/BLT\".\n✔ Initialising Git repo.\n✔ Adding \".Rhistory\", \".RData\", \".httr-oauth\", \".DS_Store\", and \".quarto\" to .gitignore.\nℹ There are 5 uncommitted files:\n• .gitignore\n• .Rbuildignore\n• BLT.Rproj\n• DESCRIPTION\n• NAMESPACE\n! Is it ok to commit them?\n\n1: No\n2: Absolutely not\n3: Yup\nThe specific language and order of items will change over time, to make it harder to make mistakes!\nChoose the option that means yes!"
   },
   {
     "objectID": "package-dev.html#create-framework-were-skipping-this",
     "href": "package-dev.html#create-framework-were-skipping-this",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Create framework (we’re skipping this)",
-    "text": "Create framework (we’re skipping this)\n\nuse_github()\n\nthis is the closest you may see to actual magic:\n\ncreates GitHub repository\ncreates git remote origin, sets to GitHub repository\npushes your master branch to git remote\nadds information to DESCRIPTION file\nopens your repository page at GitHub"
+    "text": "Create framework (we’re skipping this)\n\nusethis::use_github()\n\nthis is the closest you may see to actual magic:\n\ncreates GitHub repository\ncreates git remote origin, sets to GitHub repository\npushes your master branch to git remote\nadds information to DESCRIPTION file\nopens your repository page at GitHub"
   },
   {
     "objectID": "package-dev.html#develop",
@@ -417,7 +417,7 @@
     "href": "index.html",
     "title": "Code You Can Bank On",
     "section": "",
-    "text": "Materials for the Federal Reserve training August 10, 11, and 17\nLed by Amelia McNamara, University of St Thomas\nTopics: Package building, automated testing, designing code\nTentative schedule\n\nAugust 10th\n\n9-10 am intro, review\n10 am - 12 pm package dev\n12-1 pm lunch break\n1-4 pm more package dev\n\nAugust 11th\n\n9 am - 12 pm documentation\n\nAugust 17th\n\n9 am - 12 pm testing\n12-1 pm lunch break\n1-4 pm design\n\n\nAll material is covered by a CC-BY-SA-4.0 license and source documents are available on GitHub.\nThe material here is in turn based on other CC-BY products, primarily Building tidy tools workshop, uncoast::unconf day zero workshop, and R packages book."
+    "text": "Materials for the Federal Reserve training August 10, 11, and 17\nLed by Amelia McNamara, University of St Thomas\nTopics: Package building, automated testing, designing code\nTentative schedule\n\nAugust 10th\n\n9-10 am intro, review\n10 am - 12 pm package dev\n12-1 pm lunch break\n1-4 pm more documentation\n\nAugust 11th\n\n9 am - 12 pm testing\n\nAugust 17th\n\n9 am - 12 pm more testing\n12-1 pm lunch break\n1-4 pm design\n\n\nAll material is covered by a CC-BY-SA-4.0 license and source documents are available on GitHub.\nThe material here is in turn based on other CC-BY products, primarily Building tidy tools workshop, uncoast::unconf day zero workshop, and R packages book."
   },
   {
     "objectID": "design.html#playing-the-whole-game",
