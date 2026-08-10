@@ -4,7 +4,7 @@
     "href": "resources.html",
     "title": "Resources",
     "section": "",
-    "text": "An attempt to gather all the links and resources I recommended throughout.\n\nWhat They Forgot to Teach You About R, Jennifer Bryan, Jim Hester, Shannon Pileggi, E. David Aja.\nR for Data Science, Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund.\nTidyverse style guide\nPackages, by Hannah Frick\nHappy git and GitHub for the useR, Jenny Bryan, the STAT 545 TAs, Jim Hester.\nWhat are quosures and when are they needed?, rlang documentation.\nR packages, Hadley Wickham and Jenny Bryan.\nEvaluating the Design of the R Language This is for my computer scientists who want the nitty-gritty about R as a language.\nAdvanced R\nPackage states\nTesting chapter in R Packages.\ntestthat documentation\nObject of type ‘closure’ is not subsettable, Jenny Bryan. rstudio::conf video, slides\nCode “smells” and feels, Jenny Bryan"
+    "text": "An attempt to gather all the links and resources I recommended throughout.\n\nWhat They Forgot to Teach You About R, Jennifer Bryan, Jim Hester, Shannon Pileggi, E. David Aja.\nR for Data Science, Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund.\nTidyverse style guide\nPackages, by Hannah Frick\nHappy git and GitHub for the useR, Jenny Bryan, the STAT 545 TAs, Jim Hester.\nWhat are quosures and when are they needed?, rlang documentation.\nR packages, Hadley Wickham and Jenny Bryan.\nDocumenting datasets\nEvaluating the Design of the R Language This is for my computer scientists who want the nitty-gritty about R as a language.\nAdvanced R\nPackage states\nTesting chapter in R Packages.\ntestthat documentation\nObject of type ‘closure’ is not subsettable, Jenny Bryan. rstudio::conf video, slides\nCode “smells” and feels, Jenny Bryan\nBest Practices for Scientific Computing\nGood enough practices in scientific computing"
   },
   {
     "objectID": "package-dev.html#motivation",
@@ -746,14 +746,14 @@
     "href": "design.html#resources",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Resources",
-    "text": "Resources\n\nObject of type ‘closure’ is not subsettable, Jenny Bryan. rstudio::conf video, slides\nCode “smells” and feels, Jenny Bryan"
+    "text": "Resources\n\nBest Practices for Scientific Computing\nGood enough practices in scientific computing\nObject of type ‘closure’ is not subsettable, Jenny Bryan. rstudio::conf video, slides\nCode “smells” and feels, Jenny Bryan"
   },
   {
     "objectID": "intro.html#getting-these-materials",
     "href": "intro.html#getting-these-materials",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Getting these materials",
-    "text": "Getting these materials\nAt least at first, it should be totally adequate to follow along with the slides I’m sharing on the screen. But I know people like to have all the materials!\nEverything is available on GitHub, https://github.com/AmeliaMN/CodeYouCanBankOn\nIf you are a git/GitHub user, you can fork this repo, or\ngit clone https://github.com/AmeliaMN/CodeYouCanBankOn.git\nIf you’re not, you can download everything as a zip file"
+    "text": "Getting these materials\nAt least at first, it should be totally adequate to follow along with the slides I’m sharing on the screen. But I know people like to have all the materials!\nEverything is available on GitHub, https://github.com/AmeliaMN/CodeYouCanBankOn /\nIf you are a git/GitHub user, you can fork and clone this repo. /\nIf you’re not, you can download everything as a zip file"
   },
   {
     "objectID": "intro.html#about-me",
@@ -1481,7 +1481,7 @@
     "href": "documentation.html#documenting-data-1",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Documenting data",
-    "text": "Documenting data\nData gets documented in the data.R file. How can we create and open this file for editing?\n\nuse_r(\"data\")\nUnfortunately, the trick to insert Roxygen skeleton doesn’t work with data, so we have to do the documentation more manually."
+    "text": "Documenting data\nData gets documented in the data.R file. How can we create and open this file for editing?\n\nuse_r(\"data\")\nUnfortunately, the trick to insert Roxygen skeleton doesn’t work with data, so we have to do the documentation more manually.\nDocumenting datasets"
   },
   {
     "objectID": "documentation.html#documenting-data-2",
@@ -1747,7 +1747,7 @@
     "href": "documentation.html#resources",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Resources",
-    "text": "Resources\n\nR packages, Hadley Wickham and Jenny Bryan."
+    "text": "Resources\n\nR packages, Hadley Wickham and Jenny Bryan.\nDocumenting datasets"
   },
   {
     "objectID": "img/tree-diagrams/all.html",

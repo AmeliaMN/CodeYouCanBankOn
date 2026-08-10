@@ -7,6 +7,7 @@ format:
   revealjs: 
     theme: [dracula, extra.scss]
     slide-number: true
+    footer: <https://bit.ly/CYCBO>   
     height: 900
     width: 1600
 execute:
@@ -984,6 +985,8 @@ Use `withr::local_*()` functions to "leave no footprints".
 
 ## Resources
 
+- [Best Practices for Scientific Computing](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745)
+- [Good enough practices in scientific computing](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510)
 - Object of type 'closure' is not subsettable, Jenny Bryan. rstudio::conf [video](https://posit.co/resources/videos/object-of-type-closure-is-not-subsettable), [slides](https://speakerdeck.com/jennybc/object-of-type-closure-is-not-subsettable)
 
 - [Code "smells" and feels](https://www.youtube.com/watch?v=7oyiPBjLAWY), Jenny Bryan

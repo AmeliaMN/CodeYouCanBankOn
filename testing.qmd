@@ -7,6 +7,7 @@ format:
   revealjs: 
     theme: [dracula, extra.scss]
     slide-number: true
+    footer: <https://bit.ly/CYCBO>   
     height: 900
     width: 1600
 execute:

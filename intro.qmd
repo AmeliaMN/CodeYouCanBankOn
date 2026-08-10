@@ -22,12 +22,10 @@ editor_options:
 At least at first, it should be totally adequate to follow along with the slides I'm sharing on the screen. But I know people like to have all the materials! 
 
 Everything is available on GitHub, <https://github.com/AmeliaMN/CodeYouCanBankOn>
+/
 
-If you are a git/GitHub user, you can fork this repo, or 
-
-```
-git clone https://github.com/AmeliaMN/CodeYouCanBankOn.git
-```
+If you are a git/GitHub user, you can fork and clone this repo.
+/
 
 If you're not, you can download everything as a zip file 
 

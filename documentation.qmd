@@ -6,6 +6,8 @@ editor: source
 format:
   revealjs: 
     theme: [dracula, extra.scss]
+    slide-number: true
+    footer: <https://bit.ly/CYCBO>   
     height: 900
     width: 1600
 execute:
@@ -613,6 +615,8 @@ use_r("data")
 ```
 
 Unfortunately, the trick to insert Roxygen skeleton doesn't work with data, so we have to do the documentation more manually. 
+
+[Documenting datasets](https://rstudio.github.io/r-manuals/r-exts/Writing-R-documentation-files.html#documenting-data-sets)
 
 ## Documenting data
 
@@ -1260,3 +1264,5 @@ Figure adapted from [Packages](https://github.com/hfrick/presentations/blob/mast
 ## Resources
 
 - [R packages](https://r-pkgs.org/), Hadley Wickham and Jenny Bryan. 
+- [Documenting datasets](https://rstudio.github.io/r-manuals/r-exts/Writing-R-documentation-files.html#documenting-data-sets)
+

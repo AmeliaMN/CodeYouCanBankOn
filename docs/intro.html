@@ -207,9 +207,8 @@ Amelia McNamara
 <section id="getting-these-materials" class="slide level2 smaller">
 <h2>Getting these materials</h2>
 <p>At least at first, it should be totally adequate to follow along with the slides I’m sharing on the screen. But I know people like to have all the materials!</p>
-<p>Everything is available on GitHub, <a href="https://github.com/AmeliaMN/CodeYouCanBankOn" class="uri">https://github.com/AmeliaMN/CodeYouCanBankOn</a></p>
-<p>If you are a git/GitHub user, you can fork this repo, or</p>
-<pre><code>git clone https://github.com/AmeliaMN/CodeYouCanBankOn.git</code></pre>
+<p>Everything is available on GitHub, <a href="https://github.com/AmeliaMN/CodeYouCanBankOn" class="uri">https://github.com/AmeliaMN/CodeYouCanBankOn</a> /</p>
+<p>If you are a git/GitHub user, you can fork and clone this repo. /</p>
 <p>If you’re not, you can download everything as a zip file</p>
 
 <img data-src="img/DownloadZip.png" class="r-stretch"></section>
@@ -293,7 +292,7 @@ Amelia McNamara
 <h2>Packages</h2>
 <p>We’re going to be using the following packages, so make sure they are installed!</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"forecast"</span>, <span class="st">"fredr"</span>, <span class="st">"imputeTS"</span>, <span class="st">"rlang"</span>, <span class="st">"roxygen2"</span>, <span class="st">"styler"</span>, <span class="st">"testthat"</span>, <span class="st">"tidyverse"</span>, <span class="st">"usethis"</span>, <span class="st">"vdiffr"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"forecast"</span>, <span class="st">"fredr"</span>, <span class="st">"imputeTS"</span>, <span class="st">"rlang"</span>, <span class="st">"roxygen2"</span>, <span class="st">"styler"</span>, <span class="st">"testthat"</span>, <span class="st">"tidyverse"</span>, <span class="st">"usethis"</span>, <span class="st">"vdiffr"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section>
@@ -437,7 +436,7 @@ Amelia McNamara
 <p>Edit your <code>.Rprofile</code> with <code>usethis::edit_r_profile</code>:<br>
 </p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>usethis<span class="sc">::</span><span class="fu">edit_r_profile</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>usethis<span class="sc">::</span><span class="fu">edit_r_profile</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br>
 </p>
@@ -446,14 +445,14 @@ Amelia McNamara
 <section id="set-up-your-.rprofile-1" class="slide level2">
 <h2>Set up your <code>.Rprofile</code></h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">options</span>(</span>
-<span id="cb6-2"><a></a>  <span class="at">usethis.full_name =</span> <span class="st">"Amelia McNamara"</span>,</span>
-<span id="cb6-3"><a></a>  <span class="at">usethis.description =</span> <span class="fu">list</span>(</span>
-<span id="cb6-4"><a></a>    <span class="st">`</span><span class="at">Authors@R</span><span class="st">`</span> <span class="ot">=</span> <span class="st">'person("Amelia", "McNamara",</span></span>
-<span id="cb6-5"><a></a><span class="st">          email = "amelia.mcnamara@stthomas.edu",</span></span>
-<span id="cb6-6"><a></a><span class="st">          role = c("aut", "cre"))'</span></span>
-<span id="cb6-7"><a></a>  )</span>
-<span id="cb6-8"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">options</span>(</span>
+<span id="cb5-2"><a></a>  <span class="at">usethis.full_name =</span> <span class="st">"Amelia McNamara"</span>,</span>
+<span id="cb5-3"><a></a>  <span class="at">usethis.description =</span> <span class="fu">list</span>(</span>
+<span id="cb5-4"><a></a>    <span class="st">`</span><span class="at">Authors@R</span><span class="st">`</span> <span class="ot">=</span> <span class="st">'person("Amelia", "McNamara",</span></span>
+<span id="cb5-5"><a></a><span class="st">          email = "amelia.mcnamara@stthomas.edu",</span></span>
+<span id="cb5-6"><a></a><span class="st">          role = c("aut", "cre"))'</span></span>
+<span id="cb5-7"><a></a>  )</span>
+<span id="cb5-8"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="set-up-your-.rprofile-2" class="slide level2">
@@ -462,10 +461,10 @@ Amelia McNamara
 <p><br>
 </p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="cf">if</span> (<span class="fu">interactive</span>()) {</span>
-<span id="cb7-2"><a></a>  <span class="fu">suppressMessages</span>(<span class="fu">require</span>(devtools))</span>
-<span id="cb7-3"><a></a>  <span class="fu">suppressMessages</span>(<span class="fu">require</span>(testthat))</span>
-<span id="cb7-4"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="cf">if</span> (<span class="fu">interactive</span>()) {</span>
+<span id="cb6-2"><a></a>  <span class="fu">suppressMessages</span>(<span class="fu">require</span>(devtools))</span>
+<span id="cb6-3"><a></a>  <span class="fu">suppressMessages</span>(<span class="fu">require</span>(testthat))</span>
+<span id="cb6-4"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br>
 </p>
@@ -475,7 +474,7 @@ Amelia McNamara
 <h2>Grabbing some data</h2>
 <p>We’re going to be using some data from FRED as we work, so we need to go get it first.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">library</span>(fredr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">library</span>(fredr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>This package makes it easier to get FRED data, but it does require an API key. <a href="https://fred.stlouisfed.org/docs/api/api_key.html">Request an API key</a></p>
 </section>
@@ -490,7 +489,7 @@ Amelia McNamara
 <section id="adding-api-key-to-renviron" class="slide level2">
 <h2>Adding API key to Renviron</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>usethis<span class="sc">::</span><span class="fu">edit_r_environ</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>usethis<span class="sc">::</span><span class="fu">edit_r_environ</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>add your API key like this (replace with your own key)</p>
 <pre><code>FRED_API_KEY='abcdefghijklmnopqrstuvwxyz123456'</code></pre>
@@ -503,26 +502,26 @@ Amelia McNamara
 <h2>Tomato prices</h2>
 <p>From <a href="https://fred.stlouisfed.org/series/APU0000712311">FRED</a></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">library</span>(fredr)</span>
-<span id="cb11-2"><a></a>tomatoes <span class="ot">&lt;-</span> <span class="fu">fredr</span>(</span>
-<span id="cb11-3"><a></a>  <span class="at">series_id =</span> <span class="st">"APU0000712311"</span>,</span>
-<span id="cb11-4"><a></a>  <span class="at">observation_start =</span> <span class="fu">as.Date</span>(<span class="st">"2016-08-01"</span>),</span>
-<span id="cb11-5"><a></a>  <span class="at">observation_end =</span> <span class="fu">as.Date</span>(<span class="st">"2026-08-10"</span>)</span>
-<span id="cb11-6"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">library</span>(fredr)</span>
+<span id="cb10-2"><a></a>tomatoes <span class="ot">&lt;-</span> <span class="fu">fredr</span>(</span>
+<span id="cb10-3"><a></a>  <span class="at">series_id =</span> <span class="st">"APU0000712311"</span>,</span>
+<span id="cb10-4"><a></a>  <span class="at">observation_start =</span> <span class="fu">as.Date</span>(<span class="st">"2016-08-01"</span>),</span>
+<span id="cb10-5"><a></a>  <span class="at">observation_end =</span> <span class="fu">as.Date</span>(<span class="st">"2026-08-10"</span>)</span>
+<span id="cb10-6"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="save-the-data-your-turn" class="slide level2">
 <h2>Save the data (your turn)</h2>
 <p>We’d rather not be using the API every time we want to play with this data, so let’s save it as a local CSV.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>readr<span class="sc">::</span><span class="fu">write_csv</span>(tomatoes, <span class="st">"tomatoes.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>readr<span class="sc">::</span><span class="fu">write_csv</span>(tomatoes, <span class="st">"tomatoes.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="read-the-data-back-in-your-turn" class="slide level2">
 <h2>Read the data back in (your turn)</h2>
 <p>When I save out data, I always do a quick test to make sure I did it right!</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>tomatoes2 <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"tomatoes.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>tomatoes2 <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"tomatoes.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Looks good!</p>
 </section>
