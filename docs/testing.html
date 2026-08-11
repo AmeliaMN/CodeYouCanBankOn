@@ -655,6 +655,8 @@ Differences:
 <li>Testing something is TRUE: <code>expect_true()</code></li>
 <li>Testing whether objects have names: <code>expect_named()</code></li>
 <li>Testing errors: <code>expect_error()</code></li>
+<li>Testing warnings: <code>expect_warning()</code></li>
+<li>Snapshot tests for more complicated situations</li>
 </ul>
 
 <aside><div>
@@ -760,6 +762,53 @@ Differences:
 `expected`: "b" "a" "c"</code></pre>
 </div>
 </div>
+</section>
+<section id="testing-for-an-errorwarning" class="slide level2">
+<h2>Testing for an error/warning</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a><span class="co"># make an error</span></span>
+<span id="cb30-2"><a></a><span class="dv">1</span> <span class="sc">/</span> <span class="st">"a"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in `1 / "a"`:
+! non-numeric argument to binary operator</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a><span class="co"># expect an error</span></span>
+<span id="cb32-2"><a></a><span class="fu">expect_error</span>(<span class="dv">1</span> <span class="sc">/</span> <span class="st">"a"</span>) </span>
+<span id="cb32-3"><a></a></span>
+<span id="cb32-4"><a></a><span class="co"># make a warning</span></span>
+<span id="cb32-5"><a></a><span class="fu">log</span>(<span class="sc">-</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] NaN</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a></a><span class="co"># expect a warning</span></span>
+<span id="cb34-2"><a></a><span class="fu">expect_warning</span>(<span class="fu">log</span>(<span class="sc">-</span><span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="testing-for-an-errorwarning-1" class="slide level2">
+<h2>Testing for an error/warning</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a><span class="co"># a bit dangerous</span></span>
+<span id="cb35-2"><a></a><span class="fu">expect_error</span>(<span class="fu">str_duq</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>))</span>
+<span id="cb35-3"><a></a></span>
+<span id="cb35-4"><a></a><span class="fu">str_duq</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in `str_duq()`:
+! could not find function "str_duq"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a><span class="co"># better</span></span>
+<span id="cb37-2"><a></a><span class="fu">expect_error</span>(<span class="dv">1</span> <span class="sc">/</span> <span class="st">"a"</span>, <span class="st">"non-numeric argument"</span>)</span>
+<span id="cb37-3"><a></a></span>
+<span id="cb37-4"><a></a><span class="fu">expect_warning</span>(<span class="fu">log</span>(<span class="sc">-</span><span class="dv">1</span>), <span class="st">"NaNs produced"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="snapshot-tests" class="slide level2">
+<h2>Snapshot tests</h2>
+<p>For next time!</p>
+</section>
+<section id="look-at-some-tests" class="slide level2">
+<h2>Look at some tests</h2>
+<p>Let’s look at the tests in <a href="https://github.com/SteffenMoritz/imputeTS/tree/master">imputeTS</a>.</p>
+<p>We can also check <a href="https://app.codecov.io/gh/SteffenMoritz/imputeTS?branch=master">the coverage of the tests</a>.</p>
 </section></section>
 <section>
 <section id="making-a-test" class="title-slide slide level1 center">
@@ -777,12 +826,12 @@ Differences:
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a>usethis<span class="sc">::</span><span class="fu">use_test</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a></a>usethis<span class="sc">::</span><span class="fu">use_test</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="fragment">
-<div class="sourceCode" id="cb31"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb31-1"><a></a>✔ Writing tests/testthat/test-perc_missing_tidy.R.</span>
-<span id="cb31-2"><a></a>☐ Modify tests/testthat/test-perc_missing_tidy.R.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb39-1"><a></a>✔ Writing tests/testthat/test-perc_missing_tidy.R.</span>
+<span id="cb39-2"><a></a>☐ Modify tests/testthat/test-perc_missing_tidy.R.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <aside><div>
@@ -791,16 +840,16 @@ Differences:
 <section id="test-file-structure" class="slide level2">
 <h2>Test file structure</h2>
 <p>For example:</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb32-1"><a></a>test_that("multiplication works", {</span>
-<span id="cb32-2"><a></a>  expect_equal(2 * 2, 4)</span>
-<span id="cb32-3"><a></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb40-1"><a></a>test_that("multiplication works", {</span>
+<span id="cb40-2"><a></a>  expect_equal(2 * 2, 4)</span>
+<span id="cb40-3"><a></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="fragment">
 <p>Generally:</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb33-1"><a></a>test_that("some thing in the function works", {</span>
-<span id="cb33-2"><a></a>  expect_zzzz()</span>
-<span id="cb33-3"><a></a>  expect_zzzz()</span>
-<span id="cb33-4"><a></a>  ...</span>
-<span id="cb33-5"><a></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb41-1"><a></a>test_that("some thing in the function works", {</span>
+<span id="cb41-2"><a></a>  expect_zzzz()</span>
+<span id="cb41-3"><a></a>  expect_zzzz()</span>
+<span id="cb41-4"><a></a>  ...</span>
+<span id="cb41-5"><a></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><br>
 </p>
 <p>You list the expectations inside <code>test_that(  ,  {  })</code></p>
@@ -830,14 +879,14 @@ Differences:
 <p>🎬 Add a test to check the output of <code>perc_missing_tidy()</code> is a tibble with <code>expect_true()</code>:</p>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a></a><span class="fu">test_that</span>(<span class="st">"perc_missing_tidy creates tibble"</span>, {</span>
-<span id="cb34-2"><a></a></span>
-<span id="cb34-3"><a></a>  <span class="co"># use the function</span></span>
-<span id="cb34-4"><a></a>  tomatoes_miss <span class="ot">&lt;-</span> tomatoes <span class="sc">|&gt;</span></span>
-<span id="cb34-5"><a></a>    <span class="fu">perc_missing_tidy</span>(value)</span>
-<span id="cb34-6"><a></a></span>
-<span id="cb34-7"><a></a>  <span class="fu">expect_true</span>(tibble<span class="sc">::</span><span class="fu">is_tibble</span>(tomatoes_miss))</span>
-<span id="cb34-8"><a></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a></a><span class="fu">test_that</span>(<span class="st">"perc_missing_tidy creates tibble"</span>, {</span>
+<span id="cb42-2"><a></a></span>
+<span id="cb42-3"><a></a>  <span class="co"># use the function</span></span>
+<span id="cb42-4"><a></a>  tomatoes_miss <span class="ot">&lt;-</span> tomatoes <span class="sc">|&gt;</span></span>
+<span id="cb42-5"><a></a>    <span class="fu">perc_missing_tidy</span>(value)</span>
+<span id="cb42-6"><a></a></span>
+<span id="cb42-7"><a></a>  <span class="fu">expect_true</span>(tibble<span class="sc">::</span><span class="fu">is_tibble</span>(tomatoes_miss))</span>
+<span id="cb42-8"><a></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="fragment">
@@ -853,11 +902,11 @@ Differences:
 <h2>Running a test</h2>
 <p>🎬 Run the test with <code>testthat::test_file()</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a>testthat<span class="sc">::</span><span class="fu">test_file</span>(<span class="st">"tests/testthat/test-perc_missing_tidy.R"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a></a>testthat<span class="sc">::</span><span class="fu">test_file</span>(<span class="st">"tests/testthat/test-perc_missing_tidy.R"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
-<div class="sourceCode" id="cb36"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb36-1"><a></a>══ Testing test-perc_missing_tidy.R ══════════════════════</span>
-<span id="cb36-2"><a></a>[ FAIL 0 | WARN 0 | SKIP 0 | PASS 1 ] Done!</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb44-1"><a></a>══ Testing test-perc_missing_tidy.R ══════════════════════</span>
+<span id="cb44-2"><a></a>[ FAIL 0 | WARN 0 | SKIP 0 | PASS 1 ] Done!</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>🥳</p>
 <p><br>
 </p>
@@ -870,21 +919,21 @@ Differences:
 <h2><code>devtools::test()</code></h2>
 <p>🎬 Run all the tests with <code>devtools::test()</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a>devtools<span class="sc">::</span><span class="fu">test</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a></a>devtools<span class="sc">::</span><span class="fu">test</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <div class="small">
-<div class="sourceCode" id="cb38"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb38-1"><a></a>ℹ Loading BLT</span>
-<span id="cb38-2"><a></a>ℹ Testing BLT</span>
-<span id="cb38-3"><a></a>✔ | F W S  OK | Context</span>
-<span id="cb38-4"><a></a>✔ |         1 | matches [0.4s]                                   </span>
-<span id="cb38-5"><a></a></span>
-<span id="cb38-6"><a></a>══ Results ══════════════════════════════════════════════════════</span>
-<span id="cb38-7"><a></a>Duration: 0.5 s</span>
-<span id="cb38-8"><a></a></span>
-<span id="cb38-9"><a></a>[ FAIL 0 | WARN 0 | SKIP 0 | PASS 1 ]</span>
-<span id="cb38-10"><a></a></span>
-<span id="cb38-11"><a></a>🐝 Your tests are the bee's knees 🐝</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb46-1"><a></a>ℹ Loading BLT</span>
+<span id="cb46-2"><a></a>ℹ Testing BLT</span>
+<span id="cb46-3"><a></a>✔ | F W S  OK | Context</span>
+<span id="cb46-4"><a></a>✔ |         1 | matches [0.4s]                                   </span>
+<span id="cb46-5"><a></a></span>
+<span id="cb46-6"><a></a>══ Results ══════════════════════════════════════════════════════</span>
+<span id="cb46-7"><a></a>Duration: 0.5 s</span>
+<span id="cb46-8"><a></a></span>
+<span id="cb46-9"><a></a>[ FAIL 0 | WARN 0 | SKIP 0 | PASS 1 ]</span>
+<span id="cb46-10"><a></a></span>
+<span id="cb46-11"><a></a>🐝 Your tests are the bee's knees 🐝</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
@@ -906,26 +955,26 @@ Differences:
 <div class="teach-left">
 <div class="small">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a></a><span class="fu">test_that</span>(<span class="st">"perc_missing_tidy creates tibble"</span>, {</span>
-<span id="cb39-2"><a></a></span>
-<span id="cb39-3"><a></a>  <span class="co"># use the function</span></span>
-<span id="cb39-4"><a></a>  tomatoes_miss <span class="ot">&lt;-</span> tomatoes <span class="sc">|&gt;</span></span>
-<span id="cb39-5"><a></a>    <span class="fu">perc_missing_tidy</span>(value)</span>
-<span id="cb39-6"><a></a></span>
-<span id="cb39-7"><a></a>  <span class="fu">expect_true</span>(tibble<span class="sc">::</span><span class="fu">is_tibble</span>(tomatoes_miss))</span>
-<span id="cb39-8"><a></a>})</span>
-<span id="cb39-9"><a></a></span>
-<span id="cb39-10"><a></a><span class="fu">test_that</span>(<span class="st">"perc_missing_tidy has correct names"</span>, {</span>
-<span id="cb39-11"><a></a></span>
-<span id="cb39-12"><a></a>  <span class="co"># use the function</span></span>
-<span id="cb39-13"><a></a>  tomatoes_miss <span class="ot">&lt;-</span> tomatoes <span class="sc">|&gt;</span></span>
-<span id="cb39-14"><a></a>    <span class="fu">perc_missing_tidy</span>(value)</span>
-<span id="cb39-15"><a></a></span>
-<span id="cb39-16"><a></a>  <span class="fu">expect_named</span>(</span>
-<span id="cb39-17"><a></a>    tomatoes_miss,</span>
-<span id="cb39-18"><a></a>    <span class="fu">c</span>(<span class="st">"perc"</span>)</span>
-<span id="cb39-19"><a></a>  )</span>
-<span id="cb39-20"><a></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a></a><span class="fu">test_that</span>(<span class="st">"perc_missing_tidy creates tibble"</span>, {</span>
+<span id="cb47-2"><a></a></span>
+<span id="cb47-3"><a></a>  <span class="co"># use the function</span></span>
+<span id="cb47-4"><a></a>  tomatoes_miss <span class="ot">&lt;-</span> tomatoes <span class="sc">|&gt;</span></span>
+<span id="cb47-5"><a></a>    <span class="fu">perc_missing_tidy</span>(value)</span>
+<span id="cb47-6"><a></a></span>
+<span id="cb47-7"><a></a>  <span class="fu">expect_true</span>(tibble<span class="sc">::</span><span class="fu">is_tibble</span>(tomatoes_miss))</span>
+<span id="cb47-8"><a></a>})</span>
+<span id="cb47-9"><a></a></span>
+<span id="cb47-10"><a></a><span class="fu">test_that</span>(<span class="st">"perc_missing_tidy has correct names"</span>, {</span>
+<span id="cb47-11"><a></a></span>
+<span id="cb47-12"><a></a>  <span class="co"># use the function</span></span>
+<span id="cb47-13"><a></a>  tomatoes_miss <span class="ot">&lt;-</span> tomatoes <span class="sc">|&gt;</span></span>
+<span id="cb47-14"><a></a>    <span class="fu">perc_missing_tidy</span>(value)</span>
+<span id="cb47-15"><a></a></span>
+<span id="cb47-16"><a></a>  <span class="fu">expect_named</span>(</span>
+<span id="cb47-17"><a></a>    tomatoes_miss,</span>
+<span id="cb47-18"><a></a>    <span class="fu">c</span>(<span class="st">"perc"</span>)</span>
+<span id="cb47-19"><a></a>  )</span>
+<span id="cb47-20"><a></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>These can also be combined into one test so you don’t need to repeat yourself!</p>
 </div>
@@ -972,19 +1021,19 @@ changed<br>
 <h2>Another answer</h2>
 <div class="small">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a></a><span class="fu">test_that</span>(<span class="st">"perc_missing_tidy works"</span>, {</span>
-<span id="cb40-2"><a></a></span>
-<span id="cb40-3"><a></a>  <span class="co"># use the function</span></span>
-<span id="cb40-4"><a></a>  tomatoes_miss <span class="ot">&lt;-</span> tomatoes <span class="sc">|&gt;</span></span>
-<span id="cb40-5"><a></a>    <span class="fu">perc_missing_tidy</span>(value)</span>
-<span id="cb40-6"><a></a></span>
-<span id="cb40-7"><a></a>  <span class="fu">expect_true</span>(tibble<span class="sc">::</span><span class="fu">is_tibble</span>(tomatoes_miss))</span>
-<span id="cb40-8"><a></a></span>
-<span id="cb40-9"><a></a>  <span class="fu">expect_named</span>(</span>
-<span id="cb40-10"><a></a>    tomatoes_miss,</span>
-<span id="cb40-11"><a></a>    <span class="fu">c</span>(<span class="st">"perc"</span>)</span>
-<span id="cb40-12"><a></a>  )</span>
-<span id="cb40-13"><a></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a></a><span class="fu">test_that</span>(<span class="st">"perc_missing_tidy works"</span>, {</span>
+<span id="cb48-2"><a></a></span>
+<span id="cb48-3"><a></a>  <span class="co"># use the function</span></span>
+<span id="cb48-4"><a></a>  tomatoes_miss <span class="ot">&lt;-</span> tomatoes <span class="sc">|&gt;</span></span>
+<span id="cb48-5"><a></a>    <span class="fu">perc_missing_tidy</span>(value)</span>
+<span id="cb48-6"><a></a></span>
+<span id="cb48-7"><a></a>  <span class="fu">expect_true</span>(tibble<span class="sc">::</span><span class="fu">is_tibble</span>(tomatoes_miss))</span>
+<span id="cb48-8"><a></a></span>
+<span id="cb48-9"><a></a>  <span class="fu">expect_named</span>(</span>
+<span id="cb48-10"><a></a>    tomatoes_miss,</span>
+<span id="cb48-11"><a></a>    <span class="fu">c</span>(<span class="st">"perc"</span>)</span>
+<span id="cb48-12"><a></a>  )</span>
+<span id="cb48-13"><a></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
@@ -993,28 +1042,28 @@ changed<br>
 <p>🎬 Run the edited test file</p>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a></a>testthat<span class="sc">::</span><span class="fu">test_file</span>(<span class="st">"tests/testthat/test-perc_missing_tidy.R"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a></a>testthat<span class="sc">::</span><span class="fu">test_file</span>(<span class="st">"tests/testthat/test-perc_missing_tidy.R"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Or the “Runs Tests” button</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb42-1"><a></a>══ Testing test-perc_missing_tidy.R ═════════════════════════════════════════════════════</span>
-<span id="cb42-2"><a></a>[ FAIL 0 | WARN 0 | SKIP 0 | PASS 2 ] Done!</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb50-1"><a></a>══ Testing test-perc_missing_tidy.R ═════════════════════════════════════════════════════</span>
+<span id="cb50-2"><a></a>[ FAIL 0 | WARN 0 | SKIP 0 | PASS 2 ] Done!</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="section-1" class="slide level2">
 <h2></h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a></a>devtools<span class="sc">::</span><span class="fu">test</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a></a>devtools<span class="sc">::</span><span class="fu">test</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="small">
-<div class="sourceCode" id="cb44"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb44-1"><a></a>ℹ Loading BLT</span>
-<span id="cb44-2"><a></a>ℹ Testing BLT</span>
-<span id="cb44-3"><a></a>✔ | F W S  OK | Context</span>
-<span id="cb44-4"><a></a>✔ |         2 | matches [0.2s]                                                 </span>
-<span id="cb44-5"><a></a></span>
-<span id="cb44-6"><a></a>══ Results ════════════════════════════════════════════════════════════════════</span>
-<span id="cb44-7"><a></a>Duration: 0.2 s</span>
-<span id="cb44-8"><a></a></span>
-<span id="cb44-9"><a></a>[ FAIL 0 | WARN 0 | SKIP 0 | PASS 2 ]   </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb52-1"><a></a>ℹ Loading BLT</span>
+<span id="cb52-2"><a></a>ℹ Testing BLT</span>
+<span id="cb52-3"><a></a>✔ | F W S  OK | Context</span>
+<span id="cb52-4"><a></a>✔ |         2 | matches [0.2s]                                                 </span>
+<span id="cb52-5"><a></a></span>
+<span id="cb52-6"><a></a>══ Results ════════════════════════════════════════════════════════════════════</span>
+<span id="cb52-7"><a></a>Duration: 0.2 s</span>
+<span id="cb52-8"><a></a></span>
+<span id="cb52-9"><a></a>[ FAIL 0 | WARN 0 | SKIP 0 | PASS 2 ]   </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>🥳</p>
 </section></section>
@@ -1044,7 +1093,7 @@ changed<br>
 <h2>Coverage in active file</h2>
 <p>🎬 Make sure <code>perc_missing_tidy.R</code> is active in the editor and do:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a></a>devtools<span class="sc">::</span><span class="fu">test_coverage_active_file</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a></a>devtools<span class="sc">::</span><span class="fu">test_coverage_active_file</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <p><img data-src="img/test-covr-active-file.png" width="1000"></p>
@@ -1054,7 +1103,7 @@ changed<br>
 <h2>Coverage in package</h2>
 <p>🎬 Check the coverage over the whole package:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a></a>devtools<span class="sc">::</span><span class="fu">test_coverage</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a></a>devtools<span class="sc">::</span><span class="fu">test_coverage</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <p><img data-src="img/test-covr-pkg.png" width="1000"></p>

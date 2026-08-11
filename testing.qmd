@@ -391,6 +391,8 @@ Some types of `expect_zzzz()`
 - Testing something is TRUE: `expect_true()`
 - Testing whether objects have names: `expect_named()`
 - Testing errors: `expect_error()`
+- Testing warnings: `expect_warning()`
+- Snapshot tests for more complicated situations
 
 ::: aside
 All expectations are in **`testthat`** [documentation](https://testthat.r-lib.org/reference/index.html)
@@ -495,6 +497,56 @@ expect_named(x, c("a", "b", "c"))
 # test if the names are "b", "a", "c":  error
 expect_named(x, c("b", "a", "c"))
 ```
+
+## Testing for an error/warning
+
+```{r}
+#| eval: true
+#| error: true
+
+# make an error
+1 / "a"
+
+# expect an error
+expect_error(1 / "a") 
+
+# make a warning
+log(-1)
+
+# expect a warning
+expect_warning(log(-1))
+
+```
+
+
+
+## Testing for an error/warning
+
+```{r}
+#| eval: true
+#| error: true
+
+# a bit dangerous
+expect_error(str_duq(1:2, 1:3))
+
+str_duq(1:2, 1:3)
+
+# better
+expect_error(1 / "a", "non-numeric argument")
+
+expect_warning(log(-1), "NaNs produced")
+```
+
+
+## Snapshot tests
+
+For next time! 
+
+## Look at some tests
+
+Let's look at the tests in [imputeTS](https://github.com/SteffenMoritz/imputeTS/tree/master). 
+
+We can also check [the coverage of the tests](https://app.codecov.io/gh/SteffenMoritz/imputeTS?branch=master). 
 
 # Making a test
 

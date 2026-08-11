@@ -1103,7 +1103,7 @@
     "href": "testing.html#some-common-expectations",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Some common expectations",
-    "text": "Some common expectations\nSome types of expect_zzzz()\n\nTesting for identity: expect_identical()\nTesting for equality with wiggle room: expect_equal()\nTesting something is TRUE: expect_true()\nTesting whether objects have names: expect_named()\nTesting errors: expect_error()\n\n\n\nAll expectations are in testthat documentation"
+    "text": "Some common expectations\nSome types of expect_zzzz()\n\nTesting for identity: expect_identical()\nTesting for equality with wiggle room: expect_equal()\nTesting something is TRUE: expect_true()\nTesting whether objects have names: expect_named()\nTesting errors: expect_error()\nTesting warnings: expect_warning()\nSnapshot tests for more complicated situations\n\n\n\nAll expectations are in testthat documentation"
   },
   {
     "objectID": "testing.html#equality-with-wiggle-room",
@@ -1139,6 +1139,34 @@
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Testing whether objects have names",
     "text": "Testing whether objects have names\n\n# vector of named values\nx &lt;- c(a = 1, b = 2, c = 3)\n\n# test whether x has names: no error\nexpect_named(x)\n# test if the names are \"a\", \"b\", \"c\": no error\n\nexpect_named(x, c(\"a\", \"b\", \"c\"))\n\n# test if the names are \"b\", \"a\", \"c\":  error\nexpect_named(x, c(\"b\", \"a\", \"c\"))\n\nError:\n! Expected `x` to have names `c(\"b\", \"a\", \"c\")`.\nDifferences:\n`actual`:   \"a\" \"b\" \"c\"\n`expected`: \"b\" \"a\" \"c\""
+  },
+  {
+    "objectID": "testing.html#testing-for-an-errorwarning",
+    "href": "testing.html#testing-for-an-errorwarning",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Testing for an error/warning",
+    "text": "Testing for an error/warning\n\n# make an error\n1 / \"a\"\n\nError in `1 / \"a\"`:\n! non-numeric argument to binary operator\n\n# expect an error\nexpect_error(1 / \"a\") \n\n# make a warning\nlog(-1)\n\n[1] NaN\n\n# expect a warning\nexpect_warning(log(-1))"
+  },
+  {
+    "objectID": "testing.html#testing-for-an-errorwarning-1",
+    "href": "testing.html#testing-for-an-errorwarning-1",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Testing for an error/warning",
+    "text": "Testing for an error/warning\n\n# a bit dangerous\nexpect_error(str_duq(1:2, 1:3))\n\nstr_duq(1:2, 1:3)\n\nError in `str_duq()`:\n! could not find function \"str_duq\"\n\n# better\nexpect_error(1 / \"a\", \"non-numeric argument\")\n\nexpect_warning(log(-1), \"NaNs produced\")"
+  },
+  {
+    "objectID": "testing.html#snapshot-tests",
+    "href": "testing.html#snapshot-tests",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Snapshot tests",
+    "text": "Snapshot tests\nFor next time!"
+  },
+  {
+    "objectID": "testing.html#look-at-some-tests",
+    "href": "testing.html#look-at-some-tests",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Look at some tests",
+    "text": "Look at some tests\nLet’s look at the tests in imputeTS.\nWe can also check the coverage of the tests."
   },
   {
     "objectID": "testing.html#make-a-test",
