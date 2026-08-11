@@ -856,7 +856,13 @@ devtools::test_coverage()
 . . .
 
 ![](img/test-covr-pkg.png){width="1000"}
+## Adding coverage to GitHub
 
+Of course there's a `usethis` function!
+
+```r
+usethis::use_github_action("test-coverage")
+```
 # ☑️ Woo hoo ☑️<BR> You wrote a unit test!
 
 ## Commit

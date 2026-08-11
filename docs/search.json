@@ -469,20 +469,6 @@
     "text": "rm(list = ls()) -&gt; computer on fire\n\nIf the first line of your R script is\nsetwd(\"C:\\Users\\jenny\\path\\that\\only\\I\\have\")\nI will come into your office and SET YOUR COMPUTER ON FIRE 🔥.\nIf the first line of your R script is\nrm(list = ls())\nI will come into your office and SET YOUR COMPUTER ON FIRE 🔥.\n\n\n– Jenny Bryan, Project-oriented workflow"
   },
   {
-    "objectID": "design.html#pass-the-dots",
-    "href": "design.html#pass-the-dots",
-    "title": "💻 🏦 Code You Can Bank On",
-    "section": "Pass the dots",
-    "text": "Pass the dots\nThis is the simplest possible solution.\n\n\nIf the tidyverse function you’re using takes ... as an argument,\n\n\n\n\nand that’s what you want to pass along,\n\n\n\nthen you can pass the dots.\nmy_select &lt;- function(.data, ...) {\n  dplyr::select(.data, ...)\n}"
-  },
-  {
-    "objectID": "design.html#data-in-packages",
-    "href": "design.html#data-in-packages",
-    "title": "💻 🏦 Code You Can Bank On",
-    "section": "Data in packages",
-    "text": "Data in packages\nThere is a lot more detail specific to including data in packages. Sometimes you want to include raw data, sometimes you need data only available to the package and not the user, etc. There is much more detail in the R packages book."
-  },
-  {
     "objectID": "design.html#code-styling",
     "href": "design.html#code-styling",
     "title": "💻 🏦 Code You Can Bank On",
@@ -733,6 +719,20 @@
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Commit",
     "text": "Commit\nNow would be a good time to commit your changes\n\nJason Long, CC BY 3.0 &lt;https://creativecommons.org/licenses/by/3.0&gt;, via Wikimedia Commons"
+  },
+  {
+    "objectID": "design.html#pass-the-dots",
+    "href": "design.html#pass-the-dots",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Pass the dots",
+    "text": "Pass the dots\nThis is the simplest possible solution.\n\n\nIf the tidyverse function you’re using takes ... as an argument,\n\n\n\n\nand that’s what you want to pass along,\n\n\n\nthen you can pass the dots.\nmy_select &lt;- function(.data, ...) {\n  dplyr::select(.data, ...)\n}"
+  },
+  {
+    "objectID": "design.html#data-in-packages",
+    "href": "design.html#data-in-packages",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Data in packages",
+    "text": "Data in packages\nThere is a lot more detail specific to including data in packages. Sometimes you want to include raw data, sometimes you need data only available to the package and not the user, etc. There is much more detail in the R packages book."
   },
   {
     "objectID": "design.html#summary-1",
@@ -1271,7 +1271,7 @@
     "href": "testing.html#coverage-in-package",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Coverage in package",
-    "text": "Coverage in package\n🎬 Check the coverage over the whole package:\n\ndevtools::test_coverage()"
+    "text": "Coverage in package\n🎬 Check the coverage over the whole package:\n\ndevtools::test_coverage()\n\n\n ## Adding coverage to GitHub\nOf course there’s a usethis function!\nusethis::use_github_action(\"test-coverage\")"
   },
   {
     "objectID": "testing.html#commit",

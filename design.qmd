@@ -269,31 +269,7 @@ Keeping track of changes
 
 
 
-## Pass the dots
 
-This is the simplest possible solution. 
-
-. . .
-
- - If the tidyverse function you're using takes `...` as an argument,
-
-. . .
-
- - and that's what you want to pass along, 
-
-. . . 
- 
-then you can **pass the dots**.
-
-```r
-my_select <- function(.data, ...) {
-  dplyr::select(.data, ...)
-}
-```
-
-## Data in packages
-
-There is a lot more detail specific to including data in packages. Sometimes you want to include raw data, sometimes you need data only available to the package and not the user, etc. There is much more detail in the [R packages](https://r-pkgs.org/data.html) book. 
 
 ## Code styling
 
@@ -957,6 +933,34 @@ Should fail!
 Now would be a good time to commit your changes 
 
 ![Jason Long, CC BY 3.0 \<https://creativecommons.org/licenses/by/3.0\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg){fig-alt="Git icon" width="300"} 
+
+## Pass the dots
+
+This is the simplest possible solution. 
+
+. . .
+
+ - If the tidyverse function you're using takes `...` as an argument,
+
+. . .
+
+ - and that's what you want to pass along, 
+
+. . . 
+ 
+then you can **pass the dots**.
+
+```r
+my_select <- function(.data, ...) {
+  dplyr::select(.data, ...)
+}
+```
+
+## Data in packages
+
+There is a lot more detail specific to including data in packages. Sometimes you want to include raw data, sometimes you need data only available to the package and not the user, etc. There is much more detail in the [R packages](https://r-pkgs.org/data.html) book. 
+
+
 
 ## Summary
 

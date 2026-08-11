@@ -453,30 +453,6 @@ changed<br>
 <p>– Jenny Bryan, <a href="https://tidyverse.org/blog/2017/12/workflow-vs-script/">Project-oriented workflow</a></p>
 </blockquote>
 </section>
-<section id="pass-the-dots" class="slide level2">
-<h2>Pass the dots</h2>
-<p>This is the simplest possible solution.</p>
-<div class="fragment">
-<ul>
-<li>If the tidyverse function you’re using takes <code>...</code> as an argument,</li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li>and that’s what you want to pass along,</li>
-</ul>
-</div>
-<div class="fragment">
-<p>then you can <strong>pass the dots</strong>.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>my_select <span class="ot">&lt;-</span> <span class="cf">function</span>(.data, ...) {</span>
-<span id="cb1-2"><a></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(.data, ...)</span>
-<span id="cb1-3"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="data-in-packages" class="slide level2">
-<h2>Data in packages</h2>
-<p>There is a lot more detail specific to including data in packages. Sometimes you want to include raw data, sometimes you need data only available to the package and not the user, etc. There is much more detail in the <a href="https://r-pkgs.org/data.html">R packages</a> book.</p>
-</section>
 <section id="code-styling" class="slide level2">
 <h2>Code styling</h2>
 <p>Many (most?) people have coalesced around the <a href="https://style.tidyverse.org/">tidyverse style guide</a>.</p>
@@ -529,12 +505,12 @@ changed<br>
 <section id="arguments" class="slide level2">
 <h2>Arguments</h2>
 <p>Here, <code>mtcars</code> is an <em>argument</em>:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">head</span>(mtcars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">head</span>(mtcars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="fragment">
 <p>Here, <code>data</code> is a <em>formal argument</em>:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>head <span class="ot">&lt;-</span> <span class="cf">function</span>(data){</span>
-<span id="cb3-2"><a></a>  ...</span>
-<span id="cb3-3"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>head <span class="ot">&lt;-</span> <span class="cf">function</span>(data){</span>
+<span id="cb2-2"><a></a>  ...</span>
+<span id="cb2-3"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <p>In R, we sometimes use these terms interchangeably; we sometimes use the term <em>formals</em>.</p>
@@ -579,28 +555,28 @@ changed<br>
 <section id="discuss-with-neighbour" class="slide level2">
 <h2>Discuss with neighbour</h2>
 <p>Which are: data, descriptors, details?</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="co"># there are acutally more args...</span></span>
-<span id="cb4-2"><a></a>pivot_longer <span class="ot">&lt;-</span> <span class="cf">function</span>(</span>
-<span id="cb4-3"><a></a>  data,                </span>
-<span id="cb4-4"><a></a>  cols,                </span>
-<span id="cb4-5"><a></a>  <span class="at">names_to =</span> <span class="st">"name"</span>,   </span>
-<span id="cb4-6"><a></a>  <span class="at">names_prefix =</span> <span class="cn">NULL</span>  </span>
-<span id="cb4-7"><a></a>) {</span>
-<span id="cb4-8"><a></a>  ...</span>
-<span id="cb4-9"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="co"># there are acutally more args...</span></span>
+<span id="cb3-2"><a></a>pivot_longer <span class="ot">&lt;-</span> <span class="cf">function</span>(</span>
+<span id="cb3-3"><a></a>  data,                </span>
+<span id="cb3-4"><a></a>  cols,                </span>
+<span id="cb3-5"><a></a>  <span class="at">names_to =</span> <span class="st">"name"</span>,   </span>
+<span id="cb3-6"><a></a>  <span class="at">names_prefix =</span> <span class="cn">NULL</span>  </span>
+<span id="cb3-7"><a></a>) {</span>
+<span id="cb3-8"><a></a>  ...</span>
+<span id="cb3-9"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="discuss-with-neighbor-answer" class="slide level2">
 <h2>Discuss with neighbor (answer)</h2>
 <p>Which are: data, descriptors, details?</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="co"># there are acutally more args...</span></span>
-<span id="cb5-2"><a></a>pivot_longer <span class="ot">&lt;-</span> <span class="cf">function</span>(</span>
-<span id="cb5-3"><a></a>  data,                <span class="co"># data</span></span>
-<span id="cb5-4"><a></a>  cols,                <span class="co"># descriptor</span></span>
-<span id="cb5-5"><a></a>  <span class="at">names_to =</span> <span class="st">"name"</span>,   <span class="co"># details</span></span>
-<span id="cb5-6"><a></a>  <span class="at">names_prefix =</span> <span class="cn">NULL</span>  <span class="co">#</span></span>
-<span id="cb5-7"><a></a>) {</span>
-<span id="cb5-8"><a></a>  ...</span>
-<span id="cb5-9"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="co"># there are acutally more args...</span></span>
+<span id="cb4-2"><a></a>pivot_longer <span class="ot">&lt;-</span> <span class="cf">function</span>(</span>
+<span id="cb4-3"><a></a>  data,                <span class="co"># data</span></span>
+<span id="cb4-4"><a></a>  cols,                <span class="co"># descriptor</span></span>
+<span id="cb4-5"><a></a>  <span class="at">names_to =</span> <span class="st">"name"</span>,   <span class="co"># details</span></span>
+<span id="cb4-6"><a></a>  <span class="at">names_prefix =</span> <span class="cn">NULL</span>  <span class="co">#</span></span>
+<span id="cb4-7"><a></a>) {</span>
+<span id="cb4-8"><a></a>  ...</span>
+<span id="cb4-9"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="pure-function" class="slide level2">
 <h2>Pure function</h2>
@@ -613,12 +589,12 @@ changed<br>
 <p>Examples:</p>
 </div>
 <div class="fragment">
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="cf">function</span>(x, y) {</span>
-<span id="cb6-2"><a></a>  x <span class="sc">+</span> y</span>
-<span id="cb6-3"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="cf">function</span>(x, y) {</span>
+<span id="cb5-2"><a></a>  x <span class="sc">+</span> y</span>
+<span id="cb5-3"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">cos</span>(pi)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">cos</span>(pi)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="side-effects" class="slide level2">
@@ -632,10 +608,10 @@ changed<br>
 <p>Examples:</p>
 </div>
 <div class="fragment">
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"myfile.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"myfile.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">runif</span>(<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">runif</span>(<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="why-is-this-important" class="slide level2">
@@ -669,20 +645,42 @@ changed<br>
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>usethis<span class="sc">::</span><span class="fu">use_r</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>usethis<span class="sc">::</span><span class="fu">use_r</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Let’s start with adding a function skeleton,</p>
 </div>
 <div class="fragment">
-<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>BLT_ggplot_na_distribution <span class="ot">&lt;-</span> <span class="cf">function</span>(data, mapping, ...){</span>
-<span id="cb11-2"><a></a></span>
-<span id="cb11-3"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>BLT_ggplot_na_distribution <span class="ot">&lt;-</span> <span class="cf">function</span>(data, mapping, ...){</span>
+<span id="cb10-2"><a></a></span>
+<span id="cb10-3"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <p>And then write some documentation <strong>first</strong>, as is better practice.</p>
 </div>
 </section>
 <section id="make-a-function-with-side-effects-1" class="slide level2">
+<h2>Make a function with side effects</h2>
+<div class="extrasmall">
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="co">#' ggplot to visualization the distribution of missing values</span></span>
+<span id="cb11-2"><a></a><span class="co">#'</span></span>
+<span id="cb11-3"><a></a><span class="co">#' Wrapper around [imputeTS::ggplot_na_distribution]</span></span>
+<span id="cb11-4"><a></a><span class="co">#'</span></span>
+<span id="cb11-5"><a></a><span class="co">#' @param data Default dataset to use for a plot</span></span>
+<span id="cb11-6"><a></a><span class="co">#' @param variable The variable to plot</span></span>
+<span id="cb11-7"><a></a><span class="co">#' @param ... Other arguments passed on to methods</span></span>
+<span id="cb11-8"><a></a><span class="co">#'</span></span>
+<span id="cb11-9"><a></a><span class="co">#' @returns a ggplot object</span></span>
+<span id="cb11-10"><a></a><span class="co">#' @export</span></span>
+<span id="cb11-11"><a></a><span class="co">#'</span></span>
+<span id="cb11-12"><a></a><span class="co">#' @examples</span></span>
+<span id="cb11-13"><a></a><span class="co">#' tomatoes |&gt;</span></span>
+<span id="cb11-14"><a></a><span class="co">#' BLT_ggplot_na_distribution(value)</span></span>
+<span id="cb11-15"><a></a>BLT_ggplot_na_distribution <span class="ot">&lt;-</span> <span class="cf">function</span>(data, variable, ...){</span>
+<span id="cb11-16"><a></a></span>
+<span id="cb11-17"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="make-a-function-with-side-effects-2" class="slide level2">
 <h2>Make a function with side effects</h2>
 <div class="extrasmall">
 <div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="co">#' ggplot to visualization the distribution of missing values</span></span>
@@ -700,32 +698,10 @@ changed<br>
 <span id="cb12-13"><a></a><span class="co">#' tomatoes |&gt;</span></span>
 <span id="cb12-14"><a></a><span class="co">#' BLT_ggplot_na_distribution(value)</span></span>
 <span id="cb12-15"><a></a>BLT_ggplot_na_distribution <span class="ot">&lt;-</span> <span class="cf">function</span>(data, variable, ...){</span>
-<span id="cb12-16"><a></a></span>
-<span id="cb12-17"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="make-a-function-with-side-effects-2" class="slide level2">
-<h2>Make a function with side effects</h2>
-<div class="extrasmall">
-<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="co">#' ggplot to visualization the distribution of missing values</span></span>
-<span id="cb13-2"><a></a><span class="co">#'</span></span>
-<span id="cb13-3"><a></a><span class="co">#' Wrapper around [imputeTS::ggplot_na_distribution]</span></span>
-<span id="cb13-4"><a></a><span class="co">#'</span></span>
-<span id="cb13-5"><a></a><span class="co">#' @param data Default dataset to use for a plot</span></span>
-<span id="cb13-6"><a></a><span class="co">#' @param variable The variable to plot</span></span>
-<span id="cb13-7"><a></a><span class="co">#' @param ... Other arguments passed on to methods</span></span>
-<span id="cb13-8"><a></a><span class="co">#'</span></span>
-<span id="cb13-9"><a></a><span class="co">#' @returns a ggplot object</span></span>
-<span id="cb13-10"><a></a><span class="co">#' @export</span></span>
-<span id="cb13-11"><a></a><span class="co">#'</span></span>
-<span id="cb13-12"><a></a><span class="co">#' @examples</span></span>
-<span id="cb13-13"><a></a><span class="co">#' tomatoes |&gt;</span></span>
-<span id="cb13-14"><a></a><span class="co">#' BLT_ggplot_na_distribution(value)</span></span>
-<span id="cb13-15"><a></a>BLT_ggplot_na_distribution <span class="ot">&lt;-</span> <span class="cf">function</span>(data, variable, ...){</span>
-<span id="cb13-16"><a></a>  var <span class="ot">&lt;-</span> rlang<span class="sc">::</span><span class="fu">enquo</span>(variable)</span>
-<span id="cb13-17"><a></a>  var_eval <span class="ot">&lt;-</span> rlang<span class="sc">::</span><span class="fu">eval_tidy</span>(var, <span class="at">data =</span> data)</span>
-<span id="cb13-18"><a></a>  imputeTS<span class="sc">::</span><span class="fu">ggplot_na_distribution</span>(var_eval)</span>
-<span id="cb13-19"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-16"><a></a>  var <span class="ot">&lt;-</span> rlang<span class="sc">::</span><span class="fu">enquo</span>(variable)</span>
+<span id="cb12-17"><a></a>  var_eval <span class="ot">&lt;-</span> rlang<span class="sc">::</span><span class="fu">eval_tidy</span>(var, <span class="at">data =</span> data)</span>
+<span id="cb12-18"><a></a>  imputeTS<span class="sc">::</span><span class="fu">ggplot_na_distribution</span>(var_eval)</span>
+<span id="cb12-19"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="practical-advice" class="slide level2">
@@ -775,7 +751,7 @@ changed<br>
 <div class="fragment">
 <ul>
 <li><p>Sometimes, error messages can be cryptic:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>seq[<span class="dv">10</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>seq[<span class="dv">10</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <pre><code>Error in seq[10] : object of type 'closure' is not subsettable</code></pre></li>
 </ul>
 </div>
@@ -803,20 +779,20 @@ changed<br>
 <section id="using-clicli_abort" class="slide level2">
 <h2>Using <code>cli::cli_abort()</code></h2>
 <p>{cli} package</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="co"># predicate</span></span>
-<span id="cb16-2"><a></a><span class="cf">if</span> (y <span class="sc">&gt;</span> <span class="dv">3</span>) {</span>
-<span id="cb16-3"><a></a>  cli<span class="sc">::</span><span class="fu">cli_abort</span>(</span>
-<span id="cb16-4"><a></a>    <span class="co"># message for end user</span></span>
-<span id="cb16-5"><a></a>    <span class="fu">c</span>(</span>
-<span id="cb16-6"><a></a>      <span class="st">"{.var y} cannot be greater than 3."</span>, </span>
-<span id="cb16-7"><a></a>      <span class="at">x =</span> <span class="st">"{.var y} is {.val {y}}."</span></span>
-<span id="cb16-8"><a></a>    ),</span>
-<span id="cb16-9"><a></a>    <span class="co"># class name</span></span>
-<span id="cb16-10"><a></a>    <span class="at">class =</span> <span class="st">"BLT_error_threshold"</span>,  </span>
-<span id="cb16-11"><a></a>    <span class="co"># more information</span></span>
-<span id="cb16-12"><a></a>    <span class="at">y =</span> y     </span>
-<span id="cb16-13"><a></a>  )</span>
-<span id="cb16-14"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="co"># predicate</span></span>
+<span id="cb15-2"><a></a><span class="cf">if</span> (y <span class="sc">&gt;</span> <span class="dv">3</span>) {</span>
+<span id="cb15-3"><a></a>  cli<span class="sc">::</span><span class="fu">cli_abort</span>(</span>
+<span id="cb15-4"><a></a>    <span class="co"># message for end user</span></span>
+<span id="cb15-5"><a></a>    <span class="fu">c</span>(</span>
+<span id="cb15-6"><a></a>      <span class="st">"{.var y} cannot be greater than 3."</span>, </span>
+<span id="cb15-7"><a></a>      <span class="at">x =</span> <span class="st">"{.var y} is {.val {y}}."</span></span>
+<span id="cb15-8"><a></a>    ),</span>
+<span id="cb15-9"><a></a>    <span class="co"># class name</span></span>
+<span id="cb15-10"><a></a>    <span class="at">class =</span> <span class="st">"BLT_error_threshold"</span>,  </span>
+<span id="cb15-11"><a></a>    <span class="co"># more information</span></span>
+<span id="cb15-12"><a></a>    <span class="at">y =</span> y     </span>
+<span id="cb15-13"><a></a>  )</span>
+<span id="cb15-14"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="predicate" class="slide level2">
 <h2>Predicate</h2>
@@ -982,38 +958,38 @@ changed<br>
 <section id="interactive-example" class="slide level2">
 <h2>Interactive example</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a>write_read_vanish <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
-<span id="cb17-2"><a></a>  </span>
-<span id="cb17-3"><a></a>  tempfile <span class="ot">&lt;-</span> withr<span class="sc">::</span><span class="fu">local_tempfile</span>(<span class="at">fileext =</span> <span class="st">".rds"</span>)</span>
-<span id="cb17-4"><a></a>  </span>
-<span id="cb17-5"><a></a>  <span class="fu">saveRDS</span>(x, <span class="at">file =</span> tempfile)</span>
-<span id="cb17-6"><a></a>  xnew <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(tempfile)</span>
-<span id="cb17-7"><a></a>  </span>
-<span id="cb17-8"><a></a>  <span class="fu">print</span>(</span>
-<span id="cb17-9"><a></a>    glue<span class="sc">::</span><span class="fu">glue</span>(<span class="st">"'{tempfile}' contained {xnew}."</span>)</span>
-<span id="cb17-10"><a></a>  )</span>
-<span id="cb17-11"><a></a>  </span>
-<span id="cb17-12"><a></a>  <span class="fu">invisible</span>(xnew)</span>
-<span id="cb17-13"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>write_read_vanish <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb16-2"><a></a>  </span>
+<span id="cb16-3"><a></a>  tempfile <span class="ot">&lt;-</span> withr<span class="sc">::</span><span class="fu">local_tempfile</span>(<span class="at">fileext =</span> <span class="st">".rds"</span>)</span>
+<span id="cb16-4"><a></a>  </span>
+<span id="cb16-5"><a></a>  <span class="fu">saveRDS</span>(x, <span class="at">file =</span> tempfile)</span>
+<span id="cb16-6"><a></a>  xnew <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(tempfile)</span>
+<span id="cb16-7"><a></a>  </span>
+<span id="cb16-8"><a></a>  <span class="fu">print</span>(</span>
+<span id="cb16-9"><a></a>    glue<span class="sc">::</span><span class="fu">glue</span>(<span class="st">"'{tempfile}' contained {xnew}."</span>)</span>
+<span id="cb16-10"><a></a>  )</span>
+<span id="cb16-11"><a></a>  </span>
+<span id="cb16-12"><a></a>  <span class="fu">invisible</span>(xnew)</span>
+<span id="cb16-13"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="another-interactive-example" class="slide level2">
 <h2>Another interactive example</h2>
-<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a>not_runif <span class="ot">&lt;-</span> <span class="cf">function</span>(n, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">1</span>) {</span>
-<span id="cb18-2"><a></a></span>
-<span id="cb18-3"><a></a>  withr<span class="sc">::</span><span class="fu">local_seed</span>(<span class="dv">314</span>)</span>
-<span id="cb18-4"><a></a>  </span>
-<span id="cb18-5"><a></a>  <span class="fu">runif</span>(n, <span class="at">min =</span> min, <span class="at">max =</span> max)</span>
-<span id="cb18-6"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a>not_runif <span class="ot">&lt;-</span> <span class="cf">function</span>(n, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">1</span>) {</span>
+<span id="cb17-2"><a></a></span>
+<span id="cb17-3"><a></a>  withr<span class="sc">::</span><span class="fu">local_seed</span>(<span class="dv">314</span>)</span>
+<span id="cb17-4"><a></a>  </span>
+<span id="cb17-5"><a></a>  <span class="fu">runif</span>(n, <span class="at">min =</span> min, <span class="at">max =</span> max)</span>
+<span id="cb17-6"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="example" class="slide level2">
 <h2>Example</h2>
 <ul>
 <li><p><code>usethis::use_test("validate")</code></p></li>
 <li><p>change:</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a><span class="fu">expect_identical</span>(error_condition<span class="sc">$</span>cols_req, <span class="st">"foo"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="fu">expect_identical</span>(error_condition<span class="sc">$</span>cols_req, <span class="st">"foo"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 <li><p>to:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="fu">expect_identical</span>(error_condition<span class="sc">$</span>cols_re, <span class="st">"foo"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a><span class="fu">expect_identical</span>(error_condition<span class="sc">$</span>cols_re, <span class="st">"foo"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 <li><p>rerun tests 🤔</p></li>
 </ul>
 <div class="fragment">
@@ -1028,30 +1004,30 @@ changed<br>
 <p>It’s much harder to write tests for functions that have side effects. But, there are some new helpers out there. <code>vdiffr</code> is what is being used to test <code>ggplot2</code>. It has the function <code>expect_doppleganger()</code> that can compare snapshots of figures.</p>
 <p>Do you remember the <code>usethis</code> function that will make a test file for us?</p>
 <div class="fragment">
-<div class="sourceCode" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a> usethis<span class="sc">::</span><span class="fu">use_test</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a> usethis<span class="sc">::</span><span class="fu">use_test</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
-<div class="sourceCode" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a><span class="fu">test_that</span>(<span class="st">"plots have known output"</span>, {</span>
-<span id="cb22-2"><a></a></span>
-<span id="cb22-3"><a></a>  tomato_NA_dist <span class="ot">&lt;-</span> <span class="fu">BLT_ggplot_na_distribution</span>(tomatoes, value)</span>
-<span id="cb22-4"><a></a>  vdiffr<span class="sc">::</span><span class="fu">expect_doppelganger</span>(<span class="st">"tomato_NA_dist"</span>, tomato_NA_dist)</span>
-<span id="cb22-5"><a></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="fu">test_that</span>(<span class="st">"plots have known output"</span>, {</span>
+<span id="cb21-2"><a></a></span>
+<span id="cb21-3"><a></a>  tomato_NA_dist <span class="ot">&lt;-</span> <span class="fu">BLT_ggplot_na_distribution</span>(tomatoes, value)</span>
+<span id="cb21-4"><a></a>  vdiffr<span class="sc">::</span><span class="fu">expect_doppelganger</span>(<span class="st">"tomato_NA_dist"</span>, tomato_NA_dist)</span>
+<span id="cb21-5"><a></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
-<div class="sourceCode" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a><span class="fu">test</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a><span class="fu">test</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>does it pass?</p>
 </div>
 </section>
 <section id="test-a-function-with-side-effects-1" class="slide level2">
 <h2>Test a function with side effects</h2>
 <p>If you want to see it break, we can change the dataset in the test</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a><span class="fu">test_that</span>(<span class="st">"plots have known output"</span>, {</span>
-<span id="cb24-2"><a></a></span>
-<span id="cb24-3"><a></a>  tomato_NA_dist <span class="ot">&lt;-</span> <span class="fu">BLT_ggplot_na_distribution</span>(bacon, value)</span>
-<span id="cb24-4"><a></a>  vdiffr<span class="sc">::</span><span class="fu">expect_doppelganger</span>(<span class="st">"tomato_NA_dist"</span>, tomato_NA_dist)</span>
-<span id="cb24-5"><a></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a><span class="fu">test_that</span>(<span class="st">"plots have known output"</span>, {</span>
+<span id="cb23-2"><a></a></span>
+<span id="cb23-3"><a></a>  tomato_NA_dist <span class="ot">&lt;-</span> <span class="fu">BLT_ggplot_na_distribution</span>(bacon, value)</span>
+<span id="cb23-4"><a></a>  vdiffr<span class="sc">::</span><span class="fu">expect_doppelganger</span>(<span class="st">"tomato_NA_dist"</span>, tomato_NA_dist)</span>
+<span id="cb23-5"><a></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="fragment">
-<div class="sourceCode" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a><span class="fu">test</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a><span class="fu">test</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Should fail!</p>
 </div>
 </section>
@@ -1060,6 +1036,30 @@ changed<br>
 <p>Now would be a good time to commit your changes</p>
 
 <img data-src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg" alt="Git icon" width="300" class="r-stretch quarto-figure-center"><p class="caption">Jason Long, CC BY 3.0 &lt;https://creativecommons.org/licenses/by/3.0&gt;, via Wikimedia Commons</p></section>
+<section id="pass-the-dots" class="slide level2">
+<h2>Pass the dots</h2>
+<p>This is the simplest possible solution.</p>
+<div class="fragment">
+<ul>
+<li>If the tidyverse function you’re using takes <code>...</code> as an argument,</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>and that’s what you want to pass along,</li>
+</ul>
+</div>
+<div class="fragment">
+<p>then you can <strong>pass the dots</strong>.</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a>my_select <span class="ot">&lt;-</span> <span class="cf">function</span>(.data, ...) {</span>
+<span id="cb25-2"><a></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(.data, ...)</span>
+<span id="cb25-3"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="data-in-packages" class="slide level2">
+<h2>Data in packages</h2>
+<p>There is a lot more detail specific to including data in packages. Sometimes you want to include raw data, sometimes you need data only available to the package and not the user, etc. There is much more detail in the <a href="https://r-pkgs.org/data.html">R packages</a> book.</p>
+</section>
 <section id="summary-1" class="slide level2">
 <h2>Summary</h2>
 <div class="fragment">
