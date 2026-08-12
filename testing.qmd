@@ -856,6 +856,7 @@ devtools::test_coverage()
 . . .
 
 ![](img/test-covr-pkg.png){width="1000"}
+
 ## Adding coverage to GitHub
 
 Of course there's a `usethis` function!

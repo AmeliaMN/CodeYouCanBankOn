@@ -1271,7 +1271,14 @@
     "href": "testing.html#coverage-in-package",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Coverage in package",
-    "text": "Coverage in package\n🎬 Check the coverage over the whole package:\n\ndevtools::test_coverage()\n\n\n ## Adding coverage to GitHub\nOf course there’s a usethis function!\nusethis::use_github_action(\"test-coverage\")"
+    "text": "Coverage in package\n🎬 Check the coverage over the whole package:\n\ndevtools::test_coverage()"
+  },
+  {
+    "objectID": "testing.html#adding-coverage-to-github",
+    "href": "testing.html#adding-coverage-to-github",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Adding coverage to GitHub",
+    "text": "Adding coverage to GitHub\nOf course there’s a usethis function!\nusethis::use_github_action(\"test-coverage\")"
   },
   {
     "objectID": "testing.html#commit",
