@@ -1,0 +1,1549 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-html/tabby.min.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-a0649ace7b9e9e15dfb5fe311d767a49.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-99.9.9">
+
+  <meta name="author" content="Amelia McNamara">
+  <title>Code You Can Bank On – 💻 🏦  Code You Can Bank On</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #f8f8f2;  }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #f8f8f2; } /* Normal */
+    code span.al { color: #f07178; background-color: #2a0f15; font-weight: bold; } /* Alert */
+    code span.an { color: #d4d0ab; } /* Annotation */
+    code span.at { color: #00e0e0; } /* Attribute */
+    code span.bn { color: #d4d0ab; } /* BaseN */
+    code span.bu { color: #abe338; } /* BuiltIn */
+    code span.cf { color: #ffa07a; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #abe338; } /* Char */
+    code span.cn { color: #ffd700; } /* Constant */
+    code span.co { color: #f8f8f2; font-style: italic; } /* Comment */
+    code span.cv { color: #ffd700; } /* CommentVar */
+    code span.do { color: #f8f8f2; } /* Documentation */
+    code span.dt { color: #ffa07a; } /* DataType */
+    code span.dv { color: #d4d0ab; } /* DecVal */
+    code span.er { color: #f07178; text-decoration: underline; } /* Error */
+    code span.ex { color: #00e0e0; font-weight: bold; } /* Extension */
+    code span.fl { color: #d4d0ab; } /* Float */
+    code span.fu { color: #ffa07a; } /* Function */
+    code span.im { color: #abe338; } /* Import */
+    code span.in { color: #d4d0ab; } /* Information */
+    code span.kw { color: #ffa07a; font-weight: bold; } /* Keyword */
+    code span.op { color: #ffa07a; } /* Operator */
+    code span.ot { color: #00e0e0; } /* Other */
+    code span.pp { color: #dcc6e0; } /* Preprocessor */
+    code span.re { color: #00e0e0; background-color: #f8f8f2; } /* RegionMarker */
+    code span.sc { color: #abe338; } /* SpecialChar */
+    code span.ss { color: #abe338; } /* SpecialString */
+    code span.st { color: #abe338; } /* String */
+    code span.va { color: #00e0e0; } /* Variable */
+    code span.vs { color: #abe338; } /* VerbatimString */
+    code span.wa { color: #dcc6e0; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-dcac58856e8d89d79495ba99e621713a.css">
+  <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-dark">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">💻 🏦 <br>Code You Can Bank On</h1>
+  <p class="subtitle">Miscellaneous</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Amelia McNamara 
+</div>
+</div>
+</div>
+
+</section>
+<section>
+<section id="recent-r-developments" class="title-slide slide level1 center">
+<h1>“Recent” R developments</h1>
+
+</section>
+<section id="r-core" class="slide level2">
+<h2>R core</h2>
+
+<img data-src="img/RCore.png" class="r-stretch"><p><a href="https://www.r-project.org/contributors.html">R contributors</a></p>
+</section></section>
+<section>
+<section id="native-pipes" class="title-slide slide level1 center">
+<h1>Native pipes</h1>
+
+</section>
+<section id="ceci-nest-pas-un-pipe" class="slide level2">
+<h2>“Ceci n’est pas un pipe”</h2>
+<p><strong>|</strong> is often thought of as “the pipe” (as in unix), but we use that symbol to mean “or” in R.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>dplyr<span class="sc">::</span><span class="fu">filter</span>(penguins, species <span class="sc">==</span> <span class="st">"Adelie"</span> <span class="sc">|</span> bill_length_mm <span class="sc">&gt;</span> <span class="dv">50</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In 2014, the <code>{magrittr}</code> package added piping functionality to R.</p>
+<p><img data-src="img/magrittr-pipe.png" height="100"></p>
+<p>This package name was a reference to René Magritte’s <a href="https://en.wikipedia.org/wiki/The_Treachery_of_Images">The Treachery of Images</a>,</p>
+<p><img data-src="img/MagrittePipe.jpg" style="height:20.0%"></p>
+</section>
+<section id="native-r-pipe" class="slide level2">
+<h2>Native R pipe</h2>
+<p>The <code>{magrittr}</code> pipe was wildly popular, and was likely one of the things that made the tidyverse take off.</p>
+<p><br>
+</p>
+<p>In 2021, R 4.1.0 introduced the native pipe operator, <code>|&gt;</code>. Looking back at my own repos, I made the jump in 2023.</p>
+<p><br>
+</p>
+<p>If you’re just doing data wrangling, you can basically do a find-and-replace for <code>%&gt;%</code> with <code>|&gt;</code>. Both pipes will pass the previous object in as the first argument of the function they’re piping into. However, there are some differences with the more complex behavior.</p>
+</section>
+<section id="native-vs.-magrittr-pipe" class="slide level2">
+<h2>Native vs.&nbsp;magrittr pipe</h2>
+<ul>
+<li>the native pipe always requires parentheses for the function you are piping into. The magrittr pipe does not.</li>
+</ul>
+<pre><code>x |&gt; mean()
+
+x %&gt;% mean</code></pre>
+<ul>
+<li>different placeholders. The magrittr pipe used <code>.</code> as the placeholder, the base pipe (as of 4.2.0) uses <code>_</code>. For the base pipe, the argument you are passing the placeholder to must be named</li>
+</ul>
+<pre><code>x %&gt;% f(1, .) # is equivalent to
+f(1, x)
+
+x |&gt; f(1, y = _) # is equvalent to
+f(1, y = x)</code></pre>
+</section>
+<section id="dependency-implications" class="slide level2">
+<h2>Dependency implications</h2>
+<p>Many R purists like the base pipe because it “doesn’t require any dependencies.” But actually it has a big dependency– you need R &gt; 4.1.0!</p>
+<p><br>
+</p>
+<p>This used to be a bigger deal– when the native pipe was introduced, the <a href="https://tidyverse.org/blog/2019/04/r-version-support/">tidyverse versioning policy</a> said they needed to support back to 3.5.0. Now, the versioning policy says they only need to support back to 4.2.0.</p>
+<p><br>
+</p>
+<p>Still, something to consider.</p>
+</section></section>
+<section>
+<section id="strings-as-factors" class="title-slide slide level1 center">
+<h1>Strings as factors</h1>
+
+</section>
+<section id="stringsasfactors-true" class="slide level2">
+<h2>stringsAsFactors = TRUE</h2>
+<p>Back in the day, the Global option <code>stringsAsFactors</code> was set as <code>TRUE</code>. As with many idiosyncrasies of R, this was ‘for backward compatibility with S.’</p>
+<p><br>
+</p>
+<p>With <code>stringAsFactors = TRUE</code>, all character strings got read into R as factor variables. This makes sense for variables like race, gender, and other standard categorical variables with just a few levels. But if you’re working with text data that has many unique strings, it does not!</p>
+</section>
+<section id="stringsasfactors-true-1" class="slide level2">
+<h2>stringsAsFactors = TRUE</h2>
+<p>Factors behave in somewhat unexpected ways, so it’s also easy to wreck your data while using them.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">20</span>, <span class="dv">10</span>, <span class="dv">40</span>, <span class="dv">10</span>)</span>
+<span id="cb4-2"><a></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 20 20 10 40 10</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>xf <span class="ot">&lt;-</span> <span class="fu">factor</span>(x)</span>
+<span id="cb6-2"><a></a>xf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 20 20 10 40 10
+Levels: 10 20 40</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">as.numeric</span>(xf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2 2 1 3 1</code></pre>
+</div>
+</div>
+</section>
+<section id="stringsasfactors-hellno" class="slide level2">
+<h2>stringsAsFactors = HELLNO</h2>
+<p>This was… a big deal in the R community for a long time</p>
+
+<img data-src="img/JennyFactors.jpg" style="width:50.0%" class="r-stretch"></section>
+<section id="wrangling-categorical-data-in-r-without-losing-your-mind" class="slide level2">
+<h2>Wrangling Categorical Data in R without Losing Your Mind</h2>
+<p>I actually wrote a paper on this (with Nick Horton) and gave a talk about it at rstudio::conf 2019.</p>
+
+<img data-src="img/WrangingCategoricalData.jpg" class="r-stretch"></section>
+<section id="wrangling-categorical-data-in-r-without-losing-your-mind-1" class="slide level2">
+<h2>Wrangling Categorical Data in R without Losing Your Mind</h2>
+<p>I actually wrote a paper on this (with Nick Horton) and gave a talk about it at rstudio::conf 2019.</p>
+
+<img data-src="img/WranglingCategoricalDataInR.png" class="r-stretch"></section>
+<section id="wrangling-categorical-data-in-r-without-losing-your-mind-2" class="slide level2 smaller">
+<h2>Wrangling Categorical Data in R without Losing Your Mind</h2>
+<blockquote>
+<p>I think the example that broke for me most-embarassingly (was on a take-home exam) did the following:</p>
+<ul>
+<li>had a categorical variable that wasn’t originally coded as a factor (but as character)</li>
+<li>data was split into test/training. Some of the training had levels that weren’t in the test data and vice versa! So let’s say for argument’s sake that both test and training had 4 different levels for the variable, but only 3 intersecting levels. E.g., test: red, blue, green, brown; training: red, blue, green, yellow.</li>
+<li>the variable was made into a factor to do the classification (I think I even used as.factor() in the classification algorithm / sample code).</li>
+<li>then with the test data, everything worked perfectly (read: no R errors), but it was totally WRONG</li>
+</ul>
+<p>– <a href="https://github.com/dsscollection/factor-mgmt/issues/20">external reviewer for paper</a></p>
+</blockquote>
+</section>
+<section id="stringsasfactors-false" class="slide level2">
+<h2>stringsAsFactors = FALSE</h2>
+<p>If you have never run into issues with factors, thank the tidyverse, specifically <code>{readr}</code> and <code>{forcats}</code>.</p>
+<p>&nbsp;</p>
+<p>And then thank R Core, because in R 4.0.0 they decided to set <code>stringsAsFactors = FALSE</code> by default!</p>
+</section>
+<section id="why-use-factors" class="slide level2">
+<h2>Why use factors?</h2>
+<p>Factors are mostly useful when it comes to modeling (<code>lm()</code> and its family of functions use factors to set reference levels) and plotting (if you want to perfect your <code>ggplot</code> you will probably eventually need to reorder some factor levels).</p>
+</section></section>
+<section>
+<section id="package-states" class="title-slide slide level1 center">
+<h1>Package states</h1>
+
+</section>
+<section id="package-states-1" class="slide level2">
+<h2>Package states</h2>
+<p>There are five states a package can be in:</p>
+<ul>
+<li><p>source</p></li>
+<li><p>bundled</p></li>
+<li><p>binary</p></li>
+<li><p>installed</p></li>
+<li><p>in-memory</p></li>
+</ul>
+
+<aside><div>
+<p>Having a understanding of the different states a package can be helpful in understanding package development.</p>
+</div></aside></section>
+<section id="package-states-2" class="slide level2">
+<h2>Package states</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/installation.png" alt="schematic of package states and the functions that move them between states. One the horizontal axis: source, bundle, binary, installed, in memory. One the vertical axis the functions install.packages, R CMD install, install, build, install_github"></p>
+<figcaption>Schematic of methods for moving between package states</figcaption>
+</figure>
+</div>
+
+<aside><div>
+<p>Figure from <a href="https://r-pkgs.org/">R Packages</a> <span class="citation" data-cites="wickham2020">[@wickham2020]</span></p>
+</div></aside></section>
+<section id="package-states-3" class="slide level2">
+<h2>Package states</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<ul>
+<li><div style="background-color: #707070">
+<p>source</p>
+</div></li>
+<li><p>bundled</p></li>
+<li><p>binary</p></li>
+<li><p>installed</p></li>
+<li><p>in-memory</p></li>
+</ul>
+</div><div class="column" style="width: 60%; background-color: #707070">
+<p>What you create and work on.</p>
+<p>Specific directory structure with some particular components e.g., <code>DESCRIPTION</code>, an <code>R/</code> directory.</p>
+</div></div>
+</section>
+<section id="package-states-4" class="slide level2">
+<h2>Package states</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<ul>
+<li><p>source</p></li>
+<li><div style="background-color: #707070">
+<p>bundled</p>
+</div></li>
+<li><p>binary</p></li>
+<li><p>installed</p></li>
+<li><p>in-memory</p></li>
+</ul>
+</div><div class="column" style="width: 60%; background-color: #707070">
+<p>Also known as “source tarballs”.</p>
+<p>Package files compressed to single file.</p>
+<p>Conventionally <code>.tar.gz</code></p>
+<p>You don’t normally need to make one.</p>
+<p>Unpacked it looks very like the source package</p>
+</div></div>
+</section>
+<section id="package-states-5" class="slide level2">
+<h2>Package states</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<ul>
+<li><p>source</p></li>
+<li><p>bundled</p></li>
+<li><div style="background-color: #707070">
+<p>binary</p>
+</div></li>
+<li><p>installed</p></li>
+<li><p>in-memory</p></li>
+</ul>
+</div><div class="column" style="width: 60%; background-color: #707070">
+<p>Package distribution for users w/o dev tools</p>
+<p>Also a single file</p>
+<p>Platform specific: <code>.tgz</code> (Mac) <code>.zip</code> (Windows)</p>
+<p>Package developers submit a bundle to CRAN; CRAN makes and distributes binaries</p>
+<p><code>install.packages()</code></p>
+</div></div>
+</section>
+<section id="package-states-6" class="slide level2">
+<h2>Package states</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<ul>
+<li><p>source</p></li>
+<li><p>bundled</p></li>
+<li><p>binary</p></li>
+<li><div style="background-color: #707070">
+<p>installed</p>
+</div></li>
+<li><p>in-memory</p></li>
+</ul>
+</div><div class="column" style="width: 60%; background-color: #707070">
+<p>A binary package that’s been decompressed into a package library</p>
+<p>Command line tool <code>R CMD INSTALL</code> powers all package installation</p>
+</div></div>
+</section>
+<section id="package-states-7" class="slide level2">
+<h2>Package states</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<ul>
+<li><p>source</p></li>
+<li><p>bundled</p></li>
+<li><p>binary</p></li>
+<li><p>installed</p></li>
+<li><div style="background-color: #707070">
+<p>in-memory</p>
+</div></li>
+</ul>
+</div><div class="column" style="width: 60%; background-color: #707070">
+<p>If a package is installed, <code>library()</code> makes its function available by loading the package into memory and attaching it to the search path.</p>
+<p>We do not use <code>library()</code> for packages we are working on</p>
+<p><code>devtools::load_all()</code> loads a source package directly into memory.</p>
+</div></div>
+</section></section>
+<section>
+<section id="tidy-design-philosophy" class="title-slide slide level1 center">
+<h1>Tidy design philosophy</h1>
+
+</section>
+<section id="tidy-design-philosophy-1" class="slide level2">
+<h2>Tidy design philosophy</h2>
+<p>Not as fleshed-out as the tidyverse style guide, but also <a href="https://design.tidyverse.org">developed as a book</a>.</p>
+</section>
+<section id="minimal-names" class="slide level2">
+<h2>Minimal names</h2>
+<p>In R, you can have unnamed objects</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>x <span class="ot">&lt;-</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]</span>
+<span id="cb10-2"><a></a><span class="fu">names</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>NULL</code></pre>
+</div>
+</div>
+<p>but, this means that sometimes the <code>length(names())</code> is 0, and other times it is the same length as the length of <code>x</code>. We strive for more consistency!</p>
+<p><code>{rlang}</code> offers a solution,</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>rlang<span class="sc">::</span><span class="fu">names2</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "" "" ""</code></pre>
+</div>
+</div>
+<p>These are minimal names– even though they are all empty strings, the length of <code>names()</code> will always be the same length as <code>x</code>.</p>
+</section>
+<section id="unique-names" class="slide level2">
+<h2>Unique names</h2>
+<p>In base R, there is a function <code>make.unique()</code>, which can be used to create unique names (no duplicates).</p>
+<p>For the tidyverse, there are low-level functions <code>vctrs::vec_names()</code> and <code>vctrs::vec_names2()</code>, used by things like the <code>.names_repair</code> argument in <code>tibble()</code> and <code>names_repair</code> in <code>read_csv()</code>. Some options are <code>minimal</code>, <code>unique</code>, and <code>universal</code> (unique and syntactic).</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb14-1"><a></a>## Original Unique names     Result of</span>
+<span id="cb14-2"><a></a>##    names  (tidyverse) make.unique()</span>
+<span id="cb14-3"><a></a>##       ""         ...1            ""</span>
+<span id="cb14-4"><a></a>##        x        x...2             x</span>
+<span id="cb14-5"><a></a>##       ""         ...3            .1</span>
+<span id="cb14-6"><a></a>##      ...         ...4           ...</span>
+<span id="cb14-7"><a></a>##        y            y             y</span>
+<span id="cb14-8"><a></a>##        x        x...6           x.1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The reason for avoiding <code>..j</code> is it already has syntactic meaning in R, as a way to refer to arguments passed down from a calling function.</p>
+</section>
+<section id="why-dots" class="slide level2">
+<h2>Why dots?</h2>
+<p>The underscore <code>_</code> was also considered when choosing the tidyverse suffix strategy, but was rejected.</p>
+<p>Why? Because syntactic names can’t start with an underscore and we want the suffix itself to be syntactic. Also, the dot <code>.</code> is already used by base R’s <code>make.names()</code> to replace invalid characters. It seems simpler and, therefore, better to use the same character, in the same way, as much as possible in name repair. We use the dot <code>.</code>, we put it at the front, as many times as necessary.</p>
+</section>
+<section id="syntactic-names" class="slide level2">
+<h2>Syntactic names</h2>
+<p>You have probably encountered non-syntactic names before. If a variable name has a space in it, for example, it becomes non-syntactic.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>x <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(<span class="st">`</span><span class="at">Physicians per 100,000 Population</span><span class="st">`</span> <span class="ot">=</span> <span class="dv">514</span>)</span>
+<span id="cb15-2"><a></a>x <span class="sc">|&gt;</span></span>
+<span id="cb15-3"><a></a>  <span class="fu">pull</span>(Physicians per <span class="dv">100</span>,<span class="dv">000</span> Population)</span>
+<span id="cb15-4"><a></a>x <span class="sc">|&gt;</span></span>
+<span id="cb15-5"><a></a>  dplyr<span class="sc">::</span><span class="fu">pull</span>(<span class="st">`</span><span class="at">Physicians per 100,000 Population</span><span class="st">`</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in parse(text = input): &lt;text&gt;:3:19: unexpected symbol
+2: x |&gt;
+3:   pull(Physicians per
+                     ^</code></pre>
+</div>
+</div>
+</section>
+<section id="pure-function" class="slide level2">
+<h2>Pure function</h2>
+<p>A function where:</p>
+<ul>
+<li><p>the return value depends <em>only</em> on argument values</p></li>
+<li><p>only change is the return value</p></li>
+</ul>
+<div class="fragment">
+<p>Examples:</p>
+</div>
+<div class="fragment">
+<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="cf">function</span>(x, y) {</span>
+<span id="cb17-2"><a></a>  x <span class="sc">+</span> y</span>
+<span id="cb17-3"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment">
+<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="fu">cos</span>(pi)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="side-effects" class="slide level2">
+<h2>Side effects</h2>
+<p>A function where:</p>
+<ul>
+<li><p>the return value can depend on “the outside universe”</p></li>
+<li><p>there is a change in the “the outside universe”</p></li>
+</ul>
+<div class="fragment">
+<p>Examples:</p>
+</div>
+<div class="fragment">
+<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a>readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"myfile.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment">
+<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="fu">runif</span>(<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="why-is-this-important" class="slide level2">
+<h2>Why is this important?</h2>
+<div class="fragment">
+<ul>
+<li>Pure functions easier to test than functions with side effects.</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Side effects (interactions with universe) take time (Shiny).</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Functions with side effects should document the effects.</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Side effects are not inherently bad (we <em>do</em> need to write to the file system), but they need extra care.</li>
+</ul>
+</div>
+</section>
+<section id="make-a-function-with-side-effects" class="slide level2">
+<h2>Make a function with side effects</h2>
+<p>So far, our functions have been pure. Let’s make one that is not. For this function, I want to write a wrapper around <code>imputeTS::ggplot_na_distribution()</code>. This function has the name <code>ggplot</code> in the title, but it doesn’t work like a normal <code>ggplot()</code> function (taking the data as the first argument, then <code>aes</code>thetics).</p>
+<div class="fragment">
+<p>Do you remember the <code>usethis</code> function that will open up a .R file for us to write <code>BLT_ggplot_na_distribution.R</code>?</p>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a>usethis<span class="sc">::</span><span class="fu">use_r</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Let’s start with adding a function skeleton,</p>
+</div>
+<div class="fragment">
+<div class="sourceCode" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>BLT_ggplot_na_distribution <span class="ot">&lt;-</span> <span class="cf">function</span>(data, mapping, ...){</span>
+<span id="cb22-2"><a></a></span>
+<span id="cb22-3"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment">
+<p>And then write some documentation <strong>first</strong>, as is better practice.</p>
+</div>
+</section>
+<section id="make-a-function-with-side-effects-1" class="slide level2">
+<h2>Make a function with side effects</h2>
+<div class="extrasmall">
+<div class="sourceCode" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a><span class="co">#' ggplot to visualization the distribution of missing values</span></span>
+<span id="cb23-2"><a></a><span class="co">#'</span></span>
+<span id="cb23-3"><a></a><span class="co">#' Wrapper around [imputeTS::ggplot_na_distribution]</span></span>
+<span id="cb23-4"><a></a><span class="co">#'</span></span>
+<span id="cb23-5"><a></a><span class="co">#' @param data Default dataset to use for a plot</span></span>
+<span id="cb23-6"><a></a><span class="co">#' @param variable The variable to plot</span></span>
+<span id="cb23-7"><a></a><span class="co">#' @param ... Other arguments passed on to methods</span></span>
+<span id="cb23-8"><a></a><span class="co">#'</span></span>
+<span id="cb23-9"><a></a><span class="co">#' @returns a ggplot object</span></span>
+<span id="cb23-10"><a></a><span class="co">#' @export</span></span>
+<span id="cb23-11"><a></a><span class="co">#'</span></span>
+<span id="cb23-12"><a></a><span class="co">#' @examples</span></span>
+<span id="cb23-13"><a></a><span class="co">#' tomatoes |&gt;</span></span>
+<span id="cb23-14"><a></a><span class="co">#' BLT_ggplot_na_distribution(value)</span></span>
+<span id="cb23-15"><a></a>BLT_ggplot_na_distribution <span class="ot">&lt;-</span> <span class="cf">function</span>(data, variable, ...){</span>
+<span id="cb23-16"><a></a></span>
+<span id="cb23-17"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="make-a-function-with-side-effects-2" class="slide level2">
+<h2>Make a function with side effects</h2>
+<div class="extrasmall">
+<div class="sourceCode" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a><span class="co">#' ggplot to visualization the distribution of missing values</span></span>
+<span id="cb24-2"><a></a><span class="co">#'</span></span>
+<span id="cb24-3"><a></a><span class="co">#' Wrapper around [imputeTS::ggplot_na_distribution]</span></span>
+<span id="cb24-4"><a></a><span class="co">#'</span></span>
+<span id="cb24-5"><a></a><span class="co">#' @param data Default dataset to use for a plot</span></span>
+<span id="cb24-6"><a></a><span class="co">#' @param variable The variable to plot</span></span>
+<span id="cb24-7"><a></a><span class="co">#' @param ... Other arguments passed on to methods</span></span>
+<span id="cb24-8"><a></a><span class="co">#'</span></span>
+<span id="cb24-9"><a></a><span class="co">#' @returns a ggplot object</span></span>
+<span id="cb24-10"><a></a><span class="co">#' @export</span></span>
+<span id="cb24-11"><a></a><span class="co">#'</span></span>
+<span id="cb24-12"><a></a><span class="co">#' @examples</span></span>
+<span id="cb24-13"><a></a><span class="co">#' tomatoes |&gt;</span></span>
+<span id="cb24-14"><a></a><span class="co">#' BLT_ggplot_na_distribution(value)</span></span>
+<span id="cb24-15"><a></a>BLT_ggplot_na_distribution <span class="ot">&lt;-</span> <span class="cf">function</span>(data, variable, ...){</span>
+<span id="cb24-16"><a></a>  var <span class="ot">&lt;-</span> rlang<span class="sc">::</span><span class="fu">enquo</span>(variable)</span>
+<span id="cb24-17"><a></a>  var_eval <span class="ot">&lt;-</span> rlang<span class="sc">::</span><span class="fu">eval_tidy</span>(var, <span class="at">data =</span> data)</span>
+<span id="cb24-18"><a></a>  imputeTS<span class="sc">::</span><span class="fu">ggplot_na_distribution</span>(var_eval)</span>
+<span id="cb24-19"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="practical-advice" class="slide level2">
+<h2>Practical advice</h2>
+<p>Try to separate tasks into pure functions and side effects:</p>
+<ul>
+<li><p>easier to test the pure functions and side effects separately</p></li>
+<li><p>use <em>these</em> functions in higher-level functions</p></li>
+</ul>
+</section>
+<section id="name-all-but-the-most-important-arguments" class="slide level2">
+<h2>Name all but the most important arguments</h2>
+<p>When calling a function, you should name all but the most important arguments. For example:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="cn">NA</span>)</span>
+<span id="cb25-2"><a></a><span class="fu">mean</span>(y, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5.5</code></pre>
+</div>
+</div>
+<p>Never use partial matching,</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a><span class="fu">mean</span>(y, <span class="at">n =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5.5</code></pre>
+</div>
+</div>
+</section>
+<section id="teaching-exception" class="slide level2">
+<h2>Teaching exception</h2>
+<p>When you are teaching, it is best practice to start by naming all arguments, and then relax into the other standard.</p>
+<p>At the beginning of a course:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy)) <span class="sc">+</span> </span>
+<span id="cb29-2"><a></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>By the end:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, hwy)) <span class="sc">+</span> </span>
+<span id="cb30-2"><a></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="hidden-arguments" class="slide level2">
+<h2>Hidden arguments</h2>
+<p>A common source of hidden arguments is the use of global options:</p>
+<ul>
+<li><p><code>stringsAsFactors</code>. This has been largely solved by R 4.0.0, which set <code>stringsAsFactors = FALSE</code> by default. Learn more in <a href="https://simplystatistics.org/posts/2015-07-24-stringsasfactors-an-unauthorized-biography/">stringsAsFactors: An unauthorized biography</a> by Roger Peng and <a href="https://simplystatistics.org/posts/2015-07-24-stringsasfactors-an-unauthorized-biography/">stringsAsFactors = <sigh></sigh></a> by Thomas Lumley.</p></li>
+<li><p><code>na.action</code>. This continues to be an issue with functions like <code>lm()</code>, whose handling of missing values depends on the global option of <code>na.action</code>. The default is <code>na.omit</code> which drops the missing values prior to fitting the model (which is inconvenient because then the results of <code>predict()</code> don’t line up with the input data.</p></li>
+<li><p>system locale. Check with <code>Sys.getlocale()</code></p></li>
+</ul>
+</section>
+<section id="make-inputs-explicit" class="slide level2">
+<h2>Make inputs explicit</h2>
+<p>The way to avoid issues with these common hidden arguments is to make them explicit.</p>
+<p>Here’s a wrapper for <code>as.POSICct()</code> that just shows how the arguments in the original function work:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a>as.POSIXct <span class="ot">&lt;-</span> <span class="cf">function</span>(x, <span class="at">tz =</span> <span class="st">""</span>) {</span>
+<span id="cb31-2"><a></a>  base<span class="sc">::</span><span class="fu">as.POSIXct</span>(x, <span class="at">tz =</span> tz)</span>
+<span id="cb31-3"><a></a>}</span>
+<span id="cb31-4"><a></a><span class="fu">as.POSIXct</span>(<span class="st">"2026-08-17 09:00"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>There is a <code>tz</code> argument, but it’s not clear that <code>""</code> means our local time zone. It would be better practice to be more explicit,</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a>as.POSIXct <span class="ot">&lt;-</span> <span class="cf">function</span>(x, <span class="at">tz =</span> <span class="fu">Sys.timezone</span>()) {</span>
+<span id="cb32-2"><a></a>  base<span class="sc">::</span><span class="fu">as.POSIXct</span>(x, <span class="at">tz =</span> tz)</span>
+<span id="cb32-3"><a></a>}</span>
+<span id="cb32-4"><a></a><span class="fu">as.POSIXct</span>(<span class="st">"2026-08-17 09:00"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="summary" class="slide level2">
+<h2>Summary</h2>
+<div class="fragment">
+<ul>
+<li><strong>Naming</strong>: be consistent, concise, yet evocative.</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li><strong>Argument order</strong>: data, descriptors, dots, details.</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li><strong>Return value type</strong>: be consistent, predictable.</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Easy to remember data (first) argument and return value:
+<ul>
+<li>easy to use pipe, <code>|&gt;</code>.</li>
+</ul></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Be mindful of side effects.</li>
+</ul>
+</div>
+</section>
+<section id="errors" class="slide level2">
+<h2>Errors</h2>
+<ul>
+<li>The most common type of side-effect is the <strong>error condition</strong>.</li>
+</ul>
+<div class="fragment">
+<ul>
+<li><p>Sometimes, error messages can be cryptic:</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a>seq[<span class="dv">10</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>Error in seq[10] : object of type 'closure' is not subsettable</code></pre></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>You can write error messages that make things clearer for:
+<ul>
+<li>developers who call your functions</li>
+<li>end users</li>
+</ul></li>
+</ul>
+<p>Object of type ‘closure’ is not subsettable, Jenny Bryan. rstudio::conf <a href="https://posit.co/resources/videos/object-of-type-closure-is-not-subsettable">video</a>, <a href="https://speakerdeck.com/jennybc/object-of-type-closure-is-not-subsettable">slides</a></p>
+</div>
+</section>
+<section id="creating-an-error-condition" class="slide level2">
+<h2>Creating an error condition</h2>
+<p>An effective error condition has:</p>
+<ul>
+<li><strong>predicate</strong> (logical expression used to identify condition)</li>
+<li>clear <strong>message</strong> for end user</li>
+<li><strong>class name</strong> for developer</li>
+<li><strong>more information</strong> for developer</li>
+</ul>
+</section>
+<section id="using-clicli_abort" class="slide level2">
+<h2>Using <code>cli::cli_abort()</code></h2>
+<p>{cli} package</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a><span class="co"># predicate</span></span>
+<span id="cb35-2"><a></a><span class="cf">if</span> (y <span class="sc">&gt;</span> <span class="dv">3</span>) {</span>
+<span id="cb35-3"><a></a>  cli<span class="sc">::</span><span class="fu">cli_abort</span>(</span>
+<span id="cb35-4"><a></a>    <span class="co"># message for end user</span></span>
+<span id="cb35-5"><a></a>    <span class="fu">c</span>(</span>
+<span id="cb35-6"><a></a>      <span class="st">"{.var y} cannot be greater than 3."</span>, </span>
+<span id="cb35-7"><a></a>      <span class="at">x =</span> <span class="st">"{.var y} is {.val {y}}."</span></span>
+<span id="cb35-8"><a></a>    ),</span>
+<span id="cb35-9"><a></a>    <span class="co"># class name</span></span>
+<span id="cb35-10"><a></a>    <span class="at">class =</span> <span class="st">"BLT_error_threshold"</span>,  </span>
+<span id="cb35-11"><a></a>    <span class="co"># more information</span></span>
+<span id="cb35-12"><a></a>    <span class="at">y =</span> y     </span>
+<span id="cb35-13"><a></a>  )</span>
+<span id="cb35-14"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="predicate" class="slide level2">
+<h2>Predicate</h2>
+<p>Prefer:</p>
+<ul>
+<li>simpler predicates and more error-conditions</li>
+</ul>
+<p>Over:</p>
+<ul>
+<li>complex predicates and fewer error-conditions</li>
+</ul>
+<div class="fragment">
+<p>Finding simplest set of predicates is just as challenging as finding the “right” names for functions and arguments.</p>
+</div>
+</section>
+<section id="message" class="slide level2">
+<h2>Message</h2>
+<p>Content:</p>
+<ul>
+<li>how did we violate the predicate?</li>
+</ul>
+<div class="fragment">
+<p>Formatting:</p>
+<ul>
+<li><p>{cli} provides powerful formatting tools:</p>
+<ul>
+<li>use curly-braces and a tag, e.g.&nbsp;<code>{.var y}</code></li>
+<li>use more curly-braces to interpolate, e.g.&nbsp;<code>{.val {y}}</code></li>
+</ul></li>
+<li><p>see <a href="https://cli.r-lib.org/reference/inline-markup.html">cli inline-markup</a> for more details.</p></li>
+</ul>
+</div>
+</section>
+<section id="class-name" class="slide level2">
+<h2>Class name</h2>
+<ul>
+<li><p>A developer, calling your function, can use the <code>class</code> name to handle the error, if they want.</p></li>
+<li><p>Convention:</p>
+<ul>
+<li><code>"{package}_error_{description}"</code></li>
+</ul></li>
+</ul>
+</section>
+<section id="additional-information" class="slide level2">
+<h2>Additional information</h2>
+<p>This “stuff” is also available to an error handler.</p>
+<ul>
+<li><p>Provide the data that went into the predicate.</p></li>
+<li><p>Provide name of variable, e.g.&nbsp;<code>y = y</code>.</p></li>
+<li><p>Avoid reserved names: <code>message</code>, <code>class</code>, <code>call</code>, <code>body</code>, <code>footer</code>, <code>trace</code>, <code>parent</code>, <code>use_cli_format</code>.</p></li>
+</ul>
+</section>
+<section id="validation" class="slide level2">
+<h2>Validation</h2>
+<p>If there will be an error, surface it quickly.</p>
+<p>Validating the arguments to a function is one way to do this.</p>
+<div class="fragment">
+<p>For example:</p>
+<ul>
+<li>is <em>this</em> a data frame?</li>
+<li>does this data frame have <em>these</em> columns?</li>
+</ul>
+</div>
+<div class="fragment">
+<p>Questions like these can be generalized into functions:</p>
+<ul>
+<li>throw an error if you need to.</li>
+<li>otherwise, return <strong>data</strong> argument invisibly.</li>
+</ul>
+</div>
+</section>
+<section id="validate-string-values" class="slide level2">
+<h2>Validate string-values</h2>
+<p>You may be familiar with <code>match.arg()</code>:</p>
+<ul>
+<li>uses “magic” to compare value (if any) to default</li>
+<li>argument default is vector of strings
+<ul>
+<li>if value among defaults, return it - otherwise <strong>error</strong></li>
+<li>if no value, return <em>first</em> value in default</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<p><code>rlang::arg_match()</code> does the same thing, but:</p>
+<ul>
+<li>partial match triggers error</li>
+<li>error messages conform to tidyverse standards</li>
+</ul>
+</div>
+</section>
+<section id="snapshot-tests" class="slide level2">
+<h2>Snapshot tests</h2>
+<p>Designed for capturing side-effects:</p>
+<ul>
+<li>error messages</li>
+<li><code>dplyr::glimpse()</code> is a useful shortcut</li>
+</ul>
+<div class="fragment">
+<p>Be careful about accepting changes (don’t just accept).</p>
+<p>Can be temperamental - not run on CRAN.</p>
+<p>We will go through, using examples.</p>
+<!-- ## Build error constructor {.smaller} -->
+<!-- - `usethis::use_package("cli")` -->
+<!-- - review `validate_data_frame()` (`call` argument) -->
+<!-- - build constructor for `validate_cols()`: -->
+<!--   - something like `{.field {cols}}` may be useful -->
+<!--   - activate `2.2.1` tests in `test-validate.R`, as you go -->
+<!-- - hold off on snapshot test (we'll do together) -->
+<!-- . . . -->
+<!-- - add validator-functions to `uss_make_matches()`: -->
+<!--   - `matches.R` -->
+<!--   - `cols_engsoc()` may be useful -->
+</div>
+</section>
+<section id="managing-global-state" class="slide level2">
+<h2>Managing global state</h2>
+<p>Leave no footprints.</p>
+<p>Leave the global state how you found it, avoid surprises later:</p>
+<ul>
+<li>packages loaded</li>
+<li>also: options, environment variables</li>
+</ul>
+<div class="fragment">
+<p>Loading {devtools} in <code>.Rprofile</code> changes the global state.</p>
+</div>
+<div class="fragment">
+<p>When we hit the “Knit” button, or the Quarto “Render” button:</p>
+<ul>
+<li>it runs in a <em>new</em> R session</li>
+<li>does not execute user’s <code>.Rprofile</code></li>
+</ul>
+</div>
+</section>
+<section id="using-self-removing-footprints" class="slide level2">
+<h2>Using “self-removing footprints”</h2>
+<p>The {withr} package gives us tools to:</p>
+<ul>
+<li>modify global state</li>
+<li>specify when to reverse the modification</li>
+</ul>
+<div class="fragment">
+<p>Useful family of functions:</p>
+<ul>
+<li><code>withr::local_*()</code></li>
+<li>changes the state back when a scope is exited</li>
+<li>if called within a function, <em>normally</em> when the function exits</li>
+</ul>
+</div>
+</section>
+<section id="when-could-this-be-useful" class="slide level2">
+<h2>When could this be useful?</h2>
+<p>CRAN is (rightly) particular about “leave no footprints”.</p>
+<p>You may need:</p>
+<ul>
+<li><code>withr::local_options()</code>: change an option</li>
+<li><code>withr::local_dir()</code>: change the working directory</li>
+<li><code>withr::local_tempfile()</code>: path to a temporary file</li>
+</ul>
+<div class="fragment">
+<p>Useful in <code>testthat</code> code and in <code>R</code> code.</p>
+</div>
+</section>
+<section id="interactive-example" class="slide level2">
+<h2>Interactive example</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a></a>write_read_vanish <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb36-2"><a></a>  </span>
+<span id="cb36-3"><a></a>  tempfile <span class="ot">&lt;-</span> withr<span class="sc">::</span><span class="fu">local_tempfile</span>(<span class="at">fileext =</span> <span class="st">".rds"</span>)</span>
+<span id="cb36-4"><a></a>  </span>
+<span id="cb36-5"><a></a>  <span class="fu">saveRDS</span>(x, <span class="at">file =</span> tempfile)</span>
+<span id="cb36-6"><a></a>  xnew <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(tempfile)</span>
+<span id="cb36-7"><a></a>  </span>
+<span id="cb36-8"><a></a>  <span class="fu">print</span>(</span>
+<span id="cb36-9"><a></a>    glue<span class="sc">::</span><span class="fu">glue</span>(<span class="st">"'{tempfile}' contained {xnew}."</span>)</span>
+<span id="cb36-10"><a></a>  )</span>
+<span id="cb36-11"><a></a>  </span>
+<span id="cb36-12"><a></a>  <span class="fu">invisible</span>(xnew)</span>
+<span id="cb36-13"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="another-interactive-example" class="slide level2">
+<h2>Another interactive example</h2>
+<div class="sourceCode" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a>not_runif <span class="ot">&lt;-</span> <span class="cf">function</span>(n, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">1</span>) {</span>
+<span id="cb37-2"><a></a></span>
+<span id="cb37-3"><a></a>  withr<span class="sc">::</span><span class="fu">local_seed</span>(<span class="dv">314</span>)</span>
+<span id="cb37-4"><a></a>  </span>
+<span id="cb37-5"><a></a>  <span class="fu">runif</span>(n, <span class="at">min =</span> min, <span class="at">max =</span> max)</span>
+<span id="cb37-6"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="example" class="slide level2">
+<h2>Example</h2>
+<ul>
+<li><p><code>usethis::use_test("validate")</code></p></li>
+<li><p>change:</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a></a><span class="fu">expect_identical</span>(error_condition<span class="sc">$</span>cols_req, <span class="st">"foo"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>to:</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a></a><span class="fu">expect_identical</span>(error_condition<span class="sc">$</span>cols_re, <span class="st">"foo"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>rerun tests 🤔</p></li>
+</ul>
+<div class="fragment">
+<ul>
+<li><p>By default, <code>$</code> accepts partial matching.</p></li>
+<li><p>We want stricter testing, so we need to set some options.</p></li>
+</ul>
+</div>
+</section>
+<section id="test-a-function-with-side-effects" class="slide level2">
+<h2>Test a function with side effects</h2>
+<p>It’s much harder to write tests for functions that have side effects. But, there are some new helpers out there. <code>vdiffr</code> is what is being used to test <code>ggplot2</code>. It has the function <code>expect_doppleganger()</code> that can compare snapshots of figures.</p>
+<p>Do you remember the <code>usethis</code> function that will make a test file for us?</p>
+<div class="fragment">
+<div class="sourceCode" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a></a> usethis<span class="sc">::</span><span class="fu">use_test</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment">
+<div class="sourceCode" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a></a><span class="fu">test_that</span>(<span class="st">"plots have known output"</span>, {</span>
+<span id="cb41-2"><a></a></span>
+<span id="cb41-3"><a></a>  tomato_NA_dist <span class="ot">&lt;-</span> <span class="fu">BLT_ggplot_na_distribution</span>(tomatoes, value)</span>
+<span id="cb41-4"><a></a>  vdiffr<span class="sc">::</span><span class="fu">expect_doppelganger</span>(<span class="st">"tomato_NA_dist"</span>, tomato_NA_dist)</span>
+<span id="cb41-5"><a></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment">
+<div class="sourceCode" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a></a><span class="fu">test</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>does it pass?</p>
+</div>
+</section>
+<section id="test-a-function-with-side-effects-1" class="slide level2">
+<h2>Test a function with side effects</h2>
+<p>If you want to see it break, we can change the dataset in the test</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a></a><span class="fu">test_that</span>(<span class="st">"plots have known output"</span>, {</span>
+<span id="cb43-2"><a></a></span>
+<span id="cb43-3"><a></a>  tomato_NA_dist <span class="ot">&lt;-</span> <span class="fu">BLT_ggplot_na_distribution</span>(bacon, value)</span>
+<span id="cb43-4"><a></a>  vdiffr<span class="sc">::</span><span class="fu">expect_doppelganger</span>(<span class="st">"tomato_NA_dist"</span>, tomato_NA_dist)</span>
+<span id="cb43-5"><a></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="fragment">
+<div class="sourceCode" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a></a><span class="fu">test</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Should fail!</p>
+</div>
+</section>
+<section id="commit" class="slide level2">
+<h2>Commit</h2>
+<p>Now would be a good time to commit your changes</p>
+
+<img data-src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg" alt="Git icon" width="300" class="r-stretch quarto-figure-center"><p class="caption">Jason Long, CC BY 3.0 &lt;https://creativecommons.org/licenses/by/3.0&gt;, via Wikimedia Commons</p></section>
+<section id="pass-the-dots" class="slide level2">
+<h2>Pass the dots</h2>
+<p>This is the simplest possible solution.</p>
+<div class="fragment">
+<ul>
+<li>If the tidyverse function you’re using takes <code>...</code> as an argument,</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>and that’s what you want to pass along,</li>
+</ul>
+</div>
+<div class="fragment">
+<p>then you can <strong>pass the dots</strong>.</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a></a>my_select <span class="ot">&lt;-</span> <span class="cf">function</span>(.data, ...) {</span>
+<span id="cb45-2"><a></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(.data, ...)</span>
+<span id="cb45-3"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="data-in-packages" class="slide level2">
+<h2>Data in packages</h2>
+<p>There is a lot more detail specific to including data in packages. Sometimes you want to include raw data, sometimes you need data only available to the package and not the user, etc. There is much more detail in the <a href="https://r-pkgs.org/data.html">R packages</a> book.</p>
+</section>
+<section id="summary-1" class="slide level2">
+<h2>Summary</h2>
+<div class="fragment">
+<p>The most-common side-effect is an error. Good design:</p>
+</div>
+<div class="fragment">
+<ul>
+<li>simple (as possible) predicate</li>
+<li>clear message</li>
+<li>add a <code>class</code> using naming convention, and additional information</li>
+</ul>
+</div>
+<div class="fragment">
+<p>Use snapshot tests to capture side-effects.</p>
+<ul>
+<li>be very careful when accepting changes to snapshots.</li>
+</ul>
+</div>
+<div class="fragment">
+<p>Use <code>withr::local_*()</code> functions to “leave no footprints”.</p>
+</div>
+</section>
+<section id="resources" class="slide level2">
+<h2>Resources</h2>
+<ul>
+<li><p><a href="https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745">Best Practices for Scientific Computing</a></p></li>
+<li><p><a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510">Good enough practices in scientific computing</a></p></li>
+<li><p>Object of type ‘closure’ is not subsettable, Jenny Bryan. rstudio::conf <a href="https://posit.co/resources/videos/object-of-type-closure-is-not-subsettable">video</a>, <a href="https://speakerdeck.com/jennybc/object-of-type-closure-is-not-subsettable">slides</a></p></li>
+<li><p><a href="https://www.youtube.com/watch?v=7oyiPBjLAWY">Code “smells” and feels</a>, Jenny Bryan</p></li>
+<li><p><a href="https://tidyverse.org/blog/2023/04/base-vs-magrittr-pipe/">https://tidyverse.org/blog/2023/04/base-vs-magrittr-pipe/</a>, Hadley Wickham</p></li>
+<li><p><a href="https://simplystatistics.org/posts/2015-07-24-stringsasfactors-an-unauthorized-biography/">stringsAsFactors: An unauthorized biography</a> by Roger Peng</p></li>
+<li><p><a href="https://simplystatistics.org/posts/2015-07-24-stringsasfactors-an-unauthorized-biography/">stringsAsFactors = <sigh></sigh></a> by Thomas Lumley.</p></li>
+</ul>
+
+
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+<p><a href="https://bit.ly/CYCBO" class="uri">https://bit.ly/CYCBO</a></p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1600,
+
+        height: 900,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const onCopySuccess = function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
+      });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>

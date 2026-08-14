@@ -1,0 +1,16 @@
+---
+title: "💻 🏦 <br>Code You Can Bank On"
+subtitle: "Testdat"
+author: "Amelia McNamara"
+editor: source
+format:
+  revealjs: 
+    theme: [dracula, extra.scss]
+    slide-number: true
+    footer: <https://bit.ly/CYCBO>   
+    height: 900
+    width: 1600
+execute:
+  echo: true
+  eval: false
+---
