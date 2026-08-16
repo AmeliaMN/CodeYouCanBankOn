@@ -1,0 +1,654 @@
+---
+title: "💻 🏦 <br>Code You Can Bank On"
+subtitle: "Side effects"
+author: "Amelia McNamara"
+editor: source
+format:
+  revealjs: 
+    theme: [dracula, extra.scss]
+    slide-number: true
+    footer: <https://bit.ly/CYCBO>   
+    height: 900
+    width: 1600
+execute:
+  echo: true
+  eval: false
+---
+## Pure function
+
+A function where:
+
+ - the return value depends *only* on argument values
+
+ - only change is the return value
+
+. . .
+
+Examples:
+
+. . .
+ 
+```r
+function(x, y) {
+  x + y
+}
+```
+
+. . .
+ 
+```r
+cos(pi)
+```
+
+## Side effects
+
+A function where:
+
+ - the return value can depend on "the outside universe"
+
+ - there is a change in the "the outside universe"
+ 
+. . .
+
+Examples:
+
+. . .
+
+```r
+readr::read_csv("myfile.csv")
+```
+
+. . .
+
+```r
+runif(1)
+```
+
+## Why is this important?
+
+. . . 
+
+- Pure functions easier to test than functions with side effects.
+
+. . . 
+
+- Side effects (interactions with universe) take time (Shiny).
+
+. . . 
+
+- Functions with side effects should document the effects.
+
+. . . 
+
+- Side effects are not inherently bad (we *do* need to write to the file system),
+  but they need extra care.
+  
+  
+
+## Errors
+
+- The most common type of side-effect is the **error condition**. 
+
+. . .
+
+- Sometimes, error messages can be cryptic: 
+
+  ```r
+  seq[10]
+  ```
+
+  ```
+  Error in seq[10] : object of type 'closure' is not subsettable
+  ```
+
+. . . 
+
+
+- You can write error messages that make things clearer for: 
+  - developers who call your functions
+  - end users
+  
+  
+## Making errors
+
+There are many ways to create error messages for your R functions. 
+
+In base R, you might use `if()`/`else()` statements with functions like `message()`, `warning()` and `stop()` inside, or a `stopifnot()`. 
+
+Of course, the folks who make the tidyverse have also been thinking about error messages. 
+
+In 2013, Hadley wickham created `{assertthat}` as a drop-in replacement for `stopifnot()`. People still use `assertthat`! But, the tidyverse always moves on.
+
+The new coolness is `{cli}`, which was released in 2017. 
+
+## {cli}
+
+The `{cli}` package is technically for command line interfaces, so it is more general than just error messages. But, it gets used in many situations where `assertthat` might have been previously. 
+
+I went looking for a repo that had a mixture of `assertthat` and `cli`, and found the [{fishmecher}](https://github.com/tytell/fishmechr/tree/main) package. Check out [center_of_mass.R](https://github.com/tytell/fishmechr/blob/main/R/center_of_mass.R). 
+
+(Actually, I don't think they're using `cli` quite right.)
+
+
+## Creating an error condition 
+
+An effective error condition has:
+
+1. **predicate** (logical expression used to identify condition)
+2. clear **message** for end user
+3. **class name** for developer
+4. **more information** for developer
+
+Previous error-handling code had 1, and sometimes 2. But `cli` is really adding in the 3 and 4. 
+
+## Using `cli::cli_abort()`
+
+{cli} package
+
+```r
+# predicate
+if (y > 3) {
+  cli::cli_abort(
+    # message for end user
+    c(
+      "{.var y} cannot be greater than 3.", 
+      x = "{.var y} is {.val {y}}."
+    ),
+    # class name
+    class = "BLT_error_threshold",  
+    # more information
+    y = y     
+  )
+}
+```
+
+## Predicate
+
+Prefer:
+
+ - simpler predicates and more error-conditions
+ 
+Over:
+
+ - complex predicates and fewer error-conditions
+ 
+. . .
+
+Finding simplest set of predicates is just as challenging as finding the "right" names for functions and arguments.
+
+## Message
+
+Content:
+
+- how did we violate the predicate?
+
+. . . 
+
+Formatting:
+
+- {cli} provides powerful formatting tools:
+
+  - use curly-braces and a tag, e.g. `{.var y}` 
+  - use more curly-braces to interpolate, e.g. `{.val {y}}`
+  
+- see [cli inline-markup](https://cli.r-lib.org/reference/inline-markup.html) for more details.
+
+## Class name
+
+- A developer, calling your function, can use the `class` name to handle the error, if they want.
+
+- Convention: 
+  
+  - `"{package}_error_{description}"`
+
+## Additional information
+
+This "stuff" is also available to an error handler.
+
+- Provide the data that went into the predicate.
+
+- Provide name of variable, e.g. `y = y`.
+
+- Avoid reserved names: `message`, `class`, `call`, `body`, `footer`, `trace`, `parent`, `use_cli_format`.
+
+## Validation
+
+If there will be an error, surface it quickly.
+
+Validating the arguments to a function is one way to do this.
+
+. . .
+
+For example:
+
+ - is *this* a data frame?
+ - does this data frame have *these* columns?
+
+. . . 
+ 
+Questions like these can be generalized into functions:
+
+ - throw an error if you need to.
+ - otherwise, return **data** argument invisibly.
+ 
+## Validate string-values 
+
+You may be familiar with `match.arg()`:
+
+ - uses "magic" to compare value (if any) to default
+ - argument default is vector of strings
+   - if value among defaults, return it - otherwise **error**
+   - if no value, return *first* value in default
+
+. . .
+
+`rlang::arg_match()` does the same thing, but:
+
+  - partial match triggers error
+  - error messages conform to tidyverse standards
+
+
+   
+## Validator functions
+
+::: extrasmall
+```r
+validate_data_frame <- function(.data, call = rlang::caller_env()) {
+  # predicate
+  if (!is.data.frame(.data)) {
+    cli::cli_abort(
+      # information for user
+      c(
+        "Must supply a data frame",
+        x = "You have supplied a {.cls {class(.data)}}."
+      ),
+      # class information for developers
+      class = "BLT_error_data",
+      # other information for developers
+      class_data = class(.data),
+      # tell user where we are calling from
+      call = call
+    )
+  }
+  
+  invisible(.data)
+}
+```
+:::
+
+## Validator functions
+
+::: extrasmall
+```r
+validate_cols <- function(.data, cols_req, call = rlang::caller_env()) {
+
+  cols_data <- names(.data)
+  cols_missing <- cols_req[!(cols_req %in% cols_data)]
+
+  # predicate
+  if (length(cols_missing) > 0) {
+
+    # helper function to format quantities
+    # - see https://cli.r-lib.org/articles/pluralization.html
+    qlen <- function(x) cli::qty(length(x))
+
+    cli::cli_abort(
+      # information for user
+      c(
+        "Data frame needs {qlen(cols_req)} column{?s}: {.var {cols_req}}",
+        i = "Has {qlen(cols_data)} column{?s}: {.var {cols_data}}",
+        x = "Missing {qlen(cols_missing)} column{?s}: {.var {cols_missing}}"
+      ),
+      # class information for developers
+      class = "ussie_error_cols",
+      # other information for developers
+      cols_req = cols_req,
+      cols_data = cols_data,
+      # tell user where we are calling from
+      call = call
+    )
+  }
+
+  invisible(.data)
+}
+```
+:::
+
+
+## Build error constructor {.smaller}
+
+- `usethis::use_package("cli")`
+
+- review `validate_data_frame()` (`call` argument)
+
+- build constructor for `validate_cols()`:
+  - something like `{.field {cols}}` may be useful
+
+- add validator-functions to `perc_missing_tidy()`
+
+
+
+
+## Make a function with side effects
+
+So far, our functions have been pure. Let's make one that is not. For this function, I want to write a wrapper around `imputeTS::ggplot_na_distribution()`. This function has the name `ggplot` in the title, but it doesn't work like a normal `ggplot()` function (taking the data as the first argument, then `aes`thetics). 
+
+. . .
+
+Do you remember the `usethis` function that will open up a .R file for us to write `BLT_ggplot_na_distribution.R`?
+
+. . . 
+
+```{r}
+usethis::use_r()
+```
+
+
+Let's start with adding a function skeleton,
+
+. . .
+
+```r
+BLT_ggplot_na_distribution <- function(data, mapping, ...){
+
+}
+```
+
+. . . 
+
+And then write some documentation **first**, as is better practice. 
+
+## Make a function with side effects
+
+::: extrasmall
+```r
+#' ggplot to visualization the distribution of missing values
+#'
+#' Wrapper around [imputeTS::ggplot_na_distribution]
+#'
+#' @param data Default dataset to use for a plot
+#' @param variable The variable to plot
+#' @param ... Other arguments passed on to methods
+#'
+#' @returns a ggplot object
+#' @export
+#'
+#' @examples
+#' tomatoes |>
+#' BLT_ggplot_na_distribution(value)
+BLT_ggplot_na_distribution <- function(data, variable, ...){
+
+}
+```
+:::
+
+
+## Make a function with side effects
+
+::: extrasmall
+```r
+#' ggplot to visualization the distribution of missing values
+#'
+#' Wrapper around [imputeTS::ggplot_na_distribution]
+#'
+#' @param data Default dataset to use for a plot
+#' @param variable The variable to plot
+#' @param ... Other arguments passed on to methods
+#'
+#' @returns a ggplot object
+#' @export
+#'
+#' @examples
+#' tomatoes |>
+#' BLT_ggplot_na_distribution(value)
+BLT_ggplot_na_distribution <- function(data, variable, ...){
+  var <- rlang::enquo(variable)
+  var_eval <- rlang::eval_tidy(var, data = data)
+  imputeTS::ggplot_na_distribution(var_eval)
+}
+```
+:::
+
+
+## Practical advice
+
+Try to separate tasks into pure functions and side effects:
+
+- easier to test the pure functions and side effects separately
+
+- use *these* functions in higher-level functions
+
+
+
+## Snapshot tests
+
+Designed for capturing side-effects:
+
+ - error messages
+ - `dplyr::glimpse()` is a useful shortcut
+ 
+. . .  
+ 
+Be careful about accepting changes (don't just accept).
+
+Can be temperamental - not run on CRAN.
+
+We will go through, using examples.
+
+
+## Managing global state
+
+Leave no footprints.
+
+Leave the global state how you found it, avoid surprises later:
+
+ - packages loaded
+ - also: options, environment variables 
+
+. . .
+
+Loading {devtools} in `.Rprofile` changes the global state.
+
+. . .
+
+When we hit the "Knit" button, or the Quarto "Render" button:
+
+  - it runs in a *new* R session
+  - does not execute user's `.Rprofile`
+  
+## Using "self-removing footprints"
+
+The {withr} package [@withr] gives us tools to:
+
+ - modify global state
+ - specify when to reverse the modification
+
+. . . 
+ 
+Useful family of functions:
+
+ - `withr::local_*()`
+ - changes the state back when a scope is exited
+ - if called within a function, *normally* when the function exits
+
+## When could this be useful?
+
+CRAN is (rightly) particular about "leave no footprints".
+
+You may need:
+
+ - `withr::local_options()`: change an option
+ - `withr::local_dir()`: change the working directory
+ - `withr::local_tempfile()`: path to a temporary file
+ 
+. . . 
+
+Useful in `testthat` code and in `R` code.
+
+## Interactive example
+
+```{r}
+write_read_vanish <- function(x) {
+  
+  tempfile <- withr::local_tempfile(fileext = ".rds")
+  
+  saveRDS(x, file = tempfile)
+  xnew <- readRDS(tempfile)
+  
+  print(
+    glue::glue("'{tempfile}' contained {xnew}.")
+  )
+  
+  invisible(xnew)
+}
+```
+
+## Another interactive example
+
+```r
+not_runif <- function(n, min = 0, max = 1) {
+
+  withr::local_seed(314)
+  
+  runif(n, min = min, max = max)
+}
+```
+
+## Example
+
+- `usethis::use_test("validate")`
+- change: 
+
+  ```r
+  expect_identical(error_condition$cols_req, "foo")
+  ```
+  
+- to: 
+
+  ```r
+  expect_identical(error_condition$cols_re, "foo")
+  ```
+
+- rerun tests 🤔
+
+. . . 
+
+- By default, `$` accepts partial matching.
+
+- We want stricter testing, so we need to set some options.
+
+## Our turn `"2.2.2"`
+
+Turn off `$` partial matching when testing.
+
+. . .
+
+<hr>
+**Only** *if needed*, `btt22::btt_reset_hard("2.2.2")`
+<hr>
+
+. . . 
+ 
+Get new files, `btt22::btt_get("2.2.2")`:
+
+ - `utils-testing.R`
+ 
+`usethis::use_package("withr")` 
+
+## `local_warn_partial_match()`
+
+In essence, this sets (temporarily) `TRUE`:
+
+ - `options("warnPartialMatchDollar")`
+ - `options("warnPartialMatchArgs")`
+ - `options("warnPartialMatchAttr")`
+
+. . .
+
+With a couple of wrinkles:
+
+ - we need to treat `NULL` as `FALSE`.
+ - we set things back when the *calling* scope exits.
+
+## Our turn `"2.2.2"`, continued
+
+- `usethis::use_test("validate")`
+
+- add `local_warn_partial_match()` to top of blocks.
+
+- `getOption("warnPartialMatchDollar")`
+
+- change: 
+
+  ```r
+  expect_identical(error_condition$cols_re, "foo")
+  ```
+
+- `devtools::test()` 🎉 
+
+- `getOption("warnPartialMatchDollar")`
+
+- change back to `$cols_req`
+
+## Your turn `"2.2.3"` {.smaller}
+
+Implement testing with side effects
+
+. . .
+
+<hr>
+**Only** *if needed*, `btt22::btt_reset_hard("2.2.3")`
+<hr>
+
+. . . 
+
+*No* new files.
+
+. . .
+
+- add `local_warn_partial_match()` to all test-blocks.
+
+- `test-matches.R`:
+  - add `expect_error()` calls for data-frame and columns (use `class` argument).
+  - at end, add:
+   ```r
+   expect_snapshot(dplyr::glimpse(italy))
+   ```
+
+## Summary
+
+. . .
+
+The most-common side-effect is an error. Good design:
+
+. . .
+
+- simple (as possible) predicate
+- clear mesage
+- add a `class` using naming convention, and additional information
+
+. . .
+
+Use snapshot tests to capture side-effects.
+
+- be very careful when accepting changes to snapshots.
+
+. . . 
+
+Use `withr::local_*()` functions to "leave no footprints".
+
+## Additional material {.smaller}
+
+```{r}
+#| eval: true
+#| echo: false
+vembedr::embed_youtube("ZhuHCtR3xq8", height = 400) 
+```
+
+Brian Beckman on monads (Ian watched at least ten times, learned something each time):
+
+- tidyverse is a monoidal system
+
+- maybe monads aren't the thing, but the functional-programming learned along the way
+
+## References
