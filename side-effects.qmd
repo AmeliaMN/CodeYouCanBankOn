@@ -14,6 +14,7 @@ execute:
   echo: true
   eval: false
 ---
+
 ## Pure function
 
 A function where:
@@ -64,6 +65,67 @@ readr::read_csv("myfile.csv")
 runif(1)
 ```
 
+## Side effects 
+
+There are two main types of side-effect:
+
+- those that give feedback to the user.
+- those that change some global state.
+
+
+::: footer 
+<https://design.tidyverse.org/side-effects.html>
+::: 
+
+
+## User feedback
+
+User feedback
+
+- Signalling a condition, with `message()`, `warning()`, or `stop()`.
+- Printing to the console with `cat()`.
+- Drawing to the current graphics device with base graphics or grid.
+
+::: footer 
+<https://design.tidyverse.org/side-effects.html>
+::: 
+
+
+## Global state
+
+
+- Creating (or modifying) an existing binding with `<-`.
+- Modifying the search path by attaching a package with `library()`.
+- Changing the working directory with `setwd()`.
+- Modifying a file on disk with (e.g.) `write.csv()`.
+- Changing a global option with `options()` or a base graphics parameter with `gpar()`.
+- Setting the random seed with `set.seed()`
+- Installing a package.
+- Changing environment variables with `Sys.setenv()`, or indirectly via a function like `Sys.setlocale()`.
+- Modifying a variable in an enclosing environment with `assign()` or `<<-` 😱
+- Modifying an object with reference semantics (like R6 or data.table).
+
+::: footer 
+<https://design.tidyverse.org/side-effects.html>
+::: 
+
+
+## More esoteric side-effects
+
+Including
+
+- Detaching a package from the search path with `detach()` 😱
+- Changing the library path, where R looks for packages, with .`libPaths()` 😱
+- Changing the active graphics device with (e.g.) `png()` or `dev.off()`.
+- Registering an S4 class, method, or generic with `methods::setGeneric()`.
+- Modifying the internal `.Random.seed`
+
+::: footer 
+<https://design.tidyverse.org/side-effects.html>
+::: 
+
+
+
 ## Why is this important?
 
 . . . 
@@ -83,7 +145,24 @@ runif(1)
 - Side effects are not inherently bad (we *do* need to write to the file system),
   but they need extra care.
   
+## Practical advice
+
+Try to separate tasks into pure functions and side effects:
+
+- easier to test the pure functions and side effects separately
+
+- use *these* functions in higher-level functions
   
+## Spooky actions
+
+When working with side effects, try not to do any "spooky actions" (things the user wouldn't expect). 
+
+
+
+::: footer 
+<https://design.tidyverse.org/side-effects.html>
+::: 
+
 
 ## Errors
 
@@ -123,7 +202,10 @@ The new coolness is `{cli}`, which was released in 2017.
 
 ## {cli}
 
-The `{cli}` package is technically for command line interfaces, so it is more general than just error messages. But, it gets used in many situations where `assertthat` might have been previously. 
+The `{cli}` package is technically for command line interfaces, so it is more general than just error messages. In fact, it is what is being used by `{usethis}`, `{devtools}` and `{testthat}` to give us the informative messages we get as we use them!
+
+
+But, `{cli}` gets used in many situations where `assertthat` might have been previously. 
 
 I went looking for a repo that had a mixture of `assertthat` and `cli`, and found the [{fishmecher}](https://github.com/tytell/fishmechr/tree/main) package. Check out [center_of_mass.R](https://github.com/tytell/fishmechr/blob/main/R/center_of_mass.R). 
 
@@ -145,6 +227,7 @@ Previous error-handling code had 1, and sometimes 2. But `cli` is really adding 
 
 {cli} package
 
+::: small
 ```r
 # predicate
 if (y > 3) {
@@ -161,6 +244,8 @@ if (y > 3) {
   )
 }
 ```
+
+:::
 
 ## Predicate
 
@@ -231,25 +316,9 @@ Questions like these can be generalized into functions:
  - throw an error if you need to.
  - otherwise, return **data** argument invisibly.
  
-## Validate string-values 
-
-You may be familiar with `match.arg()`:
-
- - uses "magic" to compare value (if any) to default
- - argument default is vector of strings
-   - if value among defaults, return it - otherwise **error**
-   - if no value, return *first* value in default
-
-. . .
-
-`rlang::arg_match()` does the same thing, but:
-
-  - partial match triggers error
-  - error messages conform to tidyverse standards
-
 
    
-## Validator functions
+## Validator functions (validate.R)
 
 ::: extrasmall
 ```r
@@ -276,7 +345,7 @@ validate_data_frame <- function(.data, call = rlang::caller_env()) {
 ```
 :::
 
-## Validator functions
+## Validator functions (validate.R)
 
 ::: extrasmall
 ```r
@@ -300,7 +369,7 @@ validate_cols <- function(.data, cols_req, call = rlang::caller_env()) {
         x = "Missing {qlen(cols_missing)} column{?s}: {.var {cols_missing}}"
       ),
       # class information for developers
-      class = "ussie_error_cols",
+      class = "BLT_error_cols",
       # other information for developers
       cols_req = cols_req,
       cols_data = cols_data,
@@ -314,28 +383,81 @@ validate_cols <- function(.data, cols_req, call = rlang::caller_env()) {
 ```
 :::
 
+## Validator functions
 
-## Build error constructor {.smaller}
+I don't really know why there isn't a package to wrap some of this up more neatly, because this seems like a common pattern. 
+
+- [{gtable}](https://github.com/r-lib/gtable)
+- [{nowcast}](https://github.com/charlescoverdale/nowcast)
+- [{bidux}](https://github.com/jrwinget/bidux)
+
+Possibly influenced by the [{ussie}](https://github.com/rstudio-conf-2022/ussie) package, which was the example package for a lot of the slides I've modified?
+
+
+## Use validators 
 
 - `usethis::use_package("cli")`
 
 - review `validate_data_frame()` (`call` argument)
 
-- build constructor for `validate_cols()`:
-  - something like `{.field {cols}}` may be useful
-
 - add validator-functions to `perc_missing_tidy()`
 
+- if we're going to check the columns, we need something to compare to
+
+- we can make a "function" that is just the variable names we expect
+
+
+## Use validators
+
+In `columns.R` 
 
 
 
-## Make a function with side effects
+```r
+FRED_names <- function() {
+  c("date", "series_id", "value", "realtime_start", "realtime_end")
+}
 
-So far, our functions have been pure. Let's make one that is not. For this function, I want to write a wrapper around `imputeTS::ggplot_na_distribution()`. This function has the name `ggplot` in the title, but it doesn't work like a normal `ggplot()` function (taking the data as the first argument, then `aes`thetics). 
+```
 
-. . .
 
-Do you remember the `usethis` function that will open up a .R file for us to write `BLT_ggplot_na_distribution.R`?
+
+## Use validators
+
+```r
+perc_missing_tidy <- function(dataset, variable){
+  validate_data_frame(dataset)
+  validate_cols(dataset, FRED_names())
+
+  var <- rlang::enquo(variable)
+  var_eval <- rlang::eval_tidy(var, data = dataset)
+  na_stats <- imputeTS::statsNA(var_eval, print_only = FALSE)
+  tibble_perc <- tibble::tibble(perc = readr::parse_number(x = na_stats$percentage_NAs))
+  return(tibble_perc)
+}
+```
+
+## Document, load, check, commit
+
+Now would be a good time to commit your changes 
+
+![Jason Long, CC BY 3.0 \<https://creativecommons.org/licenses/by/3.0\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg){fig-alt="Git icon" width="300"} 
+
+## Build a test
+
+Now that we've added some functionality, we should test it. How do we add a test? What is an `expect_xxx()` function we can use? 
+
+. . . 
+
+We can go MUCH deeper with tests for these `cli` objects. 
+
+
+## Make a function with (more) side effects
+
+So far, our functions have been pretty pure. We did just add error messages to a function, but those were pretty easy to test with `expect_error()` and `expect_no_error()`. 
+
+Let's make one that is tougher. For this function, I want to write a wrapper around `imputeTS::ggplot_na_distribution()`. This function has the name `ggplot` in the title, but it doesn't work like a normal `ggplot()` function (taking the data as the first argument, then `aes`thetics). 
+
 
 . . . 
 
@@ -367,16 +489,18 @@ And then write some documentation **first**, as is better practice.
 #' Wrapper around [imputeTS::ggplot_na_distribution]
 #'
 #' @param data Default dataset to use for a plot
-#' @param variable The variable to plot
+#' @param mapping Set of aesthetic mappings to use for plot.
 #' @param ... Other arguments passed on to methods
+#'
+#' ggplot_na_distribution() understands the x aesthetic.
 #'
 #' @returns a ggplot object
 #' @export
 #'
 #' @examples
 #' tomatoes |>
-#' BLT_ggplot_na_distribution(value)
-BLT_ggplot_na_distribution <- function(data, variable, ...){
+#' BLT_ggplot_na_distribution(mapping = aes(x = value))
+BLT_ggplot_na_distribution <- function(data, mapping = aes(), ...){
 
 }
 ```
@@ -392,8 +516,10 @@ BLT_ggplot_na_distribution <- function(data, variable, ...){
 #' Wrapper around [imputeTS::ggplot_na_distribution]
 #'
 #' @param data Default dataset to use for a plot
-#' @param variable The variable to plot
+#' @param mapping Set of aesthetic mappings to use for plot.
 #' @param ... Other arguments passed on to methods
+#'
+#' ggplot_na_distribution() understands the x aesthetic.
 #'
 #' @returns a ggplot object
 #' @export
@@ -401,23 +527,49 @@ BLT_ggplot_na_distribution <- function(data, variable, ...){
 #' @examples
 #' tomatoes |>
 #' BLT_ggplot_na_distribution(value)
-BLT_ggplot_na_distribution <- function(data, variable, ...){
-  var <- rlang::enquo(variable)
+BLT_ggplot_na_distribution <- function(data = NULL, mapping = aes(), ...){
+  var <- mapping$x
   var_eval <- rlang::eval_tidy(var, data = data)
-  imputeTS::ggplot_na_distribution(var_eval)
-}
+  imputeTS::ggplot_na_distribution(var_eval, ...)
 ```
 :::
 
 
-## Practical advice
+## Document, load, check, commit
 
-Try to separate tasks into pure functions and side effects:
+Now would be a good time to commit your changes 
 
-- easier to test the pure functions and side effects separately
+![Jason Long, CC BY 3.0 \<https://creativecommons.org/licenses/by/3.0\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg){fig-alt="Git icon" height="300"} 
 
-- use *these* functions in higher-level functions
+. . . 
 
+🤔 What happened?
+
+. . .
+
+```
+Error in `aes(value)`: could not find function "aes"
+```
+
+## Dependencies!
+
+We're back to package dependencies. A couple options:
+
+```r
+BLT_ggplot_na_distribution <- function(data = NULL, mapping = ggplot2::aes(), ...){
+```
+
+. . . 
+
+😬
+
+. . . 
+
+Or, we can import `aes()` from `ggplot2()`. This is a neater solution!
+
+## Document, load, check, commit
+
+![Jason Long, CC BY 3.0 \<https://creativecommons.org/licenses/by/3.0\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg){fig-alt="Git icon" width="300"} 
 
 
 ## Snapshot tests
@@ -425,9 +577,7 @@ Try to separate tasks into pure functions and side effects:
 Designed for capturing side-effects:
 
  - error messages
- - `dplyr::glimpse()` is a useful shortcut
- 
-. . .  
+ - plots
  
 Be careful about accepting changes (don't just accept).
 
@@ -445,11 +595,9 @@ Leave the global state how you found it, avoid surprises later:
  - packages loaded
  - also: options, environment variables 
 
-. . .
 
 Loading {devtools} in `.Rprofile` changes the global state.
 
-. . .
 
 When we hit the "Knit" button, or the Quarto "Render" button:
 
@@ -463,7 +611,6 @@ The {withr} package [@withr] gives us tools to:
  - modify global state
  - specify when to reverse the modification
 
-. . . 
  
 Useful family of functions:
 
@@ -481,13 +628,12 @@ You may need:
  - `withr::local_dir()`: change the working directory
  - `withr::local_tempfile()`: path to a temporary file
  
-. . . 
 
 Useful in `testthat` code and in `R` code.
 
 ## Interactive example
 
-```{r}
+```r
 write_read_vanish <- function(x) {
   
   tempfile <- withr::local_tempfile(fileext = ".rds")
@@ -514,120 +660,55 @@ not_runif <- function(n, min = 0, max = 1) {
 }
 ```
 
+## Test a function with side effects 
+
+It's much harder to write tests for functions that have side effects. But, there are some new helpers out there. `vdiffr` is what is being used to test `ggplot2`. It has the function `expect_doppleganger()` that can compare snapshots of figures. 
+
+
+Do you remember the `usethis` function that will make a test file for us?
+
+. . . 
+
+```r
+ usethis::use_test()
+```
+
+
+
 ## Example
 
-- `usethis::use_test("validate")`
-- change: 
+```r
+test_that("plots have known output", {
 
-  ```r
-  expect_identical(error_condition$cols_req, "foo")
-  ```
-  
-- to: 
+  tomato_NA_dist <- BLT_ggplot_na_distribution(tomatoes, mapping = aes(x = value))
+  vdiffr::expect_doppelganger("tomato_NA_dist", tomato_NA_dist)
+})
+```
 
-  ```r
-  expect_identical(error_condition$cols_re, "foo")
-  ```
+- rerun tests 
 
-- rerun tests 🤔
+## Example
 
-. . . 
+Let's see how this test could catch us. Change `tomatoes` to `bacon` in the `BLT_ggplot_na_distribution()` code. 
 
-- By default, `$` accepts partial matching.
+- save
 
-- We want stricter testing, so we need to set some options.
+- rerun tests
 
-## Our turn `"2.2.2"`
+- Can use `testthat::snapshot_review()` to review snapshot changes. 
 
-Turn off `$` partial matching when testing.
+## Document, load, check, commit
 
-. . .
+![Jason Long, CC BY 3.0 \<https://creativecommons.org/licenses/by/3.0\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg){fig-alt="Git icon" width="300"} 
 
-<hr>
-**Only** *if needed*, `btt22::btt_reset_hard("2.2.2")`
-<hr>
-
-. . . 
- 
-Get new files, `btt22::btt_get("2.2.2")`:
-
- - `utils-testing.R`
- 
-`usethis::use_package("withr")` 
-
-## `local_warn_partial_match()`
-
-In essence, this sets (temporarily) `TRUE`:
-
- - `options("warnPartialMatchDollar")`
- - `options("warnPartialMatchArgs")`
- - `options("warnPartialMatchAttr")`
-
-. . .
-
-With a couple of wrinkles:
-
- - we need to treat `NULL` as `FALSE`.
- - we set things back when the *calling* scope exits.
-
-## Our turn `"2.2.2"`, continued
-
-- `usethis::use_test("validate")`
-
-- add `local_warn_partial_match()` to top of blocks.
-
-- `getOption("warnPartialMatchDollar")`
-
-- change: 
-
-  ```r
-  expect_identical(error_condition$cols_re, "foo")
-  ```
-
-- `devtools::test()` 🎉 
-
-- `getOption("warnPartialMatchDollar")`
-
-- change back to `$cols_req`
-
-## Your turn `"2.2.3"` {.smaller}
-
-Implement testing with side effects
-
-. . .
-
-<hr>
-**Only** *if needed*, `btt22::btt_reset_hard("2.2.3")`
-<hr>
-
-. . . 
-
-*No* new files.
-
-. . .
-
-- add `local_warn_partial_match()` to all test-blocks.
-
-- `test-matches.R`:
-  - add `expect_error()` calls for data-frame and columns (use `class` argument).
-  - at end, add:
-   ```r
-   expect_snapshot(dplyr::glimpse(italy))
-   ```
 
 ## Summary
 
-. . .
-
 The most-common side-effect is an error. Good design:
 
-. . .
-
 - simple (as possible) predicate
-- clear mesage
+- clear message
 - add a `class` using naming convention, and additional information
-
-. . .
 
 Use snapshot tests to capture side-effects.
 
@@ -637,18 +718,7 @@ Use snapshot tests to capture side-effects.
 
 Use `withr::local_*()` functions to "leave no footprints".
 
-## Additional material {.smaller}
 
-```{r}
-#| eval: true
-#| echo: false
-vembedr::embed_youtube("ZhuHCtR3xq8", height = 400) 
-```
+## Resources
 
-Brian Beckman on monads (Ian watched at least ten times, learned something each time):
 
-- tidyverse is a monoidal system
-
-- maybe monads aren't the thing, but the functional-programming learned along the way
-
-## References

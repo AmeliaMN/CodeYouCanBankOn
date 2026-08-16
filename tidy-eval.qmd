@@ -1,0 +1,560 @@
+---
+title: "💻 🏦 <br>Code You Can Bank On"
+subtitle: "Tidy eval"
+author: "Amelia McNamara"
+editor: source
+format:
+  revealjs: 
+    theme: [dracula, extra.scss]
+    slide-number: true
+    footer: <https://bit.ly/CYCBO>   
+    height: 900
+    width: 1600
+execute:
+  echo: true
+  eval: false
+---
+
+## Recall- non-standard evaluation
+
+If you're [masking specific tidyverse functions](https://rlang.r-lib.org/reference/topic-data-mask-programming.html), you can get away with `{{ }}` and passing arguments along with `...`. 
+
+But if we're doing more general-purpose programming, we need to leverage non-standard evaluation in R.  
+
+purpose | base | rlang | rlang (quosure) |
+|-------|------|-----------|-------------|
+capture unevaluated expression | quote() | expr() |  quo() |
+substitute name for value | substitute() | enexpr() |  enquo() |
+evaluate a captured expression  | eval() | eval_tidy() | !! | 
+   
+There are *many* more NSE functions, but I find these three concepts usually get me pretty far. 
+
+<!-- I'm not a big AI fan, but NSE is a nice use case for asking an LLM questions.  -->
+
+
+# Tidy eval
+
+
+## Motivation for tidy eval
+
+Tidy eval (and non-standard evaluation generally in R) exists so that we can refer to data columns using bare names.
+
+```r
+dplyr::filter(mtcars, cyl == 4)
+```
+
+. . .
+
+```python
+# python, using pandas
+mtcars.query('cyl == 4')
+```
+
+. . . 
+
+ - It makes things easier if you are working interactively.
+ - It makes things more interesting if you are writing functions. 
+
+. . . 
+ 
+Welcome to *more interesting*.
+
+## Families of tidy-eval functions
+
+There are two families of tidy-eval functions:
+
+. . .
+
+ - **data-masking**: evaluate variables in context of data frame
+ 
+    ```r
+    mtcars |>
+      dplyr::mutate(wt_kg = wt * 1000 / 2.2)
+    ```
+    
+. . . 
+
+ - **tidy-select**: specify columns within a data frame
+ 
+   ```r
+   mtcars |>
+     dplyr::select(starts_with("w"))
+   ```
+   
+## Ways to express tidy-eval 
+
+. . .
+
+ - using bare names, what we do in interactive programming:
+ 
+    ```r
+    mtcars |>
+      dplyr::mutate(wt_kg = wt * 1000 / 2.2)
+    ```
+
+. . .
+
+  - using strings, useful for Shiny :
+  
+    ```r
+    mtcars |>
+      dplyr::mutate("wt_kg" := .data[["wt"]] * 1000 / 2.2)
+    ```
+
+  
+## Goal
+
+Write functions that:
+
+ - call tidyverse functions, e.g. `dplyr::filter()`
+ - "look and feel" like tidyverse functions:
+   - your users can call using bare names
+- use string-techniques when we know the column names
+
+. . . 
+
+Out of scope:
+
+ - underlying theory of quasiquotation, i.e. `rlang::quo()`, `rlang::enquo()`, `rlang::eval_tidy()` 
+
+## Pass the dots
+
+This is the simplest possible solution. 
+
+. . .
+
+ - If the tidyverse function you're using takes `...` as an argument,
+
+. . .
+
+ - and that's what you want to pass along, 
+
+. . . 
+ 
+then you can **pass the dots**.
+
+```r
+my_select <- function(.data, ...) {
+  dplyr::select(.data, ...)
+}
+```
+
+
+### Goal
+
+`uss_get_matches()` to use `dplyr::filter()`:
+
+```r
+uss_get_matches("italy", season == 1929)
+```
+
+equivalent to: 
+
+```r
+uss_get_matches("italy") |> 
+  dplyr::filter(season == 1929)
+```
+
+## Pass the dots to `filter()` results
+
+In `uss_get_matches()`:
+
+- Add `...` to the formal arguments.
+
+- Pass the dots to `dplyr::filter()`.
+
+- Document: 
+
+  - use `#' @inheritParams dplyr::filter` 
+  - add example
+  - add to package vignette
+
+- Add test (`usethis::use_test()`)
+
+- `devtools::check()`
+
+## Pronouns: `.data`, `.env`
+
+```r
+library("dplyr")
+mtcars |> nrow()
+```
+
+```
+[1] 32
+```
+
+. . .
+
+<hr>
+
+```r
+mtcars |> filter(cyl == 4) |> nrow()
+```
+. . .
+
+```
+[1] 11
+```
+
+. . .
+
+<hr>
+
+```r
+n_cyl <- 4
+mtcars |> filter(cyl == n_cyl) |> nrow()
+```
+. . .
+
+```
+[1] 11
+```
+
+## Pronouns: `.data`, `.env` (cont.)
+
+```r
+n_cyl <- 4
+mtcars |> filter(cyl == n_cyl) |> nrow()
+```
+
+```
+[1] 11
+```
+
+. . .
+
+<hr>
+
+```r
+cyl <- 4
+filter(mtcars, cyl == cyl) |> nrow()
+```
+
+. . .
+
+```
+[1] 32
+```
+
+. . .
+
+<hr>
+
+```r
+mtcars |> filter(.data$cyl == .env$cyl) |> nrow()
+```
+
+. . .
+
+```
+[1] 11
+```
+
+## Pronouns
+
+The `.data` and `.env` pronouns are provided by {rlang}.
+
+. . . 
+
+For *data-masking* functions, make explicit how to evaluate variables.
+
+. . .
+
+To use them in your package:
+
+```r
+usethis::use_import_from("rlang", c(".data", ".env"))
+```
+
+
+
+
+
+## Splicing: `!!!`
+
+Used to splice a list or vector into a `...` argument.
+
+
+It works only with [*dynamic dots*](https://rlang.r-lib.org/reference/dyn-dots.html) (a tidyverse construct).
+
+. . . 
+
+```r
+library("dplyr")
+mtcars |> rename(new_mpg = "mpg", new_cyl = "cyl")
+```
+
+. . .
+
+```r
+new_names <- c(new_mpg = "mpg", new_cyl = "cyl")
+
+mtcars |> rename(!!!new_names)
+```
+
+. . .
+
+`!!!` reflects `...`
+ 
+`!!!` evaluates the variable using the environment
+
+
+
+## New columns
+
+With [*dynamic dots*](https://rlang.r-lib.org/reference/dyn-dots.html) you can name new columns using variables.
+
+. . .
+
+```r
+prefix <- "new"
+
+mtcars |>
+  dplyr::rename("{prefix}_mpg" := "mpg")
+```
+
+. . .
+
+Two things to keep in mind:
+
+- left side of expression is a {glue}-enabled string.
+- operator is `:=`, not `=`. 
+
+. . . 
+
+To use in your package:
+
+```r
+usethis::use_import_from("rlang", ":=")
+```
+
+
+## Naming columns
+
+```r
+name_of_at_home <- "at_home"
+teams_matches_visitor <-
+  data_matches |>
+  dplyr::rename(!!!rename_visitor()) |>
+  dplyr::mutate(at_home = FALSE)
+```
+
+- use `name_of_at_home` to name column in `mutate()`
+
+- `devtools::check()`
+
+Remember:
+
+- left side of expression is a {glue}-enabled string
+- operator is `:=`, not `=`
+
+## `dplyr::across()`: super useful 
+
+- used inside *data-masking* verbs, e.g. `summarise()`
+
+- specify:
+
+  - which columns to consider, using *tidy-select*
+  
+  - what function(s), if any, to apply
+
+. . .
+
+```r
+mtcars |>
+  dplyr::group_by(dplyr::across("cyl")) |>
+  dplyr::summarise(
+    dplyr::across(c("mpg", "disp"), mean)
+  )
+```
+
+## Tidy-select and ambiguity
+
+```r
+library("dplyr")
+
+mtcars |> select(cyl) |> glimpse()
+```
+
+. . .
+
+```r
+placeholder <- c("wt", "mpg")
+mtcars |> select(placeholder) |> glimpse()
+```
+
+. . . 
+
+```r
+cyl <- c("wt", "mpg")
+mtcars |> select(cyl) |> glimpse()
+```
+
+. . .
+
+```r
+mtcars |> select(all_of(cyl)) |> glimpse()
+```
+
+## `all_of()`, `any_of()`
+
+Exported by {dplyr} [@dplyr]; part of {tidyselect} [@tidyselect]
+
+Used to disambiguate external- vector of column names:
+
+```r
+placeholder <- c("wt", "mpg", "not_in_mtcars")
+```
+
+. . .
+
+`all_of()` is strict:
+
+```r
+mtcars |> select(all_of(placeholder)) |> glimpse()
+```
+
+. . .
+
+
+`any_of()` is permissive:
+
+```r
+mtcars |> select(any_of(placeholder)) |> glimpse()
+```
+
+
+## Curly-curly: `{{}}`
+
+glue lets you interpolate strings:
+
+```r
+greet <- function(name) {
+  glue::glue("Hello {name}")
+}
+```
+
+```r
+greet("there")
+```
+ 
+. . .
+
+Tidy eval lets you interpolate arguments:
+
+```r
+mutate_greet <- function(.data, greeting) {
+  .data |>
+    dplyr::mutate(greeting = {{ greeting }})
+}
+```
+
+## Try out greeting functions
+
+```r
+library("palmerpenguins")
+
+my_name <- "Ian"
+penguins |>  mutate_greet(my_name) # works with vars in environment
+```
+
+. . .
+
+```r
+penguins |> mutate_greet(species) # works with vars in data
+```
+
+. . .
+
+```r
+# compute on data
+penguins |> mutate_greet(paste(species, island)) 
+```
+
+. . .
+
+
+```r
+# getting a little silly
+penguins |> 
+  mutate_greet(paste(species, island) |> greet())
+```
+
+## Curly-curly, revisited
+
+```r
+mutate_greet <- function(.data, greeting) {
+  .data |>
+    dplyr::mutate(greeting = {{ greeting }})
+}
+```
+
+`{{}}`: 
+
+- freezes the expression, capturing context
+- delays evaluation
+- function you call must be capable
+- tidyverse *data-masking* and *tidy-select* functions are capable
+
+
+## Summary
+
+There are a lot of tidy-eval tools:
+
+- know if you are using a *data-masking* or *tidy-select* function.
+
+. . .
+
+- *data-masking* function using *tidy-select* syntax: `across()` 
+
+. . .
+
+- to move a bunch of arguments, pass the dots, `...`
+
+. . .
+
+- to splice a list (or vector) into *dynamic-dots*, use `!!!`
+
+. . . 
+  
+- to interpolate a single argument, use `{{}}`
+
+
+## Summary: disambiguation
+
+For *data-masking* functions, use `.data`, `.env` pronouns:
+
+```r
+library("dplyr")
+
+cyl <- 4
+mtcars |> filter(.data$cyl == .env$cyl) 
+```
+  
+. . .
+
+For *tidy-select* functions, use `all_of()`, `any_of()`:
+
+```r
+cyl <- c("mpg", "wt")
+mtcars |> select(all_of(cyl))
+```
+
+
+
+
+
+
+
+
+
+## References
+
+
+- [Lazy evalution](https://www.youtube.com/watch?v=2BXPLnLMTYo), Jenny Bryan
+- [Interactivity and Programming in the Tidyverse](https://www.youtube.com/watch?v=SW_TUkPXSmA), Lionel Henry on data-masking and tidy-select. 
+- [Tidy evaluation in 5 mins](https://www.youtube.com/watch?v=nERXS3ssntw), Hadley Wickham
+- [Programming with dplyr](https://dplyr.tidyverse.org/articles/programming.html)
+
+- [Using ggplot2 in packages](https://ggplot2.tidyverse.org/articles/ggplot2-in-packages.html) 
