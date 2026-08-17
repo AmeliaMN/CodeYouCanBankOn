@@ -16,11 +16,14 @@ Hosted materials available at <https://ameliamn.github.io/CodeYouCanBankOn/>
   - 12-1 pm lunch break
   - 1-4 pm [documentation](documentation.qmd)
 - August 11th
-  - 9 am - 12 pm [testing](testing.qmd)
+  - 9 am - 11 am [testing](testing.qmd)
+  - 11 am - 12 pm [design](design.qmd)
 - August 17th
-  - 9 am - 12 pm more [testing](testing.qmd)
+  - 9 am - 10 am [misc](misc.qmd)
+  - 10 am - 12 pm [side effects](side-effects.qmd)
   - 12-1 pm lunch break
-  - 1-4 pm [design](design.qmd)
+  - 1-2 pm [{testdat}](testdat.qmd)
+  - 2-4 pm ? maybe [tidy eval](tidy-eval.qmd) or more data in packages?
 
 ## Prereqs
 

@@ -25,7 +25,14 @@ website:
           href: testing.qmd
         - text: "Design"
           href: design.qmd
-
+        - text: "Miscellaneous topics"
+          href: misc.qmd
+        - text: "Side effects"
+          href: side-effects.qmd
+        - text: "{testdat}"
+          href: testdat.qmd
+        - text: "tidy eval"
+          href: tidy-eval.qmd
 
 format:
   html:

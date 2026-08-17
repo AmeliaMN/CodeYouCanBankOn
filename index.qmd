@@ -16,13 +16,17 @@ Tentative schedule
     - 9-10 am [intro, review](intro.qmd)
     - 10 am - 12 pm [package dev](package-dev.qmd)
     - 12-1 pm lunch break
-    - 1-4 pm more [documentation](documentation.qmd)
+    - 1-4 pm [documentation](documentation.qmd)
   - August 11th
-    - 9 am - 12 pm [testing](testing.qmd)
-  - August 17th
-    - 9 am - 12 pm more [testing](testing.qmd)
-    - 12-1 pm lunch break
-    - 1-4 pm [design](design.qmd)
+  - 9 am - 11 am [testing](testing.qmd)
+  - 11 am - 12 pm [design](design.qmd)
+- August 17th
+  - 9 am - 10 am [misc](misc.qmd)
+  - 10 am - 12 pm [side effects](side-effects.qmd)
+  - 12-1 pm lunch break
+  - 1-2 pm [{testdat}](testdat.qmd)
+  - 2-4 pm ? maybe [tidy eval](tidy-eval.qmd) or more data in packages?
+
     
     
 All material is covered by a CC-BY-SA-4.0 license and source documents are [available on GitHub](https://github.com/AmeliaMN/CodeYouCanBankOn). 

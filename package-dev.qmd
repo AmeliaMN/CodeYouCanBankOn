@@ -774,6 +774,10 @@ usethis::use_data(bacon)
 
 Let's also add lettuce and tomato data, for completeness. 
 
+## Data in packages
+
+There is a lot more detail specific to including data in packages. Sometimes you want to include raw data, sometimes you need data only available to the package and not the user, etc. There is much more detail in the [R packages](https://r-pkgs.org/data.html) book. 
+
 ## Commit
 
 Now would be a good time to commit your changes.

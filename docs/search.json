@@ -60,7 +60,14 @@
     "href": "side-effects.html#spooky-actions",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Spooky actions",
-    "text": "Spooky actions\nWhen working with side effects, try not to do any “spooky actions” (things the user wouldn’t expect).\n\nhttps://design.tidyverse.org/side-effects.html"
+    "text": "Spooky actions\nWhen working with side effects, try not to do any “spooky actions” (things the user wouldn’t expect).\n\ndeleting variables\nsaving files\nloading packages with library()\ninstalling packages with install.packages()\nDeleting objects in the global environment with rm(list = ls())\n\nWe can make the notion of spooky action precise by thinking about trees. Code should only affect the tree beneath where it lives, so any action that reaches up, or across, the tree is a spooky action.\n\nhttps://design.tidyverse.org/spooky-action.html"
+  },
+  {
+    "objectID": "side-effects.html#avoiding-spooky-actions",
+    "href": "side-effects.html#avoiding-spooky-actions",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Avoiding spooky actions",
+    "text": "Avoiding spooky actions\nIf you feel you must do a spooky action,\n\nparameterize the action\nadvertise the action with a clear name\nask for confirmation\nadvertise the side effects\n\nThe {usethis} does a lot of potentially-spooky things. But it advertises the action, asks for confirmation, and advertises the side effects.\n\nhttps://design.tidyverse.org/spooky-action.html"
   },
   {
     "objectID": "side-effects.html#errors",
@@ -301,6 +308,34 @@
     "text": "Document, load, check, commit\n\nJason Long, CC BY 3.0 &lt;https://creativecommons.org/licenses/by/3.0&gt;, via Wikimedia Commons"
   },
   {
+    "objectID": "side-effects.html#more-helpful-packages-to-write-errors-and-tests",
+    "href": "side-effects.html#more-helpful-packages-to-write-errors-and-tests",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "More helpful packages to write errors (and tests!)",
+    "text": "More helpful packages to write errors (and tests!)\nThere are lots of other packages out there to help you write better errors. For example, {checkmate} helps you reduce the lines of code you spend writing checks for your functions."
+  },
+  {
+    "objectID": "side-effects.html#example-2",
+    "href": "side-effects.html#example-2",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Example",
+    "text": "Example\n\nfact &lt;- function(n, method = \"stirling\") {\n  if (length(n) != 1)\n    stop(\"Argument 'n' must have length 1\")\n  if (!is.numeric(n))\n    stop(\"Argument 'n' must be numeric\")\n  if (is.na(n))\n    stop(\"Argument 'n' may not be NA\")\n  if (is.double(n)) {\n    if (is.nan(n))\n      stop(\"Argument 'n' may not be NaN\")\n    if (is.infinite(n))\n      stop(\"Argument 'n' must be finite\")\n    if (abs(n - round(n, 0)) &gt; sqrt(.Machine$double.eps))\n      stop(\"Argument 'n' must be an integerish value\")\n    n &lt;- as.integer(n)\n  }\n  if (n &lt; 0)\n    stop(\"Argument 'n' must be &gt;= 0\")\n  if (length(method) != 1)\n    stop(\"Argument 'method' must have length 1\")\n  if (!is.character(method) || !method %in% c(\"stirling\", \"factorial\"))\n    stop(\"Argument 'method' must be either 'stirling' or 'factorial'\")\n\n  if (method == \"factorial\")\n    factorial(n)\n  else\n    sqrt(2 * pi * n) * (n / exp(1))^n\n}"
+  },
+  {
+    "objectID": "side-effects.html#example-3",
+    "href": "side-effects.html#example-3",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Example",
+    "text": "Example\nvs.\nfact &lt;- function(n, method = \"stirling\") {\n  assertCount(n)\n  assertChoice(method, c(\"stirling\", \"factorial\"))\n\n  if (method == \"factorial\")\n    factorial(n)\n  else\n    sqrt(2 * pi * n) * (n / exp(1))^n\n}"
+  },
+  {
+    "objectID": "side-effects.html#more-helpful-packages-to-write-errors-and-tests-1",
+    "href": "side-effects.html#more-helpful-packages-to-write-errors-and-tests-1",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "More helpful packages to write errors (and tests!)",
+    "text": "More helpful packages to write errors (and tests!)\n\n{vcr} to record and replay HTTP requests\n{webmockr} to stub and set expectations on HTTP requests\n\n…and even more in the Package Development and Maintenance CRAN Task View Proposal"
+  },
+  {
     "objectID": "side-effects.html#summary",
     "href": "side-effects.html#summary",
     "title": "💻 🏦 Code You Can Bank On",
@@ -312,7 +347,7 @@
     "href": "side-effects.html#resources",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Resources",
-    "text": "Resources"
+    "text": "Resources\n\nTidy design principles"
   },
   {
     "objectID": "prereqs.html",
@@ -665,6 +700,13 @@
     "text": "Adding data to packages (your turn)\nLet’s also add lettuce and tomato data, for completeness."
   },
   {
+    "objectID": "package-dev.html#data-in-packages",
+    "href": "package-dev.html#data-in-packages",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Data in packages",
+    "text": "Data in packages\nThere is a lot more detail specific to including data in packages. Sometimes you want to include raw data, sometimes you need data only available to the package and not the user, etc. There is much more detail in the R packages book."
+  },
+  {
     "objectID": "package-dev.html#commit-3",
     "href": "package-dev.html#commit-3",
     "title": "💻 🏦 Code You Can Bank On",
@@ -753,7 +795,7 @@
     "href": "index.html",
     "title": "Code You Can Bank On",
     "section": "",
-    "text": "Materials for the Federal Reserve training August 10, 11, and 17\nLed by Amelia McNamara, University of St Thomas\nTopics: Package building, automated testing, designing code\nTentative schedule\n\nAugust 10th\n\n9-10 am intro, review\n10 am - 12 pm package dev\n12-1 pm lunch break\n1-4 pm more documentation\n\nAugust 11th\n\n9 am - 12 pm testing\n\nAugust 17th\n\n9 am - 12 pm more testing\n12-1 pm lunch break\n1-4 pm design\n\n\nAll material is covered by a CC-BY-SA-4.0 license and source documents are available on GitHub.\nThe material here is in turn based on other CC-BY products, primarily Building tidy tools workshop, uncoast::unconf day zero workshop, and R packages book."
+    "text": "Materials for the Federal Reserve training August 10, 11, and 17\nLed by Amelia McNamara, University of St Thomas\nTopics: Package building, automated testing, designing code\nTentative schedule\n\nAugust 10th\n\n9-10 am intro, review\n10 am - 12 pm package dev\n12-1 pm lunch break\n1-4 pm documentation\n\nAugust 11th\n9 am - 11 am testing\n11 am - 12 pm design\nAugust 17th\n\n9 am - 10 am misc\n10 am - 12 pm side effects\n12-1 pm lunch break\n1-2 pm {testdat}\n2-4 pm ? maybe tidy eval or more data in packages?\n\n\nAll material is covered by a CC-BY-SA-4.0 license and source documents are available on GitHub.\nThe material here is in turn based on other CC-BY products, primarily Building tidy tools workshop, uncoast::unconf day zero workshop, and R packages book."
   },
   {
     "objectID": "design.html#playing-the-whole-game",
@@ -1103,14 +1145,7 @@
     "href": "tidy-eval.html#pass-the-dots",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Pass the dots",
-    "text": "Pass the dots\nThis is the simplest possible solution.\n\n\nIf the tidyverse function you’re using takes ... as an argument,\n\n\n\n\nand that’s what you want to pass along,\n\n\n\nthen you can pass the dots.\nmy_select &lt;- function(.data, ...) {\n  dplyr::select(.data, ...)\n}\nGoal\nuss_get_matches() to use dplyr::filter():\nuss_get_matches(\"italy\", season == 1929)\nequivalent to:\nuss_get_matches(\"italy\") |&gt; \n  dplyr::filter(season == 1929)"
-  },
-  {
-    "objectID": "tidy-eval.html#pass-the-dots-to-filter-results",
-    "href": "tidy-eval.html#pass-the-dots-to-filter-results",
-    "title": "💻 🏦 Code You Can Bank On",
-    "section": "Pass the dots to filter() results",
-    "text": "Pass the dots to filter() results\nIn uss_get_matches():\n\nAdd ... to the formal arguments.\nPass the dots to dplyr::filter().\nDocument:\n\nuse #' @inheritParams dplyr::filter\nadd example\nadd to package vignette\n\nAdd test (usethis::use_test())\ndevtools::check()"
+    "text": "Pass the dots\nThis is the simplest possible solution.\n\n\nIf the tidyverse function you’re using takes ... as an argument,\n\n\n\n\nand that’s what you want to pass along,\n\n\n\nthen you can pass the dots.\nmy_select &lt;- function(.data, ...) {\n  dplyr::select(.data, ...)\n}"
   },
   {
     "objectID": "tidy-eval.html#pronouns-.data-.env",
@@ -1148,13 +1183,6 @@
     "text": "New columns\nWith dynamic dots you can name new columns using variables.\n\nprefix &lt;- \"new\"\n\nmtcars |&gt;\n  dplyr::rename(\"{prefix}_mpg\" := \"mpg\")\n\n\nTwo things to keep in mind:\n\nleft side of expression is a {glue}-enabled string.\noperator is :=, not =.\n\n\n\nTo use in your package:\nusethis::use_import_from(\"rlang\", \":=\")"
   },
   {
-    "objectID": "tidy-eval.html#naming-columns",
-    "href": "tidy-eval.html#naming-columns",
-    "title": "💻 🏦 Code You Can Bank On",
-    "section": "Naming columns",
-    "text": "Naming columns\nname_of_at_home &lt;- \"at_home\"\nteams_matches_visitor &lt;-\n  data_matches |&gt;\n  dplyr::rename(!!!rename_visitor()) |&gt;\n  dplyr::mutate(at_home = FALSE)\n\nuse name_of_at_home to name column in mutate()\ndevtools::check()\n\nRemember:\n\nleft side of expression is a {glue}-enabled string\noperator is :=, not ="
-  },
-  {
     "objectID": "tidy-eval.html#dplyracross-super-useful",
     "href": "tidy-eval.html#dplyracross-super-useful",
     "title": "💻 🏦 Code You Can Bank On",
@@ -1173,7 +1201,7 @@
     "href": "tidy-eval.html#all_of-any_of",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "all_of(), any_of()",
-    "text": "all_of(), any_of()\nExported by {dplyr} [@dplyr]; part of {tidyselect} [@tidyselect]\nUsed to disambiguate external- vector of column names:\nplaceholder &lt;- c(\"wt\", \"mpg\", \"not_in_mtcars\")\n\nall_of() is strict:\nmtcars |&gt; select(all_of(placeholder)) |&gt; glimpse()\n\n\nany_of() is permissive:\nmtcars |&gt; select(any_of(placeholder)) |&gt; glimpse()"
+    "text": "all_of(), any_of()\nExported by {dplyr}; part of {tidyselect}\nUsed to disambiguate external- vector of column names:\nplaceholder &lt;- c(\"wt\", \"mpg\", \"not_in_mtcars\")\n\nall_of() is strict:\nmtcars |&gt; select(all_of(placeholder)) |&gt; glimpse()\n\n\nany_of() is permissive:\nmtcars |&gt; select(any_of(placeholder)) |&gt; glimpse()"
   },
   {
     "objectID": "tidy-eval.html#curly-curly",
@@ -1187,7 +1215,7 @@
     "href": "tidy-eval.html#try-out-greeting-functions",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Try out greeting functions",
-    "text": "Try out greeting functions\nlibrary(\"palmerpenguins\")\n\nmy_name &lt;- \"Ian\"\npenguins |&gt;  mutate_greet(my_name) # works with vars in environment\n\npenguins |&gt; mutate_greet(species) # works with vars in data\n\n\n# compute on data\npenguins |&gt; mutate_greet(paste(species, island)) \n\n\n# getting a little silly\npenguins |&gt; \n  mutate_greet(paste(species, island) |&gt; greet())"
+    "text": "Try out greeting functions\nlibrary(\"palmerpenguins\")\n\nmy_name &lt;- \"Amelia\"\npenguins |&gt;  mutate_greet(my_name) # works with vars in environment\n\npenguins |&gt; mutate_greet(species) # works with vars in data\n\n\n# compute on data\npenguins |&gt; mutate_greet(paste(species, island)) \n\n\n# getting a little silly\npenguins |&gt; \n  mutate_greet(paste(species, island) |&gt; greet())"
   },
   {
     "objectID": "tidy-eval.html#curly-curly-revisited",
@@ -1223,6 +1251,139 @@
     "title": "Attribution-ShareAlike 4.0 International",
     "section": "Creative Commons Attribution-ShareAlike 4.0 International Public License",
     "text": "Creative Commons Attribution-ShareAlike 4.0 International Public License\nBy exercising the Licensed Rights (defined below), You accept and agree to be bound by the terms and conditions of this Creative Commons Attribution-ShareAlike 4.0 International Public License (“Public License”). To the extent this Public License may be interpreted as a contract, You are granted the Licensed Rights in consideration of Your acceptance of these terms and conditions, and the Licensor grants You such rights in consideration of benefits the Licensor receives from making the Licensed Material available under these terms and conditions.\n\nSection 1 – Definitions.\n\nAdapted Material means material subject to Copyright and Similar Rights that is derived from or based upon the Licensed Material and in which the Licensed Material is translated, altered, arranged, transformed, or otherwise modified in a manner requiring permission under the Copyright and Similar Rights held by the Licensor. For purposes of this Public License, where the Licensed Material is a musical work, performance, or sound recording, Adapted Material is always produced where the Licensed Material is synched in timed relation with a moving image.\nAdapter’s License means the license You apply to Your Copyright and Similar Rights in Your contributions to Adapted Material in accordance with the terms and conditions of this Public License.\nBY-SA Compatible License means a license listed at creativecommons.org/compatiblelicenses, approved by Creative Commons as essentially the equivalent of this Public License.\nCopyright and Similar Rights means copyright and/or similar rights closely related to copyright including, without limitation, performance, broadcast, sound recording, and Sui Generis Database Rights, without regard to how the rights are labeled or categorized. For purposes of this Public License, the rights specified in Section 2(b)(1)-(2) are not Copyright and Similar Rights.\nEffective Technological Measures means those measures that, in the absence of proper authority, may not be circumvented under laws fulfilling obligations under Article 11 of the WIPO Copyright Treaty adopted on December 20, 1996, and/or similar international agreements.\nExceptions and Limitations means fair use, fair dealing, and/or any other exception or limitation to Copyright and Similar Rights that applies to Your use of the Licensed Material.\nLicense Elements means the license attributes listed in the name of a Creative Commons Public License. The License Elements of this Public License are Attribution and ShareAlike.\nLicensed Material means the artistic or literary work, database, or other material to which the Licensor applied this Public License.\nLicensed Rights means the rights granted to You subject to the terms and conditions of this Public License, which are limited to all Copyright and Similar Rights that apply to Your use of the Licensed Material and that the Licensor has authority to license.\nLicensor means the individual(s) or entity(ies) granting rights under this Public License.\nShare means to provide material to the public by any means or process that requires permission under the Licensed Rights, such as reproduction, public display, public performance, distribution, dissemination, communication, or importation, and to make material available to the public including in ways that members of the public may access the material from a place and at a time individually chosen by them.\nSui Generis Database Rights means rights other than copyright resulting from Directive 96/9/EC of the European Parliament and of the Council of 11 March 1996 on the legal protection of databases, as amended and/or succeeded, as well as other essentially equivalent rights anywhere in the world.\nYou means the individual or entity exercising the Licensed Rights under this Public License. Your has a corresponding meaning.\n\n\n\nSection 2 – Scope.\n\nLicense grant.\n\nSubject to the terms and conditions of this Public License, the Licensor hereby grants You a worldwide, royalty-free, non-sublicensable, non-exclusive, irrevocable license to exercise the Licensed Rights in the Licensed Material to:\nA. reproduce and Share the Licensed Material, in whole or in part; and\nB. produce, reproduce, and Share Adapted Material.\nExceptions and Limitations. For the avoidance of doubt, where Exceptions and Limitations apply to Your use, this Public License does not apply, and You do not need to comply with its terms and conditions.\nTerm. The term of this Public License is specified in Section 6(a).\nMedia and formats; technical modifications allowed. The Licensor authorizes You to exercise the Licensed Rights in all media and formats whether now known or hereafter created, and to make technical modifications necessary to do so. The Licensor waives and/or agrees not to assert any right or authority to forbid You from making technical modifications necessary to exercise the Licensed Rights, including technical modifications necessary to circumvent Effective Technological Measures. For purposes of this Public License, simply making modifications authorized by this Section 2(a)(4) never produces Adapted Material.\nDownstream recipients.\nA. Offer from the Licensor – Licensed Material. Every recipient of the Licensed Material automatically receives an offer from the Licensor to exercise the Licensed Rights under the terms and conditions of this Public License.\nB. __Additional offer from the Licensor – Adapted Material. Every recipient of Adapted Material from You automatically receives an offer from the Licensor to exercise the Licensed Rights in the Adapted Material under the conditions of the Adapter’s License You apply.\nC. No downstream restrictions. You may not offer or impose any additional or different terms or conditions on, or apply any Effective Technological Measures to, the Licensed Material if doing so restricts exercise of the Licensed Rights by any recipient of the Licensed Material.\nNo endorsement. Nothing in this Public License constitutes or may be construed as permission to assert or imply that You are, or that Your use of the Licensed Material is, connected with, or sponsored, endorsed, or granted official status by, the Licensor or others designated to receive attribution as provided in Section 3(a)(1)(A)(i).\n\nOther rights.\n\nMoral rights, such as the right of integrity, are not licensed under this Public License, nor are publicity, privacy, and/or other similar personality rights; however, to the extent possible, the Licensor waives and/or agrees not to assert any such rights held by the Licensor to the limited extent necessary to allow You to exercise the Licensed Rights, but not otherwise.\nPatent and trademark rights are not licensed under this Public License.\nTo the extent possible, the Licensor waives any right to collect royalties from You for the exercise of the Licensed Rights, whether directly or through a collecting society under any voluntary or waivable statutory or compulsory licensing scheme. In all other cases the Licensor expressly reserves any right to collect such royalties.\n\n\n\n\nSection 3 – License Conditions.\nYour exercise of the Licensed Rights is expressly made subject to the following conditions.\n\nAttribution.\n\nIf You Share the Licensed Material (including in modified form), You must:\nA. retain the following if it is supplied by the Licensor with the Licensed Material:\n\nidentification of the creator(s) of the Licensed Material and any others designated to receive attribution, in any reasonable manner requested by the Licensor (including by pseudonym if designated);\na copyright notice;\na notice that refers to this Public License;\na notice that refers to the disclaimer of warranties;\na URI or hyperlink to the Licensed Material to the extent reasonably practicable;\n\nB. indicate if You modified the Licensed Material and retain an indication of any previous modifications; and\nC. indicate the Licensed Material is licensed under this Public License, and include the text of, or the URI or hyperlink to, this Public License.\nYou may satisfy the conditions in Section 3(a)(1) in any reasonable manner based on the medium, means, and context in which You Share the Licensed Material. For example, it may be reasonable to satisfy the conditions by providing a URI or hyperlink to a resource that includes the required information.\nIf requested by the Licensor, You must remove any of the information required by Section 3(a)(1)(A) to the extent reasonably practicable.\n\nShareAlike.\n\nIn addition to the conditions in Section 3(a), if You Share Adapted Material You produce, the following conditions also apply.\n\nThe Adapter’s License You apply must be a Creative Commons license with the same License Elements, this version or later, or a BY-SA Compatible License.\nYou must include the text of, or the URI or hyperlink to, the Adapter’s License You apply. You may satisfy this condition in any reasonable manner based on the medium, means, and context in which You Share Adapted Material.\nYou may not offer or impose any additional or different terms or conditions on, or apply any Effective Technological Measures to, Adapted Material that restrict exercise of the rights granted under the Adapter’s License You apply.\n\n\n\nSection 4 – Sui Generis Database Rights.\nWhere the Licensed Rights include Sui Generis Database Rights that apply to Your use of the Licensed Material:\n\nfor the avoidance of doubt, Section 2(a)(1) grants You the right to extract, reuse, reproduce, and Share all or a substantial portion of the contents of the database;\nif You include all or a substantial portion of the database contents in a database in which You have Sui Generis Database Rights, then the database in which You have Sui Generis Database Rights (but not its individual contents) is Adapted Material, including for purposes of Section 3(b); and\nYou must comply with the conditions in Section 3(a) if You Share all or a substantial portion of the contents of the database.\n\nFor the avoidance of doubt, this Section 4 supplements and does not replace Your obligations under this Public License where the Licensed Rights include other Copyright and Similar Rights.\n\n\nSection 5 – Disclaimer of Warranties and Limitation of Liability.\n\nUnless otherwise separately undertaken by the Licensor, to the extent possible, the Licensor offers the Licensed Material as-is and as-available, and makes no representations or warranties of any kind concerning the Licensed Material, whether express, implied, statutory, or other. This includes, without limitation, warranties of title, merchantability, fitness for a particular purpose, non-infringement, absence of latent or other defects, accuracy, or the presence or absence of errors, whether or not known or discoverable. Where disclaimers of warranties are not allowed in full or in part, this disclaimer may not apply to You.\nTo the extent possible, in no event will the Licensor be liable to You on any legal theory (including, without limitation, negligence) or otherwise for any direct, special, indirect, incidental, consequential, punitive, exemplary, or other losses, costs, expenses, or damages arising out of this Public License or use of the Licensed Material, even if the Licensor has been advised of the possibility of such losses, costs, expenses, or damages. Where a limitation of liability is not allowed in full or in part, this limitation may not apply to You.\nThe disclaimer of warranties and limitation of liability provided above shall be interpreted in a manner that, to the extent possible, most closely approximates an absolute disclaimer and waiver of all liability.\n\n\n\nSection 6 – Term and Termination.\n\nThis Public License applies for the term of the Copyright and Similar Rights licensed here. However, if You fail to comply with this Public License, then Your rights under this Public License terminate automatically.\nWhere Your right to use the Licensed Material has terminated under Section 6(a), it reinstates:\n\nautomatically as of the date the violation is cured, provided it is cured within 30 days of Your discovery of the violation; or\nupon express reinstatement by the Licensor.\n\nFor the avoidance of doubt, this Section 6(b) does not affect any right the Licensor may have to seek remedies for Your violations of this Public License.\nFor the avoidance of doubt, the Licensor may also offer the Licensed Material under separate terms or conditions or stop distributing the Licensed Material at any time; however, doing so will not terminate this Public License.\nSections 1, 5, 6, 7, and 8 survive termination of this Public License.\n\n\n\nSection 7 – Other Terms and Conditions.\n\nThe Licensor shall not be bound by any additional or different terms or conditions communicated by You unless expressly agreed.\nAny arrangements, understandings, or agreements regarding the Licensed Material not stated herein are separate from and independent of the terms and conditions of this Public License.t stated herein are separate from and independent of the terms and conditions of this Public License.\n\n\n\nSection 8 – Interpretation.\n\nFor the avoidance of doubt, this Public License does not, and shall not be interpreted to, reduce, limit, restrict, or impose conditions on any use of the Licensed Material that could lawfully be made without permission under this Public License.\nTo the extent possible, if any provision of this Public License is deemed unenforceable, it shall be automatically reformed to the minimum extent necessary to make it enforceable. If the provision cannot be reformed, it shall be severed from this Public License without affecting the enforceability of the remaining terms and conditions.\nNo term or condition of this Public License will be waived and no failure to comply consented to unless expressly agreed to by the Licensor.\nNothing in this Public License constitutes or may be interpreted as a limitation upon, or waiver of, any privileges and immunities that apply to the Licensor or You, including from the legal processes of any jurisdiction or authority.\n\n\nCreative Commons is not a party to its public licenses. Notwithstanding, Creative Commons may elect to apply one of its public licenses to material it publishes and in those instances will be considered the “Licensor.” Except for the limited purpose of indicating that material is shared under a Creative Commons public license or as otherwise permitted by the Creative Commons policies published at creativecommons.org/policies, Creative Commons does not authorize the use of the trademark “Creative Commons” or any other trademark or logo of Creative Commons without its prior written consent including, without limitation, in connection with any unauthorized modifications to any of its public licenses or any other arrangements, understandings, or agreements concerning use of licensed material. For the avoidance of doubt, this paragraph does not form part of the public licenses.\nCreative Commons may be contacted at creativecommons.org"
+  },
+  {
+    "objectID": "testdat.html#data-unit-testing",
+    "href": "testdat.html#data-unit-testing",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Data unit testing",
+    "text": "Data unit testing\nThere are several packages that do data testing, and even a paper about them:\nR Packages for Data Quality Assessments and Data Monitoring: A Software Scoping Review with Recommendations for Future Developments\nThe authors put their list on GitHub if you want to review it.\nBut, the one I am most familiar with is {testdat}."
+  },
+  {
+    "objectID": "testdat.html#testdat-1",
+    "href": "testdat.html#testdat-1",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "{testdat}",
+    "text": "{testdat}\nAnother extension to testthat is testdat, a way to implement data unit testing.\nTo use it, you can\ninstall.packages(\"testdat\")\nThe standard form of a data expectation is expect_*(var(s), ..., flt = TRUE, data = get_testdata())"
+  },
+  {
+    "objectID": "testdat.html#variables",
+    "href": "testdat.html#variables",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Variables",
+    "text": "Variables\nMost operations act on one or more variables. There are two variants of the variable argument:\n\nvars requires a set of columns specified as tidy selections.\n\ntest_that(\"multi-variable identifier is unique\", {\n  expect_unique(c(name, year, month, day, hour), data = storms)\n})\n#&gt; ── Failure: multi-variable identifier is unique ────────────────────────────────\n#&gt; `storms` has 48 duplicate records on variable `name, year, month, day, hour`.\n#&gt; Filter: None\n#&gt; Error:\n#&gt; ! Test failed"
+  },
+  {
+    "objectID": "testdat.html#variables-1",
+    "href": "testdat.html#variables-1",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Variables",
+    "text": "Variables\nMost operations act on one or more variables. There are two variants of the variable argument:\n\nvar requires an unquoted variable name. This only applies to a small number of expectations.\n\n\ntest_that(\"hour values are valid\", {\n  expect_base(ts_diameter, year &gt;= 2004)\n})\n#&gt; ── Error: hour values are valid ────────────────────────────────────────────────\n#&gt; Error: A test data frame has not been specified. Use `set_testdata()` to set the data frame.\n#&gt; Backtrace:\n#&gt;     ▆\n#&gt;  1. └─testdat::expect_base(ts_diameter, year &gt;= 2004)\n#&gt;  2.   ├─testthat::quasi_label(enquo(data))\n#&gt;  3.   │ └─rlang::eval_bare(expr, quo_get_env(quo))\n#&gt;  4.   └─testdat::get_testdata()\n#&gt; Error:\n#&gt; ! Test failed"
+  },
+  {
+    "objectID": "testdat.html#filter",
+    "href": "testdat.html#filter",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Filter",
+    "text": "Filter\nYou can filter your test data using the flt argument.\n\ntest_that(\"iris range checks\", {\n  expect_range(Petal.Width, 0, 1, data = iris)\n})\n#&gt; ── Failure: iris range checks ──────────────────────────────────────────────────\n#&gt; `iris` has 93 records failing range check on variable `Petal.Width`.\n#&gt; Variable set: `Petal.Width`\n#&gt; Filter: None\n#&gt; Arguments: `min = 0, max = 1`\n#&gt; Error:\n#&gt; ! Test failed\n\ntest_that(\"iris range checks filtered\", {\n  # Test passes for setosa rows\n  expect_range(Petal.Width, 0, 1, flt = Species == \"setosa\", data = iris)\n  # Failures will provide the filter\n  expect_range(Petal.Width, 0, 0.5, flt = Species == \"setosa\", data = iris)\n})\n#&gt; ── Failure: iris range checks filtered ─────────────────────────────────────────\n#&gt; `iris` has 1 records failing range check on variable `Petal.Width`.\n#&gt; Variable set: `Petal.Width`\n#&gt; Filter: `Species == \"setosa\"`\n#&gt; Arguments: `min = 0, max = 0.5`\n#&gt; Error:\n#&gt; ! Test failed"
+  },
+  {
+    "objectID": "testdat.html#testing-in-a-script",
+    "href": "testdat.html#testing-in-a-script",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Testing in a script",
+    "text": "Testing in a script\nYou can use testdat in a script, interactively.\n\nlibrary(testdat)\nlibrary(dplyr)\n\nx &lt;- tribble(\n  ~id, ~pcode, ~state, ~nsw_only,\n  1,   2000,   \"NSW\",  1,\n  2,   3123,   \"VIC\",  NA,\n  3,   2123,   \"NSW\",  3,\n  4,   12345,  \"VIC\",  3\n)\n\nwith_testdata(x, {\n  test_that(\"id is unique\", {\n    expect_unique(id)\n  })\n  \n  test_that(\"variable values are correct\", {\n    expect_values(pcode, 2000:2999, 3000:3999)\n    expect_values(state, c(\"NSW\", \"VIC\"))\n    expect_values(nsw_only, 1:3) # by default expect_values allows NAs\n  })\n  \n  test_that(\"filters applied correctly\", {\n    expect_base(nsw_only, state == \"NSW\")\n  })\n})\n\nx &lt;- x %&gt;% mutate(market = case_when(pcode %in% 2000:2999 ~ 1,\n                                     pcode %in% 3000:3999 ~ 2))\n\nwith_testdata(x, {\n  test_that(\"market derived correctly\", {\n    expect_values(market, 1:2, miss = NULL) # miss = NULL excludes NAs from valid values\n  })\n})"
+  },
+  {
+    "objectID": "testdat.html#try-it-out",
+    "href": "testdat.html#try-it-out",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Try it out",
+    "text": "Try it out\nLet’s try testdat out interactively with our data. Some expectations you might find useful:\n\nexpect_values()\nexpect_range()\nexpect_date_yyymmdd()"
+  },
+  {
+    "objectID": "testdat.html#try-it-out-1",
+    "href": "testdat.html#try-it-out-1",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Try it out",
+    "text": "Try it out\nlibrary(testthat)\nlibrary(testdat)\nwith_testdata(bacon, {\n  test_that(\"series ID is correct\", {\n    expect_values(series_id, \"APU0000704111\")\n  })\n  test_that(\"dates are correct format\", {\n    expect_date_yyymmdd(date)\n  })\n})\n\n── Failure: dates are correct format ───────────────────────────────────────────────────────────────────\n`get_testdata()` has 119 records failing YYYYMMDD date format check on variable `date`."
+  },
+  {
+    "objectID": "testdat.html#expect_date_yyymmdd-doesnt-do-quite-what-wed-expect",
+    "href": "testdat.html#expect_date_yyymmdd-doesnt-do-quite-what-wed-expect",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "expect_date_yyymmdd() doesn’t do quite what we’d expect",
+    "text": "expect_date_yyymmdd() doesn’t do quite what we’d expect\nOn GitHub\nIt’s checking for a string of numbers, without any separation. Our dates have dashes in them."
+  },
+  {
+    "objectID": "testdat.html#create-an-expectation-from-a-check-function",
+    "href": "testdat.html#create-an-expectation-from-a-check-function",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Create an expectation from a check function",
+    "text": "Create an expectation from a check function\nLuckily, we can make our own expectations! We write a function, and then use expect_make() to turn it into an expectation.\nCan you modify\nchk_date_yyyymm &lt;- function(x) {\n  check_lubridate_installed()\n  chk_blank(x) | (str_detect(x, \"[0-9]{6}\") & !is.na(lubridate::ymd(paste0(x, \"01\"), quiet = TRUE)))\n}\nto test for our situation?\nCreate an expectation from a check function"
+  },
+  {
+    "objectID": "testdat.html#create-an-expectation-from-a-check-function-1",
+    "href": "testdat.html#create-an-expectation-from-a-check-function-1",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Create an expectation from a check function",
+    "text": "Create an expectation from a check function\nchk_date_BLT &lt;- function(x) {\n  stringr::str_detect(x, \"^[1-2][0-9]{3}-[0-9]{2}-[0-9]{2}$\") & !is.na(lubridate::ymd(x, quiet = TRUE))\n}\n\nexpect_date_formatted &lt;- expect_make(chk_date_BLT)"
+  },
+  {
+    "objectID": "testdat.html#try-it-out-2",
+    "href": "testdat.html#try-it-out-2",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Try it out",
+    "text": "Try it out\nlibrary(testthat)\nlibrary(testdat)\nwith_testdata(bacon, {\n  test_that(\"series ID is correct\", {\n    expect_values(series_id, \"APU0000704111\")\n  })\n  test_that(\"dates are correct format\", {\n    expect_date_formatted(date)\n  })\n})\nTest passed with 1 success 🥳.\nTest passed with 1 success 🌈."
+  },
+  {
+    "objectID": "testdat.html#using-a-test-suite",
+    "href": "testdat.html#using-a-test-suite",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Using a test suite",
+    "text": "Using a test suite\nNow that we have a couple of tests that work interactively, let’s add them to our test suite. We will need to use a few special files, specifically helper.R and maybe setup.R\nThere is a usethis helper!\nusethis::use_test_helper()\nThe stuff outside of the test_that() calls should go somewhere other than a standard test-xxx.R file. The tests themselves can live in test-data.R."
+  },
+  {
+    "objectID": "testdat.html#test-data.r",
+    "href": "testdat.html#test-data.r",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "test-data.R",
+    "text": "test-data.R\ntest_that(\"series ID is correct\", {\n  expect_values(series_id, \"APU0000704111\")\n})\n\ntest_that(\"dates are correct format\", {\n  expect_date_formatted(date)\n})"
+  },
+  {
+    "objectID": "testdat.html#helper.r",
+    "href": "testdat.html#helper.r",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "helper.R",
+    "text": "helper.R\nlibrary(rlang)\nlibrary(testdat)\n\nchk_date_BLT &lt;- function(x) {\n  stringr::str_detect(x, \"^[1-2][0-9]{3}-[0-9]{2}-[0-9]{2}$\") & !is.na(lubridate::ymd(x, quiet = TRUE))\n}\n\nexpect_date_formatted &lt;- expect_make(chk_date_BLT)\n\nset_testdata(bacon) #? unsure\n(The library stuff is kind of bad practice, but it took me ages of chasing down an error to figure out. I might put an issue on testdat.)"
+  },
+  {
+    "objectID": "testdat.html#setup.r",
+    "href": "testdat.html#setup.r",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "setup.R",
+    "text": "setup.R\nset_testdata(bacon) #? unsure\ntest()"
+  },
+  {
+    "objectID": "testdat.html#document-load-check-commit",
+    "href": "testdat.html#document-load-check-commit",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Document, load, check, commit",
+    "text": "Document, load, check, commit\nNow would be a good time to commit your changes\n\nJason Long, CC BY 3.0 &lt;https://creativecommons.org/licenses/by/3.0&gt;, via Wikimedia Commons"
+  },
+  {
+    "objectID": "testdat.html#dependencies",
+    "href": "testdat.html#dependencies",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Dependencies",
+    "text": "Dependencies\nOops, did we forget to\nuse_package(\"testdat\")"
+  },
+  {
+    "objectID": "testdat.html#references",
+    "href": "testdat.html#references",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "References",
+    "text": "References\n\ntestdat vignette"
   },
   {
     "objectID": "testing.html#where-we-left-off",
@@ -2132,7 +2293,7 @@
     "href": "misc.html#r-core",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "R core",
-    "text": "R core\n\nR contributors"
+    "text": "R core\n\n\nhttps://www.r-project.org/contributors.html"
   },
   {
     "objectID": "misc.html#ceci-nest-pas-un-pipe",
@@ -2279,63 +2440,63 @@
     "href": "misc.html#minimal-names",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Minimal names",
-    "text": "Minimal names\nIn R, you can have unnamed objects\n\nx &lt;- letters[1:3]\nnames(x)\n\nNULL\n\n\nbut, this means that sometimes the length(names()) is 0, and other times it is the same length as the length of x. We strive for more consistency!\n{rlang} offers a solution,\n\nrlang::names2(x)\n\n[1] \"\" \"\" \"\"\n\n\nThese are minimal names– even though they are all empty strings, the length of names() will always be the same length as x."
+    "text": "Minimal names\nIn R, you can have unnamed objects\n\nx &lt;- letters[1:3]\nnames(x)\n\nNULL\n\n\nbut, this means that sometimes the length(names()) is 0, and other times it is the same length as the length of x. We strive for more consistency!\n{rlang} offers a solution,\n\nrlang::names2(x)\n\n[1] \"\" \"\" \"\"\n\n\nThese are minimal names– even though they are all empty strings, the length of names() will always be the same length as x.\n\nhttps://design.tidyverse.org/names.html#minimal-names"
   },
   {
     "objectID": "misc.html#unique-names",
     "href": "misc.html#unique-names",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Unique names",
-    "text": "Unique names\nIn base R, there is a function make.unique(), which can be used to create unique names (no duplicates).\nFor the tidyverse, there are low-level functions vctrs::vec_names() and vctrs::vec_names2(), used by things like the .names_repair argument in tibble() and names_repair in read_csv(). Some options are minimal, unique, and universal (unique and syntactic).\n## Original Unique names     Result of\n##    names  (tidyverse) make.unique()\n##       \"\"         ...1            \"\"\n##        x        x...2             x\n##       \"\"         ...3            .1\n##      ...         ...4           ...\n##        y            y             y\n##        x        x...6           x.1\nThe reason for avoiding ..j is it already has syntactic meaning in R, as a way to refer to arguments passed down from a calling function."
+    "text": "Unique names\nIn base R, there is a function make.unique(), which can be used to create unique names (no duplicates).\nFor the tidyverse, there are low-level functions vctrs::vec_names() and vctrs::vec_names2(), used by things like the .names_repair argument in tibble() and names_repair in read_csv(). Some options are minimal, unique, and universal (unique and syntactic).\n## Original Unique names     Result of\n##    names  (tidyverse) make.unique()\n##       \"\"         ...1            \"\"\n##        x        x...2             x\n##       \"\"         ...3            .1\n##      ...         ...4           ...\n##        y            y             y\n##        x        x...6           x.1\nThe reason for avoiding ..j is it already has syntactic meaning in R, as a way to refer to arguments passed down from a calling function.\n\nhttps://design.tidyverse.org/names.html#unique-names"
   },
   {
     "objectID": "misc.html#why-dots",
     "href": "misc.html#why-dots",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Why dots?",
-    "text": "Why dots?\nThe underscore _ was also considered when choosing the tidyverse suffix strategy, but was rejected.\nWhy? Because syntactic names can’t start with an underscore and we want the suffix itself to be syntactic. Also, the dot . is already used by base R’s make.names() to replace invalid characters. It seems simpler and, therefore, better to use the same character, in the same way, as much as possible in name repair. We use the dot ., we put it at the front, as many times as necessary."
+    "text": "Why dots?\nThe underscore _ was also considered when choosing the tidyverse suffix strategy, but was rejected.\nWhy? Because syntactic names can’t start with an underscore and we want the suffix itself to be syntactic. Also, the dot . is already used by base R’s make.names() to replace invalid characters. It seems simpler and, therefore, better to use the same character, in the same way, as much as possible in name repair. We use the dot ., we put it at the front, as many times as necessary.\n\nhttps://design.tidyverse.org/names.html#why-so-many-dots"
   },
   {
     "objectID": "misc.html#syntactic-names",
     "href": "misc.html#syntactic-names",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Syntactic names",
-    "text": "Syntactic names\nYou have probably encountered non-syntactic names before. If a variable name has a space in it, for example, it becomes non-syntactic.\n\nx &lt;- tibble::tibble(`Physicians per 100,000 Population` = 514)\nx |&gt;\n  pull(Physicians per 100,000 Population)\nx |&gt;\n  dplyr::pull(`Physicians per 100,000 Population`)\n\nError in parse(text = input): &lt;text&gt;:3:19: unexpected symbol\n2: x |&gt;\n3:   pull(Physicians per\n                     ^"
+    "text": "Syntactic names\nYou have probably encountered non-syntactic names before. If a variable name has a space in it, for example, it becomes non-syntactic.\n\nx &lt;- tibble::tibble(`Physicians per 100,000 Population` = 514)\nx |&gt;\n  dplyr::pull(Physicians per 100,000 Population)\n\nError in parse(text = input): &lt;text&gt;:3:26: unexpected symbol\n2: x |&gt;\n3:   dplyr::pull(Physicians per\n                            ^\n\n\n\nx &lt;- tibble::tibble(`Physicians per 100,000 Population` = 514)\nx |&gt;\n  dplyr::pull(`Physicians per 100,000 Population`)\n\n[1] 514\n\n\n\nhttps://design.tidyverse.org/names.html#syntactic-names"
   },
   {
     "objectID": "misc.html#name-all-but-the-most-important-arguments",
     "href": "misc.html#name-all-but-the-most-important-arguments",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Name all but the most important arguments",
-    "text": "Name all but the most important arguments\nWhen calling a function, you should name all but the most important arguments. For example:\n\ny &lt;- c(1:10, NA)\nmean(y, na.rm = TRUE)\n\n[1] 5.5\n\n\nNever use partial matching,\n\nmean(y, n = TRUE)\n\n[1] 5.5"
+    "text": "Name all but the most important arguments\nWhen calling a function, you should name all but the most important arguments. For example:\n\ny &lt;- c(1:10, NA)\nmean(y, na.rm = TRUE)\n\n[1] 5.5\n\n\nNever use partial matching,\n\nmean(y, n = TRUE)\n\n[1] 5.5\n\n\n\nhttps://design.tidyverse.org/call-data-details.html"
   },
   {
     "objectID": "misc.html#teaching-exception",
     "href": "misc.html#teaching-exception",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Teaching exception",
-    "text": "Teaching exception\nWhen you are teaching, it is best practice to start by naming all arguments, and then relax into the other standard.\nAt the beginning of a course:\n\nggplot(data = mpg, mapping = aes(x = displ, y = hwy)) + \n  geom_point()\n\nBy the end:\n\nggplot(mpg, aes(displ, hwy)) + \n  geom_point()"
+    "text": "Teaching exception\nWhen you are teaching, it is best practice to start by naming all arguments, and then relax into the other standard.\nAt the beginning of a course:\n\nggplot(data = mpg, mapping = aes(x = displ, y = hwy)) + \n  geom_point()\n\nBy the end:\n\nggplot(mpg, aes(displ, hwy)) + \n  geom_point()\n\n\nhttps://design.tidyverse.org/call-data-details.html#what-are-the-exceptions"
   },
   {
     "objectID": "misc.html#hidden-arguments",
     "href": "misc.html#hidden-arguments",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Hidden arguments",
-    "text": "Hidden arguments\nA common source of hidden arguments is the use of global options:\n\nstringsAsFactors. We’ve talked about this one.\nna.action. This continues to be an issue with functions like lm(), whose handling of missing values depends on the global option of na.action. The default is na.omit which drops the missing values prior to fitting the model (which is inconvenient because then the results of predict() don’t line up with the input data.\nsystem locale. Check with Sys.getlocale()"
+    "text": "Hidden arguments\nA common source of hidden arguments is the use of global options:\n\nstringsAsFactors. We’ve talked about this one.\nna.action. This continues to be an issue with functions like lm(), whose handling of missing values depends on the global option of na.action. The default is na.omit which drops the missing values prior to fitting the model (which is inconvenient because then the results of predict() don’t line up with the input data.\nsystem locale. Check with Sys.getlocale()\n\n\nhttps://design.tidyverse.org/inputs-explicit.html"
   },
   {
     "objectID": "misc.html#make-inputs-explicit",
     "href": "misc.html#make-inputs-explicit",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Make inputs explicit",
-    "text": "Make inputs explicit\nThe way to avoid issues with these common hidden arguments is to make them explicit.\nHere’s a wrapper for as.POSIXct() that just shows how the arguments in the original function work:\n\nas.POSIXct &lt;- function(x, tz = \"\") {\n  base::as.POSIXct(x, tz = tz)\n}\nas.POSIXct(\"2026-08-17 09:00\")\n\nThere is a tz argument, but it’s not clear that \"\" means our local time zone. It would be better practice to be more explicit,\n\nas.POSIXct &lt;- function(x, tz = Sys.timezone()) {\n  base::as.POSIXct(x, tz = tz)\n}\nas.POSIXct(\"2026-08-17 09:00\")"
+    "text": "Make inputs explicit\nThe way to avoid issues with these common hidden arguments is to make them explicit.\nHere’s a wrapper for as.POSIXct() that just shows how the arguments in the original function work:\n\nas.POSIXct &lt;- function(x, tz = \"\") {\n  base::as.POSIXct(x, tz = tz)\n}\nas.POSIXct(\"2026-08-17 09:00\")\n\nThere is a tz argument, but it’s not clear that \"\" means our local time zone. It would be better practice to be more explicit,\n\nas.POSIXct &lt;- function(x, tz = Sys.timezone()) {\n  base::as.POSIXct(x, tz = tz)\n}\nas.POSIXct(\"2026-08-17 09:00\")\n\n\nhttps://design.tidyverse.org/inputs-explicit.html"
   },
   {
     "objectID": "misc.html#put-the-most-important-arguments-first",
     "href": "misc.html#put-the-most-important-arguments-first",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Put the most important arguments first",
-    "text": "Put the most important arguments first\nMost functions get this right!\nSome that get it wrong (according to Hadley)\n\ngrepl(), gsub() and similar– regex comes first\nlm() – formula comes first, rather than data\nggplot() – data() comes first, but it many geom_s it would make more sense to have mapping first"
+    "text": "Put the most important arguments first\nMost functions get this right!\nSome that get it wrong (according to Hadley)\n\ngrepl(), gsub() and similar– regex comes first\nlm() – formula comes first, rather than data\nggplot() – data() comes first, but it many geom_s it would make more sense to have mapping first\n\n\nhttps://design.tidyverse.org/important-args-first.html"
   },
   {
     "objectID": "misc.html#scannable-specs-1",
@@ -2349,7 +2510,7 @@
     "href": "misc.html#enumerate-possible-options",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Enumerate possible options",
-    "text": "Enumerate possible options\nrank2 &lt;- function(\n    x,\n    ties.method = c(\"average\", \"first\", \"last\", \"random\", \"max\", \"min\")\n) {\n  ties.method &lt;- rlang::arg_match(ties.method)\n  rank(x, ties.method = ties.method)\n}"
+    "text": "Enumerate possible options\nrank2 &lt;- function(\n    x,\n    ties.method = c(\"average\", \"first\", \"last\", \"random\", \"max\", \"min\")\n) {\n  ties.method &lt;- rlang::arg_match(ties.method)\n  rank(x, ties.method = ties.method)\n}\n\nhttps://design.tidyverse.org/enumerate-options.html"
   },
   {
     "objectID": "misc.html#scannable-specs-2",
@@ -2363,35 +2524,35 @@
     "href": "misc.html#three-functions-in-a-trenchcoat",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Three functions in a trenchcoat",
-    "text": "Three functions in a trenchcoat\nSometimes a function that implements multiple strategies might be better off as independent functions. Two signs that this might be the case:\n\nYou’re struggling to document how the arguments interact. Maybe you can set a and b and a and c but not b and c.\nThe implementation of your function has a couple of big if branches that share relatively little code.\n\nExamples:\n\nforcats::fct_lump() chooses between one of three lumping strategies depending on whether you supply just n, just prop, or neither, while supplying both n and prop is an error. Additionally, the ties.method argument only does anything if you supply only n. fct_lump() is hard to understand and document because it’s really three smaller functions.\nDepending on the arguments used library() can load a package, it can list all installed packages, or display the help for a package.\ndiag() is used to both extract the diagonal of a matrix and construct a matrix from a vector of diagonal values. This combination of purposes makes its arguments hard to understand: if x is a matrix, you can use names but not nrow and ncol; if x is a vector, you can use nrow and ncol but not names.\nsample() is used to both randomly reorder a vector and generate a random vector of specified length. This function is particularly troublesome because it picks between the two strategies based on the length of the first argument.\nrep() is used to both repeat each element of a vector and to repeat the complete vector. There is a full case study of rep() in the tidy design “book.”"
+    "text": "Three functions in a trenchcoat\nSometimes a function that implements multiple strategies might be better off as independent functions. Two signs that this might be the case:\n\nYou’re struggling to document how the arguments interact. Maybe you can set a and b and a and c but not b and c.\nThe implementation of your function has a couple of big if branches that share relatively little code.\n\n\nhttps://design.tidyverse.org/strategy-functions.html"
+  },
+  {
+    "objectID": "misc.html#three-functions-in-a-trenchcoat-1",
+    "href": "misc.html#three-functions-in-a-trenchcoat-1",
+    "title": "💻 🏦 Code You Can Bank On",
+    "section": "Three functions in a trenchcoat",
+    "text": "Three functions in a trenchcoat\nExamples:\n\nforcats::fct_lump() chooses between one of three lumping strategies depending on whether you supply just n, just prop, or neither, while supplying both n and prop is an error. Additionally, the ties.method argument only does anything if you supply only n. fct_lump() is hard to understand and document because it’s really three smaller functions.\nDepending on the arguments used library() can load a package, it can list all installed packages, or display the help for a package.\ndiag() is used to both extract the diagonal of a matrix and construct a matrix from a vector of diagonal values. This combination of purposes makes its arguments hard to understand: if x is a matrix, you can use names but not nrow and ncol; if x is a vector, you can use nrow and ncol but not names.\nsample() is used to both randomly reorder a vector and generate a random vector of specified length. This function is particularly troublesome because it picks between the two strategies based on the length of the first argument.\nrep() is used to both repeat each element of a vector and to repeat the complete vector. There is a full case study of rep() in the tidy design “book.”\n\n\nhttps://design.tidyverse.org/strategy-functions.html"
   },
   {
     "objectID": "misc.html#function-arguments-1",
     "href": "misc.html#function-arguments-1",
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Function arguments",
-    "text": "Function arguments\n\nAvoid magical defaults\nExplain important defaults"
+    "text": "Function arguments\n\nAvoid magical defaults\nExplain important defaults\n\n\nhttps://design.tidyverse.org/def-magical.html"
   },
   {
-    "objectID": "misc.html#dot-prefix",
-    "href": "misc.html#dot-prefix",
+    "objectID": "misc.html#type-stability",
+    "href": "misc.html#type-stability",
     "title": "💻 🏦 Code You Can Bank On",
-    "section": "Dot prefix",
-    "text": "Dot prefix\nWhen using ... to create a data structure, or when passing ... to a user-supplied function, add a . prefix to all named arguments."
+    "section": "Type stability",
+    "text": "Type stability\nThe less you need to know about a function’s inputs to predict the type of its output, the better. Ideally, a function should either always return the same type of thing, or return something that can be trivially computed from its inputs.\nIf a function is type-stable it satisfies two conditions:\n\nYou can predict the output type based only on the input types (not their values).\nIf the function uses ..., the order of arguments in does not affect the output type.\n\n\nhttps://design.tidyverse.org/out-type-stability.html"
   },
   {
-    "objectID": "misc.html#avoid-magical-defaults",
-    "href": "misc.html#avoid-magical-defaults",
+    "objectID": "misc.html#what-didnt-we-talk-about",
+    "href": "misc.html#what-didnt-we-talk-about",
     "title": "💻 🏦 Code You Can Bank On",
-    "section": "Avoid magical defaults",
-    "text": "Avoid magical defaults"
-  },
-  {
-    "objectID": "misc.html#un-recap",
-    "href": "misc.html#un-recap",
-    "title": "💻 🏦 Code You Can Bank On",
-    "section": "Un-recap",
-    "text": "Un-recap\nWe did not cover how to manage change.\nChange is a necessary (and frustrating) part of success:\n\n{plyr} -&gt; {dplyr}\n{reshape} -&gt; {reshape2} -&gt; {tidyr}\n\n\nDifferent levels of change:\n\ndeprecating functions, arguments\nbreaking changes\nused to be: add-a-2, becoming: editions"
+    "section": "What didn’t we talk about?",
+    "text": "What didn’t we talk about?\nWe did not cover how to manage change.\nChange is a necessary (and frustrating) part of success:\n\n{plyr} -&gt; {dplyr}\n{reshape} -&gt; {reshape2} -&gt; {tidyr}\n\n\nDifferent levels of change:\n\ndeprecating functions, arguments\nbreaking changes\nused to be: add-a-2, becoming: editions"
   },
   {
     "objectID": "misc.html#summary",
@@ -2399,20 +2560,6 @@
     "title": "💻 🏦 Code You Can Bank On",
     "section": "Summary",
     "text": "Summary\n\n\nNaming: be consistent, concise, yet evocative.\n\n\n\n\nArgument order: data, descriptors, dots, details.\n\n\n\n\nReturn value type: be consistent, predictable.\n\n\n\n\nEasy to remember data (first) argument and return value:\n\neasy to use pipe, |&gt;.\n\n\n\n\n\nBe mindful of side effects."
-  },
-  {
-    "objectID": "misc.html#pass-the-dots",
-    "href": "misc.html#pass-the-dots",
-    "title": "💻 🏦 Code You Can Bank On",
-    "section": "Pass the dots",
-    "text": "Pass the dots\nThis is the simplest possible solution.\n\n\nIf the tidyverse function you’re using takes ... as an argument,\n\n\n\n\nand that’s what you want to pass along,\n\n\n\nthen you can pass the dots.\nmy_select &lt;- function(.data, ...) {\n  dplyr::select(.data, ...)\n}"
-  },
-  {
-    "objectID": "misc.html#data-in-packages",
-    "href": "misc.html#data-in-packages",
-    "title": "💻 🏦 Code You Can Bank On",
-    "section": "Data in packages",
-    "text": "Data in packages\nThere is a lot more detail specific to including data in packages. Sometimes you want to include raw data, sometimes you need data only available to the package and not the user, etc. There is much more detail in the R packages book."
   },
   {
     "objectID": "misc.html#resources",
@@ -2426,6 +2573,6 @@
     "href": "resources.html",
     "title": "Resources",
     "section": "",
-    "text": "An attempt to gather all the links and resources I recommended throughout.\n\nWhat They Forgot to Teach You About R, Jennifer Bryan, Jim Hester, Shannon Pileggi, E. David Aja.\nR for Data Science, Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund.\nTidyverse style guide\nPackages, by Hannah Frick\nHappy git and GitHub for the useR, Jenny Bryan, the STAT 545 TAs, Jim Hester.\nWhat are quosures and when are they needed?, rlang documentation.\nR packages, Hadley Wickham and Jenny Bryan.\nDocumenting datasets\nMasking tidyverse functions\nEvaluating the Design of the R Language This is for my computer scientists who want the nitty-gritty about R as a language.\nAdvanced R\nPackage states\nTesting chapter in R Packages.\ntestthat documentation\nObject of type ‘closure’ is not subsettable, Jenny Bryan. rstudio::conf video, slides\nCode “smells” and feels, Jenny Bryan\nBest Practices for Scientific Computing\nGood enough practices in scientific computing"
+    "text": "An attempt to gather all the links and resources I recommended throughout.\n\nWhat They Forgot to Teach You About R, Jennifer Bryan, Jim Hester, Shannon Pileggi, E. David Aja.\nR for Data Science, Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund.\nTidyverse style guide\nPackages, by Hannah Frick\nHappy git and GitHub for the useR, Jenny Bryan, the STAT 545 TAs, Jim Hester.\nWhat are quosures and when are they needed?, rlang documentation.\nR packages, Hadley Wickham and Jenny Bryan.\nDocumenting datasets\nMasking tidyverse functions\nEvaluating the Design of the R Language This is for my computer scientists who want the nitty-gritty about R as a language.\nAdvanced R\nPackage states\nTesting chapter in R Packages.\ntestthat documentation\nObject of type ‘closure’ is not subsettable, Jenny Bryan. rstudio::conf video, slides\nCode “smells” and feels, Jenny Bryan\nBest Practices for Scientific Computing\nGood enough practices in scientific computing\nTidy design principles\nThree functions in a trenchcoat case study of rep() from tidy design.\nLazy evalution, Jenny Bryan\nInteractivity and Programming in the Tidyverse, Lionel Henry on data-masking and tidy-select.\nTidy evaluation in 5 mins, Hadley Wickham\nProgramming with dplyr\nUsing ggplot2 in packages"
   }
 ]

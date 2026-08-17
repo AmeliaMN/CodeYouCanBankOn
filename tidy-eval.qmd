@@ -140,39 +140,6 @@ my_select <- function(.data, ...) {
 ```
 
 
-### Goal
-
-`uss_get_matches()` to use `dplyr::filter()`:
-
-```r
-uss_get_matches("italy", season == 1929)
-```
-
-equivalent to: 
-
-```r
-uss_get_matches("italy") |> 
-  dplyr::filter(season == 1929)
-```
-
-## Pass the dots to `filter()` results
-
-In `uss_get_matches()`:
-
-- Add `...` to the formal arguments.
-
-- Pass the dots to `dplyr::filter()`.
-
-- Document: 
-
-  - use `#' @inheritParams dplyr::filter` 
-  - add example
-  - add to package vignette
-
-- Add test (`usethis::use_test()`)
-
-- `devtools::check()`
-
 ## Pronouns: `.data`, `.env`
 
 ```r
@@ -329,26 +296,6 @@ To use in your package:
 usethis::use_import_from("rlang", ":=")
 ```
 
-
-## Naming columns
-
-```r
-name_of_at_home <- "at_home"
-teams_matches_visitor <-
-  data_matches |>
-  dplyr::rename(!!!rename_visitor()) |>
-  dplyr::mutate(at_home = FALSE)
-```
-
-- use `name_of_at_home` to name column in `mutate()`
-
-- `devtools::check()`
-
-Remember:
-
-- left side of expression is a {glue}-enabled string
-- operator is `:=`, not `=`
-
 ## `dplyr::across()`: super useful 
 
 - used inside *data-masking* verbs, e.g. `summarise()`
@@ -399,7 +346,7 @@ mtcars |> select(all_of(cyl)) |> glimpse()
 
 ## `all_of()`, `any_of()`
 
-Exported by {dplyr} [@dplyr]; part of {tidyselect} [@tidyselect]
+Exported by {dplyr}; part of {tidyselect}
 
 Used to disambiguate external- vector of column names:
 
@@ -455,7 +402,7 @@ mutate_greet <- function(.data, greeting) {
 ```r
 library("palmerpenguins")
 
-my_name <- "Ian"
+my_name <- "Amelia"
 penguins |>  mutate_greet(my_name) # works with vars in environment
 ```
 

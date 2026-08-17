@@ -212,7 +212,9 @@ Amelia McNamara
 <section id="r-core" class="slide level2">
 <h2>R core</h2>
 
-<img data-src="img/RCore.png" class="r-stretch"><p><a href="https://www.r-project.org/contributors.html">R contributors</a></p>
+<img data-src="img/RCore.png" class="r-stretch"><div class="footer">
+<p><a href="https://www.r-project.org/contributors.html" class="uri">https://www.r-project.org/contributors.html</a></p>
+</div>
 </section></section>
 <section>
 <section id="native-pipes" class="title-slide slide level1 center">
@@ -359,7 +361,7 @@ Levels: 10 20 40</code></pre>
 <h2>Package states</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="images/installation.png" alt="schematic of package states and the functions that move them between states. One the horizontal axis: source, bundle, binary, installed, in memory. One the vertical axis the functions install.packages, R CMD install, install, build, install_github"></p>
+<p><img data-src="img/installation.png" alt="schematic of package states and the functions that move them between states. One the horizontal axis: source, bundle, binary, installed, in memory. One the vertical axis the functions install.packages, R CMD install, install, build, install_github"></p>
 <figcaption>Schematic of methods for moving between package states</figcaption>
 </figure>
 </div>
@@ -497,8 +499,11 @@ Levels: 10 20 40</code></pre>
 </div>
 </div>
 <p>These are minimal names– even though they are all empty strings, the length of <code>names()</code> will always be the same length as <code>x</code>.</p>
+<div class="footer">
+<p><a href="https://design.tidyverse.org/names.html#minimal-names" class="uri">https://design.tidyverse.org/names.html#minimal-names</a></p>
+</div>
 </section>
-<section id="unique-names" class="slide level2">
+<section id="unique-names" class="slide level2 smaller">
 <h2>Unique names</h2>
 <p>In base R, there is a function <code>make.unique()</code>, which can be used to create unique names (no duplicates).</p>
 <p>For the tidyverse, there are low-level functions <code>vctrs::vec_names()</code> and <code>vctrs::vec_names2()</code>, used by things like the <code>.names_repair</code> argument in <code>tibble()</code> and <code>names_repair</code> in <code>read_csv()</code>. Some options are <code>minimal</code>, <code>unique</code>, and <code>universal</code> (unique and syntactic).</p>
@@ -511,11 +516,17 @@ Levels: 10 20 40</code></pre>
 <span id="cb14-7"><a></a>##        y            y             y</span>
 <span id="cb14-8"><a></a>##        x        x...6           x.1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The reason for avoiding <code>..j</code> is it already has syntactic meaning in R, as a way to refer to arguments passed down from a calling function.</p>
+<div class="footer">
+<p><a href="https://design.tidyverse.org/names.html#unique-names" class="uri">https://design.tidyverse.org/names.html#unique-names</a></p>
+</div>
 </section>
 <section id="why-dots" class="slide level2">
 <h2>Why dots?</h2>
 <p>The underscore <code>_</code> was also considered when choosing the tidyverse suffix strategy, but was rejected.</p>
 <p>Why? Because syntactic names can’t start with an underscore and we want the suffix itself to be syntactic. Also, the dot <code>.</code> is already used by base R’s <code>make.names()</code> to replace invalid characters. It seems simpler and, therefore, better to use the same character, in the same way, as much as possible in name repair. We use the dot <code>.</code>, we put it at the front, as many times as necessary.</p>
+<div class="footer">
+<p><a href="https://design.tidyverse.org/names.html#why-so-many-dots" class="uri">https://design.tidyverse.org/names.html#why-so-many-dots</a></p>
+</div>
 </section>
 <section id="syntactic-names" class="slide level2">
 <h2>Syntactic names</h2>
@@ -523,33 +534,45 @@ Levels: 10 20 40</code></pre>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>x <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(<span class="st">`</span><span class="at">Physicians per 100,000 Population</span><span class="st">`</span> <span class="ot">=</span> <span class="dv">514</span>)</span>
 <span id="cb15-2"><a></a>x <span class="sc">|&gt;</span></span>
-<span id="cb15-3"><a></a>  <span class="fu">pull</span>(Physicians per <span class="dv">100</span>,<span class="dv">000</span> Population)</span>
-<span id="cb15-4"><a></a>x <span class="sc">|&gt;</span></span>
-<span id="cb15-5"><a></a>  dplyr<span class="sc">::</span><span class="fu">pull</span>(<span class="st">`</span><span class="at">Physicians per 100,000 Population</span><span class="st">`</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-3"><a></a>  dplyr<span class="sc">::</span><span class="fu">pull</span>(Physicians per <span class="dv">100</span>,<span class="dv">000</span> Population)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
-<pre><code>Error in parse(text = input): &lt;text&gt;:3:19: unexpected symbol
+<pre><code>Error in parse(text = input): &lt;text&gt;:3:26: unexpected symbol
 2: x |&gt;
-3:   pull(Physicians per
-                     ^</code></pre>
+3:   dplyr::pull(Physicians per
+                            ^</code></pre>
 </div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a>x <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(<span class="st">`</span><span class="at">Physicians per 100,000 Population</span><span class="st">`</span> <span class="ot">=</span> <span class="dv">514</span>)</span>
+<span id="cb17-2"><a></a>x <span class="sc">|&gt;</span></span>
+<span id="cb17-3"><a></a>  dplyr<span class="sc">::</span><span class="fu">pull</span>(<span class="st">`</span><span class="at">Physicians per 100,000 Population</span><span class="st">`</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 514</code></pre>
+</div>
+</div>
+<div class="footer">
+<p><a href="https://design.tidyverse.org/names.html#syntactic-names" class="uri">https://design.tidyverse.org/names.html#syntactic-names</a></p>
 </div>
 </section>
 <section id="name-all-but-the-most-important-arguments" class="slide level2">
 <h2>Name all but the most important arguments</h2>
 <p>When calling a function, you should name all but the most important arguments. For example:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="cn">NA</span>)</span>
-<span id="cb17-2"><a></a><span class="fu">mean</span>(y, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="cn">NA</span>)</span>
+<span id="cb19-2"><a></a><span class="fu">mean</span>(y, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 5.5</code></pre>
 </div>
 </div>
 <p>Never use partial matching,</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a><span class="fu">mean</span>(y, <span class="at">n =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="fu">mean</span>(y, <span class="at">n =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 5.5</code></pre>
 </div>
+</div>
+<div class="footer">
+<p><a href="https://design.tidyverse.org/call-data-details.html" class="uri">https://design.tidyverse.org/call-data-details.html</a></p>
 </div>
 </section>
 <section id="teaching-exception" class="slide level2">
@@ -557,13 +580,16 @@ Levels: 10 20 40</code></pre>
 <p>When you are teaching, it is best practice to start by naming all arguments, and then relax into the other standard.</p>
 <p>At the beginning of a course:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy)) <span class="sc">+</span> </span>
-<span id="cb21-2"><a></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy)) <span class="sc">+</span> </span>
+<span id="cb23-2"><a></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>By the end:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, hwy)) <span class="sc">+</span> </span>
-<span id="cb22-2"><a></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, hwy)) <span class="sc">+</span> </span>
+<span id="cb24-2"><a></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="footer">
+<p><a href="https://design.tidyverse.org/call-data-details.html#what-are-the-exceptions" class="uri">https://design.tidyverse.org/call-data-details.html#what-are-the-exceptions</a></p>
 </div>
 </section></section>
 <section>
@@ -579,23 +605,29 @@ Levels: 10 20 40</code></pre>
 <li><p><code>na.action</code>. This continues to be an issue with functions like <code>lm()</code>, whose handling of missing values depends on the global option of <code>na.action</code>. The default is <code>na.omit</code> which drops the missing values prior to fitting the model (which is inconvenient because then the results of <code>predict()</code> don’t line up with the input data.</p></li>
 <li><p>system locale. Check with <code>Sys.getlocale()</code></p></li>
 </ul>
+<div class="footer">
+<p><a href="https://design.tidyverse.org/inputs-explicit.html" class="uri">https://design.tidyverse.org/inputs-explicit.html</a></p>
+</div>
 </section>
 <section id="make-inputs-explicit" class="slide level2">
 <h2>Make inputs explicit</h2>
 <p>The way to avoid issues with these common hidden arguments is to make them explicit.</p>
 <p>Here’s a wrapper for <code>as.POSIXct()</code> that just shows how the arguments in the original function work:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a>as.POSIXct <span class="ot">&lt;-</span> <span class="cf">function</span>(x, <span class="at">tz =</span> <span class="st">""</span>) {</span>
-<span id="cb23-2"><a></a>  base<span class="sc">::</span><span class="fu">as.POSIXct</span>(x, <span class="at">tz =</span> tz)</span>
-<span id="cb23-3"><a></a>}</span>
-<span id="cb23-4"><a></a><span class="fu">as.POSIXct</span>(<span class="st">"2026-08-17 09:00"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a>as.POSIXct <span class="ot">&lt;-</span> <span class="cf">function</span>(x, <span class="at">tz =</span> <span class="st">""</span>) {</span>
+<span id="cb25-2"><a></a>  base<span class="sc">::</span><span class="fu">as.POSIXct</span>(x, <span class="at">tz =</span> tz)</span>
+<span id="cb25-3"><a></a>}</span>
+<span id="cb25-4"><a></a><span class="fu">as.POSIXct</span>(<span class="st">"2026-08-17 09:00"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>There is a <code>tz</code> argument, but it’s not clear that <code>""</code> means our local time zone. It would be better practice to be more explicit,</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a>as.POSIXct <span class="ot">&lt;-</span> <span class="cf">function</span>(x, <span class="at">tz =</span> <span class="fu">Sys.timezone</span>()) {</span>
-<span id="cb24-2"><a></a>  base<span class="sc">::</span><span class="fu">as.POSIXct</span>(x, <span class="at">tz =</span> tz)</span>
-<span id="cb24-3"><a></a>}</span>
-<span id="cb24-4"><a></a><span class="fu">as.POSIXct</span>(<span class="st">"2026-08-17 09:00"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a>as.POSIXct <span class="ot">&lt;-</span> <span class="cf">function</span>(x, <span class="at">tz =</span> <span class="fu">Sys.timezone</span>()) {</span>
+<span id="cb26-2"><a></a>  base<span class="sc">::</span><span class="fu">as.POSIXct</span>(x, <span class="at">tz =</span> tz)</span>
+<span id="cb26-3"><a></a>}</span>
+<span id="cb26-4"><a></a><span class="fu">as.POSIXct</span>(<span class="st">"2026-08-17 09:00"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="footer">
+<p><a href="https://design.tidyverse.org/inputs-explicit.html" class="uri">https://design.tidyverse.org/inputs-explicit.html</a></p>
 </div>
 </section>
 <section id="put-the-most-important-arguments-first" class="slide level2">
@@ -607,6 +639,9 @@ Levels: 10 20 40</code></pre>
 <li><code>lm()</code> – formula comes first, rather than data</li>
 <li><code>ggplot()</code> – <code>data()</code> comes first, but it many <code>geom_</code>s it would make more sense to have <code>mapping</code> first</li>
 </ul>
+<div class="footer">
+<p><a href="https://design.tidyverse.org/important-args-first.html" class="uri">https://design.tidyverse.org/important-args-first.html</a></p>
+</div>
 </section>
 <section id="scannable-specs-1" class="slide level2">
 <h2>Scannable specs</h2>
@@ -624,13 +659,16 @@ Levels: 10 20 40</code></pre>
 </section>
 <section id="enumerate-possible-options" class="slide level2">
 <h2>Enumerate possible options</h2>
-<div class="sourceCode" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a>rank2 <span class="ot">&lt;-</span> <span class="cf">function</span>(</span>
-<span id="cb25-2"><a></a>    x,</span>
-<span id="cb25-3"><a></a>    <span class="at">ties.method =</span> <span class="fu">c</span>(<span class="st">"average"</span>, <span class="st">"first"</span>, <span class="st">"last"</span>, <span class="st">"random"</span>, <span class="st">"max"</span>, <span class="st">"min"</span>)</span>
-<span id="cb25-4"><a></a>) {</span>
-<span id="cb25-5"><a></a>  ties.method <span class="ot">&lt;-</span> rlang<span class="sc">::</span><span class="fu">arg_match</span>(ties.method)</span>
-<span id="cb25-6"><a></a>  <span class="fu">rank</span>(x, <span class="at">ties.method =</span> ties.method)</span>
-<span id="cb25-7"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a>rank2 <span class="ot">&lt;-</span> <span class="cf">function</span>(</span>
+<span id="cb27-2"><a></a>    x,</span>
+<span id="cb27-3"><a></a>    <span class="at">ties.method =</span> <span class="fu">c</span>(<span class="st">"average"</span>, <span class="st">"first"</span>, <span class="st">"last"</span>, <span class="st">"random"</span>, <span class="st">"max"</span>, <span class="st">"min"</span>)</span>
+<span id="cb27-4"><a></a>) {</span>
+<span id="cb27-5"><a></a>  ties.method <span class="ot">&lt;-</span> rlang<span class="sc">::</span><span class="fu">arg_match</span>(ties.method)</span>
+<span id="cb27-6"><a></a>  <span class="fu">rank</span>(x, <span class="at">ties.method =</span> ties.method)</span>
+<span id="cb27-7"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="footer">
+<p><a href="https://design.tidyverse.org/enumerate-options.html" class="uri">https://design.tidyverse.org/enumerate-options.html</a></p>
+</div>
 </section>
 <section id="scannable-specs-2" class="slide level2">
 <h2>Scannable specs</h2>
@@ -661,6 +699,12 @@ Levels: 10 20 40</code></pre>
 <li>You’re struggling to document how the arguments interact. Maybe you can set a and b and a and c but not b and c.</li>
 <li>The implementation of your function has a couple of big if branches that share relatively little code.</li>
 </ul>
+<div class="footer">
+<p><a href="https://design.tidyverse.org/strategy-functions.html" class="uri">https://design.tidyverse.org/strategy-functions.html</a></p>
+</div>
+</section>
+<section id="three-functions-in-a-trenchcoat-1" class="slide level2 smaller">
+<h2>Three functions in a trenchcoat</h2>
 <p>Examples:</p>
 <ul>
 <li><p><code>forcats::fct_lump()</code> chooses between one of three lumping strategies depending on whether you supply just <code>n</code>, just <code>prop</code>, or neither, while supplying both <code>n</code> and <code>prop</code> is an error. Additionally, the <code>ties.method</code> argument only does anything if you supply only <code>n</code>. <code>fct_lump()</code> is hard to understand and document because it’s really three smaller functions.</p></li>
@@ -669,6 +713,9 @@ Levels: 10 20 40</code></pre>
 <li><p><code>sample()</code> is used to both randomly reorder a vector and generate a random vector of specified length. This function is particularly troublesome because it picks between the two strategies based on the length of the first argument.</p></li>
 <li><p><code>rep()</code> is used to both repeat each element of a vector and to repeat the complete vector. There is a <a href="https://design.tidyverse.org/cs-rep.html">full case study</a> of <code>rep()</code> in the tidy design “book.”</p></li>
 </ul>
+<div class="footer">
+<p><a href="https://design.tidyverse.org/strategy-functions.html" class="uri">https://design.tidyverse.org/strategy-functions.html</a></p>
+</div>
 </section></section>
 <section>
 <section id="function-arguments" class="title-slide slide level1 center">
@@ -681,31 +728,29 @@ Levels: 10 20 40</code></pre>
 <li>Avoid magical defaults</li>
 <li>Explain important defaults</li>
 </ul>
+<div class="footer">
+<p><a href="https://design.tidyverse.org/def-magical.html" class="uri">https://design.tidyverse.org/def-magical.html</a></p>
+</div>
 </section></section>
+<section>
 <section id="outputs" class="title-slide slide level1 center">
 <h1>Outputs</h1>
 
 </section>
-
-<section>
-<section id="type-stability" class="title-slide slide level1 center">
-<h1>Type stability</h1>
+<section id="type-stability" class="slide level2">
+<h2>Type stability</h2>
 <p>The less you need to know about a function’s inputs to predict the type of its output, the better. Ideally, a function should either always return the same type of thing, or return something that can be trivially computed from its inputs.</p>
 <p>If a function is type-stable it satisfies two conditions:</p>
 <ul>
 <li><p>You can predict the output type based only on the input types (not their values).</p></li>
 <li><p>If the function uses <code>...</code>, the order of arguments in does not affect the output type.</p></li>
 </ul>
+<div class="footer">
+<p><a href="https://design.tidyverse.org/out-type-stability.html" class="uri">https://design.tidyverse.org/out-type-stability.html</a></p>
+</div>
 </section>
-<section id="dot-prefix" class="slide level2">
-<h2>Dot prefix</h2>
-<p>When using <code>...</code> to create a data structure, or when passing <code>...</code> to a user-supplied function, add a <code>.</code> prefix to all named arguments.</p>
-</section>
-<section id="avoid-magical-defaults" class="slide level2">
-<h2>Avoid magical defaults</h2>
-</section>
-<section id="un-recap" class="slide level2">
-<h2>Un-recap</h2>
+<section id="what-didnt-we-talk-about" class="slide level2">
+<h2>What didn’t we talk about?</h2>
 <p>We did not cover how to manage change.</p>
 <p>Change is a necessary (and frustrating) part of success:</p>
 <ul>
@@ -751,30 +796,6 @@ Levels: 10 20 40</code></pre>
 <li>Be mindful of side effects.</li>
 </ul>
 </div>
-</section>
-<section id="pass-the-dots" class="slide level2">
-<h2>Pass the dots</h2>
-<p>This is the simplest possible solution.</p>
-<div class="fragment">
-<ul>
-<li>If the tidyverse function you’re using takes <code>...</code> as an argument,</li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li>and that’s what you want to pass along,</li>
-</ul>
-</div>
-<div class="fragment">
-<p>then you can <strong>pass the dots</strong>.</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a>my_select <span class="ot">&lt;-</span> <span class="cf">function</span>(.data, ...) {</span>
-<span id="cb26-2"><a></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(.data, ...)</span>
-<span id="cb26-3"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="data-in-packages" class="slide level2">
-<h2>Data in packages</h2>
-<p>There is a lot more detail specific to including data in packages. Sometimes you want to include raw data, sometimes you need data only available to the package and not the user, etc. There is much more detail in the <a href="https://r-pkgs.org/data.html">R packages</a> book.</p>
 </section>
 <section id="resources" class="slide level2">
 <h2>Resources</h2>

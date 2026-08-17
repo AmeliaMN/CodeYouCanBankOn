@@ -91,7 +91,7 @@ User feedback
 ::: 
 
 
-## Global state
+## Global state {.smaller}
 
 
 - Creating (or modifying) an existing binding with `<-`.
@@ -157,10 +157,34 @@ Try to separate tasks into pure functions and side effects:
 
 When working with side effects, try not to do any "spooky actions" (things the user wouldn't expect). 
 
+- deleting variables
+- saving files
+- loading packages with `library()`
+- installing packages with `install.packages()`
+- Deleting objects in the global environment with `rm(list = ls())`
+
+We can make the notion of spooky action precise by thinking about trees. Code should only affect the tree beneath where it lives, so any action that reaches up, or across, the tree is a **spooky action**.
 
 
 ::: footer 
-<https://design.tidyverse.org/side-effects.html>
+<https://design.tidyverse.org/spooky-action.html>
+::: 
+
+## Avoiding spooky actions
+
+If you feel you must do a spooky action, 
+
+- parameterize the action
+- advertise the action with a clear name
+- ask for confirmation
+- advertise the side effects
+
+The `{usethis}` does a lot of potentially-spooky things. But it advertises the action, asks for confirmation, and advertises the side effects.
+
+
+
+::: footer 
+<https://design.tidyverse.org/spooky-action.html>
 ::: 
 
 
@@ -699,7 +723,72 @@ Let's see how this test could catch us. Change `tomatoes` to `bacon` in the `BLT
 
 ## Document, load, check, commit
 
-![Jason Long, CC BY 3.0 \<https://creativecommons.org/licenses/by/3.0\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg){fig-alt="Git icon" width="300"} 
+![Jason Long, CC BY 3.0 \<https://creativecommons.org/licenses/by/3.0\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg){fig-alt="Git icon" width="300"}
+
+## More helpful packages to write errors (and tests!)
+
+There are lots of other packages out there to help you write better errors. For example, [{checkmate}](https://mllg.github.io/checkmate/articles/checkmate.html) helps you reduce the lines of code you spend writing checks for your functions. 
+
+## Example
+
+::: extrasmall
+```r
+fact <- function(n, method = "stirling") {
+  if (length(n) != 1)
+    stop("Argument 'n' must have length 1")
+  if (!is.numeric(n))
+    stop("Argument 'n' must be numeric")
+  if (is.na(n))
+    stop("Argument 'n' may not be NA")
+  if (is.double(n)) {
+    if (is.nan(n))
+      stop("Argument 'n' may not be NaN")
+    if (is.infinite(n))
+      stop("Argument 'n' must be finite")
+    if (abs(n - round(n, 0)) > sqrt(.Machine$double.eps))
+      stop("Argument 'n' must be an integerish value")
+    n <- as.integer(n)
+  }
+  if (n < 0)
+    stop("Argument 'n' must be >= 0")
+  if (length(method) != 1)
+    stop("Argument 'method' must have length 1")
+  if (!is.character(method) || !method %in% c("stirling", "factorial"))
+    stop("Argument 'method' must be either 'stirling' or 'factorial'")
+
+  if (method == "factorial")
+    factorial(n)
+  else
+    sqrt(2 * pi * n) * (n / exp(1))^n
+}
+```
+
+:::
+
+## Example
+
+vs.
+
+```r
+fact <- function(n, method = "stirling") {
+  assertCount(n)
+  assertChoice(method, c("stirling", "factorial"))
+
+  if (method == "factorial")
+    factorial(n)
+  else
+    sqrt(2 * pi * n) * (n / exp(1))^n
+}
+```
+
+## More helpful packages to write errors (and tests!)
+
+- [{vcr}](https://docs.ropensci.org/vcr/) to record and replay HTTP requests
+- [{webmockr}](https://docs.ropensci.org/webmockr/) to stub and set expectations on HTTP requests
+
+...and even more in the [Package Development and Maintenance CRAN Task View Proposal](https://github.com/hturner/pkg-dev-ctv/blob/main/proposal.md)
+
+
 
 
 ## Summary
@@ -721,4 +810,4 @@ Use `withr::local_*()` functions to "leave no footprints".
 
 ## Resources
 
-
+- [Tidy design principles](https://design.tidyverse.org/)

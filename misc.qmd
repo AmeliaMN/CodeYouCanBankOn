@@ -21,7 +21,10 @@ execute:
 
 ![](img/RCore.png)
 
-[R contributors](https://www.r-project.org/contributors.html)
+::: footer
+<https://www.r-project.org/contributors.html>
+
+:::
 
 # Native pipes
 
@@ -173,7 +176,7 @@ Having a understanding of the different states a package can be helpful in under
 
 ## Package states
 
-![Schematic of methods for moving between package states](images/installation.png){fig-alt="schematic of package states and the functions that move them between states. One the horizontal axis: source, bundle, binary, installed, in memory. One the vertical axis the functions install.packages, R CMD install, install, build, install_github"}
+![Schematic of methods for moving between package states](img/installation.png){fig-alt="schematic of package states and the functions that move them between states. One the horizontal axis: source, bundle, binary, installed, in memory. One the vertical axis the functions install.packages, R CMD install, install, build, install_github"}
 
 ::: aside
 Figure from [R Packages](https://r-pkgs.org/) [@wickham2020]
@@ -340,7 +343,11 @@ rlang::names2(x)
 
 These are minimal names-- even though they are all empty strings, the length of `names()` will always be the same length as `x`. 
 
-## Unique names
+::: footer 
+<https://design.tidyverse.org/names.html#minimal-names>
+:::
+
+## Unique names {.smaller}
 
 In base R, there is a function `make.unique()`, which can be used to create unique names (no duplicates). 
 
@@ -360,11 +367,19 @@ For the tidyverse, there are low-level functions `vctrs::vec_names()` and `vctrs
 
 The reason for avoiding `..j` is it already has syntactic meaning in R, as a way to refer to arguments passed down from a calling function. 
 
+::: footer 
+<https://design.tidyverse.org/names.html#unique-names>
+:::
+
 ## Why dots?
 
 The underscore `_` was also considered when choosing the tidyverse suffix strategy, but was rejected.
 
 Why? Because syntactic names can’t start with an underscore and we want the suffix itself to be syntactic. Also, the dot `.` is already used by base R’s `make.names()` to replace invalid characters. It seems simpler and, therefore, better to use the same character, in the same way, as much as possible in name repair. We use the dot `.`, we put it at the front, as many times as necessary.
+
+::: footer
+<https://design.tidyverse.org/names.html#why-so-many-dots>
+:::
 
 ## Syntactic names
 
@@ -373,12 +388,18 @@ You have probably encountered non-syntactic names before. If a variable name has
 ```{r, eval = TRUE, error=TRUE}
 x <- tibble::tibble(`Physicians per 100,000 Population` = 514)
 x |>
-  pull(Physicians per 100,000 Population)
+  dplyr::pull(Physicians per 100,000 Population)
+```
+
+```{r, eval=TRUE}
+x <- tibble::tibble(`Physicians per 100,000 Population` = 514)
 x |>
   dplyr::pull(`Physicians per 100,000 Population`)
 ```
 
-
+::: footer
+<https://design.tidyverse.org/names.html#syntactic-names>
+:::
 
 
 ## Name all but the most important arguments
@@ -396,6 +417,10 @@ Never use partial matching,
 mean(y, n = TRUE)
 ```
 
+::: footer
+<https://design.tidyverse.org/call-data-details.html>
+:::
+
 ## Teaching exception
 
 When you are teaching, it is best practice to start by naming all arguments, and then relax into the other standard.
@@ -412,6 +437,10 @@ ggplot(mpg, aes(displ, hwy)) +
   geom_point()
 ```
 
+::: footer
+<https://design.tidyverse.org/call-data-details.html#what-are-the-exceptions>
+:::
+
 # Scannable specs
 
 
@@ -425,6 +454,10 @@ A common source of hidden arguments is the use of global options:
 - `na.action`. This continues to be an issue with functions like `lm()`, whose handling of missing values depends on the global option of `na.action`. The default is `na.omit` which drops the missing values prior to fitting the model (which is inconvenient because then the results of `predict()` don’t line up with the input data.
 
 - system locale. Check with `Sys.getlocale()`
+
+::: footer
+<https://design.tidyverse.org/inputs-explicit.html>
+:::
 
 ## Make inputs explicit
 
@@ -448,6 +481,10 @@ as.POSIXct <- function(x, tz = Sys.timezone()) {
 as.POSIXct("2026-08-17 09:00")
 ```
 
+::: footer
+<https://design.tidyverse.org/inputs-explicit.html>
+:::
+
 ## Put the most important arguments first
 
 Most functions get this right! 
@@ -457,6 +494,10 @@ Some that get it wrong (according to Hadley)
 -   `grepl()`, `gsub()` and similar-- regex comes first
 - `lm()` -- formula comes first, rather than data
 - `ggplot()` -- `data()` comes first, but it many `geom_`s it would make more sense to have `mapping` first
+
+::: footer
+<https://design.tidyverse.org/important-args-first.html>
+:::
 
 ## Scannable specs
 
@@ -480,6 +521,9 @@ rank2 <- function(
   rank(x, ties.method = ties.method)
 }
 ```
+::: footer
+<https://design.tidyverse.org/enumerate-options.html>
+:::
 
 ## Scannable specs
 
@@ -504,7 +548,12 @@ Sometimes a function that implements multiple strategies might be better off as 
 - You’re struggling to document how the arguments interact. Maybe you can set a and b and a and c but not b and c.
 - The implementation of your function has a couple of big if branches that share relatively little code.
 
+::: footer
+<https://design.tidyverse.org/strategy-functions.html>
+:::
 
+
+## Three functions in a trenchcoat {.smaller}
 Examples:
 
 - `forcats::fct_lump()` chooses between one of three lumping strategies depending on whether you supply just `n`, just `prop`, or neither, while supplying both `n` and `prop` is an error. Additionally, the `ties.method` argument only does anything if you supply only `n`. `fct_lump()` is hard to understand and document because it’s really three smaller functions.
@@ -517,6 +566,11 @@ Examples:
 
 - `rep()` is used to both repeat each element of a vector and to repeat the complete vector. There is a [full case study](https://design.tidyverse.org/cs-rep.html) of `rep()` in the tidy design "book."
 
+::: footer
+<https://design.tidyverse.org/strategy-functions.html>
+:::
+
+
 # Function arguments
 
 ## Function arguments 
@@ -524,9 +578,13 @@ Examples:
 - Avoid magical defaults 
 - Explain important defaults
 
+::: footer
+<https://design.tidyverse.org/def-magical.html>
+:::
+
 # Outputs
 
-# Type stability
+## Type stability
 
 The less you need to know about a function’s inputs to predict the type of its output, the better. Ideally, a function should either always return the same type of thing, or return something that can be trivially computed from its inputs.
 
@@ -536,14 +594,13 @@ If a function is type-stable it satisfies two conditions:
 
 - If the function uses `...`, the order of arguments in does not affect the output type.
 
+::: footer
+<https://design.tidyverse.org/out-type-stability.html>
+:::
 
-## Dot prefix
 
-When using `...` to create a data structure, or when passing `...` to a user-supplied function, add a `.` prefix to all named arguments.
 
-## Avoid magical defaults 
-
-## Un-recap
+## What didn't we talk about?
 
 We did not cover how to manage change.
 
@@ -585,36 +642,6 @@ Different levels of change:
 - Be mindful of side effects.
 
 
-
-
-
-
-
-## Pass the dots
-
-This is the simplest possible solution. 
-
-. . .
-
- - If the tidyverse function you're using takes `...` as an argument,
-
-. . .
-
- - and that's what you want to pass along, 
-
-. . . 
- 
-then you can **pass the dots**.
-
-```r
-my_select <- function(.data, ...) {
-  dplyr::select(.data, ...)
-}
-```
-
-## Data in packages
-
-There is a lot more detail specific to including data in packages. Sometimes you want to include raw data, sometimes you need data only available to the package and not the user, etc. There is much more detail in the [R packages](https://r-pkgs.org/data.html) book. 
 
 
 

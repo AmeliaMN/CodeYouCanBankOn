@@ -263,7 +263,7 @@ Amelia McNamara
 <p><a href="https://design.tidyverse.org/side-effects.html" class="uri">https://design.tidyverse.org/side-effects.html</a></p>
 </div>
 </section>
-<section id="global-state" class="slide level2">
+<section id="global-state" class="slide level2 smaller">
 <h2>Global state</h2>
 <ul>
 <li>Creating (or modifying) an existing binding with <code>&lt;-</code>.</li>
@@ -329,8 +329,30 @@ Amelia McNamara
 <section id="spooky-actions" class="slide level2">
 <h2>Spooky actions</h2>
 <p>When working with side effects, try not to do any “spooky actions” (things the user wouldn’t expect).</p>
+<ul>
+<li>deleting variables</li>
+<li>saving files</li>
+<li>loading packages with <code>library()</code></li>
+<li>installing packages with <code>install.packages()</code></li>
+<li>Deleting objects in the global environment with <code>rm(list = ls())</code></li>
+</ul>
+<p>We can make the notion of spooky action precise by thinking about trees. Code should only affect the tree beneath where it lives, so any action that reaches up, or across, the tree is a <strong>spooky action</strong>.</p>
 <div class="footer">
-<p><a href="https://design.tidyverse.org/side-effects.html" class="uri">https://design.tidyverse.org/side-effects.html</a></p>
+<p><a href="https://design.tidyverse.org/spooky-action.html" class="uri">https://design.tidyverse.org/spooky-action.html</a></p>
+</div>
+</section>
+<section id="avoiding-spooky-actions" class="slide level2">
+<h2>Avoiding spooky actions</h2>
+<p>If you feel you must do a spooky action,</p>
+<ul>
+<li>parameterize the action</li>
+<li>advertise the action with a clear name</li>
+<li>ask for confirmation</li>
+<li>advertise the side effects</li>
+</ul>
+<p>The <code>{usethis}</code> does a lot of potentially-spooky things. But it advertises the action, asks for confirmation, and advertises the side effects.</p>
+<div class="footer">
+<p><a href="https://design.tidyverse.org/spooky-action.html" class="uri">https://design.tidyverse.org/spooky-action.html</a></p>
 </div>
 </section>
 <section id="errors" class="slide level2">
@@ -791,6 +813,64 @@ Amelia McNamara
 <h2>Document, load, check, commit</h2>
 
 <img data-src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg" alt="Git icon" width="300" class="r-stretch quarto-figure-center"><p class="caption">Jason Long, CC BY 3.0 &lt;https://creativecommons.org/licenses/by/3.0&gt;, via Wikimedia Commons</p></section>
+<section id="more-helpful-packages-to-write-errors-and-tests" class="slide level2">
+<h2>More helpful packages to write errors (and tests!)</h2>
+<p>There are lots of other packages out there to help you write better errors. For example, <a href="https://mllg.github.io/checkmate/articles/checkmate.html">{checkmate}</a> helps you reduce the lines of code you spend writing checks for your functions.</p>
+</section>
+<section id="example-2" class="slide level2">
+<h2>Example</h2>
+<div class="extrasmall">
+<div class="sourceCode" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>fact <span class="ot">&lt;-</span> <span class="cf">function</span>(n, <span class="at">method =</span> <span class="st">"stirling"</span>) {</span>
+<span id="cb22-2"><a></a>  <span class="cf">if</span> (<span class="fu">length</span>(n) <span class="sc">!=</span> <span class="dv">1</span>)</span>
+<span id="cb22-3"><a></a>    <span class="fu">stop</span>(<span class="st">"Argument 'n' must have length 1"</span>)</span>
+<span id="cb22-4"><a></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.numeric</span>(n))</span>
+<span id="cb22-5"><a></a>    <span class="fu">stop</span>(<span class="st">"Argument 'n' must be numeric"</span>)</span>
+<span id="cb22-6"><a></a>  <span class="cf">if</span> (<span class="fu">is.na</span>(n))</span>
+<span id="cb22-7"><a></a>    <span class="fu">stop</span>(<span class="st">"Argument 'n' may not be NA"</span>)</span>
+<span id="cb22-8"><a></a>  <span class="cf">if</span> (<span class="fu">is.double</span>(n)) {</span>
+<span id="cb22-9"><a></a>    <span class="cf">if</span> (<span class="fu">is.nan</span>(n))</span>
+<span id="cb22-10"><a></a>      <span class="fu">stop</span>(<span class="st">"Argument 'n' may not be NaN"</span>)</span>
+<span id="cb22-11"><a></a>    <span class="cf">if</span> (<span class="fu">is.infinite</span>(n))</span>
+<span id="cb22-12"><a></a>      <span class="fu">stop</span>(<span class="st">"Argument 'n' must be finite"</span>)</span>
+<span id="cb22-13"><a></a>    <span class="cf">if</span> (<span class="fu">abs</span>(n <span class="sc">-</span> <span class="fu">round</span>(n, <span class="dv">0</span>)) <span class="sc">&gt;</span> <span class="fu">sqrt</span>(.Machine<span class="sc">$</span>double.eps))</span>
+<span id="cb22-14"><a></a>      <span class="fu">stop</span>(<span class="st">"Argument 'n' must be an integerish value"</span>)</span>
+<span id="cb22-15"><a></a>    n <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(n)</span>
+<span id="cb22-16"><a></a>  }</span>
+<span id="cb22-17"><a></a>  <span class="cf">if</span> (n <span class="sc">&lt;</span> <span class="dv">0</span>)</span>
+<span id="cb22-18"><a></a>    <span class="fu">stop</span>(<span class="st">"Argument 'n' must be &gt;= 0"</span>)</span>
+<span id="cb22-19"><a></a>  <span class="cf">if</span> (<span class="fu">length</span>(method) <span class="sc">!=</span> <span class="dv">1</span>)</span>
+<span id="cb22-20"><a></a>    <span class="fu">stop</span>(<span class="st">"Argument 'method' must have length 1"</span>)</span>
+<span id="cb22-21"><a></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.character</span>(method) <span class="sc">||</span> <span class="sc">!</span>method <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"stirling"</span>, <span class="st">"factorial"</span>))</span>
+<span id="cb22-22"><a></a>    <span class="fu">stop</span>(<span class="st">"Argument 'method' must be either 'stirling' or 'factorial'"</span>)</span>
+<span id="cb22-23"><a></a></span>
+<span id="cb22-24"><a></a>  <span class="cf">if</span> (method <span class="sc">==</span> <span class="st">"factorial"</span>)</span>
+<span id="cb22-25"><a></a>    <span class="fu">factorial</span>(n)</span>
+<span id="cb22-26"><a></a>  <span class="cf">else</span></span>
+<span id="cb22-27"><a></a>    <span class="fu">sqrt</span>(<span class="dv">2</span> <span class="sc">*</span> pi <span class="sc">*</span> n) <span class="sc">*</span> (n <span class="sc">/</span> <span class="fu">exp</span>(<span class="dv">1</span>))<span class="sc">^</span>n</span>
+<span id="cb22-28"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="example-3" class="slide level2">
+<h2>Example</h2>
+<p>vs.</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a>fact <span class="ot">&lt;-</span> <span class="cf">function</span>(n, <span class="at">method =</span> <span class="st">"stirling"</span>) {</span>
+<span id="cb23-2"><a></a>  <span class="fu">assertCount</span>(n)</span>
+<span id="cb23-3"><a></a>  <span class="fu">assertChoice</span>(method, <span class="fu">c</span>(<span class="st">"stirling"</span>, <span class="st">"factorial"</span>))</span>
+<span id="cb23-4"><a></a></span>
+<span id="cb23-5"><a></a>  <span class="cf">if</span> (method <span class="sc">==</span> <span class="st">"factorial"</span>)</span>
+<span id="cb23-6"><a></a>    <span class="fu">factorial</span>(n)</span>
+<span id="cb23-7"><a></a>  <span class="cf">else</span></span>
+<span id="cb23-8"><a></a>    <span class="fu">sqrt</span>(<span class="dv">2</span> <span class="sc">*</span> pi <span class="sc">*</span> n) <span class="sc">*</span> (n <span class="sc">/</span> <span class="fu">exp</span>(<span class="dv">1</span>))<span class="sc">^</span>n</span>
+<span id="cb23-9"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="more-helpful-packages-to-write-errors-and-tests-1" class="slide level2">
+<h2>More helpful packages to write errors (and tests!)</h2>
+<ul>
+<li><a href="https://docs.ropensci.org/vcr/">{vcr}</a> to record and replay HTTP requests</li>
+<li><a href="https://docs.ropensci.org/webmockr/">{webmockr}</a> to stub and set expectations on HTTP requests</li>
+</ul>
+<p>…and even more in the <a href="https://github.com/hturner/pkg-dev-ctv/blob/main/proposal.md">Package Development and Maintenance CRAN Task View Proposal</a></p>
+</section>
 <section id="summary" class="slide level2">
 <h2>Summary</h2>
 <p>The most-common side-effect is an error. Good design:</p>
@@ -809,6 +889,9 @@ Amelia McNamara
 </section>
 <section id="resources" class="slide level2">
 <h2>Resources</h2>
+<ul>
+<li><a href="https://design.tidyverse.org/">Tidy design principles</a></li>
+</ul>
 
 
 </section>
