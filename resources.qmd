@@ -31,4 +31,7 @@ An attempt to gather all the links and resources I recommended throughout.
 - [Tidy evaluation in 5 mins](https://www.youtube.com/watch?v=nERXS3ssntw), Hadley Wickham
 - [Programming with dplyr](https://dplyr.tidyverse.org/articles/programming.html)
 - [Using ggplot2 in packages](https://ggplot2.tidyverse.org/articles/ggplot2-in-packages.html) 
-
+- [{haven}](https://haven.tidyverse.org/index.html) package for working with SAS, SPSS, Stata data files
+- [lifecycle stages](https://lifecycle.r-lib.org/articles/stages.html)
+- [CRAN task views](https://cran.r-project.org/web/views/)
+- [R Packages for Data Quality Assessments and Data Monitoring: A Software Scoping Review with Recommendations for Future Developments](https://www.mdpi.com/2076-3417/12/9/4238) and [list on GitHub](https://github.com/JoanyMarino/RPackages4DQA)
