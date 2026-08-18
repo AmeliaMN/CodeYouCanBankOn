@@ -27,6 +27,8 @@ Miscellaneous goodness:
 - [Best Practices for Scientific Computing](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745)
 - [Evaluating the Design of the R Language](https://janvitek.org/pubs/ecoop12.pdf) This is for my computer scientists who want the nitty-gritty about R as a language.
 - [Documenting datasets](https://rstudio.github.io/r-manuals/r-exts/Writing-R-documentation-files.html#documenting-data-sets)
+- [CRAN task views](https://cran.r-project.org/web/views/)
+- [R Packages for Data Quality Assessments and Data Monitoring: A Software Scoping Review with Recommendations for Future Developments](https://www.mdpi.com/2076-3417/12/9/4238) and [list on GitHub](https://github.com/JoanyMarino/RPackages4DQA)
 
 
 From the Posit/tidyverse folks: 
@@ -44,7 +46,8 @@ From the Posit/tidyverse folks:
 - [Programming with dplyr](https://dplyr.tidyverse.org/articles/programming.html)
 - [Using ggplot2 in packages](https://ggplot2.tidyverse.org/articles/ggplot2-in-packages.html) 
 - [Tidy evaluation in 5 mins](https://www.youtube.com/watch?v=nERXS3ssntw), Hadley Wickham
-
+- [{haven}](https://haven.tidyverse.org/index.html) package for working with SAS, SPSS, Stata data files
+- [lifecycle stages](https://lifecycle.r-lib.org/articles/stages.html)
 
 
 
