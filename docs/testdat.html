@@ -409,22 +409,26 @@ Test passed with 1 success 🌈.</code></pre>
 <span id="cb12-2"><a></a>  <span class="fu">expect_values</span>(series_id, <span class="st">"APU0000704111"</span>)</span>
 <span id="cb12-3"><a></a>})</span>
 <span id="cb12-4"><a></a></span>
-<span id="cb12-5"><a></a><span class="fu">test_that</span>(<span class="st">"dates are correct format"</span>, {</span>
-<span id="cb12-6"><a></a>  <span class="fu">expect_date_formatted</span>(date)</span>
-<span id="cb12-7"><a></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-5"><a></a><span class="co"># test_that("dates are correct format", {</span></span>
+<span id="cb12-6"><a></a><span class="co">#   expect_date_formatted(date)</span></span>
+<span id="cb12-7"><a></a><span class="co"># })</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Edit: custom expectations aren’t working in automated testing.</p>
 </section>
 <section id="helper.r" class="slide level2">
 <h2>helper.R</h2>
-<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="fu">library</span>(rlang)</span>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="co"># library(rlang)</span></span>
 <span id="cb13-2"><a></a><span class="fu">library</span>(testdat)</span>
 <span id="cb13-3"><a></a></span>
-<span id="cb13-4"><a></a>chk_date_BLT <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
-<span id="cb13-5"><a></a>  stringr<span class="sc">::</span><span class="fu">str_detect</span>(x, <span class="st">"^[1-2][0-9]{3}-[0-9]{2}-[0-9]{2}$"</span>) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(lubridate<span class="sc">::</span><span class="fu">ymd</span>(x, <span class="at">quiet =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb13-6"><a></a>}</span>
-<span id="cb13-7"><a></a></span>
-<span id="cb13-8"><a></a>expect_date_formatted <span class="ot">&lt;-</span> <span class="fu">expect_make</span>(chk_date_BLT)</span>
+<span id="cb13-4"><a></a><span class="co"># chk_date_BLT &lt;- function(x) {</span></span>
+<span id="cb13-5"><a></a><span class="co">#   stringr::str_detect(x, "^[1-2][0-9]{3}-[0-9]{2}-[0-9]{2}$") &amp; !is.na(lubridate::ymd(x, quiet = TRUE))</span></span>
+<span id="cb13-6"><a></a><span class="co"># }</span></span>
+<span id="cb13-7"><a></a><span class="co"># </span></span>
+<span id="cb13-8"><a></a><span class="co"># expect_date_formatted &lt;- expect_make(chk_date_BLT)</span></span>
 <span id="cb13-9"><a></a></span>
 <span id="cb13-10"><a></a><span class="fu">set_testdata</span>(bacon) <span class="co">#? unsure</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Edit: custom expectations aren’t working in automated testing</p>
 <p>(The library stuff is kind of bad practice, but it took me ages of chasing down an error to figure out. I might put an issue on <code>testdat</code>.)</p>
 </section>
 <section id="setup.r" class="slide level2">
@@ -665,6 +669,44 @@ Test passed with 1 success 🌈.</code></pre>
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {

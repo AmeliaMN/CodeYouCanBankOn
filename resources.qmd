@@ -5,30 +5,52 @@ editor: source
 
 An attempt to gather all the links and resources I recommended throughout. 
 
+If you look at one thing, make it:
 
-- [What They Forgot to Teach You About R](https://rstats.wtf/),  Jennifer Bryan, Jim Hester, Shannon Pileggi, E. David Aja. 
-- [R for Data Science](https://r4ds.hadley.nz/), Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. 
-- [Tidyverse style guide](https://style.tidyverse.org/)
-- [Packages](https://github.com/hfrick/presentations/blob/master/2019-03-12_package_building/2019-03-12_package_building.pdf), by Hannah Frick
-- [Happy git and GitHub for the useR](https://happygitwithr.com/), Jenny Bryan, the STAT 545 TAs, Jim Hester.
-- [What are quosures and when are they needed?](https://rlang.r-lib.org/reference/topic-quosure.html), rlang documentation. 
-- [R packages](https://r-pkgs.org/), Hadley Wickham and Jenny Bryan. 
-- [Documenting datasets](https://rstudio.github.io/r-manuals/r-exts/Writing-R-documentation-files.html#documenting-data-sets)
-- [Masking tidyverse functions](https://rlang.r-lib.org/reference/topic-data-mask-programming.html)
-- [Evaluating the Design of the R Language](https://janvitek.org/pubs/ecoop12.pdf) This is for my computer scientists who want the nitty-gritty about R as a language.
-- [Advanced R](https://adv-r.hadley.nz/)
-- [Package states](https://rstudio-conf-2022.github.io/build-tidy-tools/materials/day-1-session-1-introduction.html#/package-states)
-- [Testing chapter](https://r-pkgs.org/testing-basics.html) in R Packages. 
-- **`testthat`** [documentation](https://testthat.r-lib.org/reference/index.html)
 - Object of type 'closure' is not subsettable, Jenny Bryan. rstudio::conf [video](https://posit.co/resources/videos/object-of-type-closure-is-not-subsettable), [slides](https://speakerdeck.com/jennybc/object-of-type-closure-is-not-subsettable)
-- [Code "smells" and feels](https://www.youtube.com/watch?v=7oyiPBjLAWY), Jenny Bryan
+
+Other things I mentioned:
+
+Everything I know is from Jenny Bryan:
+
+- [R packages](https://r-pkgs.org/), Hadley Wickham and Jenny Bryan. 
+- [Testing chapter](https://r-pkgs.org/testing-basics.html) in R Packages. 
+- [What They Forgot to Teach You About R](https://rstats.wtf/),  Jenny Bryan, Jim Hester, Shannon Pileggi, E. David Aja. 
+- [Happy git and GitHub for the useR](https://happygitwithr.com/), Jenny Bryan, the STAT 545 TAs, Jim Hester.
+- [Code "smells" and feels](https://www.youtube.com/watch?v=7oyiPBjLAWY), Jenny Bryan.
+- [Lazy evalution](https://www.youtube.com/watch?v=2BXPLnLMTYo), Jenny Bryan.
+- [Good enough practices in scientific computing](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510), Greg Wilson, Jenny Bryan, Karen Cranston, Justin Kitzes, Lex Nederbragt, Tracy Teal. 
+
+
+Miscellaneous goodness:
+
 - [Best Practices for Scientific Computing](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745)
-- [Good enough practices in scientific computing](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510)
+- [Evaluating the Design of the R Language](https://janvitek.org/pubs/ecoop12.pdf) This is for my computer scientists who want the nitty-gritty about R as a language.
+- [Documenting datasets](https://rstudio.github.io/r-manuals/r-exts/Writing-R-documentation-files.html#documenting-data-sets)
+
+
+From the Posit/tidyverse folks: 
+
+- [Tidyverse style guide](https://style.tidyverse.org/), the tidyverse team
 - [Tidy design principles](https://design.tidyverse.org/)
 - Three functions in a trenchcoat [case study](https://design.tidyverse.org/cs-rep.html) of `rep()` from tidy design. 
-- [Lazy evalution](https://www.youtube.com/watch?v=2BXPLnLMTYo), Jenny Bryan
+- [R for Data Science](https://r4ds.hadley.nz/), Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. 
+- [Packages](https://github.com/hfrick/presentations/blob/master/2019-03-12_package_building/2019-03-12_package_building.pdf), by Hannah Frick
+- [What are quosures and when are they needed?](https://rlang.r-lib.org/reference/topic-quosure.html), rlang documentation. 
+- [Masking tidyverse functions](https://rlang.r-lib.org/reference/topic-data-mask-programming.html)
+- [Advanced R](https://adv-r.hadley.nz/), Hadley Wickham
+- **`testthat`** [documentation](https://testthat.r-lib.org/reference/index.html)
 - [Interactivity and Programming in the Tidyverse](https://www.youtube.com/watch?v=SW_TUkPXSmA), Lionel Henry on data-masking and tidy-select. 
-- [Tidy evaluation in 5 mins](https://www.youtube.com/watch?v=nERXS3ssntw), Hadley Wickham
 - [Programming with dplyr](https://dplyr.tidyverse.org/articles/programming.html)
 - [Using ggplot2 in packages](https://ggplot2.tidyverse.org/articles/ggplot2-in-packages.html) 
+- [Tidy evaluation in 5 mins](https://www.youtube.com/watch?v=nERXS3ssntw), Hadley Wickham
+
+
+
+
+
+
+
+
+
 

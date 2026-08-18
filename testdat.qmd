@@ -264,25 +264,29 @@ test_that("series ID is correct", {
   expect_values(series_id, "APU0000704111")
 })
 
-test_that("dates are correct format", {
-  expect_date_formatted(date)
-})
+# test_that("dates are correct format", {
+#   expect_date_formatted(date)
+# })
 ```
+
+Edit: custom expectations aren't working in automated testing. 
 
 ## helper.R
 
-```r
-library(rlang)
+```{r}
+# library(rlang)
 library(testdat)
 
-chk_date_BLT <- function(x) {
-  stringr::str_detect(x, "^[1-2][0-9]{3}-[0-9]{2}-[0-9]{2}$") & !is.na(lubridate::ymd(x, quiet = TRUE))
-}
-
-expect_date_formatted <- expect_make(chk_date_BLT)
+# chk_date_BLT <- function(x) {
+#   stringr::str_detect(x, "^[1-2][0-9]{3}-[0-9]{2}-[0-9]{2}$") & !is.na(lubridate::ymd(x, quiet = TRUE))
+# }
+# 
+# expect_date_formatted <- expect_make(chk_date_BLT)
 
 set_testdata(bacon) #? unsure
 ```
+
+Edit: custom expectations aren't working in automated testing
 
 (The library stuff is kind of bad practice, but it took me ages of chasing down an error to figure out. I might put an issue on `testdat`.)
 
